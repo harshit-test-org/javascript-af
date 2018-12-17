@@ -1,0 +1,10 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "jsx-boolean-value": false,
+    "no-empty-interface": false
+  },
+  "linterOptions": {
+    "exclude": ["./src/generated/**/**"]
+  }
+}

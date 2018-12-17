@@ -1,0 +1,12 @@
+{
+  "name": "@jsaf/backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "echo just a test for lerna"
+  },
+  "dependencies": {
+    "prisma-client-lib": "^1.23.0-beta.10"
+  }
+}

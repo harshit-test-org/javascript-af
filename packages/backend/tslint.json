@@ -2,7 +2,9 @@
   "extends": "../../tslint.json",
   "rules": {
     "jsx-boolean-value": false,
-    "no-empty-interface": false
+    "no-empty-interface": false,
+    "no-implicit-dependencies": [true, "dev"],
+    "no-var-requires": false
   },
   "linterOptions": {
     "exclude": ["./src/generated/**/**"]

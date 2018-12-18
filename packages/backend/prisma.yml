@@ -1,7 +1,7 @@
-endpoint: http://localhost:4466/jsaf/dev
+endpoint: ${env:PRISMA_ENDPOINT}/jsaf/dev
 datamodel: datamodel.prisma
+secret: ${env:PRISMA_SECRET}
 databaseType: document
-
 generate:
   - generator: typescript-client
     output: ./src/generated/prisma-client/

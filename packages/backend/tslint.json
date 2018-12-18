@@ -4,9 +4,7 @@
     "jsx-boolean-value": false,
     "no-empty-interface": false,
     "no-implicit-dependencies": [true, "dev"],
-    "no-var-requires": false,
-    "no-unused-variable": true,
-    "no-unused-expression": true
+    "no-var-requires": false
   },
   "linterOptions": {
     "exclude": ["./src/generated/**/**"]

@@ -1,4 +1,5 @@
 module.exports = async () => {
-    // code to run after entire testsuite, like closing the server
-    return null;
+  // tslint:disable-next-line
+  await global['httpServer'].close();
+  return null;
 };

@@ -5,6 +5,8 @@ databaseType: document
 generate:
   - generator: typescript-client
     output: ./src/generated/prisma-client/
+  - generator: graphql-schema
+    output: ./src/generated/graphql/
 
 hooks:
   post-deploy:

@@ -1,0 +1,4 @@
+# import * from './generated/graphql/prisma.graphql'
+type Query {
+  hello: String!
+}

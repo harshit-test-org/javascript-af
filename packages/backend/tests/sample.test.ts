@@ -14,6 +14,7 @@ test('should query', async () => {
       hello
     }
   `;
-  // [Network error]: ServerParseError: Unexpected token < in JSON at position 0
-  await client.query({ query });
+  const response = await client.query({ query });
+  // @ts-ignore
+  expect(response.data.hello).toBe('world');
 });

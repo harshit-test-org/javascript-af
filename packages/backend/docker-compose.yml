@@ -17,7 +17,7 @@ services:
             password: prisma
             migrations: true
   postgres:
-    image: postgres:10.5
+    image: postgres:10.6
     restart: always
     environment:
       POSTGRES_USER: prisma

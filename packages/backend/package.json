@@ -20,7 +20,7 @@
     "@types/express": "4.16.0",
     "@types/jest": "23.3.10",
     "@types/node": "10.12.18",
-    "apollo-boost": "0.1.22",
+    "apollo-boost": "0.1.23",
     "cross-fetch": "3.0.0",
     "graphql-codegen-typescript-common": "0.15.1",
     "graphql-codegen-typescript-resolvers": "0.15.1",

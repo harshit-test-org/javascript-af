@@ -1,4 +1,23 @@
+type News {
+  id: ID! @unique
+  title: String!
+  slug: String! @unique
+  content: String!
+  previewImage: String
+  isFeatured: Boolean
+  writer: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type User {
   id: ID! @unique
-  name: String
+  name: String!
+  username: String! @unique
+  email: String @unique
+  newsItems: [News!]!
+  githubToken: String!
+  profileUrl: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }

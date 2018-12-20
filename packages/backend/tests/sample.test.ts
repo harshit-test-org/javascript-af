@@ -14,7 +14,6 @@ test('should query', async () => {
       hello
     }
   `;
-  const response = await client.query({ query });
-  // @ts-ignore
+  const response = await client.query<{ hello: string }>({ query });
   expect(response.data.hello).toBe('world');
 });

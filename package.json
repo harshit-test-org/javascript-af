@@ -38,5 +38,8 @@
     "tslint-config-prettier": "^1.17.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "prisma": "^1.23.1"
   }
 }

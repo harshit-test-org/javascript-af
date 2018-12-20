@@ -1,6 +1,7 @@
 import 'cross-fetch/polyfill';
 import { getClient } from './utils/getClient';
 import { gql } from 'apollo-boost';
+import { Query } from '../src/generated/types';
 
 const client = getClient();
 
@@ -14,6 +15,6 @@ test('should query', async () => {
       hello
     }
   `;
-  const response = await client.query<{ hello: string }>({ query });
+  const response = await client.query<Query>({ query });
   expect(response.data.hello).toBe('world');
 });

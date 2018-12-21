@@ -1,13 +1,13 @@
-import { IResolvers } from '../generated/types';
+import { QueryResolvers } from '../generated/graphqlgen';
 
-const resolvers: IResolvers = {
-  Query: {
-    hello() {
-      return 'world';
-    },
+export const Query: QueryResolvers.Type = {
+  ...QueryResolvers.defaultResolvers,
+
+  async newsItemBySlug(_, { slug }, { prisma }) {
+    const item = await prisma.news({
+      slug,
+    });
+
+    return item;
   },
-};
-
-export default {
-  ...resolvers.Query,
 };

@@ -1,13 +1,11 @@
 import { importSchema } from 'graphql-import';
 import { makeExecutableSchema } from 'apollo-server-express';
 
-import Query from './resolvers/Query';
+import { resolvers } from './resolvers';
 
 export default () => {
   return makeExecutableSchema({
     typeDefs: importSchema('./src/schema.graphql'),
-    resolvers: {
-      Query,
-    },
+    resolvers,
   });
 };

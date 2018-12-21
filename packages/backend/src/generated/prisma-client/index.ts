@@ -2,13 +2,13 @@
 // Please don't change this file manually but run `prisma generate` to update it.
 // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-import { DocumentNode } from "graphql";
+import { DocumentNode } from 'graphql';
 import {
   makePrismaClientClass,
   BaseClientOptions,
-  Model
-} from "prisma-client-lib";
-import { typeDefs } from "./prisma-schema";
+  Model,
+} from 'prisma-client-lib';
+import { typeDefs } from './prisma-schema';
 
 export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
   U[keyof U];
@@ -147,42 +147,42 @@ export interface ClientConstructor<T> {
  */
 
 export type NewsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "content_ASC"
-  | "content_DESC"
-  | "previewImage_ASC"
-  | "previewImage_DESC"
-  | "isFeatured_ASC"
-  | "isFeatured_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'title_ASC'
+  | 'title_DESC'
+  | 'slug_ASC'
+  | 'slug_DESC'
+  | 'content_ASC'
+  | 'content_DESC'
+  | 'previewImage_ASC'
+  | 'previewImage_DESC'
+  | 'isFeatured_ASC'
+  | 'isFeatured_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC';
 
 export type UserOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "username_ASC"
-  | "username_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "githubToken_ASC"
-  | "githubToken_DESC"
-  | "profileUrl_ASC"
-  | "profileUrl_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'username_ASC'
+  | 'username_DESC'
+  | 'email_ASC'
+  | 'email_DESC'
+  | 'githubToken_ASC'
+  | 'githubToken_DESC'
+  | 'profileUrl_ASC'
+  | 'profileUrl_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC';
 
-export type MutationType = "CREATED" | "UPDATED" | "DELETED";
+export type MutationType = 'CREATED' | 'UPDATED' | 'DELETED';
 
 export type NewsWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
@@ -1070,13 +1070,13 @@ export type Long = string;
 
 export const models: Model[] = [
   {
-    name: "News",
-    embedded: false
+    name: 'News',
+    embedded: false,
   },
   {
-    name: "User",
-    embedded: false
-  }
+    name: 'User',
+    embedded: false,
+  },
 ];
 
 /**
@@ -1086,6 +1086,6 @@ export const models: Model[] = [
 export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
   typeDefs,
   models,
-  endpoint: `${process.env["PRISMA_ENDPOINT"]}`
+  endpoint: `${process.env['PRISMA_ENDPOINT']}`,
 });
 export const prisma = new Prisma();

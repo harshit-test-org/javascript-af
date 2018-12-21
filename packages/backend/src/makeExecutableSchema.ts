@@ -6,6 +6,6 @@ import { resolvers } from './resolvers';
 export default () => {
   return makeExecutableSchema({
     typeDefs: importSchema('./src/schema.graphql'),
-    resolvers,
+    resolvers: resolvers as any,
   });
 };

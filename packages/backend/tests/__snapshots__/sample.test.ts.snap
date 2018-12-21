@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should query 1`] = `
+Object {
+  "data": Object {
+    "newsItemBySlug": Object {
+      "content": "some mdx thing",
+      "createdAt": "2018-12-21T07:32:22.501Z",
+      "id": "cjpxpvzai000o0974ydxa80da",
+      "isFeatured": false,
+      "previewImage": "s",
+      "slug": "some-thing",
+      "title": "Some thing",
+      "updatedAt": "2018-12-21T07:32:22.501Z",
+      "writer": Object {
+        "createdAt": "2018-12-21T07:25:09.804Z",
+        "email": "pantharshit00@gmail.com",
+        "githubToken": "s",
+        "id": "cjpxpmpgr000c097495f1kz8w",
+        "profileUrl": "ss",
+        "updatedAt": "2018-12-21T07:25:09.804Z",
+        "username": "pantharshit00",
+      },
+    },
+  },
+}
+`;

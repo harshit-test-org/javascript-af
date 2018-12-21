@@ -8,7 +8,7 @@ import {
   PageInfo,
   NewsEdge,
   AggregateNews,
-} from './prisma-client';
+} from './prisma-client/index';
 import { MyContext } from '../context';
 
 type NewsOrderByInput =

@@ -18,5 +18,5 @@ output: ./src/generated/graphqlgen.ts
 
 # Temporary scaffolded resolvers to copy and paste in your application
 resolver-scaffolding:
-  output: ./src/generated/resovlers
+  output: ./src/generated/resolvers
   layout: file-per-type

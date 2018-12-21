@@ -7,7 +7,6 @@ export const News: NewsResolvers.Type = {
   ...NewsResolvers.defaultResolvers,
 
   writer: (parent, args, ctx) => {
-    console.log(args);
     return ctx.prisma.news({ id: parent.id }).writer();
   },
 };

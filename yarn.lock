@@ -958,7 +958,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/graphql@^14.0.3":
+"@types/graphql@14.0.3":
   version "14.0.3"
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-14.0.3.tgz#389e2e5b83ecdb376d9f98fae2094297bc112c1c"
 
@@ -1236,7 +1236,7 @@ apollo-server-plugin-base@0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/apollo-server-plugin-base/-/apollo-server-plugin-base-0.2.1.tgz#d08c9576f7f11ab6e212f352d482faaa4059a31e"
 
-apollo-server-testing@^2.3.1:
+apollo-server-testing@2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/apollo-server-testing/-/apollo-server-testing-2.3.1.tgz#5d3065696bda0ce517699c01c4627febf965cf66"
   dependencies:

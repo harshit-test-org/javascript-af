@@ -1,12 +1,12 @@
 // This resolver file was scaffolded by github.com/prisma/graphqlgen, DO NOT EDIT.
 // Please do not import this file directly but copy & paste to your application code.
 
-import { UserResolvers } from '../generated/graphqlgen';
+import { NewsConnectionResolvers } from '../graphqlgen';
 
-export const User: UserResolvers.Type = {
-  ...UserResolvers.defaultResolvers,
+export const NewsConnection: NewsConnectionResolvers.Type = {
+  ...NewsConnectionResolvers.defaultResolvers,
 
-  newsItems: (parent, args, ctx) => {
+  aggregate: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
 };

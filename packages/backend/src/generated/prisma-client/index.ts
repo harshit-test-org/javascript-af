@@ -175,8 +175,8 @@ export type UserOrderByInput =
   | 'email_DESC'
   | 'githubToken_ASC'
   | 'githubToken_DESC'
-  | 'profileUrl_ASC'
-  | 'profileUrl_DESC'
+  | 'profilePic_ASC'
+  | 'profilePic_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
@@ -358,20 +358,20 @@ export interface UserWhereInput {
   githubToken_not_starts_with?: String;
   githubToken_ends_with?: String;
   githubToken_not_ends_with?: String;
-  profileUrl?: String;
-  profileUrl_not?: String;
-  profileUrl_in?: String[] | String;
-  profileUrl_not_in?: String[] | String;
-  profileUrl_lt?: String;
-  profileUrl_lte?: String;
-  profileUrl_gt?: String;
-  profileUrl_gte?: String;
-  profileUrl_contains?: String;
-  profileUrl_not_contains?: String;
-  profileUrl_starts_with?: String;
-  profileUrl_not_starts_with?: String;
-  profileUrl_ends_with?: String;
-  profileUrl_not_ends_with?: String;
+  profilePic?: String;
+  profilePic_not?: String;
+  profilePic_in?: String[] | String;
+  profilePic_not_in?: String[] | String;
+  profilePic_lt?: String;
+  profilePic_lte?: String;
+  profilePic_gt?: String;
+  profilePic_gte?: String;
+  profilePic_contains?: String;
+  profilePic_not_contains?: String;
+  profilePic_starts_with?: String;
+  profilePic_not_starts_with?: String;
+  profilePic_ends_with?: String;
+  profilePic_not_ends_with?: String;
   createdAt?: DateTimeInput;
   createdAt_not?: DateTimeInput;
   createdAt_in?: DateTimeInput[] | DateTimeInput;
@@ -418,7 +418,7 @@ export interface UserCreateWithoutNewsItemsInput {
   username: String;
   email?: String;
   githubToken: String;
-  profileUrl?: String;
+  profilePic?: String;
 }
 
 export interface NewsUpdateInput {
@@ -442,7 +442,7 @@ export interface UserUpdateWithoutNewsItemsDataInput {
   username?: String;
   email?: String;
   githubToken?: String;
-  profileUrl?: String;
+  profilePic?: String;
 }
 
 export interface UserUpsertWithoutNewsItemsInput {
@@ -464,7 +464,7 @@ export interface UserCreateInput {
   email?: String;
   newsItems?: NewsCreateManyWithoutWriterInput;
   githubToken: String;
-  profileUrl?: String;
+  profilePic?: String;
 }
 
 export interface NewsCreateManyWithoutWriterInput {
@@ -486,7 +486,7 @@ export interface UserUpdateInput {
   email?: String;
   newsItems?: NewsUpdateManyWithoutWriterInput;
   githubToken?: String;
-  profileUrl?: String;
+  profilePic?: String;
 }
 
 export interface NewsUpdateManyWithoutWriterInput {
@@ -637,7 +637,7 @@ export interface UserUpdateManyMutationInput {
   username?: String;
   email?: String;
   githubToken?: String;
-  profileUrl?: String;
+  profilePic?: String;
 }
 
 export interface NewsSubscriptionWhereInput {
@@ -709,7 +709,7 @@ export interface User {
   username: String;
   email?: String;
   githubToken: String;
-  profileUrl?: String;
+  profilePic?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -731,7 +731,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
     }
   ) => T;
   githubToken: () => Promise<String>;
-  profileUrl: () => Promise<String>;
+  profilePic: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -755,7 +755,7 @@ export interface UserSubscription
     }
   ) => T;
   githubToken: () => Promise<AsyncIterator<String>>;
-  profileUrl: () => Promise<AsyncIterator<String>>;
+  profilePic: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -1000,7 +1000,7 @@ export interface UserPreviousValues {
   username: String;
   email?: String;
   githubToken: String;
-  profileUrl?: String;
+  profilePic?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -1013,7 +1013,7 @@ export interface UserPreviousValuesPromise
   username: () => Promise<String>;
   email: () => Promise<String>;
   githubToken: () => Promise<String>;
-  profileUrl: () => Promise<String>;
+  profilePic: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -1026,7 +1026,7 @@ export interface UserPreviousValuesSubscription
   username: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   githubToken: () => Promise<AsyncIterator<String>>;
-  profileUrl: () => Promise<AsyncIterator<String>>;
+  profilePic: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }

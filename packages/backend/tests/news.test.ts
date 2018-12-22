@@ -7,7 +7,7 @@ test('should query', async () => {
     username: 'pantharshit00',
     email: 'pantharshit00@gmail.com',
     githubToken: 's',
-    profileUrl: 'ss',
+    profilePic: 'ss',
     createdAt: '2018-12-21T07:25:09.804Z',
     updatedAt: '2018-12-21T07:25:09.804Z',
   }));
@@ -38,7 +38,7 @@ test('should query', async () => {
       username
       email
       githubToken
-      profileUrl
+      profilePic
       createdAt
       updatedAt
     }

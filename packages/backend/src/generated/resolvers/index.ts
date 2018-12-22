@@ -10,6 +10,7 @@ import { NewsConnection } from './NewsConnection';
 import { PageInfo } from './PageInfo';
 import { NewsEdge } from './NewsEdge';
 import { AggregateNews } from './AggregateNews';
+import { Talk } from './Talk';
 
 export const resolvers: Resolvers = {
   Query,
@@ -19,4 +20,5 @@ export const resolvers: Resolvers = {
   PageInfo,
   NewsEdge,
   AggregateNews,
+  Talk,
 };

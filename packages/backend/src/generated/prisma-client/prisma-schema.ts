@@ -2,6 +2,10 @@ export const typeDefs = /* GraphQL */ `type AggregateNews {
   count: Int!
 }
 
+type AggregateTalk {
+  count: Int!
+}
+
 type AggregateUser {
   count: Int!
 }
@@ -21,6 +25,12 @@ type Mutation {
   upsertNews(where: NewsWhereUniqueInput!, create: NewsCreateInput!, update: NewsUpdateInput!): News!
   deleteNews(where: NewsWhereUniqueInput!): News
   deleteManyNewses(where: NewsWhereInput): BatchPayload!
+  createTalk(data: TalkCreateInput!): Talk!
+  updateTalk(data: TalkUpdateInput!, where: TalkWhereUniqueInput!): Talk
+  updateManyTalks(data: TalkUpdateManyMutationInput!, where: TalkWhereInput): BatchPayload!
+  upsertTalk(where: TalkWhereUniqueInput!, create: TalkCreateInput!, update: TalkUpdateInput!): Talk!
+  deleteTalk(where: TalkWhereUniqueInput!): Talk
+  deleteManyTalks(where: TalkWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -397,6 +407,9 @@ type Query {
   news(where: NewsWhereUniqueInput!): News
   newses(where: NewsWhereInput, orderBy: NewsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [News]!
   newsesConnection(where: NewsWhereInput, orderBy: NewsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): NewsConnection!
+  talk(where: TalkWhereUniqueInput!): Talk
+  talks(where: TalkWhereInput, orderBy: TalkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Talk]!
+  talksConnection(where: TalkWhereInput, orderBy: TalkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TalkConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
@@ -405,7 +418,184 @@ type Query {
 
 type Subscription {
   news(where: NewsSubscriptionWhereInput): NewsSubscriptionPayload
+  talk(where: TalkSubscriptionWhereInput): TalkSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type Talk {
+  id: ID!
+  title: String!
+  slug: String!
+  previewImage: String!
+  isFeatured: Boolean
+  speaker: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type TalkConnection {
+  pageInfo: PageInfo!
+  edges: [TalkEdge]!
+  aggregate: AggregateTalk!
+}
+
+input TalkCreateInput {
+  title: String!
+  slug: String!
+  previewImage: String!
+  isFeatured: Boolean
+  speaker: UserCreateOneInput
+}
+
+type TalkEdge {
+  node: Talk!
+  cursor: String!
+}
+
+enum TalkOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  slug_ASC
+  slug_DESC
+  previewImage_ASC
+  previewImage_DESC
+  isFeatured_ASC
+  isFeatured_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type TalkPreviousValues {
+  id: ID!
+  title: String!
+  slug: String!
+  previewImage: String!
+  isFeatured: Boolean
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type TalkSubscriptionPayload {
+  mutation: MutationType!
+  node: Talk
+  updatedFields: [String!]
+  previousValues: TalkPreviousValues
+}
+
+input TalkSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: TalkWhereInput
+  AND: [TalkSubscriptionWhereInput!]
+  OR: [TalkSubscriptionWhereInput!]
+  NOT: [TalkSubscriptionWhereInput!]
+}
+
+input TalkUpdateInput {
+  title: String
+  slug: String
+  previewImage: String
+  isFeatured: Boolean
+  speaker: UserUpdateOneInput
+}
+
+input TalkUpdateManyMutationInput {
+  title: String
+  slug: String
+  previewImage: String
+  isFeatured: Boolean
+}
+
+input TalkWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  previewImage: String
+  previewImage_not: String
+  previewImage_in: [String!]
+  previewImage_not_in: [String!]
+  previewImage_lt: String
+  previewImage_lte: String
+  previewImage_gt: String
+  previewImage_gte: String
+  previewImage_contains: String
+  previewImage_not_contains: String
+  previewImage_starts_with: String
+  previewImage_not_starts_with: String
+  previewImage_ends_with: String
+  previewImage_not_ends_with: String
+  isFeatured: Boolean
+  isFeatured_not: Boolean
+  speaker: UserWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [TalkWhereInput!]
+  OR: [TalkWhereInput!]
+  NOT: [TalkWhereInput!]
+}
+
+input TalkWhereUniqueInput {
+  id: ID
+  slug: String
 }
 
 type User {
@@ -433,6 +623,11 @@ input UserCreateInput {
   newsItems: NewsCreateManyWithoutWriterInput
   githubToken: String!
   profileUrl: String
+}
+
+input UserCreateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
 }
 
 input UserCreateOneWithoutNewsItemsInput {
@@ -501,6 +696,15 @@ input UserSubscriptionWhereInput {
   NOT: [UserSubscriptionWhereInput!]
 }
 
+input UserUpdateDataInput {
+  name: String
+  username: String
+  email: String
+  newsItems: NewsUpdateManyWithoutWriterInput
+  githubToken: String
+  profileUrl: String
+}
+
 input UserUpdateInput {
   name: String
   username: String
@@ -518,6 +722,15 @@ input UserUpdateManyMutationInput {
   profileUrl: String
 }
 
+input UserUpdateOneInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: UserWhereUniqueInput
+}
+
 input UserUpdateOneRequiredWithoutNewsItemsInput {
   create: UserCreateWithoutNewsItemsInput
   update: UserUpdateWithoutNewsItemsDataInput
@@ -531,6 +744,11 @@ input UserUpdateWithoutNewsItemsDataInput {
   email: String
   githubToken: String
   profileUrl: String
+}
+
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
 }
 
 input UserUpsertWithoutNewsItemsInput {
@@ -652,4 +870,4 @@ input UserWhereUniqueInput {
   username: String
   email: String
 }
-`
+`;

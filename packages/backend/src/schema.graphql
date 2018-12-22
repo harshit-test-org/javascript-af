@@ -10,4 +10,5 @@ type Query {
     first: Int
     last: Int
   ): NewsConnection!
+  talks: [Talk]
 }

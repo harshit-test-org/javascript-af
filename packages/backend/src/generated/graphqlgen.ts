@@ -8,6 +8,7 @@ import {
   PageInfo,
   NewsEdge,
   AggregateNews,
+  Talk,
 } from './prisma-client/index';
 import { MyContext } from '../context';
 
@@ -263,6 +264,13 @@ export namespace QueryResolvers {
     info: GraphQLResolveInfo
   ) => NewsConnection | Promise<NewsConnection>;
 
+  export type TalksResolver = (
+    parent: undefined,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => Talk[] | null | Promise<Talk[] | null>;
+
   export interface Type {
     newsItemBySlug: (
       parent: undefined,
@@ -277,6 +285,13 @@ export namespace QueryResolvers {
       ctx: MyContext,
       info: GraphQLResolveInfo
     ) => NewsConnection | Promise<NewsConnection>;
+
+    talks: (
+      parent: undefined,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => Talk[] | null | Promise<Talk[] | null>;
   }
 }
 
@@ -957,6 +972,133 @@ export namespace AggregateNewsResolvers {
   }
 }
 
+export namespace TalkResolvers {
+  export const defaultResolvers = {
+    id: (parent: Talk) => parent.id,
+    title: (parent: Talk) => parent.title,
+    slug: (parent: Talk) => parent.slug,
+    previewImage: (parent: Talk) => parent.previewImage,
+    isFeatured: (parent: Talk) =>
+      parent.isFeatured === undefined ? null : parent.isFeatured,
+    createdAt: (parent: Talk) => parent.createdAt,
+    updatedAt: (parent: Talk) => parent.updatedAt,
+  };
+
+  export type IdResolver = (
+    parent: Talk,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => string | Promise<string>;
+
+  export type TitleResolver = (
+    parent: Talk,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => string | Promise<string>;
+
+  export type SlugResolver = (
+    parent: Talk,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => string | Promise<string>;
+
+  export type PreviewImageResolver = (
+    parent: Talk,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => string | Promise<string>;
+
+  export type IsFeaturedResolver = (
+    parent: Talk,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => boolean | null | Promise<boolean | null>;
+
+  export type SpeakerResolver = (
+    parent: Talk,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => User | null | Promise<User | null>;
+
+  export type CreatedAtResolver = (
+    parent: Talk,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => string | Promise<string>;
+
+  export type UpdatedAtResolver = (
+    parent: Talk,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => string | Promise<string>;
+
+  export interface Type {
+    id: (
+      parent: Talk,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => string | Promise<string>;
+
+    title: (
+      parent: Talk,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => string | Promise<string>;
+
+    slug: (
+      parent: Talk,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => string | Promise<string>;
+
+    previewImage: (
+      parent: Talk,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => string | Promise<string>;
+
+    isFeatured: (
+      parent: Talk,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => boolean | null | Promise<boolean | null>;
+
+    speaker: (
+      parent: Talk,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => User | null | Promise<User | null>;
+
+    createdAt: (
+      parent: Talk,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => string | Promise<string>;
+
+    updatedAt: (
+      parent: Talk,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => string | Promise<string>;
+  }
+}
+
 export interface Resolvers {
   Query: QueryResolvers.Type;
   News: NewsResolvers.Type;
@@ -965,4 +1107,5 @@ export interface Resolvers {
   PageInfo: PageInfoResolvers.Type;
   NewsEdge: NewsEdgeResolvers.Type;
   AggregateNews: AggregateNewsResolvers.Type;
+  Talk: TalkResolvers.Type;
 }

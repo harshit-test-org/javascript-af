@@ -21,3 +21,14 @@ type User {
   createdAt: DateTime!
   updatedAt: DateTime!
 }
+
+type Talk {
+  id: ID! @unique
+  title: String!
+  slug: String! @unique
+  previewImage: String!
+  isFeatured: Boolean
+  speaker: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}

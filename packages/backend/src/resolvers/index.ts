@@ -7,7 +7,7 @@ import { NewsConnection } from './News/NewsConnection';
 import { AggregateNews } from './News/AggregateNews';
 import { NewsEdge } from './News/NewsEdge';
 import { PageInfo } from './News/PageInfo';
-import { Test } from './Test/Test';
+import { Talk } from './Talk/Talk';
 
 export const resolvers: Resolvers = {
   Query,
@@ -17,5 +17,5 @@ export const resolvers: Resolvers = {
   AggregateNews,
   NewsEdge,
   PageInfo,
-  Test,
+  Talk,
 };

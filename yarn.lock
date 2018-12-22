@@ -994,7 +994,7 @@
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
 
-"@types/ms@^0.7.30":
+"@types/ms@0.7.30":
   version "0.7.30"
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.30.tgz#f6c38b7ecbbf698b0bbd138315a0f0f18954f85f"
 
@@ -1012,7 +1012,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/passport-github2@^1.2.2":
+"@types/passport-github2@1.2.2":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@types/passport-github2/-/passport-github2-1.2.2.tgz#06efa4c3f42eec3e54b67ad5259dc87d5cb8d038"
   dependencies:
@@ -1028,7 +1028,7 @@
     "@types/oauth" "*"
     "@types/passport" "*"
 
-"@types/passport@*", "@types/passport@^0.4.7":
+"@types/passport@*", "@types/passport@0.4.7":
   version "0.4.7"
   resolved "https://registry.yarnpkg.com/@types/passport/-/passport-0.4.7.tgz#2b7f29bf61df91cf77023b3777e940b613d4b4d8"
   dependencies:

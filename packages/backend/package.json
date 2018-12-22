@@ -20,12 +20,12 @@
     "prisma-client-lib": "^1.23.0"
   },
   "devDependencies": {
-    "@types/cookie-parser": "^1.4.1",
+    "@types/cookie-parser": "1.4.1",
     "@types/dotenv": "6.1.0",
     "@types/express": "4.16.0",
     "@types/graphql": "14.0.3",
     "@types/jest": "23.3.10",
-    "@types/jsonwebtoken": "^8.3.0",
+    "@types/jsonwebtoken": "8.3.0",
     "@types/node": "10.12.18",
     "apollo-server-testing": "2.3.1",
     "cross-fetch": "3.0.0",

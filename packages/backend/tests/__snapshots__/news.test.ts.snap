@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should query 1`] = `
+exports[`News Resolvers Get News By Slug 1`] = `
 Object {
   "data": Object {
     "newsItemBySlug": Object {
@@ -20,6 +20,40 @@ Object {
         "profilePic": "ss",
         "updatedAt": "2018-12-21T07:25:09.804Z",
         "username": "pantharshit00",
+      },
+    },
+  },
+}
+`;
+
+exports[`News Resolvers newsConnection pagination 1`] = `
+Object {
+  "data": Object {
+    "newsConnection": Object {
+      "aggregate": Object {
+        "count": 2,
+      },
+      "edges": Array [
+        Object {
+          "cursor": "cjq0nc986000j097434ewrq03",
+          "node": Object {
+            "id": "cjq0nc986000j097434ewrq03",
+            "title": "This is a news item",
+          },
+        },
+        Object {
+          "cursor": "cjq0nczi2000t0974i1bprdza",
+          "node": Object {
+            "id": "cjq0nczi2000t0974i1bprdza",
+            "title": "This is a news item second",
+          },
+        },
+      ],
+      "pageInfo": Object {
+        "endCursor": "cjq0nczi2000t0974i1bprdza",
+        "hasNextPage": false,
+        "hasPreviousPage": false,
+        "startCursor": "cjq0nc986000j097434ewrq03",
       },
     },
   },

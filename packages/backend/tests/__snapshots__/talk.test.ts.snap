@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`News Resolvers newsConnection pagination 1`] = `
+Object {
+  "data": Object {
+    "talkConnection": Object {
+      "aggregate": Object {
+        "count": 1,
+      },
+      "edges": Array [
+        Object {
+          "cursor": "cjq0qx0v800050981rha92aq1",
+          "node": Object {
+            "id": "cjq0qx0v800050981rha92aq1",
+            "speaker": Object {
+              "id": "cjpzpf76a002809748lk0c4vm",
+              "name": "Harshit Pant",
+            },
+            "title": "Prisma: ORM to rule em all",
+          },
+        },
+      ],
+      "pageInfo": Object {
+        "endCursor": "cjq0qx0v800050981rha92aq1",
+        "hasNextPage": false,
+        "hasPreviousPage": false,
+        "startCursor": "cjq0qx0v800050981rha92aq1",
+      },
+    },
+  },
+}
+`;

@@ -10,7 +10,11 @@ export const Query: QueryResolvers.Type = {
 
     return item;
   },
-  newConnection(_, args, { prisma }) {
+  newsConnection(_, args, { prisma }) {
     return prisma.newsesConnection(args);
+  },
+
+  talkConnection(_, args, { prisma }) {
+    return prisma.talksConnection(args);
   },
 };

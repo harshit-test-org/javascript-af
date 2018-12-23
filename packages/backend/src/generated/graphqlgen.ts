@@ -8,7 +8,10 @@ import {
   PageInfo,
   NewsEdge,
   AggregateNews,
+  TalkConnection,
+  TalkEdge,
   Talk,
+  AggregateTalk,
 } from './prisma-client';
 import { MyContext } from '../context';
 
@@ -21,6 +24,21 @@ type NewsOrderByInput =
   | 'slug_DESC'
   | 'content_ASC'
   | 'content_DESC'
+  | 'previewImage_ASC'
+  | 'previewImage_DESC'
+  | 'isFeatured_ASC'
+  | 'isFeatured_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC';
+type TalkOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'title_ASC'
+  | 'title_DESC'
+  | 'slug_ASC'
+  | 'slug_DESC'
   | 'previewImage_ASC'
   | 'previewImage_DESC'
   | 'isFeatured_ASC'
@@ -235,14 +253,104 @@ export namespace QueryResolvers {
     OR: UserWhereInput[];
     NOT: UserWhereInput[];
   }
+  export interface TalkWhereInput {
+    id: string | null;
+    id_not: string | null;
+    id_in: string[];
+    id_not_in: string[];
+    id_lt: string | null;
+    id_lte: string | null;
+    id_gt: string | null;
+    id_gte: string | null;
+    id_contains: string | null;
+    id_not_contains: string | null;
+    id_starts_with: string | null;
+    id_not_starts_with: string | null;
+    id_ends_with: string | null;
+    id_not_ends_with: string | null;
+    title: string | null;
+    title_not: string | null;
+    title_in: string[];
+    title_not_in: string[];
+    title_lt: string | null;
+    title_lte: string | null;
+    title_gt: string | null;
+    title_gte: string | null;
+    title_contains: string | null;
+    title_not_contains: string | null;
+    title_starts_with: string | null;
+    title_not_starts_with: string | null;
+    title_ends_with: string | null;
+    title_not_ends_with: string | null;
+    slug: string | null;
+    slug_not: string | null;
+    slug_in: string[];
+    slug_not_in: string[];
+    slug_lt: string | null;
+    slug_lte: string | null;
+    slug_gt: string | null;
+    slug_gte: string | null;
+    slug_contains: string | null;
+    slug_not_contains: string | null;
+    slug_starts_with: string | null;
+    slug_not_starts_with: string | null;
+    slug_ends_with: string | null;
+    slug_not_ends_with: string | null;
+    previewImage: string | null;
+    previewImage_not: string | null;
+    previewImage_in: string[];
+    previewImage_not_in: string[];
+    previewImage_lt: string | null;
+    previewImage_lte: string | null;
+    previewImage_gt: string | null;
+    previewImage_gte: string | null;
+    previewImage_contains: string | null;
+    previewImage_not_contains: string | null;
+    previewImage_starts_with: string | null;
+    previewImage_not_starts_with: string | null;
+    previewImage_ends_with: string | null;
+    previewImage_not_ends_with: string | null;
+    isFeatured: boolean | null;
+    isFeatured_not: boolean | null;
+    speaker: UserWhereInput | null;
+    createdAt: string | null;
+    createdAt_not: string | null;
+    createdAt_in: string[];
+    createdAt_not_in: string[];
+    createdAt_lt: string | null;
+    createdAt_lte: string | null;
+    createdAt_gt: string | null;
+    createdAt_gte: string | null;
+    updatedAt: string | null;
+    updatedAt_not: string | null;
+    updatedAt_in: string[];
+    updatedAt_not_in: string[];
+    updatedAt_lt: string | null;
+    updatedAt_lte: string | null;
+    updatedAt_gt: string | null;
+    updatedAt_gte: string | null;
+    AND: TalkWhereInput[];
+    OR: TalkWhereInput[];
+    NOT: TalkWhereInput[];
+  }
 
   export interface ArgsNewsItemBySlug {
     slug: string;
   }
 
-  export interface ArgsNewConnection {
+  export interface ArgsNewsConnection {
     where: NewsWhereInput | null;
     orderBy: NewsOrderByInput | null;
+    skip: number | null;
+    after: string | null;
+    before: string | null;
+    first: number | null;
+    last: number | null;
+  }
+
+  export interface ArgsTalkConnection {
+    where: TalkWhereInput | null;
+    orderBy: TalkOrderByInput | null;
     skip: number | null;
     after: string | null;
     before: string | null;
@@ -257,19 +365,19 @@ export namespace QueryResolvers {
     info: GraphQLResolveInfo
   ) => News | null | Promise<News | null>;
 
-  export type NewConnectionResolver = (
+  export type NewsConnectionResolver = (
     parent: undefined,
-    args: ArgsNewConnection,
+    args: ArgsNewsConnection,
     ctx: MyContext,
     info: GraphQLResolveInfo
   ) => NewsConnection | Promise<NewsConnection>;
 
-  export type TalksResolver = (
+  export type TalkConnectionResolver = (
     parent: undefined,
-    args: {},
+    args: ArgsTalkConnection,
     ctx: MyContext,
     info: GraphQLResolveInfo
-  ) => Talk[] | null | Promise<Talk[] | null>;
+  ) => TalkConnection | Promise<TalkConnection>;
 
   export interface Type {
     newsItemBySlug: (
@@ -279,19 +387,19 @@ export namespace QueryResolvers {
       info: GraphQLResolveInfo
     ) => News | null | Promise<News | null>;
 
-    newConnection: (
+    newsConnection: (
       parent: undefined,
-      args: ArgsNewConnection,
+      args: ArgsNewsConnection,
       ctx: MyContext,
       info: GraphQLResolveInfo
     ) => NewsConnection | Promise<NewsConnection>;
 
-    talks: (
+    talkConnection: (
       parent: undefined,
-      args: {},
+      args: ArgsTalkConnection,
       ctx: MyContext,
       info: GraphQLResolveInfo
-    ) => Talk[] | null | Promise<Talk[] | null>;
+    ) => TalkConnection | Promise<TalkConnection>;
   }
 }
 
@@ -972,6 +1080,94 @@ export namespace AggregateNewsResolvers {
   }
 }
 
+export namespace TalkConnectionResolvers {
+  export const defaultResolvers = {
+    pageInfo: (parent: TalkConnection) => parent.pageInfo,
+    edges: (parent: TalkConnection) => parent.edges,
+  };
+
+  export type PageInfoResolver = (
+    parent: TalkConnection,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => PageInfo | Promise<PageInfo>;
+
+  export type EdgesResolver = (
+    parent: TalkConnection,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => TalkEdge[] | Promise<TalkEdge[]>;
+
+  export type AggregateResolver = (
+    parent: TalkConnection,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => AggregateTalk | Promise<AggregateTalk>;
+
+  export interface Type {
+    pageInfo: (
+      parent: TalkConnection,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => PageInfo | Promise<PageInfo>;
+
+    edges: (
+      parent: TalkConnection,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => TalkEdge[] | Promise<TalkEdge[]>;
+
+    aggregate: (
+      parent: TalkConnection,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => AggregateTalk | Promise<AggregateTalk>;
+  }
+}
+
+export namespace TalkEdgeResolvers {
+  export const defaultResolvers = {
+    node: (parent: TalkEdge) => parent.node,
+    cursor: (parent: TalkEdge) => parent.cursor,
+  };
+
+  export type NodeResolver = (
+    parent: TalkEdge,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => Talk | Promise<Talk>;
+
+  export type CursorResolver = (
+    parent: TalkEdge,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => string | Promise<string>;
+
+  export interface Type {
+    node: (
+      parent: TalkEdge,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => Talk | Promise<Talk>;
+
+    cursor: (
+      parent: TalkEdge,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => string | Promise<string>;
+  }
+}
+
 export namespace TalkResolvers {
   export const defaultResolvers = {
     id: (parent: Talk) => parent.id,
@@ -1099,6 +1295,28 @@ export namespace TalkResolvers {
   }
 }
 
+export namespace AggregateTalkResolvers {
+  export const defaultResolvers = {
+    count: (parent: AggregateTalk) => parent.count,
+  };
+
+  export type CountResolver = (
+    parent: AggregateTalk,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => number | Promise<number>;
+
+  export interface Type {
+    count: (
+      parent: AggregateTalk,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => number | Promise<number>;
+  }
+}
+
 export interface Resolvers {
   Query: QueryResolvers.Type;
   News: NewsResolvers.Type;
@@ -1107,5 +1325,8 @@ export interface Resolvers {
   PageInfo: PageInfoResolvers.Type;
   NewsEdge: NewsEdgeResolvers.Type;
   AggregateNews: AggregateNewsResolvers.Type;
+  TalkConnection: TalkConnectionResolvers.Type;
+  TalkEdge: TalkEdgeResolvers.Type;
   Talk: TalkResolvers.Type;
+  AggregateTalk: AggregateTalkResolvers.Type;
 }

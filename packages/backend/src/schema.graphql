@@ -1,7 +1,7 @@
 # import * from './generated/graphql/prisma.graphql'
 type Query {
   newsItemBySlug(slug: String!): News
-  newConnection(
+  newsConnection(
     where: NewsWhereInput
     orderBy: NewsOrderByInput
     skip: Int
@@ -10,5 +10,13 @@ type Query {
     first: Int
     last: Int
   ): NewsConnection!
-  talks: [Talk]
+  talkConnection(
+    where: TalkWhereInput
+    orderBy: TalkOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): TalkConnection!
 }

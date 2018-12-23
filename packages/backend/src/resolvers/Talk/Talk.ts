@@ -1,9 +1,9 @@
-import { TalkResolvers } from '../graphqlgen';
+import { TalkResolvers } from '../../generated/graphqlgen';
 
 export const Talk: TalkResolvers.Type = {
   ...TalkResolvers.defaultResolvers,
 
   speaker: (parent, args, ctx) => {
-    throw new Error('Resolver not implemented');
+    return ctx.prisma.talk({ id: parent.id }).speaker();
   },
 };

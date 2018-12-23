@@ -3,12 +3,10 @@ import { QueryResolvers } from '../generated/graphqlgen';
 export const Query: QueryResolvers.Type = {
   ...QueryResolvers.defaultResolvers,
 
-  async newsItemBySlug(_, { slug }, { prisma, req }) {
-    const item = await prisma.news({
+  newsItemBySlug(_, { slug }, { prisma }) {
+    return prisma.news({
       slug,
     });
-
-    return item;
   },
   newsConnection(_, args, { prisma }) {
     return prisma.newsesConnection(args);
@@ -16,5 +14,10 @@ export const Query: QueryResolvers.Type = {
 
   talkConnection(_, args, { prisma }) {
     return prisma.talksConnection(args);
+  },
+  talkBySlug(_, { slug }, { prisma }) {
+    return prisma.talk({
+      slug,
+    });
   },
 };

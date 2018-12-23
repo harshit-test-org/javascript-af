@@ -1,6 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`News Resolvers newsConnection pagination 1`] = `
+exports[`Talk Resolvers talkBySlug 1`] = `
+Object {
+  "data": Object {
+    "talkBySlug": Object {
+      "createdAt": "2018-12-23T10:24:29.259Z",
+      "id": "cjq0qx0v800050981rha92aq1",
+      "isFeatured": true,
+      "previewImage": "https://google.com",
+      "slug": "prisma-orm-to-rule-em-all",
+      "speaker": Object {
+        "createdAt": "2018-12-22T16:54:51.920Z",
+        "email": "pantharshit00@gmail.com",
+        "githubToken": "811c699ef0af73a09ac039fbcf5964da051cb9d9",
+        "id": "cjpzpf76a002809748lk0c4vm",
+        "name": "Harshit Pant",
+        "profilePic": "s",
+        "updatedAt": "2018-12-23T16:46:23.763Z",
+        "username": "pantharshit00",
+      },
+      "title": "Prisma: ORM to rule em all",
+      "updatedAt": "2018-12-23T10:24:29.259Z",
+    },
+  },
+}
+`;
+
+exports[`Talk Resolvers talkConnection pagination 1`] = `
 Object {
   "data": Object {
     "talkConnection": Object {

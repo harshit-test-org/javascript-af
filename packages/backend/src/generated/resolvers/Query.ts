@@ -8,6 +8,9 @@ export const Query: QueryResolvers.Type = {
   newsItemBySlug: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
+  talkBySlug: (parent, args, ctx) => {
+    throw new Error('Resolver not implemented');
+  },
   newsConnection: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },

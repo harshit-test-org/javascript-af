@@ -1,6 +1,7 @@
 # import * from './generated/graphql/prisma.graphql'
 type Query {
   newsItemBySlug(slug: String!): News
+  talkBySlug(slug: String!): Talk
   newsConnection(
     where: NewsWhereInput
     orderBy: NewsOrderByInput

@@ -17,7 +17,7 @@ type User {
   email: String @unique
   newsItems: [News!]!
   githubToken: String!
-  profileUrl: String
+  profilePic: String
   createdAt: DateTime!
   updatedAt: DateTime!
 }

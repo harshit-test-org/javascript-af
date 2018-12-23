@@ -9,7 +9,7 @@ import {
   NewsEdge,
   AggregateNews,
   Talk,
-} from './prisma-client/index';
+} from './prisma-client';
 import { MyContext } from '../context';
 
 type NewsOrderByInput =
@@ -201,20 +201,20 @@ export namespace QueryResolvers {
     githubToken_not_starts_with: string | null;
     githubToken_ends_with: string | null;
     githubToken_not_ends_with: string | null;
-    profileUrl: string | null;
-    profileUrl_not: string | null;
-    profileUrl_in: string[];
-    profileUrl_not_in: string[];
-    profileUrl_lt: string | null;
-    profileUrl_lte: string | null;
-    profileUrl_gt: string | null;
-    profileUrl_gte: string | null;
-    profileUrl_contains: string | null;
-    profileUrl_not_contains: string | null;
-    profileUrl_starts_with: string | null;
-    profileUrl_not_starts_with: string | null;
-    profileUrl_ends_with: string | null;
-    profileUrl_not_ends_with: string | null;
+    profilePic: string | null;
+    profilePic_not: string | null;
+    profilePic_in: string[];
+    profilePic_not_in: string[];
+    profilePic_lt: string | null;
+    profilePic_lte: string | null;
+    profilePic_gt: string | null;
+    profilePic_gte: string | null;
+    profilePic_contains: string | null;
+    profilePic_not_contains: string | null;
+    profilePic_starts_with: string | null;
+    profilePic_not_starts_with: string | null;
+    profilePic_ends_with: string | null;
+    profilePic_not_ends_with: string | null;
     createdAt: string | null;
     createdAt_not: string | null;
     createdAt_in: string[];
@@ -445,8 +445,8 @@ export namespace UserResolvers {
     username: (parent: User) => parent.username,
     email: (parent: User) => (parent.email === undefined ? null : parent.email),
     githubToken: (parent: User) => parent.githubToken,
-    profileUrl: (parent: User) =>
-      parent.profileUrl === undefined ? null : parent.profileUrl,
+    profilePic: (parent: User) =>
+      parent.profilePic === undefined ? null : parent.profilePic,
     createdAt: (parent: User) => parent.createdAt,
     updatedAt: (parent: User) => parent.updatedAt,
   };
@@ -619,20 +619,20 @@ export namespace UserResolvers {
     githubToken_not_starts_with: string | null;
     githubToken_ends_with: string | null;
     githubToken_not_ends_with: string | null;
-    profileUrl: string | null;
-    profileUrl_not: string | null;
-    profileUrl_in: string[];
-    profileUrl_not_in: string[];
-    profileUrl_lt: string | null;
-    profileUrl_lte: string | null;
-    profileUrl_gt: string | null;
-    profileUrl_gte: string | null;
-    profileUrl_contains: string | null;
-    profileUrl_not_contains: string | null;
-    profileUrl_starts_with: string | null;
-    profileUrl_not_starts_with: string | null;
-    profileUrl_ends_with: string | null;
-    profileUrl_not_ends_with: string | null;
+    profilePic: string | null;
+    profilePic_not: string | null;
+    profilePic_in: string[];
+    profilePic_not_in: string[];
+    profilePic_lt: string | null;
+    profilePic_lte: string | null;
+    profilePic_gt: string | null;
+    profilePic_gte: string | null;
+    profilePic_contains: string | null;
+    profilePic_not_contains: string | null;
+    profilePic_starts_with: string | null;
+    profilePic_not_starts_with: string | null;
+    profilePic_ends_with: string | null;
+    profilePic_not_ends_with: string | null;
     createdAt: string | null;
     createdAt_not: string | null;
     createdAt_in: string[];
@@ -706,7 +706,7 @@ export namespace UserResolvers {
     info: GraphQLResolveInfo
   ) => string | Promise<string>;
 
-  export type ProfileUrlResolver = (
+  export type ProfilePicResolver = (
     parent: User,
     args: {},
     ctx: MyContext,
@@ -770,7 +770,7 @@ export namespace UserResolvers {
       info: GraphQLResolveInfo
     ) => string | Promise<string>;
 
-    profileUrl: (
+    profilePic: (
       parent: User,
       args: {},
       ctx: MyContext,

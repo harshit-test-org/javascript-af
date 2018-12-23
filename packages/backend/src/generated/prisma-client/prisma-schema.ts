@@ -605,7 +605,7 @@ type User {
   email: String
   newsItems(where: NewsWhereInput, orderBy: NewsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [News!]
   githubToken: String!
-  profileUrl: String
+  profilePic: String
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -622,7 +622,7 @@ input UserCreateInput {
   email: String
   newsItems: NewsCreateManyWithoutWriterInput
   githubToken: String!
-  profileUrl: String
+  profilePic: String
 }
 
 input UserCreateOneInput {
@@ -640,7 +640,7 @@ input UserCreateWithoutNewsItemsInput {
   username: String!
   email: String
   githubToken: String!
-  profileUrl: String
+  profilePic: String
 }
 
 type UserEdge {
@@ -659,8 +659,8 @@ enum UserOrderByInput {
   email_DESC
   githubToken_ASC
   githubToken_DESC
-  profileUrl_ASC
-  profileUrl_DESC
+  profilePic_ASC
+  profilePic_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -673,7 +673,7 @@ type UserPreviousValues {
   username: String!
   email: String
   githubToken: String!
-  profileUrl: String
+  profilePic: String
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -702,7 +702,7 @@ input UserUpdateDataInput {
   email: String
   newsItems: NewsUpdateManyWithoutWriterInput
   githubToken: String
-  profileUrl: String
+  profilePic: String
 }
 
 input UserUpdateInput {
@@ -711,7 +711,7 @@ input UserUpdateInput {
   email: String
   newsItems: NewsUpdateManyWithoutWriterInput
   githubToken: String
-  profileUrl: String
+  profilePic: String
 }
 
 input UserUpdateManyMutationInput {
@@ -719,7 +719,7 @@ input UserUpdateManyMutationInput {
   username: String
   email: String
   githubToken: String
-  profileUrl: String
+  profilePic: String
 }
 
 input UserUpdateOneInput {
@@ -743,7 +743,7 @@ input UserUpdateWithoutNewsItemsDataInput {
   username: String
   email: String
   githubToken: String
-  profileUrl: String
+  profilePic: String
 }
 
 input UserUpsertNestedInput {
@@ -830,20 +830,20 @@ input UserWhereInput {
   githubToken_not_starts_with: String
   githubToken_ends_with: String
   githubToken_not_ends_with: String
-  profileUrl: String
-  profileUrl_not: String
-  profileUrl_in: [String!]
-  profileUrl_not_in: [String!]
-  profileUrl_lt: String
-  profileUrl_lte: String
-  profileUrl_gt: String
-  profileUrl_gte: String
-  profileUrl_contains: String
-  profileUrl_not_contains: String
-  profileUrl_starts_with: String
-  profileUrl_not_starts_with: String
-  profileUrl_ends_with: String
-  profileUrl_not_ends_with: String
+  profilePic: String
+  profilePic_not: String
+  profilePic_in: [String!]
+  profilePic_not_in: [String!]
+  profilePic_lt: String
+  profilePic_lte: String
+  profilePic_gt: String
+  profilePic_gte: String
+  profilePic_contains: String
+  profilePic_not_contains: String
+  profilePic_starts_with: String
+  profilePic_not_starts_with: String
+  profilePic_ends_with: String
+  profilePic_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]

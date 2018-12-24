@@ -7,6 +7,7 @@ Object {
       "createdAt": "2018-12-23T10:24:29.259Z",
       "id": "cjq0qx0v800050981rha92aq1",
       "isFeatured": true,
+      "length": 2500,
       "previewImage": "https://google.com",
       "slug": "prisma-orm-to-rule-em-all",
       "speaker": Object {
@@ -38,6 +39,7 @@ Object {
           "cursor": "cjq0qx0v800050981rha92aq1",
           "node": Object {
             "id": "cjq0qx0v800050981rha92aq1",
+            "length": null,
             "speaker": Object {
               "id": "cjpzpf76a002809748lk0c4vm",
               "name": "Harshit Pant",

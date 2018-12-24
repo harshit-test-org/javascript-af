@@ -429,6 +429,7 @@ type Talk {
   previewImage: String!
   isFeatured: Boolean
   speaker: User
+  length: Int
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -445,6 +446,7 @@ input TalkCreateInput {
   previewImage: String!
   isFeatured: Boolean
   speaker: UserCreateOneInput
+  length: Int
 }
 
 type TalkEdge {
@@ -463,6 +465,8 @@ enum TalkOrderByInput {
   previewImage_DESC
   isFeatured_ASC
   isFeatured_DESC
+  length_ASC
+  length_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -475,6 +479,7 @@ type TalkPreviousValues {
   slug: String!
   previewImage: String!
   isFeatured: Boolean
+  length: Int
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -503,6 +508,7 @@ input TalkUpdateInput {
   previewImage: String
   isFeatured: Boolean
   speaker: UserUpdateOneInput
+  length: Int
 }
 
 input TalkUpdateManyMutationInput {
@@ -510,6 +516,7 @@ input TalkUpdateManyMutationInput {
   slug: String
   previewImage: String
   isFeatured: Boolean
+  length: Int
 }
 
 input TalkWhereInput {
@@ -572,6 +579,14 @@ input TalkWhereInput {
   isFeatured: Boolean
   isFeatured_not: Boolean
   speaker: UserWhereInput
+  length: Int
+  length_not: Int
+  length_in: [Int!]
+  length_not_in: [Int!]
+  length_lt: Int
+  length_lte: Int
+  length_gt: Int
+  length_gte: Int
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]

@@ -43,6 +43,8 @@ type TalkOrderByInput =
   | 'previewImage_DESC'
   | 'isFeatured_ASC'
   | 'isFeatured_DESC'
+  | 'length_ASC'
+  | 'length_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
@@ -313,6 +315,14 @@ export namespace QueryResolvers {
     isFeatured: boolean | null;
     isFeatured_not: boolean | null;
     speaker: UserWhereInput | null;
+    length: number | null;
+    length_not: number | null;
+    length_in: number[];
+    length_not_in: number[];
+    length_lt: number | null;
+    length_lte: number | null;
+    length_gt: number | null;
+    length_gte: number | null;
     createdAt: string | null;
     createdAt_not: string | null;
     createdAt_in: string[];
@@ -927,6 +937,8 @@ export namespace TalkResolvers {
     previewImage: (parent: Talk) => parent.previewImage,
     isFeatured: (parent: Talk) =>
       parent.isFeatured === undefined ? null : parent.isFeatured,
+    length: (parent: Talk) =>
+      parent.length === undefined ? null : parent.length,
     createdAt: (parent: Talk) => parent.createdAt,
     updatedAt: (parent: Talk) => parent.updatedAt,
   };
@@ -972,6 +984,13 @@ export namespace TalkResolvers {
     ctx: MyContext,
     info: GraphQLResolveInfo
   ) => User | null | Promise<User | null>;
+
+  export type LengthResolver = (
+    parent: Talk,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => number | null | Promise<number | null>;
 
   export type CreatedAtResolver = (
     parent: Talk,
@@ -1029,6 +1048,13 @@ export namespace TalkResolvers {
       ctx: MyContext,
       info: GraphQLResolveInfo
     ) => User | null | Promise<User | null>;
+
+    length: (
+      parent: Talk,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => number | null | Promise<number | null>;
 
     createdAt: (
       parent: Talk,

@@ -41,6 +41,7 @@ describe('Talk Resolvers', () => {
     title: 'Prisma: ORM to rule em all',
     slug: 'prisma-orm-to-rule-em-all',
     previewImage: 'https://google.com',
+    length: 2500,
     isFeatured: true,
     createdAt: '2018-12-23T10:24:29.259Z',
     updatedAt: '2018-12-23T10:24:29.259Z',
@@ -61,6 +62,7 @@ describe('Talk Resolvers', () => {
           node {
             id
             title
+            length
             speaker{
               id
               name
@@ -93,6 +95,7 @@ describe('Talk Resolvers', () => {
     title
     slug
     previewImage
+    length
     isFeatured
     createdAt
     updatedAt

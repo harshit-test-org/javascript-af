@@ -29,6 +29,7 @@ type Talk {
   previewImage: String!
   isFeatured: Boolean
   speaker: User
+  length: Int
   createdAt: DateTime!
   updatedAt: DateTime!
 }

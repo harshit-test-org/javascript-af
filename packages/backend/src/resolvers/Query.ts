@@ -20,4 +20,13 @@ export const Query: QueryResolvers.Type = {
       slug,
     });
   },
+
+  repoConnection(_, args, { prisma }) {
+    return prisma.repoesConnection(args);
+  },
+  repoBySlug(_, { slug }, { prisma }) {
+    return prisma.repo({
+      slug,
+    });
+  },
 };

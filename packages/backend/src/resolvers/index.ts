@@ -11,6 +11,10 @@ import { Talk } from './Talk/Talk';
 import { AggregateTalk } from './Talk/AggregateTalk';
 import { TalkConnection } from './Talk/TalkConnection';
 import { TalkEdge } from './Talk/TalkEdge';
+import { Repo } from './Repo/Repo';
+import { AggregateRepo } from './Repo/AggregateRepo';
+import { RepoConnection } from './Repo/RepoConnection';
+import { RepoEdge } from './Repo/RepoEdge';
 import { Tag } from './Tag/Tag';
 
 export const resolvers: Resolvers = {
@@ -25,5 +29,9 @@ export const resolvers: Resolvers = {
   AggregateTalk,
   TalkConnection,
   TalkEdge,
+  Repo,
+  AggregateRepo,
+  RepoConnection,
+  RepoEdge,
   Tag,
 };

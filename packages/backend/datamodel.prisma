@@ -1,3 +1,16 @@
+type User {
+  id: ID! @unique
+  name: String!
+  username: String! @unique
+  email: String @unique
+  newsItems: [News!]!
+  talks: [Talk!]!
+  githubToken: String!
+  profilePic: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type News {
   id: ID! @unique
   title: String!
@@ -7,18 +20,6 @@ type News {
   isFeatured: Boolean
   writer: User!
   tags: [Tag!]!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-}
-
-type User {
-  id: ID! @unique
-  name: String!
-  username: String! @unique
-  email: String @unique
-  newsItems: [News!]!
-  githubToken: String!
-  profilePic: String
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -40,5 +41,5 @@ type Tag {
   id: ID! @unique
   name: String! @unique
   talks: [Talk!]!
-  news: [News!]!
+  newsItems: [News!]!
 }

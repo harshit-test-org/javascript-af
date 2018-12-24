@@ -28,3 +28,13 @@ export const speakerMock = jest.fn(() => ({
   createdAt: '2018-12-22T16:54:51.920Z',
   updatedAt: '2018-12-23T16:46:23.763Z',
 }));
+
+export const ownerMock = jest.fn(() => ({
+  id: 'cjpxpmpgr000c097495f1kz8a',
+  username: 'LuciferMorningstar',
+  email: 'iam@thedevil.com',
+  githubToken: 's',
+  profilePic: 'ss',
+  createdAt: '2018-12-21T07:25:09.804Z',
+  updatedAt: '2018-12-21T07:25:09.804Z',
+}));

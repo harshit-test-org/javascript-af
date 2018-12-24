@@ -11,6 +11,7 @@
   "private": true,
   "scripts": {
     "dev": "lerna run --parallel --scope=@jsaf/backend dev",
+    "test": "cd packages/backend && yarn test",
     "cm": "commit"
   },
   "husky": {

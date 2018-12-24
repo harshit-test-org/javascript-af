@@ -6309,9 +6309,10 @@ pretty-format@^23.6.0:
     ansi-regex "^3.0.0"
     ansi-styles "^3.2.0"
 
-prisma-client-lib@^1.23.0:
-  version "1.23.0"
-  resolved "https://registry.yarnpkg.com/prisma-client-lib/-/prisma-client-lib-1.23.0.tgz#29f4bd50951fd428817f12d5d9261c07e32c62ad"
+prisma-client-lib@^1.23.2:
+  version "1.23.2"
+  resolved "https://registry.yarnpkg.com/prisma-client-lib/-/prisma-client-lib-1.23.2.tgz#91e1eaa55f286f61580c8425283a7038550dcbf6"
+  integrity sha512-a926nHwe1lavB4erwHcvksy0XGoFsMR158vm9oII9MauxW9v2hRgu4sVDcR9wcGHg42eaJPvT6hjloF0GITLiQ==
   dependencies:
     "@types/node" "^10.12.0"
     "@types/prettier" "^1.13.2"
@@ -6322,29 +6323,31 @@ prisma-client-lib@^1.23.0:
     jsonwebtoken "^8.3.0"
     lodash.flatten "^4.4.0"
     prettier "^1.14.3"
-    prisma-datamodel "1.23.0"
-    prisma-generate-schema "1.23.0"
+    prisma-datamodel "1.23.2"
+    prisma-generate-schema "1.23.2"
     subscriptions-transport-ws "^0.9.15"
     uppercamelcase "^3.0.0"
     ws "^6.1.0"
     zen-observable "^0.8.10"
 
-prisma-datamodel@1.23.0:
-  version "1.23.0"
-  resolved "https://registry.yarnpkg.com/prisma-datamodel/-/prisma-datamodel-1.23.0.tgz#3875f1a94282b7f082affb8784e37afc6b001879"
+prisma-datamodel@1.23.2:
+  version "1.23.2"
+  resolved "https://registry.yarnpkg.com/prisma-datamodel/-/prisma-datamodel-1.23.2.tgz#e29f8d7e409594e248df330e617b31d8089d2b6d"
+  integrity sha512-q3c5+EcO4/t7bFnDTc4WBPjocJnE/kmvNHcvHQWyd2CMjbkFWk3OA3viKss+J6//bsb10zRsi4Vu4CZdwHmIgw==
   dependencies:
     graphql "^14.0.2"
     pluralize "^7.0.0"
     popsicle "10"
 
-prisma-generate-schema@1.23.0:
-  version "1.23.0"
-  resolved "https://registry.yarnpkg.com/prisma-generate-schema/-/prisma-generate-schema-1.23.0.tgz#bd1a38dea48bb87ee7a21570da28d946c5330af9"
+prisma-generate-schema@1.23.2:
+  version "1.23.2"
+  resolved "https://registry.yarnpkg.com/prisma-generate-schema/-/prisma-generate-schema-1.23.2.tgz#564e383e78eb17c4c06661b50787f5cbe1c00d79"
+  integrity sha512-d+x3v1w6BzM46wO0ExfXzmXnlX7fo/W46ZUym5EasgeVLnGDg2HIzHRIxQ4pfq4xSx8yZIz69VxaXmqaU/EJmQ==
   dependencies:
     graphql "^14.0.2"
     pluralize "^7.0.0"
     popsicle "10"
-    prisma-datamodel "1.23.0"
+    prisma-datamodel "1.23.2"
 
 private@^0.1.8:
   version "0.1.8"

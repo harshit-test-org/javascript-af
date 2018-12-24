@@ -2,6 +2,7 @@
 type Query {
   newsItemBySlug(slug: String!): News
   talkBySlug(slug: String!): Talk
+  repoBySlug(slug: String!): Repo
   newsConnection(
     where: NewsWhereInput
     orderBy: NewsOrderByInput
@@ -20,4 +21,13 @@ type Query {
     first: Int
     last: Int
   ): TalkConnection!
+  repoConnection(
+    where: RepoWhereInput
+    orderBy: RepoOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): RepoConnection!
 }

@@ -13,8 +13,8 @@ type User {
 
 type News {
   id: ID! @unique
-  title: String!
   slug: String! @unique
+  title: String!
   content: String!
   previewImage: String
   isFeatured: Boolean
@@ -26,12 +26,27 @@ type News {
 
 type Talk {
   id: ID! @unique
-  title: String!
   slug: String! @unique
+  title: String!
   previewImage: String!
   isFeatured: Boolean
   speaker: User
   length: Int
+  tags: [Tag!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Repo {
+  id: ID! @unique
+  slug: String! @unique
+  githubName: String!
+  githubOwner: String!
+  githubUrl: String!
+  ownerUsername: String!
+  isFeatured: Boolean
+  description: String
+  owner: User
   tags: [Tag!]!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -42,4 +57,5 @@ type Tag {
   name: String! @unique
   talks: [Talk!]!
   newsItems: [News!]!
+  repos: [Repo!]!
 }

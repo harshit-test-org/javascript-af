@@ -1,18 +1,15 @@
 // This resolver file was scaffolded by github.com/prisma/graphqlgen, DO NOT EDIT.
 // Please do not import this file directly but copy & paste to your application code.
 
-import { TagResolvers } from '../graphqlgen';
+import { RepoResolvers } from '../graphqlgen';
 
-export const Tag: TagResolvers.Type = {
-  ...TagResolvers.defaultResolvers,
+export const Repo: RepoResolvers.Type = {
+  ...RepoResolvers.defaultResolvers,
 
-  talks: (parent, args, ctx) => {
+  owner: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
-  newsItems: (parent, args, ctx) => {
-    throw new Error('Resolver not implemented');
-  },
-  repos: (parent, args, ctx) => {
+  tags: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
 };

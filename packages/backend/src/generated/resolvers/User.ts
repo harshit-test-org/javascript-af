@@ -9,4 +9,7 @@ export const User: UserResolvers.Type = {
   newsItems: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
+  talks: (parent, args, ctx) => {
+    throw new Error('Resolver not implemented');
+  },
 };

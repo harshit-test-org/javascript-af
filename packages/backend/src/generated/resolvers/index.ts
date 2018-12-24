@@ -6,8 +6,9 @@ import { Resolvers } from '../graphqlgen';
 import { Query } from './Query';
 import { News } from './News';
 import { User } from './User';
-import { Tag } from './Tag';
 import { Talk } from './Talk';
+import { Tag } from './Tag';
+import { Repo } from './Repo';
 import { NewsConnection } from './NewsConnection';
 import { PageInfo } from './PageInfo';
 import { NewsEdge } from './NewsEdge';
@@ -15,13 +16,17 @@ import { AggregateNews } from './AggregateNews';
 import { TalkConnection } from './TalkConnection';
 import { TalkEdge } from './TalkEdge';
 import { AggregateTalk } from './AggregateTalk';
+import { RepoConnection } from './RepoConnection';
+import { RepoEdge } from './RepoEdge';
+import { AggregateRepo } from './AggregateRepo';
 
 export const resolvers: Resolvers = {
   Query,
   News,
   User,
-  Tag,
   Talk,
+  Tag,
+  Repo,
   NewsConnection,
   PageInfo,
   NewsEdge,
@@ -29,4 +34,7 @@ export const resolvers: Resolvers = {
   TalkConnection,
   TalkEdge,
   AggregateTalk,
+  RepoConnection,
+  RepoEdge,
+  AggregateRepo,
 };

@@ -11,10 +11,16 @@ export const Query: QueryResolvers.Type = {
   talkBySlug: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
+  repoBySlug: (parent, args, ctx) => {
+    throw new Error('Resolver not implemented');
+  },
   newsConnection: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
   talkConnection: (parent, args, ctx) => {
+    throw new Error('Resolver not implemented');
+  },
+  repoConnection: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
 };

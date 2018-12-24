@@ -6,6 +6,7 @@ import { Resolvers } from '../graphqlgen';
 import { Query } from './Query';
 import { News } from './News';
 import { User } from './User';
+import { Tag } from './Tag';
 import { Talk } from './Talk';
 import { NewsConnection } from './NewsConnection';
 import { PageInfo } from './PageInfo';
@@ -19,6 +20,7 @@ export const resolvers: Resolvers = {
   Query,
   News,
   User,
+  Tag,
   Talk,
   NewsConnection,
   PageInfo,

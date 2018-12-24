@@ -1,17 +1,8 @@
 import { graphqlTestCall } from './utils/gqlTestClient';
 import { prisma } from './utils/createPrismaMock';
+import { writerMock, tagsMock, aggregateMock } from './mocks';
 
 describe('News Resolvers', () => {
-  const writerMock = jest.fn(() => ({
-    id: 'cjpxpmpgr000c097495f1kz8w',
-    username: 'pantharshit00',
-    email: 'pantharshit00@gmail.com',
-    githubToken: 's',
-    profilePic: 'ss',
-    createdAt: '2018-12-21T07:25:09.804Z',
-    updatedAt: '2018-12-21T07:25:09.804Z',
-  }));
-
   prisma.news = jest.fn(() => ({
     id: 'cjpxpvzai000o0974ydxa80da',
     title: 'Some thing',
@@ -21,11 +12,8 @@ describe('News Resolvers', () => {
     isFeatured: false,
     createdAt: '2018-12-21T07:32:22.501Z',
     updatedAt: '2018-12-21T07:32:22.501Z',
+    tags: tagsMock,
     writer: writerMock,
-  }));
-
-  const aggregateMock = jest.fn(() => ({
-    count: 2,
   }));
 
   prisma.newsesConnection = jest.fn(() => ({
@@ -64,6 +52,9 @@ describe('News Resolvers', () => {
         content
         previewImage
         isFeatured
+        tags{
+          name
+        }
         writer{
           id
           username
@@ -80,6 +71,7 @@ describe('News Resolvers', () => {
   `);
     expect(prisma.news).toHaveBeenCalledWith({ slug: 'some-thing' });
     expect(writerMock).toHaveBeenCalled();
+    expect(tagsMock).toHaveBeenCalled();
     expect(response).toMatchSnapshot();
   });
 

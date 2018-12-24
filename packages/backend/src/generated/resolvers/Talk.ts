@@ -9,4 +9,7 @@ export const Talk: TalkResolvers.Type = {
   speaker: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
+  tags: (parent, args, ctx) => {
+    throw new Error('Resolver not implemented');
+  },
 };

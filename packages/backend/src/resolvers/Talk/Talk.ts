@@ -6,4 +6,7 @@ export const Talk: TalkResolvers.Type = {
   speaker: (parent, args, ctx) => {
     return ctx.prisma.talk({ id: parent.id }).speaker();
   },
+  tags: (parent, args, ctx) => {
+    return ctx.prisma.talk({ id: parent.id }).tags();
+  },
 };

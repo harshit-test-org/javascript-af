@@ -6,6 +6,7 @@ type News {
   previewImage: String
   isFeatured: Boolean
   writer: User!
+  tags: [Tag!]!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -30,6 +31,14 @@ type Talk {
   isFeatured: Boolean
   speaker: User
   length: Int
+  tags: [Tag!]!
   createdAt: DateTime!
   updatedAt: DateTime!
+}
+
+type Tag {
+  id: ID! @unique
+  name: String! @unique
+  talks: [Talk!]!
+  news: [News!]!
 }

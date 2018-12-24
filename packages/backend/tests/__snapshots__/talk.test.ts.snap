@@ -20,6 +20,11 @@ Object {
         "updatedAt": "2018-12-23T16:46:23.763Z",
         "username": "pantharshit00",
       },
+      "tags": Array [
+        Object {
+          "name": "react",
+        },
+      ],
       "title": "Prisma: ORM to rule em all",
       "updatedAt": "2018-12-23T10:24:29.259Z",
     },
@@ -32,7 +37,7 @@ Object {
   "data": Object {
     "talkConnection": Object {
       "aggregate": Object {
-        "count": 1,
+        "count": 2,
       },
       "edges": Array [
         Object {
@@ -45,6 +50,18 @@ Object {
               "name": "Harshit Pant",
             },
             "title": "Prisma: ORM to rule em all",
+          },
+        },
+        Object {
+          "cursor": "cjq0qx0v800050981rha92qsd",
+          "node": Object {
+            "id": "cjq0qx0v800050981rha92qsd",
+            "length": null,
+            "speaker": Object {
+              "id": "cjpzpf76a002809748lk0c4vm",
+              "name": "Harshit Pant",
+            },
+            "title": "ORM ORM ORM",
           },
         },
       ],

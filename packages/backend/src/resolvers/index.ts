@@ -11,6 +11,7 @@ import { Talk } from './Talk/Talk';
 import { AggregateTalk } from './Talk/AggregateTalk';
 import { TalkConnection } from './Talk/TalkConnection';
 import { TalkEdge } from './Talk/TalkEdge';
+import { Tag } from './Tag/Tag';
 
 export const resolvers: Resolvers = {
   Query,
@@ -24,4 +25,5 @@ export const resolvers: Resolvers = {
   AggregateTalk,
   TalkConnection,
   TalkEdge,
+  Tag,
 };

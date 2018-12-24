@@ -6,7 +6,10 @@ export const Tag: TagResolvers.Type = {
   talks: (parent, args, ctx) => {
     return ctx.prisma.tag({ id: parent.id }).talks();
   },
-  news: (parent, args, ctx) => {
-    return ctx.prisma.tag({ id: parent.id }).news();
+  newsItems: (parent, args, ctx) => {
+    return ctx.prisma.tag({ id: parent.id }).newsItems();
+  },
+  repos: (parent, args, ctx) => {
+    return ctx.prisma.tag({ id: parent.id }).repos();
   },
 };

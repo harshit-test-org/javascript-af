@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Repo Resolvers repoBySlug 1`] = `
+Object {
+  "data": Object {
+    "repoBySlug": Object {
+      "createdAt": "2018-12-23T10:24:29.259Z",
+      "githubName": "IhaveWings",
+      "githubOwner": "LuciferM",
+      "id": "cjq0qx0v800050981rha92aq2",
+      "isFeatured": true,
+      "owner": Object {
+        "createdAt": "2018-12-21T07:25:09.804Z",
+        "email": "iam@thedevil.com",
+        "githubToken": "s",
+        "id": "cjpxpmpgr000c097495f1kz8a",
+        "name": "Lucifer Morningstar",
+        "profilePic": "ss",
+        "updatedAt": "2018-12-21T07:25:09.804Z",
+        "username": "LuciferMorningstar",
+      },
+      "slug": "LuciferM/IhaveWings",
+      "updatedAt": "2018-12-23T10:24:29.259Z",
+    },
+  },
+}
+`;
+
+exports[`Repo Resolvers repoConnection pagination 1`] = `
+Object {
+  "data": Object {
+    "repoConnection": Object {
+      "aggregate": Object {
+        "count": 2,
+      },
+      "edges": Array [
+        Object {
+          "cursor": "cjq0qx0v800050981rha92aq2",
+          "node": Object {
+            "githubName": "IhaveWings",
+            "githubOwner": "LuciferM",
+            "id": "cjq0qx0v800050981rha92aq2",
+            "owner": Object {
+              "id": "cjpxpmpgr000c097495f1kz8a",
+              "name": "Lucifer Morningstar",
+            },
+          },
+        },
+        Object {
+          "cursor": "cjq0qx0v800050981rha92qsa",
+          "node": Object {
+            "githubName": "WingsAreGone",
+            "githubOwner": "Amenadiel",
+            "id": "cjq0qx0v800050981rha92qsa",
+            "owner": Object {
+              "id": "cjpxpmpgr000c097495f1kz8a",
+              "name": "Lucifer Morningstar",
+            },
+          },
+        },
+      ],
+      "pageInfo": Object {
+        "endCursor": "cjq0qx0v800050981rha92qsa",
+        "hasNextPage": false,
+        "hasPreviousPage": false,
+        "startCursor": "cjq0qx0v800050981rha92aq2",
+      },
+    },
+  },
+}
+`;

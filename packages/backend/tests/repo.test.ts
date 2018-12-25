@@ -8,7 +8,7 @@ describe('Repo Resolvers', () => {
       hasNextPage: false,
       hasPreviousPage: false,
       startCursor: 'cjq0qx0v800050981rha92aq2',
-      endCursor: 'cjq0qx0v800050981rha92aq2',
+      endCursor: 'cjq0qx0v800050981rha92qsa',
     },
     edges: [
       {
@@ -59,7 +59,7 @@ describe('Repo Resolvers', () => {
             githubOwner
             owner{
               id
-              username
+              name
             }
           }
           cursor

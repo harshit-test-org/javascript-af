@@ -31,6 +31,7 @@ export const speakerMock = jest.fn(() => ({
 
 export const ownerMock = jest.fn(() => ({
   id: 'cjpxpmpgr000c097495f1kz8a',
+  name: 'Lucifer Morningstar',
   username: 'LuciferMorningstar',
   email: 'iam@thedevil.com',
   githubToken: 's',

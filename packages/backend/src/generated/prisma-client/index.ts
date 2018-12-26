@@ -18,6 +18,7 @@ export interface Exists {
   repo: (where?: RepoWhereInput) => Promise<boolean>;
   tag: (where?: TagWhereInput) => Promise<boolean>;
   talk: (where?: TalkWhereInput) => Promise<boolean>;
+  upvote: (where?: UpvoteWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
 }
 
@@ -132,6 +133,29 @@ export interface Prisma {
       last?: Int;
     }
   ) => TalkConnectionPromise;
+  upvote: (where: UpvoteWhereUniqueInput) => UpvotePromise;
+  upvotes: (
+    args?: {
+      where?: UpvoteWhereInput;
+      orderBy?: UpvoteOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Upvote>;
+  upvotesConnection: (
+    args?: {
+      where?: UpvoteWhereInput;
+      orderBy?: UpvoteOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => UpvoteConnectionPromise;
   user: (where: UserWhereUniqueInput) => UserPromise;
   users: (
     args?: {
@@ -225,6 +249,19 @@ export interface Prisma {
   ) => TalkPromise;
   deleteTalk: (where: TalkWhereUniqueInput) => TalkPromise;
   deleteManyTalks: (where?: TalkWhereInput) => BatchPayloadPromise;
+  createUpvote: (data: UpvoteCreateInput) => UpvotePromise;
+  updateUpvote: (
+    args: { data: UpvoteUpdateInput; where: UpvoteWhereUniqueInput }
+  ) => UpvotePromise;
+  upsertUpvote: (
+    args: {
+      where: UpvoteWhereUniqueInput;
+      create: UpvoteCreateInput;
+      update: UpvoteUpdateInput;
+    }
+  ) => UpvotePromise;
+  deleteUpvote: (where: UpvoteWhereUniqueInput) => UpvotePromise;
+  deleteManyUpvotes: (where?: UpvoteWhereInput) => BatchPayloadPromise;
   createUser: (data: UserCreateInput) => UserPromise;
   updateUser: (
     args: { data: UserUpdateInput; where: UserWhereUniqueInput }
@@ -262,6 +299,9 @@ export interface Subscription {
   talk: (
     where?: TalkSubscriptionWhereInput
   ) => TalkSubscriptionPayloadSubscription;
+  upvote: (
+    where?: UpvoteSubscriptionWhereInput
+  ) => UpvoteSubscriptionPayloadSubscription;
   user: (
     where?: UserSubscriptionWhereInput
   ) => UserSubscriptionPayloadSubscription;
@@ -343,6 +383,14 @@ export type RepoOrderByInput =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC';
 
+export type UpvoteOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC';
+
 export type UserOrderByInput =
   | 'id_ASC'
   | 'id_DESC'
@@ -363,440 +411,12 @@ export type UserOrderByInput =
 
 export type MutationType = 'CREATED' | 'UPDATED' | 'DELETED';
 
-export interface NewsUpdateWithoutTagsDataInput {
-  slug?: String;
-  title?: String;
-  content?: String;
-  previewImage?: String;
-  isFeatured?: Boolean;
-  writer?: UserUpdateOneRequiredWithoutNewsItemsInput;
-}
-
 export type NewsWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
   slug?: String;
 }>;
 
-export interface NewsUpdateManyDataInput {
-  slug?: String;
-  title?: String;
-  content?: String;
-  previewImage?: String;
-  isFeatured?: Boolean;
-}
-
-export interface TalkWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  slug?: String;
-  slug_not?: String;
-  slug_in?: String[] | String;
-  slug_not_in?: String[] | String;
-  slug_lt?: String;
-  slug_lte?: String;
-  slug_gt?: String;
-  slug_gte?: String;
-  slug_contains?: String;
-  slug_not_contains?: String;
-  slug_starts_with?: String;
-  slug_not_starts_with?: String;
-  slug_ends_with?: String;
-  slug_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  previewImage?: String;
-  previewImage_not?: String;
-  previewImage_in?: String[] | String;
-  previewImage_not_in?: String[] | String;
-  previewImage_lt?: String;
-  previewImage_lte?: String;
-  previewImage_gt?: String;
-  previewImage_gte?: String;
-  previewImage_contains?: String;
-  previewImage_not_contains?: String;
-  previewImage_starts_with?: String;
-  previewImage_not_starts_with?: String;
-  previewImage_ends_with?: String;
-  previewImage_not_ends_with?: String;
-  isFeatured?: Boolean;
-  isFeatured_not?: Boolean;
-  speaker?: UserWhereInput;
-  length?: Int;
-  length_not?: Int;
-  length_in?: Int[] | Int;
-  length_not_in?: Int[] | Int;
-  length_lt?: Int;
-  length_lte?: Int;
-  length_gt?: Int;
-  length_gte?: Int;
-  tags_every?: TagWhereInput;
-  tags_some?: TagWhereInput;
-  tags_none?: TagWhereInput;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  AND?: TalkWhereInput[] | TalkWhereInput;
-  OR?: TalkWhereInput[] | TalkWhereInput;
-  NOT?: TalkWhereInput[] | TalkWhereInput;
-}
-
-export interface RepoUpdateManyWithoutTagsInput {
-  create?: RepoCreateWithoutTagsInput[] | RepoCreateWithoutTagsInput;
-  delete?: RepoWhereUniqueInput[] | RepoWhereUniqueInput;
-  connect?: RepoWhereUniqueInput[] | RepoWhereUniqueInput;
-  disconnect?: RepoWhereUniqueInput[] | RepoWhereUniqueInput;
-  update?:
-    | RepoUpdateWithWhereUniqueWithoutTagsInput[]
-    | RepoUpdateWithWhereUniqueWithoutTagsInput;
-  upsert?:
-    | RepoUpsertWithWhereUniqueWithoutTagsInput[]
-    | RepoUpsertWithWhereUniqueWithoutTagsInput;
-  deleteMany?: RepoScalarWhereInput[] | RepoScalarWhereInput;
-  updateMany?:
-    | RepoUpdateManyWithWhereNestedInput[]
-    | RepoUpdateManyWithWhereNestedInput;
-}
-
-export interface TagWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  talks_every?: TalkWhereInput;
-  talks_some?: TalkWhereInput;
-  talks_none?: TalkWhereInput;
-  newsItems_every?: NewsWhereInput;
-  newsItems_some?: NewsWhereInput;
-  newsItems_none?: NewsWhereInput;
-  repos_every?: RepoWhereInput;
-  repos_some?: RepoWhereInput;
-  repos_none?: RepoWhereInput;
-  AND?: TagWhereInput[] | TagWhereInput;
-  OR?: TagWhereInput[] | TagWhereInput;
-  NOT?: TagWhereInput[] | TagWhereInput;
-}
-
-export interface UserCreateWithoutTalksInput {
-  name: String;
-  username: String;
-  email?: String;
-  newsItems?: NewsCreateManyWithoutWriterInput;
-  githubToken: String;
-  profilePic?: String;
-}
-
-export interface TalkUpsertWithWhereUniqueWithoutSpeakerInput {
-  where: TalkWhereUniqueInput;
-  update: TalkUpdateWithoutSpeakerDataInput;
-  create: TalkCreateWithoutSpeakerInput;
-}
-
-export interface NewsUpdateInput {
-  slug?: String;
-  title?: String;
-  content?: String;
-  previewImage?: String;
-  isFeatured?: Boolean;
-  writer?: UserUpdateOneRequiredWithoutNewsItemsInput;
-  tags?: TagUpdateManyWithoutNewsItemsInput;
-}
-
-export interface RepoUpdateWithWhereUniqueWithoutTagsInput {
-  where: RepoWhereUniqueInput;
-  data: RepoUpdateWithoutTagsDataInput;
-}
-
-export interface UserUpdateOneRequiredWithoutNewsItemsInput {
-  create?: UserCreateWithoutNewsItemsInput;
-  update?: UserUpdateWithoutNewsItemsDataInput;
-  upsert?: UserUpsertWithoutNewsItemsInput;
-  connect?: UserWhereUniqueInput;
-}
-
-export interface UserSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: UserWhereInput;
-  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-}
-
-export interface UserUpdateWithoutNewsItemsDataInput {
-  name?: String;
-  username?: String;
-  email?: String;
-  talks?: TalkUpdateManyWithoutSpeakerInput;
-  githubToken?: String;
-  profilePic?: String;
-}
-
-export interface TagSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: TagWhereInput;
-  AND?: TagSubscriptionWhereInput[] | TagSubscriptionWhereInput;
-  OR?: TagSubscriptionWhereInput[] | TagSubscriptionWhereInput;
-  NOT?: TagSubscriptionWhereInput[] | TagSubscriptionWhereInput;
-}
-
-export interface TalkUpdateManyWithoutSpeakerInput {
-  create?: TalkCreateWithoutSpeakerInput[] | TalkCreateWithoutSpeakerInput;
-  delete?: TalkWhereUniqueInput[] | TalkWhereUniqueInput;
-  connect?: TalkWhereUniqueInput[] | TalkWhereUniqueInput;
-  disconnect?: TalkWhereUniqueInput[] | TalkWhereUniqueInput;
-  update?:
-    | TalkUpdateWithWhereUniqueWithoutSpeakerInput[]
-    | TalkUpdateWithWhereUniqueWithoutSpeakerInput;
-  upsert?:
-    | TalkUpsertWithWhereUniqueWithoutSpeakerInput[]
-    | TalkUpsertWithWhereUniqueWithoutSpeakerInput;
-  deleteMany?: TalkScalarWhereInput[] | TalkScalarWhereInput;
-  updateMany?:
-    | TalkUpdateManyWithWhereNestedInput[]
-    | TalkUpdateManyWithWhereNestedInput;
-}
-
-export interface NewsSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: NewsWhereInput;
-  AND?: NewsSubscriptionWhereInput[] | NewsSubscriptionWhereInput;
-  OR?: NewsSubscriptionWhereInput[] | NewsSubscriptionWhereInput;
-  NOT?: NewsSubscriptionWhereInput[] | NewsSubscriptionWhereInput;
-}
-
-export interface TalkUpdateWithWhereUniqueWithoutSpeakerInput {
-  where: TalkWhereUniqueInput;
-  data: TalkUpdateWithoutSpeakerDataInput;
-}
-
-export interface UserUpdateInput {
-  name?: String;
-  username?: String;
-  email?: String;
-  newsItems?: NewsUpdateManyWithoutWriterInput;
-  talks?: TalkUpdateManyWithoutSpeakerInput;
-  githubToken?: String;
-  profilePic?: String;
-}
-
-export interface TalkUpdateWithoutSpeakerDataInput {
-  slug?: String;
-  title?: String;
-  previewImage?: String;
-  isFeatured?: Boolean;
-  length?: Int;
-  tags?: TagUpdateManyWithoutTalksInput;
-}
-
-export interface TalkUpdateInput {
-  slug?: String;
-  title?: String;
-  previewImage?: String;
-  isFeatured?: Boolean;
-  speaker?: UserUpdateOneWithoutTalksInput;
-  length?: Int;
-  tags?: TagUpdateManyWithoutTalksInput;
-}
-
-export interface TagUpdateManyWithoutTalksInput {
-  create?: TagCreateWithoutTalksInput[] | TagCreateWithoutTalksInput;
-  delete?: TagWhereUniqueInput[] | TagWhereUniqueInput;
-  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
-  disconnect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
-  update?:
-    | TagUpdateWithWhereUniqueWithoutTalksInput[]
-    | TagUpdateWithWhereUniqueWithoutTalksInput;
-  upsert?:
-    | TagUpsertWithWhereUniqueWithoutTalksInput[]
-    | TagUpsertWithWhereUniqueWithoutTalksInput;
-  deleteMany?: TagScalarWhereInput[] | TagScalarWhereInput;
-  updateMany?:
-    | TagUpdateManyWithWhereNestedInput[]
-    | TagUpdateManyWithWhereNestedInput;
-}
-
-export interface TalkCreateInput {
-  slug: String;
-  title: String;
-  previewImage: String;
-  isFeatured?: Boolean;
-  speaker?: UserCreateOneWithoutTalksInput;
-  length?: Int;
-  tags?: TagCreateManyWithoutTalksInput;
-}
-
-export interface TagUpdateWithWhereUniqueWithoutTalksInput {
-  where: TagWhereUniqueInput;
-  data: TagUpdateWithoutTalksDataInput;
-}
-
-export interface TagUpdateInput {
-  name?: String;
-  talks?: TalkUpdateManyWithoutTagsInput;
-  newsItems?: NewsUpdateManyWithoutTagsInput;
-  repos?: RepoUpdateManyWithoutTagsInput;
-}
-
-export interface TagUpdateWithoutTalksDataInput {
-  name?: String;
-  newsItems?: NewsUpdateManyWithoutTagsInput;
-  repos?: RepoUpdateManyWithoutTagsInput;
-}
-
-export interface TagCreateInput {
-  name: String;
-  talks?: TalkCreateManyWithoutTagsInput;
-  newsItems?: NewsCreateManyWithoutTagsInput;
-  repos?: RepoCreateManyWithoutTagsInput;
-}
-
-export interface NewsUpdateManyWithoutTagsInput {
-  create?: NewsCreateWithoutTagsInput[] | NewsCreateWithoutTagsInput;
-  delete?: NewsWhereUniqueInput[] | NewsWhereUniqueInput;
-  connect?: NewsWhereUniqueInput[] | NewsWhereUniqueInput;
-  disconnect?: NewsWhereUniqueInput[] | NewsWhereUniqueInput;
-  update?:
-    | NewsUpdateWithWhereUniqueWithoutTagsInput[]
-    | NewsUpdateWithWhereUniqueWithoutTagsInput;
-  upsert?:
-    | NewsUpsertWithWhereUniqueWithoutTagsInput[]
-    | NewsUpsertWithWhereUniqueWithoutTagsInput;
-  deleteMany?: NewsScalarWhereInput[] | NewsScalarWhereInput;
-  updateMany?:
-    | NewsUpdateManyWithWhereNestedInput[]
-    | NewsUpdateManyWithWhereNestedInput;
-}
-
-export interface TagUpsertWithWhereUniqueWithoutReposInput {
-  where: TagWhereUniqueInput;
-  update: TagUpdateWithoutReposDataInput;
-  create: TagCreateWithoutReposInput;
-}
-
-export interface NewsUpdateWithWhereUniqueWithoutTagsInput {
-  where: NewsWhereUniqueInput;
-  data: NewsUpdateWithoutTagsDataInput;
-}
-
-export interface TagUpdateWithoutReposDataInput {
-  name?: String;
-  talks?: TalkUpdateManyWithoutTagsInput;
-  newsItems?: NewsUpdateManyWithoutTagsInput;
-}
-
-export interface NewsUpdateManyMutationInput {
-  slug?: String;
-  title?: String;
-  content?: String;
-  previewImage?: String;
-  isFeatured?: Boolean;
-}
-
-export interface TagUpdateManyWithoutReposInput {
-  create?: TagCreateWithoutReposInput[] | TagCreateWithoutReposInput;
-  delete?: TagWhereUniqueInput[] | TagWhereUniqueInput;
-  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
-  disconnect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
-  update?:
-    | TagUpdateWithWhereUniqueWithoutReposInput[]
-    | TagUpdateWithWhereUniqueWithoutReposInput;
-  upsert?:
-    | TagUpsertWithWhereUniqueWithoutReposInput[]
-    | TagUpsertWithWhereUniqueWithoutReposInput;
-  deleteMany?: TagScalarWhereInput[] | TagScalarWhereInput;
-  updateMany?:
-    | TagUpdateManyWithWhereNestedInput[]
-    | TagUpdateManyWithWhereNestedInput;
-}
-
-export interface NewsUpsertWithWhereUniqueWithoutTagsInput {
-  where: NewsWhereUniqueInput;
-  update: NewsUpdateWithoutTagsDataInput;
-  create: NewsCreateWithoutTagsInput;
-}
-
-export interface RepoUpdateInput {
-  slug?: String;
-  githubName?: String;
-  githubOwner?: String;
-  githubUrl?: String;
-  ownerUsername?: String;
-  isFeatured?: Boolean;
-  description?: String;
-  owner?: UserUpdateOneInput;
-  tags?: TagUpdateManyWithoutReposInput;
-}
-
-export interface NewsScalarWhereInput {
+export interface NewsWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -869,154 +489,7 @@ export interface NewsScalarWhereInput {
   previewImage_not_ends_with?: String;
   isFeatured?: Boolean;
   isFeatured_not?: Boolean;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  AND?: NewsScalarWhereInput[] | NewsScalarWhereInput;
-  OR?: NewsScalarWhereInput[] | NewsScalarWhereInput;
-  NOT?: NewsScalarWhereInput[] | NewsScalarWhereInput;
-}
-
-export interface TagCreateManyWithoutReposInput {
-  create?: TagCreateWithoutReposInput[] | TagCreateWithoutReposInput;
-  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
-}
-
-export interface NewsUpdateManyWithWhereNestedInput {
-  where: NewsScalarWhereInput;
-  data: NewsUpdateManyDataInput;
-}
-
-export interface UserCreateOneWithoutNewsItemsInput {
-  create?: UserCreateWithoutNewsItemsInput;
-  connect?: UserWhereUniqueInput;
-}
-
-export interface UserUpsertWithoutNewsItemsInput {
-  update: UserUpdateWithoutNewsItemsDataInput;
-  create: UserCreateWithoutNewsItemsInput;
-}
-
-export interface TalkCreateManyWithoutSpeakerInput {
-  create?: TalkCreateWithoutSpeakerInput[] | TalkCreateWithoutSpeakerInput;
-  connect?: TalkWhereUniqueInput[] | TalkWhereUniqueInput;
-}
-
-export interface RepoWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  slug?: String;
-  slug_not?: String;
-  slug_in?: String[] | String;
-  slug_not_in?: String[] | String;
-  slug_lt?: String;
-  slug_lte?: String;
-  slug_gt?: String;
-  slug_gte?: String;
-  slug_contains?: String;
-  slug_not_contains?: String;
-  slug_starts_with?: String;
-  slug_not_starts_with?: String;
-  slug_ends_with?: String;
-  slug_not_ends_with?: String;
-  githubName?: String;
-  githubName_not?: String;
-  githubName_in?: String[] | String;
-  githubName_not_in?: String[] | String;
-  githubName_lt?: String;
-  githubName_lte?: String;
-  githubName_gt?: String;
-  githubName_gte?: String;
-  githubName_contains?: String;
-  githubName_not_contains?: String;
-  githubName_starts_with?: String;
-  githubName_not_starts_with?: String;
-  githubName_ends_with?: String;
-  githubName_not_ends_with?: String;
-  githubOwner?: String;
-  githubOwner_not?: String;
-  githubOwner_in?: String[] | String;
-  githubOwner_not_in?: String[] | String;
-  githubOwner_lt?: String;
-  githubOwner_lte?: String;
-  githubOwner_gt?: String;
-  githubOwner_gte?: String;
-  githubOwner_contains?: String;
-  githubOwner_not_contains?: String;
-  githubOwner_starts_with?: String;
-  githubOwner_not_starts_with?: String;
-  githubOwner_ends_with?: String;
-  githubOwner_not_ends_with?: String;
-  githubUrl?: String;
-  githubUrl_not?: String;
-  githubUrl_in?: String[] | String;
-  githubUrl_not_in?: String[] | String;
-  githubUrl_lt?: String;
-  githubUrl_lte?: String;
-  githubUrl_gt?: String;
-  githubUrl_gte?: String;
-  githubUrl_contains?: String;
-  githubUrl_not_contains?: String;
-  githubUrl_starts_with?: String;
-  githubUrl_not_starts_with?: String;
-  githubUrl_ends_with?: String;
-  githubUrl_not_ends_with?: String;
-  ownerUsername?: String;
-  ownerUsername_not?: String;
-  ownerUsername_in?: String[] | String;
-  ownerUsername_not_in?: String[] | String;
-  ownerUsername_lt?: String;
-  ownerUsername_lte?: String;
-  ownerUsername_gt?: String;
-  ownerUsername_gte?: String;
-  ownerUsername_contains?: String;
-  ownerUsername_not_contains?: String;
-  ownerUsername_starts_with?: String;
-  ownerUsername_not_starts_with?: String;
-  ownerUsername_ends_with?: String;
-  ownerUsername_not_ends_with?: String;
-  isFeatured?: Boolean;
-  isFeatured_not?: Boolean;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  owner?: UserWhereInput;
+  writer?: UserWhereInput;
   tags_every?: TagWhereInput;
   tags_some?: TagWhereInput;
   tags_none?: TagWhereInput;
@@ -1036,14 +509,9 @@ export interface RepoWhereInput {
   updatedAt_lte?: DateTimeInput;
   updatedAt_gt?: DateTimeInput;
   updatedAt_gte?: DateTimeInput;
-  AND?: RepoWhereInput[] | RepoWhereInput;
-  OR?: RepoWhereInput[] | RepoWhereInput;
-  NOT?: RepoWhereInput[] | RepoWhereInput;
-}
-
-export interface TagCreateManyWithoutTalksInput {
-  create?: TagCreateWithoutTalksInput[] | TagCreateWithoutTalksInput;
-  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+  AND?: NewsWhereInput[] | NewsWhereInput;
+  OR?: NewsWhereInput[] | NewsWhereInput;
+  NOT?: NewsWhereInput[] | NewsWhereInput;
 }
 
 export interface UserWhereInput {
@@ -1158,9 +626,723 @@ export interface UserWhereInput {
   NOT?: UserWhereInput[] | UserWhereInput;
 }
 
+export interface TalkWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  slug?: String;
+  slug_not?: String;
+  slug_in?: String[] | String;
+  slug_not_in?: String[] | String;
+  slug_lt?: String;
+  slug_lte?: String;
+  slug_gt?: String;
+  slug_gte?: String;
+  slug_contains?: String;
+  slug_not_contains?: String;
+  slug_starts_with?: String;
+  slug_not_starts_with?: String;
+  slug_ends_with?: String;
+  slug_not_ends_with?: String;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  previewImage?: String;
+  previewImage_not?: String;
+  previewImage_in?: String[] | String;
+  previewImage_not_in?: String[] | String;
+  previewImage_lt?: String;
+  previewImage_lte?: String;
+  previewImage_gt?: String;
+  previewImage_gte?: String;
+  previewImage_contains?: String;
+  previewImage_not_contains?: String;
+  previewImage_starts_with?: String;
+  previewImage_not_starts_with?: String;
+  previewImage_ends_with?: String;
+  previewImage_not_ends_with?: String;
+  isFeatured?: Boolean;
+  isFeatured_not?: Boolean;
+  speaker?: UserWhereInput;
+  length?: Int;
+  length_not?: Int;
+  length_in?: Int[] | Int;
+  length_not_in?: Int[] | Int;
+  length_lt?: Int;
+  length_lte?: Int;
+  length_gt?: Int;
+  length_gte?: Int;
+  tags_every?: TagWhereInput;
+  tags_some?: TagWhereInput;
+  tags_none?: TagWhereInput;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: TalkWhereInput[] | TalkWhereInput;
+  OR?: TalkWhereInput[] | TalkWhereInput;
+  NOT?: TalkWhereInput[] | TalkWhereInput;
+}
+
+export interface TagWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  talks_every?: TalkWhereInput;
+  talks_some?: TalkWhereInput;
+  talks_none?: TalkWhereInput;
+  newsItems_every?: NewsWhereInput;
+  newsItems_some?: NewsWhereInput;
+  newsItems_none?: NewsWhereInput;
+  repos_every?: RepoWhereInput;
+  repos_some?: RepoWhereInput;
+  repos_none?: RepoWhereInput;
+  AND?: TagWhereInput[] | TagWhereInput;
+  OR?: TagWhereInput[] | TagWhereInput;
+  NOT?: TagWhereInput[] | TagWhereInput;
+}
+
+export interface RepoWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  slug?: String;
+  slug_not?: String;
+  slug_in?: String[] | String;
+  slug_not_in?: String[] | String;
+  slug_lt?: String;
+  slug_lte?: String;
+  slug_gt?: String;
+  slug_gte?: String;
+  slug_contains?: String;
+  slug_not_contains?: String;
+  slug_starts_with?: String;
+  slug_not_starts_with?: String;
+  slug_ends_with?: String;
+  slug_not_ends_with?: String;
+  githubName?: String;
+  githubName_not?: String;
+  githubName_in?: String[] | String;
+  githubName_not_in?: String[] | String;
+  githubName_lt?: String;
+  githubName_lte?: String;
+  githubName_gt?: String;
+  githubName_gte?: String;
+  githubName_contains?: String;
+  githubName_not_contains?: String;
+  githubName_starts_with?: String;
+  githubName_not_starts_with?: String;
+  githubName_ends_with?: String;
+  githubName_not_ends_with?: String;
+  githubOwner?: String;
+  githubOwner_not?: String;
+  githubOwner_in?: String[] | String;
+  githubOwner_not_in?: String[] | String;
+  githubOwner_lt?: String;
+  githubOwner_lte?: String;
+  githubOwner_gt?: String;
+  githubOwner_gte?: String;
+  githubOwner_contains?: String;
+  githubOwner_not_contains?: String;
+  githubOwner_starts_with?: String;
+  githubOwner_not_starts_with?: String;
+  githubOwner_ends_with?: String;
+  githubOwner_not_ends_with?: String;
+  githubUrl?: String;
+  githubUrl_not?: String;
+  githubUrl_in?: String[] | String;
+  githubUrl_not_in?: String[] | String;
+  githubUrl_lt?: String;
+  githubUrl_lte?: String;
+  githubUrl_gt?: String;
+  githubUrl_gte?: String;
+  githubUrl_contains?: String;
+  githubUrl_not_contains?: String;
+  githubUrl_starts_with?: String;
+  githubUrl_not_starts_with?: String;
+  githubUrl_ends_with?: String;
+  githubUrl_not_ends_with?: String;
+  ownerUsername?: String;
+  ownerUsername_not?: String;
+  ownerUsername_in?: String[] | String;
+  ownerUsername_not_in?: String[] | String;
+  ownerUsername_lt?: String;
+  ownerUsername_lte?: String;
+  ownerUsername_gt?: String;
+  ownerUsername_gte?: String;
+  ownerUsername_contains?: String;
+  ownerUsername_not_contains?: String;
+  ownerUsername_starts_with?: String;
+  ownerUsername_not_starts_with?: String;
+  ownerUsername_ends_with?: String;
+  ownerUsername_not_ends_with?: String;
+  isFeatured?: Boolean;
+  isFeatured_not?: Boolean;
+  description?: String;
+  description_not?: String;
+  description_in?: String[] | String;
+  description_not_in?: String[] | String;
+  description_lt?: String;
+  description_lte?: String;
+  description_gt?: String;
+  description_gte?: String;
+  description_contains?: String;
+  description_not_contains?: String;
+  description_starts_with?: String;
+  description_not_starts_with?: String;
+  description_ends_with?: String;
+  description_not_ends_with?: String;
+  owner?: UserWhereInput;
+  tags_every?: TagWhereInput;
+  tags_some?: TagWhereInput;
+  tags_none?: TagWhereInput;
+  upvotes_every?: UpvoteWhereInput;
+  upvotes_some?: UpvoteWhereInput;
+  upvotes_none?: UpvoteWhereInput;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: RepoWhereInput[] | RepoWhereInput;
+  OR?: RepoWhereInput[] | RepoWhereInput;
+  NOT?: RepoWhereInput[] | RepoWhereInput;
+}
+
+export interface UpvoteWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  user?: UserWhereInput;
+  repo?: RepoWhereInput;
+  AND?: UpvoteWhereInput[] | UpvoteWhereInput;
+  OR?: UpvoteWhereInput[] | UpvoteWhereInput;
+  NOT?: UpvoteWhereInput[] | UpvoteWhereInput;
+}
+
+export type RepoWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  slug?: String;
+}>;
+
+export type TagWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  name?: String;
+}>;
+
+export type TalkWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  slug?: String;
+}>;
+
+export type UpvoteWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  username?: String;
+  email?: String;
+}>;
+
+export interface NewsCreateInput {
+  slug: String;
+  title: String;
+  content: String;
+  previewImage?: String;
+  isFeatured?: Boolean;
+  writer: UserCreateOneWithoutNewsItemsInput;
+  tags?: TagCreateManyWithoutNewsItemsInput;
+}
+
+export interface UserCreateOneWithoutNewsItemsInput {
+  create?: UserCreateWithoutNewsItemsInput;
+  connect?: UserWhereUniqueInput;
+}
+
+export interface UserCreateWithoutNewsItemsInput {
+  name: String;
+  username: String;
+  email?: String;
+  talks?: TalkCreateManyWithoutSpeakerInput;
+  githubToken: String;
+  profilePic?: String;
+}
+
+export interface TalkCreateManyWithoutSpeakerInput {
+  create?: TalkCreateWithoutSpeakerInput[] | TalkCreateWithoutSpeakerInput;
+  connect?: TalkWhereUniqueInput[] | TalkWhereUniqueInput;
+}
+
+export interface TalkCreateWithoutSpeakerInput {
+  slug: String;
+  title: String;
+  previewImage: String;
+  isFeatured?: Boolean;
+  length?: Int;
+  tags?: TagCreateManyWithoutTalksInput;
+}
+
+export interface TagCreateManyWithoutTalksInput {
+  create?: TagCreateWithoutTalksInput[] | TagCreateWithoutTalksInput;
+  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+}
+
+export interface TagCreateWithoutTalksInput {
+  name: String;
+  newsItems?: NewsCreateManyWithoutTagsInput;
+  repos?: RepoCreateManyWithoutTagsInput;
+}
+
 export interface NewsCreateManyWithoutTagsInput {
   create?: NewsCreateWithoutTagsInput[] | NewsCreateWithoutTagsInput;
   connect?: NewsWhereUniqueInput[] | NewsWhereUniqueInput;
+}
+
+export interface NewsCreateWithoutTagsInput {
+  slug: String;
+  title: String;
+  content: String;
+  previewImage?: String;
+  isFeatured?: Boolean;
+  writer: UserCreateOneWithoutNewsItemsInput;
+}
+
+export interface RepoCreateManyWithoutTagsInput {
+  create?: RepoCreateWithoutTagsInput[] | RepoCreateWithoutTagsInput;
+  connect?: RepoWhereUniqueInput[] | RepoWhereUniqueInput;
+}
+
+export interface RepoCreateWithoutTagsInput {
+  slug: String;
+  githubName: String;
+  githubOwner: String;
+  githubUrl: String;
+  ownerUsername: String;
+  isFeatured?: Boolean;
+  description?: String;
+  owner?: UserCreateOneInput;
+  upvotes?: UpvoteCreateManyWithoutRepoInput;
+}
+
+export interface UserCreateOneInput {
+  create?: UserCreateInput;
+  connect?: UserWhereUniqueInput;
+}
+
+export interface UserCreateInput {
+  name: String;
+  username: String;
+  email?: String;
+  newsItems?: NewsCreateManyWithoutWriterInput;
+  talks?: TalkCreateManyWithoutSpeakerInput;
+  githubToken: String;
+  profilePic?: String;
+}
+
+export interface NewsCreateManyWithoutWriterInput {
+  create?: NewsCreateWithoutWriterInput[] | NewsCreateWithoutWriterInput;
+  connect?: NewsWhereUniqueInput[] | NewsWhereUniqueInput;
+}
+
+export interface NewsCreateWithoutWriterInput {
+  slug: String;
+  title: String;
+  content: String;
+  previewImage?: String;
+  isFeatured?: Boolean;
+  tags?: TagCreateManyWithoutNewsItemsInput;
+}
+
+export interface TagCreateManyWithoutNewsItemsInput {
+  create?: TagCreateWithoutNewsItemsInput[] | TagCreateWithoutNewsItemsInput;
+  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+}
+
+export interface TagCreateWithoutNewsItemsInput {
+  name: String;
+  talks?: TalkCreateManyWithoutTagsInput;
+  repos?: RepoCreateManyWithoutTagsInput;
+}
+
+export interface TalkCreateManyWithoutTagsInput {
+  create?: TalkCreateWithoutTagsInput[] | TalkCreateWithoutTagsInput;
+  connect?: TalkWhereUniqueInput[] | TalkWhereUniqueInput;
+}
+
+export interface TalkCreateWithoutTagsInput {
+  slug: String;
+  title: String;
+  previewImage: String;
+  isFeatured?: Boolean;
+  speaker?: UserCreateOneWithoutTalksInput;
+  length?: Int;
+}
+
+export interface UserCreateOneWithoutTalksInput {
+  create?: UserCreateWithoutTalksInput;
+  connect?: UserWhereUniqueInput;
+}
+
+export interface UserCreateWithoutTalksInput {
+  name: String;
+  username: String;
+  email?: String;
+  newsItems?: NewsCreateManyWithoutWriterInput;
+  githubToken: String;
+  profilePic?: String;
+}
+
+export interface UpvoteCreateManyWithoutRepoInput {
+  create?: UpvoteCreateWithoutRepoInput[] | UpvoteCreateWithoutRepoInput;
+  connect?: UpvoteWhereUniqueInput[] | UpvoteWhereUniqueInput;
+}
+
+export interface UpvoteCreateWithoutRepoInput {
+  user: UserCreateOneInput;
+}
+
+export interface NewsUpdateInput {
+  slug?: String;
+  title?: String;
+  content?: String;
+  previewImage?: String;
+  isFeatured?: Boolean;
+  writer?: UserUpdateOneRequiredWithoutNewsItemsInput;
+  tags?: TagUpdateManyWithoutNewsItemsInput;
+}
+
+export interface UserUpdateOneRequiredWithoutNewsItemsInput {
+  create?: UserCreateWithoutNewsItemsInput;
+  update?: UserUpdateWithoutNewsItemsDataInput;
+  upsert?: UserUpsertWithoutNewsItemsInput;
+  connect?: UserWhereUniqueInput;
+}
+
+export interface UserUpdateWithoutNewsItemsDataInput {
+  name?: String;
+  username?: String;
+  email?: String;
+  talks?: TalkUpdateManyWithoutSpeakerInput;
+  githubToken?: String;
+  profilePic?: String;
+}
+
+export interface TalkUpdateManyWithoutSpeakerInput {
+  create?: TalkCreateWithoutSpeakerInput[] | TalkCreateWithoutSpeakerInput;
+  delete?: TalkWhereUniqueInput[] | TalkWhereUniqueInput;
+  connect?: TalkWhereUniqueInput[] | TalkWhereUniqueInput;
+  disconnect?: TalkWhereUniqueInput[] | TalkWhereUniqueInput;
+  update?:
+    | TalkUpdateWithWhereUniqueWithoutSpeakerInput[]
+    | TalkUpdateWithWhereUniqueWithoutSpeakerInput;
+  upsert?:
+    | TalkUpsertWithWhereUniqueWithoutSpeakerInput[]
+    | TalkUpsertWithWhereUniqueWithoutSpeakerInput;
+  deleteMany?: TalkScalarWhereInput[] | TalkScalarWhereInput;
+  updateMany?:
+    | TalkUpdateManyWithWhereNestedInput[]
+    | TalkUpdateManyWithWhereNestedInput;
+}
+
+export interface TalkUpdateWithWhereUniqueWithoutSpeakerInput {
+  where: TalkWhereUniqueInput;
+  data: TalkUpdateWithoutSpeakerDataInput;
+}
+
+export interface TalkUpdateWithoutSpeakerDataInput {
+  slug?: String;
+  title?: String;
+  previewImage?: String;
+  isFeatured?: Boolean;
+  length?: Int;
+  tags?: TagUpdateManyWithoutTalksInput;
+}
+
+export interface TagUpdateManyWithoutTalksInput {
+  create?: TagCreateWithoutTalksInput[] | TagCreateWithoutTalksInput;
+  delete?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+  disconnect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+  update?:
+    | TagUpdateWithWhereUniqueWithoutTalksInput[]
+    | TagUpdateWithWhereUniqueWithoutTalksInput;
+  upsert?:
+    | TagUpsertWithWhereUniqueWithoutTalksInput[]
+    | TagUpsertWithWhereUniqueWithoutTalksInput;
+  deleteMany?: TagScalarWhereInput[] | TagScalarWhereInput;
+  updateMany?:
+    | TagUpdateManyWithWhereNestedInput[]
+    | TagUpdateManyWithWhereNestedInput;
+}
+
+export interface TagUpdateWithWhereUniqueWithoutTalksInput {
+  where: TagWhereUniqueInput;
+  data: TagUpdateWithoutTalksDataInput;
+}
+
+export interface TagUpdateWithoutTalksDataInput {
+  name?: String;
+  newsItems?: NewsUpdateManyWithoutTagsInput;
+  repos?: RepoUpdateManyWithoutTagsInput;
+}
+
+export interface NewsUpdateManyWithoutTagsInput {
+  create?: NewsCreateWithoutTagsInput[] | NewsCreateWithoutTagsInput;
+  delete?: NewsWhereUniqueInput[] | NewsWhereUniqueInput;
+  connect?: NewsWhereUniqueInput[] | NewsWhereUniqueInput;
+  disconnect?: NewsWhereUniqueInput[] | NewsWhereUniqueInput;
+  update?:
+    | NewsUpdateWithWhereUniqueWithoutTagsInput[]
+    | NewsUpdateWithWhereUniqueWithoutTagsInput;
+  upsert?:
+    | NewsUpsertWithWhereUniqueWithoutTagsInput[]
+    | NewsUpsertWithWhereUniqueWithoutTagsInput;
+  deleteMany?: NewsScalarWhereInput[] | NewsScalarWhereInput;
+  updateMany?:
+    | NewsUpdateManyWithWhereNestedInput[]
+    | NewsUpdateManyWithWhereNestedInput;
+}
+
+export interface NewsUpdateWithWhereUniqueWithoutTagsInput {
+  where: NewsWhereUniqueInput;
+  data: NewsUpdateWithoutTagsDataInput;
+}
+
+export interface NewsUpdateWithoutTagsDataInput {
+  slug?: String;
+  title?: String;
+  content?: String;
+  previewImage?: String;
+  isFeatured?: Boolean;
+  writer?: UserUpdateOneRequiredWithoutNewsItemsInput;
+}
+
+export interface NewsUpsertWithWhereUniqueWithoutTagsInput {
+  where: NewsWhereUniqueInput;
+  update: NewsUpdateWithoutTagsDataInput;
+  create: NewsCreateWithoutTagsInput;
+}
+
+export interface NewsScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  slug?: String;
+  slug_not?: String;
+  slug_in?: String[] | String;
+  slug_not_in?: String[] | String;
+  slug_lt?: String;
+  slug_lte?: String;
+  slug_gt?: String;
+  slug_gte?: String;
+  slug_contains?: String;
+  slug_not_contains?: String;
+  slug_starts_with?: String;
+  slug_not_starts_with?: String;
+  slug_ends_with?: String;
+  slug_not_ends_with?: String;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  previewImage?: String;
+  previewImage_not?: String;
+  previewImage_in?: String[] | String;
+  previewImage_not_in?: String[] | String;
+  previewImage_lt?: String;
+  previewImage_lte?: String;
+  previewImage_gt?: String;
+  previewImage_gte?: String;
+  previewImage_contains?: String;
+  previewImage_not_contains?: String;
+  previewImage_starts_with?: String;
+  previewImage_not_starts_with?: String;
+  previewImage_ends_with?: String;
+  previewImage_not_ends_with?: String;
+  isFeatured?: Boolean;
+  isFeatured_not?: Boolean;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: NewsScalarWhereInput[] | NewsScalarWhereInput;
+  OR?: NewsScalarWhereInput[] | NewsScalarWhereInput;
+  NOT?: NewsScalarWhereInput[] | NewsScalarWhereInput;
+}
+
+export interface NewsUpdateManyWithWhereNestedInput {
+  where: NewsScalarWhereInput;
+  data: NewsUpdateManyDataInput;
+}
+
+export interface NewsUpdateManyDataInput {
+  slug?: String;
+  title?: String;
+  content?: String;
+  previewImage?: String;
+  isFeatured?: Boolean;
+}
+
+export interface RepoUpdateManyWithoutTagsInput {
+  create?: RepoCreateWithoutTagsInput[] | RepoCreateWithoutTagsInput;
+  delete?: RepoWhereUniqueInput[] | RepoWhereUniqueInput;
+  connect?: RepoWhereUniqueInput[] | RepoWhereUniqueInput;
+  disconnect?: RepoWhereUniqueInput[] | RepoWhereUniqueInput;
+  update?:
+    | RepoUpdateWithWhereUniqueWithoutTagsInput[]
+    | RepoUpdateWithWhereUniqueWithoutTagsInput;
+  upsert?:
+    | RepoUpsertWithWhereUniqueWithoutTagsInput[]
+    | RepoUpsertWithWhereUniqueWithoutTagsInput;
+  deleteMany?: RepoScalarWhereInput[] | RepoScalarWhereInput;
+  updateMany?:
+    | RepoUpdateManyWithWhereNestedInput[]
+    | RepoUpdateManyWithWhereNestedInput;
+}
+
+export interface RepoUpdateWithWhereUniqueWithoutTagsInput {
+  where: RepoWhereUniqueInput;
+  data: RepoUpdateWithoutTagsDataInput;
 }
 
 export interface RepoUpdateWithoutTagsDataInput {
@@ -1172,11 +1354,7 @@ export interface RepoUpdateWithoutTagsDataInput {
   isFeatured?: Boolean;
   description?: String;
   owner?: UserUpdateOneInput;
-}
-
-export interface RepoCreateManyWithoutTagsInput {
-  create?: RepoCreateWithoutTagsInput[] | RepoCreateWithoutTagsInput;
-  connect?: RepoWhereUniqueInput[] | RepoWhereUniqueInput;
+  upvotes?: UpvoteUpdateManyWithoutRepoInput;
 }
 
 export interface UserUpdateOneInput {
@@ -1188,11 +1366,6 @@ export interface UserUpdateOneInput {
   connect?: UserWhereUniqueInput;
 }
 
-export interface UserCreateOneInput {
-  create?: UserCreateInput;
-  connect?: UserWhereUniqueInput;
-}
-
 export interface UserUpdateDataInput {
   name?: String;
   username?: String;
@@ -1201,11 +1374,6 @@ export interface UserUpdateDataInput {
   talks?: TalkUpdateManyWithoutSpeakerInput;
   githubToken?: String;
   profilePic?: String;
-}
-
-export interface NewsCreateManyWithoutWriterInput {
-  create?: NewsCreateWithoutWriterInput[] | NewsCreateWithoutWriterInput;
-  connect?: NewsWhereUniqueInput[] | NewsWhereUniqueInput;
 }
 
 export interface NewsUpdateManyWithoutWriterInput {
@@ -1225,19 +1393,9 @@ export interface NewsUpdateManyWithoutWriterInput {
     | NewsUpdateManyWithWhereNestedInput;
 }
 
-export interface TagCreateManyWithoutNewsItemsInput {
-  create?: TagCreateWithoutNewsItemsInput[] | TagCreateWithoutNewsItemsInput;
-  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
-}
-
 export interface NewsUpdateWithWhereUniqueWithoutWriterInput {
   where: NewsWhereUniqueInput;
   data: NewsUpdateWithoutWriterDataInput;
-}
-
-export interface TalkCreateManyWithoutTagsInput {
-  create?: TalkCreateWithoutTagsInput[] | TalkCreateWithoutTagsInput;
-  connect?: TalkWhereUniqueInput[] | TalkWhereUniqueInput;
 }
 
 export interface NewsUpdateWithoutWriterDataInput {
@@ -1247,11 +1405,6 @@ export interface NewsUpdateWithoutWriterDataInput {
   previewImage?: String;
   isFeatured?: Boolean;
   tags?: TagUpdateManyWithoutNewsItemsInput;
-}
-
-export interface UserCreateOneWithoutTalksInput {
-  create?: UserCreateWithoutTalksInput;
-  connect?: UserWhereUniqueInput;
 }
 
 export interface TagUpdateManyWithoutNewsItemsInput {
@@ -1271,28 +1424,9 @@ export interface TagUpdateManyWithoutNewsItemsInput {
     | TagUpdateManyWithWhereNestedInput;
 }
 
-export interface TalkSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: TalkWhereInput;
-  AND?: TalkSubscriptionWhereInput[] | TalkSubscriptionWhereInput;
-  OR?: TalkSubscriptionWhereInput[] | TalkSubscriptionWhereInput;
-  NOT?: TalkSubscriptionWhereInput[] | TalkSubscriptionWhereInput;
-}
-
 export interface TagUpdateWithWhereUniqueWithoutNewsItemsInput {
   where: TagWhereUniqueInput;
   data: TagUpdateWithoutNewsItemsDataInput;
-}
-
-export interface UserUpdateManyMutationInput {
-  name?: String;
-  username?: String;
-  email?: String;
-  githubToken?: String;
-  profilePic?: String;
 }
 
 export interface TagUpdateWithoutNewsItemsDataInput {
@@ -1300,11 +1434,6 @@ export interface TagUpdateWithoutNewsItemsDataInput {
   talks?: TalkUpdateManyWithoutTagsInput;
   repos?: RepoUpdateManyWithoutTagsInput;
 }
-
-export type RepoWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  slug?: String;
-}>;
 
 export interface TalkUpdateManyWithoutTagsInput {
   create?: TalkCreateWithoutTagsInput[] | TalkCreateWithoutTagsInput;
@@ -1323,20 +1452,10 @@ export interface TalkUpdateManyWithoutTagsInput {
     | TalkUpdateManyWithWhereNestedInput;
 }
 
-export type TagWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  name?: String;
-}>;
-
 export interface TalkUpdateWithWhereUniqueWithoutTagsInput {
   where: TalkWhereUniqueInput;
   data: TalkUpdateWithoutTagsDataInput;
 }
-
-export type TalkWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  slug?: String;
-}>;
 
 export interface TalkUpdateWithoutTagsDataInput {
   slug?: String;
@@ -1347,12 +1466,6 @@ export interface TalkUpdateWithoutTagsDataInput {
   length?: Int;
 }
 
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  username?: String;
-  email?: String;
-}>;
-
 export interface UserUpdateOneWithoutTalksInput {
   create?: UserCreateWithoutTalksInput;
   update?: UserUpdateWithoutTalksDataInput;
@@ -1360,18 +1473,6 @@ export interface UserUpdateOneWithoutTalksInput {
   delete?: Boolean;
   disconnect?: Boolean;
   connect?: UserWhereUniqueInput;
-}
-
-export interface RepoCreateInput {
-  slug: String;
-  githubName: String;
-  githubOwner: String;
-  githubUrl: String;
-  ownerUsername: String;
-  isFeatured?: Boolean;
-  description?: String;
-  owner?: UserCreateOneInput;
-  tags?: TagCreateManyWithoutReposInput;
 }
 
 export interface UserUpdateWithoutTalksDataInput {
@@ -1383,41 +1484,15 @@ export interface UserUpdateWithoutTalksDataInput {
   profilePic?: String;
 }
 
-export interface UserCreateWithoutNewsItemsInput {
-  name: String;
-  username: String;
-  email?: String;
-  talks?: TalkCreateManyWithoutSpeakerInput;
-  githubToken: String;
-  profilePic?: String;
-}
-
 export interface UserUpsertWithoutTalksInput {
   update: UserUpdateWithoutTalksDataInput;
   create: UserCreateWithoutTalksInput;
-}
-
-export interface TagCreateWithoutTalksInput {
-  name: String;
-  newsItems?: NewsCreateManyWithoutTagsInput;
-  repos?: RepoCreateManyWithoutTagsInput;
 }
 
 export interface TalkUpsertWithWhereUniqueWithoutTagsInput {
   where: TalkWhereUniqueInput;
   update: TalkUpdateWithoutTagsDataInput;
   create: TalkCreateWithoutTagsInput;
-}
-
-export interface RepoCreateWithoutTagsInput {
-  slug: String;
-  githubName: String;
-  githubOwner: String;
-  githubUrl: String;
-  ownerUsername: String;
-  isFeatured?: Boolean;
-  description?: String;
-  owner?: UserCreateOneInput;
 }
 
 export interface TalkScalarWhereInput {
@@ -1508,27 +1583,9 @@ export interface TalkScalarWhereInput {
   NOT?: TalkScalarWhereInput[] | TalkScalarWhereInput;
 }
 
-export interface NewsCreateWithoutWriterInput {
-  slug: String;
-  title: String;
-  content: String;
-  previewImage?: String;
-  isFeatured?: Boolean;
-  tags?: TagCreateManyWithoutNewsItemsInput;
-}
-
 export interface TalkUpdateManyWithWhereNestedInput {
   where: TalkScalarWhereInput;
   data: TalkUpdateManyDataInput;
-}
-
-export interface TalkCreateWithoutTagsInput {
-  slug: String;
-  title: String;
-  previewImage: String;
-  isFeatured?: Boolean;
-  speaker?: UserCreateOneWithoutTalksInput;
-  length?: Int;
 }
 
 export interface TalkUpdateManyDataInput {
@@ -1539,25 +1596,10 @@ export interface TalkUpdateManyDataInput {
   length?: Int;
 }
 
-export interface RepoSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: RepoWhereInput;
-  AND?: RepoSubscriptionWhereInput[] | RepoSubscriptionWhereInput;
-  OR?: RepoSubscriptionWhereInput[] | RepoSubscriptionWhereInput;
-  NOT?: RepoSubscriptionWhereInput[] | RepoSubscriptionWhereInput;
-}
-
 export interface TagUpsertWithWhereUniqueWithoutNewsItemsInput {
   where: TagWhereUniqueInput;
   update: TagUpdateWithoutNewsItemsDataInput;
   create: TagCreateWithoutNewsItemsInput;
-}
-
-export interface TagUpdateManyMutationInput {
-  name?: String;
 }
 
 export interface TagScalarWhereInput {
@@ -1594,37 +1636,13 @@ export interface TagScalarWhereInput {
   NOT?: TagScalarWhereInput[] | TagScalarWhereInput;
 }
 
-export interface TagUpdateWithWhereUniqueWithoutReposInput {
-  where: TagWhereUniqueInput;
-  data: TagUpdateWithoutReposDataInput;
-}
-
 export interface TagUpdateManyWithWhereNestedInput {
   where: TagScalarWhereInput;
   data: TagUpdateManyDataInput;
 }
 
-export interface NewsCreateInput {
-  slug: String;
-  title: String;
-  content: String;
-  previewImage?: String;
-  isFeatured?: Boolean;
-  writer: UserCreateOneWithoutNewsItemsInput;
-  tags?: TagCreateManyWithoutNewsItemsInput;
-}
-
 export interface TagUpdateManyDataInput {
   name?: String;
-}
-
-export interface NewsCreateWithoutTagsInput {
-  slug: String;
-  title: String;
-  content: String;
-  previewImage?: String;
-  isFeatured?: Boolean;
-  writer: UserCreateOneWithoutNewsItemsInput;
 }
 
 export interface NewsUpsertWithWhereUniqueWithoutWriterInput {
@@ -1633,56 +1651,71 @@ export interface NewsUpsertWithWhereUniqueWithoutWriterInput {
   create: NewsCreateWithoutWriterInput;
 }
 
-export interface TagCreateWithoutNewsItemsInput {
-  name: String;
-  talks?: TalkCreateManyWithoutTagsInput;
-  repos?: RepoCreateManyWithoutTagsInput;
-}
-
 export interface UserUpsertNestedInput {
   update: UserUpdateDataInput;
   create: UserCreateInput;
 }
 
-export interface TalkUpdateManyMutationInput {
-  slug?: String;
-  title?: String;
-  previewImage?: String;
-  isFeatured?: Boolean;
-  length?: Int;
+export interface UpvoteUpdateManyWithoutRepoInput {
+  create?: UpvoteCreateWithoutRepoInput[] | UpvoteCreateWithoutRepoInput;
+  delete?: UpvoteWhereUniqueInput[] | UpvoteWhereUniqueInput;
+  connect?: UpvoteWhereUniqueInput[] | UpvoteWhereUniqueInput;
+  disconnect?: UpvoteWhereUniqueInput[] | UpvoteWhereUniqueInput;
+  update?:
+    | UpvoteUpdateWithWhereUniqueWithoutRepoInput[]
+    | UpvoteUpdateWithWhereUniqueWithoutRepoInput;
+  upsert?:
+    | UpvoteUpsertWithWhereUniqueWithoutRepoInput[]
+    | UpvoteUpsertWithWhereUniqueWithoutRepoInput;
+  deleteMany?: UpvoteScalarWhereInput[] | UpvoteScalarWhereInput;
+}
+
+export interface UpvoteUpdateWithWhereUniqueWithoutRepoInput {
+  where: UpvoteWhereUniqueInput;
+  data: UpvoteUpdateWithoutRepoDataInput;
+}
+
+export interface UpvoteUpdateWithoutRepoDataInput {
+  user?: UserUpdateOneRequiredInput;
+}
+
+export interface UserUpdateOneRequiredInput {
+  create?: UserCreateInput;
+  update?: UserUpdateDataInput;
+  upsert?: UserUpsertNestedInput;
+  connect?: UserWhereUniqueInput;
+}
+
+export interface UpvoteUpsertWithWhereUniqueWithoutRepoInput {
+  where: UpvoteWhereUniqueInput;
+  update: UpvoteUpdateWithoutRepoDataInput;
+  create: UpvoteCreateWithoutRepoInput;
+}
+
+export interface UpvoteScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  AND?: UpvoteScalarWhereInput[] | UpvoteScalarWhereInput;
+  OR?: UpvoteScalarWhereInput[] | UpvoteScalarWhereInput;
+  NOT?: UpvoteScalarWhereInput[] | UpvoteScalarWhereInput;
 }
 
 export interface RepoUpsertWithWhereUniqueWithoutTagsInput {
   where: RepoWhereUniqueInput;
   update: RepoUpdateWithoutTagsDataInput;
   create: RepoCreateWithoutTagsInput;
-}
-
-export interface TagCreateWithoutReposInput {
-  name: String;
-  talks?: TalkCreateManyWithoutTagsInput;
-  newsItems?: NewsCreateManyWithoutTagsInput;
-}
-
-export interface TagUpsertWithWhereUniqueWithoutTalksInput {
-  where: TagWhereUniqueInput;
-  update: TagUpdateWithoutTalksDataInput;
-  create: TagCreateWithoutTalksInput;
-}
-
-export interface RepoUpdateManyDataInput {
-  slug?: String;
-  githubName?: String;
-  githubOwner?: String;
-  githubUrl?: String;
-  ownerUsername?: String;
-  isFeatured?: Boolean;
-  description?: String;
-}
-
-export interface RepoUpdateManyWithWhereNestedInput {
-  where: RepoScalarWhereInput;
-  data: RepoUpdateManyDataInput;
 }
 
 export interface RepoScalarWhereInput {
@@ -1807,13 +1840,115 @@ export interface RepoScalarWhereInput {
   NOT?: RepoScalarWhereInput[] | RepoScalarWhereInput;
 }
 
-export interface TalkCreateWithoutSpeakerInput {
-  slug: String;
-  title: String;
-  previewImage: String;
+export interface RepoUpdateManyWithWhereNestedInput {
+  where: RepoScalarWhereInput;
+  data: RepoUpdateManyDataInput;
+}
+
+export interface RepoUpdateManyDataInput {
+  slug?: String;
+  githubName?: String;
+  githubOwner?: String;
+  githubUrl?: String;
+  ownerUsername?: String;
   isFeatured?: Boolean;
-  length?: Int;
-  tags?: TagCreateManyWithoutTalksInput;
+  description?: String;
+}
+
+export interface TagUpsertWithWhereUniqueWithoutTalksInput {
+  where: TagWhereUniqueInput;
+  update: TagUpdateWithoutTalksDataInput;
+  create: TagCreateWithoutTalksInput;
+}
+
+export interface TalkUpsertWithWhereUniqueWithoutSpeakerInput {
+  where: TalkWhereUniqueInput;
+  update: TalkUpdateWithoutSpeakerDataInput;
+  create: TalkCreateWithoutSpeakerInput;
+}
+
+export interface UserUpsertWithoutNewsItemsInput {
+  update: UserUpdateWithoutNewsItemsDataInput;
+  create: UserCreateWithoutNewsItemsInput;
+}
+
+export interface NewsUpdateManyMutationInput {
+  slug?: String;
+  title?: String;
+  content?: String;
+  previewImage?: String;
+  isFeatured?: Boolean;
+}
+
+export interface RepoCreateInput {
+  slug: String;
+  githubName: String;
+  githubOwner: String;
+  githubUrl: String;
+  ownerUsername: String;
+  isFeatured?: Boolean;
+  description?: String;
+  owner?: UserCreateOneInput;
+  tags?: TagCreateManyWithoutReposInput;
+  upvotes?: UpvoteCreateManyWithoutRepoInput;
+}
+
+export interface TagCreateManyWithoutReposInput {
+  create?: TagCreateWithoutReposInput[] | TagCreateWithoutReposInput;
+  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+}
+
+export interface TagCreateWithoutReposInput {
+  name: String;
+  talks?: TalkCreateManyWithoutTagsInput;
+  newsItems?: NewsCreateManyWithoutTagsInput;
+}
+
+export interface RepoUpdateInput {
+  slug?: String;
+  githubName?: String;
+  githubOwner?: String;
+  githubUrl?: String;
+  ownerUsername?: String;
+  isFeatured?: Boolean;
+  description?: String;
+  owner?: UserUpdateOneInput;
+  tags?: TagUpdateManyWithoutReposInput;
+  upvotes?: UpvoteUpdateManyWithoutRepoInput;
+}
+
+export interface TagUpdateManyWithoutReposInput {
+  create?: TagCreateWithoutReposInput[] | TagCreateWithoutReposInput;
+  delete?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+  connect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+  disconnect?: TagWhereUniqueInput[] | TagWhereUniqueInput;
+  update?:
+    | TagUpdateWithWhereUniqueWithoutReposInput[]
+    | TagUpdateWithWhereUniqueWithoutReposInput;
+  upsert?:
+    | TagUpsertWithWhereUniqueWithoutReposInput[]
+    | TagUpsertWithWhereUniqueWithoutReposInput;
+  deleteMany?: TagScalarWhereInput[] | TagScalarWhereInput;
+  updateMany?:
+    | TagUpdateManyWithWhereNestedInput[]
+    | TagUpdateManyWithWhereNestedInput;
+}
+
+export interface TagUpdateWithWhereUniqueWithoutReposInput {
+  where: TagWhereUniqueInput;
+  data: TagUpdateWithoutReposDataInput;
+}
+
+export interface TagUpdateWithoutReposDataInput {
+  name?: String;
+  talks?: TalkUpdateManyWithoutTagsInput;
+  newsItems?: NewsUpdateManyWithoutTagsInput;
+}
+
+export interface TagUpsertWithWhereUniqueWithoutReposInput {
+  where: TagWhereUniqueInput;
+  update: TagUpdateWithoutReposDataInput;
+  create: TagCreateWithoutReposInput;
 }
 
 export interface RepoUpdateManyMutationInput {
@@ -1826,174 +1961,248 @@ export interface RepoUpdateManyMutationInput {
   description?: String;
 }
 
-export interface NewsWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  slug?: String;
-  slug_not?: String;
-  slug_in?: String[] | String;
-  slug_not_in?: String[] | String;
-  slug_lt?: String;
-  slug_lte?: String;
-  slug_gt?: String;
-  slug_gte?: String;
-  slug_contains?: String;
-  slug_not_contains?: String;
-  slug_starts_with?: String;
-  slug_not_starts_with?: String;
-  slug_ends_with?: String;
-  slug_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  content?: String;
-  content_not?: String;
-  content_in?: String[] | String;
-  content_not_in?: String[] | String;
-  content_lt?: String;
-  content_lte?: String;
-  content_gt?: String;
-  content_gte?: String;
-  content_contains?: String;
-  content_not_contains?: String;
-  content_starts_with?: String;
-  content_not_starts_with?: String;
-  content_ends_with?: String;
-  content_not_ends_with?: String;
-  previewImage?: String;
-  previewImage_not?: String;
-  previewImage_in?: String[] | String;
-  previewImage_not_in?: String[] | String;
-  previewImage_lt?: String;
-  previewImage_lte?: String;
-  previewImage_gt?: String;
-  previewImage_gte?: String;
-  previewImage_contains?: String;
-  previewImage_not_contains?: String;
-  previewImage_starts_with?: String;
-  previewImage_not_starts_with?: String;
-  previewImage_ends_with?: String;
-  previewImage_not_ends_with?: String;
-  isFeatured?: Boolean;
-  isFeatured_not?: Boolean;
-  writer?: UserWhereInput;
-  tags_every?: TagWhereInput;
-  tags_some?: TagWhereInput;
-  tags_none?: TagWhereInput;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  AND?: NewsWhereInput[] | NewsWhereInput;
-  OR?: NewsWhereInput[] | NewsWhereInput;
-  NOT?: NewsWhereInput[] | NewsWhereInput;
+export interface TagCreateInput {
+  name: String;
+  talks?: TalkCreateManyWithoutTagsInput;
+  newsItems?: NewsCreateManyWithoutTagsInput;
+  repos?: RepoCreateManyWithoutTagsInput;
 }
 
-export interface UserCreateInput {
-  name: String;
-  username: String;
+export interface TagUpdateInput {
+  name?: String;
+  talks?: TalkUpdateManyWithoutTagsInput;
+  newsItems?: NewsUpdateManyWithoutTagsInput;
+  repos?: RepoUpdateManyWithoutTagsInput;
+}
+
+export interface TagUpdateManyMutationInput {
+  name?: String;
+}
+
+export interface TalkCreateInput {
+  slug: String;
+  title: String;
+  previewImage: String;
+  isFeatured?: Boolean;
+  speaker?: UserCreateOneWithoutTalksInput;
+  length?: Int;
+  tags?: TagCreateManyWithoutTalksInput;
+}
+
+export interface TalkUpdateInput {
+  slug?: String;
+  title?: String;
+  previewImage?: String;
+  isFeatured?: Boolean;
+  speaker?: UserUpdateOneWithoutTalksInput;
+  length?: Int;
+  tags?: TagUpdateManyWithoutTalksInput;
+}
+
+export interface TalkUpdateManyMutationInput {
+  slug?: String;
+  title?: String;
+  previewImage?: String;
+  isFeatured?: Boolean;
+  length?: Int;
+}
+
+export interface UpvoteCreateInput {
+  user: UserCreateOneInput;
+  repo: RepoCreateOneWithoutUpvotesInput;
+}
+
+export interface RepoCreateOneWithoutUpvotesInput {
+  create?: RepoCreateWithoutUpvotesInput;
+  connect?: RepoWhereUniqueInput;
+}
+
+export interface RepoCreateWithoutUpvotesInput {
+  slug: String;
+  githubName: String;
+  githubOwner: String;
+  githubUrl: String;
+  ownerUsername: String;
+  isFeatured?: Boolean;
+  description?: String;
+  owner?: UserCreateOneInput;
+  tags?: TagCreateManyWithoutReposInput;
+}
+
+export interface UpvoteUpdateInput {
+  user?: UserUpdateOneRequiredInput;
+  repo?: RepoUpdateOneRequiredWithoutUpvotesInput;
+}
+
+export interface RepoUpdateOneRequiredWithoutUpvotesInput {
+  create?: RepoCreateWithoutUpvotesInput;
+  update?: RepoUpdateWithoutUpvotesDataInput;
+  upsert?: RepoUpsertWithoutUpvotesInput;
+  connect?: RepoWhereUniqueInput;
+}
+
+export interface RepoUpdateWithoutUpvotesDataInput {
+  slug?: String;
+  githubName?: String;
+  githubOwner?: String;
+  githubUrl?: String;
+  ownerUsername?: String;
+  isFeatured?: Boolean;
+  description?: String;
+  owner?: UserUpdateOneInput;
+  tags?: TagUpdateManyWithoutReposInput;
+}
+
+export interface RepoUpsertWithoutUpvotesInput {
+  update: RepoUpdateWithoutUpvotesDataInput;
+  create: RepoCreateWithoutUpvotesInput;
+}
+
+export interface UserUpdateInput {
+  name?: String;
+  username?: String;
   email?: String;
-  newsItems?: NewsCreateManyWithoutWriterInput;
-  talks?: TalkCreateManyWithoutSpeakerInput;
-  githubToken: String;
+  newsItems?: NewsUpdateManyWithoutWriterInput;
+  talks?: TalkUpdateManyWithoutSpeakerInput;
+  githubToken?: String;
   profilePic?: String;
+}
+
+export interface UserUpdateManyMutationInput {
+  name?: String;
+  username?: String;
+  email?: String;
+  githubToken?: String;
+  profilePic?: String;
+}
+
+export interface NewsSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: NewsWhereInput;
+  AND?: NewsSubscriptionWhereInput[] | NewsSubscriptionWhereInput;
+  OR?: NewsSubscriptionWhereInput[] | NewsSubscriptionWhereInput;
+  NOT?: NewsSubscriptionWhereInput[] | NewsSubscriptionWhereInput;
+}
+
+export interface RepoSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: RepoWhereInput;
+  AND?: RepoSubscriptionWhereInput[] | RepoSubscriptionWhereInput;
+  OR?: RepoSubscriptionWhereInput[] | RepoSubscriptionWhereInput;
+  NOT?: RepoSubscriptionWhereInput[] | RepoSubscriptionWhereInput;
+}
+
+export interface TagSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: TagWhereInput;
+  AND?: TagSubscriptionWhereInput[] | TagSubscriptionWhereInput;
+  OR?: TagSubscriptionWhereInput[] | TagSubscriptionWhereInput;
+  NOT?: TagSubscriptionWhereInput[] | TagSubscriptionWhereInput;
+}
+
+export interface TalkSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: TalkWhereInput;
+  AND?: TalkSubscriptionWhereInput[] | TalkSubscriptionWhereInput;
+  OR?: TalkSubscriptionWhereInput[] | TalkSubscriptionWhereInput;
+  NOT?: TalkSubscriptionWhereInput[] | TalkSubscriptionWhereInput;
+}
+
+export interface UpvoteSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: UpvoteWhereInput;
+  AND?: UpvoteSubscriptionWhereInput[] | UpvoteSubscriptionWhereInput;
+  OR?: UpvoteSubscriptionWhereInput[] | UpvoteSubscriptionWhereInput;
+  NOT?: UpvoteSubscriptionWhereInput[] | UpvoteSubscriptionWhereInput;
+}
+
+export interface UserSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: UserWhereInput;
+  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
 }
 
 export interface NodeNode {
   id: ID_Output;
 }
 
-export interface UserPreviousValues {
+export interface News {
   id: ID_Output;
-  name: String;
-  username: String;
-  email?: String;
-  githubToken: String;
-  profilePic?: String;
+  slug: String;
+  title: String;
+  content: String;
+  previewImage?: String;
+  isFeatured?: Boolean;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
 
-export interface UserPreviousValuesPromise
-  extends Promise<UserPreviousValues>,
-    Fragmentable {
+export interface NewsPromise extends Promise<News>, Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  username: () => Promise<String>;
-  email: () => Promise<String>;
-  githubToken: () => Promise<String>;
-  profilePic: () => Promise<String>;
+  slug: () => Promise<String>;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  previewImage: () => Promise<String>;
+  isFeatured: () => Promise<Boolean>;
+  writer: <T = UserPromise>() => T;
+  tags: <T = FragmentableArray<Tag>>(
+    args?: {
+      where?: TagWhereInput;
+      orderBy?: TagOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface UserPreviousValuesSubscription
-  extends Promise<AsyncIterator<UserPreviousValues>>,
+export interface NewsSubscription
+  extends Promise<AsyncIterator<News>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  username: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
-  githubToken: () => Promise<AsyncIterator<String>>;
-  profilePic: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  previewImage: () => Promise<AsyncIterator<String>>;
+  isFeatured: () => Promise<AsyncIterator<Boolean>>;
+  writer: <T = UserSubscription>() => T;
+  tags: <T = Promise<AsyncIterator<TagSubscription>>>(
+    args?: {
+      where?: TagWhereInput;
+      orderBy?: TagOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface RepoConnection {
-  pageInfo: PageInfo;
-  edges: RepoEdge[];
-}
-
-export interface RepoConnectionPromise
-  extends Promise<RepoConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<RepoEdge>>() => T;
-  aggregate: <T = AggregateRepoPromise>() => T;
-}
-
-export interface RepoConnectionSubscription
-  extends Promise<AsyncIterator<RepoConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<RepoEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateRepoSubscription>() => T;
 }
 
 export interface User {
@@ -2075,39 +2284,6 @@ export interface UserSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface AggregateNews {
-  count: Int;
-}
-
-export interface AggregateNewsPromise
-  extends Promise<AggregateNews>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateNewsSubscription
-  extends Promise<AsyncIterator<AggregateNews>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface NewsEdge {
-  node: News;
-  cursor: String;
-}
-
-export interface NewsEdgePromise extends Promise<NewsEdge>, Fragmentable {
-  node: <T = NewsPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface NewsEdgeSubscription
-  extends Promise<AsyncIterator<NewsEdge>>,
-    Fragmentable {
-  node: <T = NewsSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
 export interface Talk {
   id: ID_Output;
   slug: String;
@@ -2165,529 +2341,6 @@ export interface TalkSubscription
   ) => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface UserSubscriptionPayload {
-  mutation: MutationType;
-  node: User;
-  updatedFields: String[];
-  previousValues: UserPreviousValues;
-}
-
-export interface UserSubscriptionPayloadPromise
-  extends Promise<UserSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = UserPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserPreviousValuesPromise>() => T;
-}
-
-export interface UserSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserPreviousValuesSubscription>() => T;
-}
-
-export interface PageInfo {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
-}
-
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
-    Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface UserEdge {
-  node: User;
-  cursor: String;
-}
-
-export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
-  node: <T = UserPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdge>>,
-    Fragmentable {
-  node: <T = UserSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface NewsConnection {
-  pageInfo: PageInfo;
-  edges: NewsEdge[];
-}
-
-export interface NewsConnectionPromise
-  extends Promise<NewsConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<NewsEdge>>() => T;
-  aggregate: <T = AggregateNewsPromise>() => T;
-}
-
-export interface NewsConnectionSubscription
-  extends Promise<AsyncIterator<NewsConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<NewsEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateNewsSubscription>() => T;
-}
-
-export interface News {
-  id: ID_Output;
-  slug: String;
-  title: String;
-  content: String;
-  previewImage?: String;
-  isFeatured?: Boolean;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface NewsPromise extends Promise<News>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  slug: () => Promise<String>;
-  title: () => Promise<String>;
-  content: () => Promise<String>;
-  previewImage: () => Promise<String>;
-  isFeatured: () => Promise<Boolean>;
-  writer: <T = UserPromise>() => T;
-  tags: <T = FragmentableArray<Tag>>(
-    args?: {
-      where?: TagWhereInput;
-      orderBy?: TagOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface NewsSubscription
-  extends Promise<AsyncIterator<News>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  content: () => Promise<AsyncIterator<String>>;
-  previewImage: () => Promise<AsyncIterator<String>>;
-  isFeatured: () => Promise<AsyncIterator<Boolean>>;
-  writer: <T = UserSubscription>() => T;
-  tags: <T = Promise<AsyncIterator<TagSubscription>>>(
-    args?: {
-      where?: TagWhereInput;
-      orderBy?: TagOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface Repo {
-  id: ID_Output;
-  slug: String;
-  githubName: String;
-  githubOwner: String;
-  githubUrl: String;
-  ownerUsername: String;
-  isFeatured?: Boolean;
-  description?: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface RepoPromise extends Promise<Repo>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  slug: () => Promise<String>;
-  githubName: () => Promise<String>;
-  githubOwner: () => Promise<String>;
-  githubUrl: () => Promise<String>;
-  ownerUsername: () => Promise<String>;
-  isFeatured: () => Promise<Boolean>;
-  description: () => Promise<String>;
-  owner: <T = UserPromise>() => T;
-  tags: <T = FragmentableArray<Tag>>(
-    args?: {
-      where?: TagWhereInput;
-      orderBy?: TagOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface RepoSubscription
-  extends Promise<AsyncIterator<Repo>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  githubName: () => Promise<AsyncIterator<String>>;
-  githubOwner: () => Promise<AsyncIterator<String>>;
-  githubUrl: () => Promise<AsyncIterator<String>>;
-  ownerUsername: () => Promise<AsyncIterator<String>>;
-  isFeatured: () => Promise<AsyncIterator<Boolean>>;
-  description: () => Promise<AsyncIterator<String>>;
-  owner: <T = UserSubscription>() => T;
-  tags: <T = Promise<AsyncIterator<TagSubscription>>>(
-    args?: {
-      where?: TagWhereInput;
-      orderBy?: TagOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface TalkEdge {
-  node: Talk;
-  cursor: String;
-}
-
-export interface TalkEdgePromise extends Promise<TalkEdge>, Fragmentable {
-  node: <T = TalkPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface TalkEdgeSubscription
-  extends Promise<AsyncIterator<TalkEdge>>,
-    Fragmentable {
-  node: <T = TalkSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface TalkPreviousValues {
-  id: ID_Output;
-  slug: String;
-  title: String;
-  previewImage: String;
-  isFeatured?: Boolean;
-  length?: Int;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface TalkPreviousValuesPromise
-  extends Promise<TalkPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  slug: () => Promise<String>;
-  title: () => Promise<String>;
-  previewImage: () => Promise<String>;
-  isFeatured: () => Promise<Boolean>;
-  length: () => Promise<Int>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface TalkPreviousValuesSubscription
-  extends Promise<AsyncIterator<TalkPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  previewImage: () => Promise<AsyncIterator<String>>;
-  isFeatured: () => Promise<AsyncIterator<Boolean>>;
-  length: () => Promise<AsyncIterator<Int>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface AggregateTag {
-  count: Int;
-}
-
-export interface AggregateTagPromise
-  extends Promise<AggregateTag>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateTagSubscription
-  extends Promise<AsyncIterator<AggregateTag>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface NewsSubscriptionPayload {
-  mutation: MutationType;
-  node: News;
-  updatedFields: String[];
-  previousValues: NewsPreviousValues;
-}
-
-export interface NewsSubscriptionPayloadPromise
-  extends Promise<NewsSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = NewsPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = NewsPreviousValuesPromise>() => T;
-}
-
-export interface NewsSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<NewsSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = NewsSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = NewsPreviousValuesSubscription>() => T;
-}
-
-export interface TagConnection {
-  pageInfo: PageInfo;
-  edges: TagEdge[];
-}
-
-export interface TagConnectionPromise
-  extends Promise<TagConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<TagEdge>>() => T;
-  aggregate: <T = AggregateTagPromise>() => T;
-}
-
-export interface TagConnectionSubscription
-  extends Promise<AsyncIterator<TagConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<TagEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateTagSubscription>() => T;
-}
-
-export interface NewsPreviousValues {
-  id: ID_Output;
-  slug: String;
-  title: String;
-  content: String;
-  previewImage?: String;
-  isFeatured?: Boolean;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface NewsPreviousValuesPromise
-  extends Promise<NewsPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  slug: () => Promise<String>;
-  title: () => Promise<String>;
-  content: () => Promise<String>;
-  previewImage: () => Promise<String>;
-  isFeatured: () => Promise<Boolean>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface NewsPreviousValuesSubscription
-  extends Promise<AsyncIterator<NewsPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  content: () => Promise<AsyncIterator<String>>;
-  previewImage: () => Promise<AsyncIterator<String>>;
-  isFeatured: () => Promise<AsyncIterator<Boolean>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface RepoEdge {
-  node: Repo;
-  cursor: String;
-}
-
-export interface RepoEdgePromise extends Promise<RepoEdge>, Fragmentable {
-  node: <T = RepoPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface RepoEdgeSubscription
-  extends Promise<AsyncIterator<RepoEdge>>,
-    Fragmentable {
-  node: <T = RepoSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface TalkSubscriptionPayload {
-  mutation: MutationType;
-  node: Talk;
-  updatedFields: String[];
-  previousValues: TalkPreviousValues;
-}
-
-export interface TalkSubscriptionPayloadPromise
-  extends Promise<TalkSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = TalkPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = TalkPreviousValuesPromise>() => T;
-}
-
-export interface TalkSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<TalkSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = TalkSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = TalkPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateUser {
-  count: Int;
-}
-
-export interface AggregateUserPromise
-  extends Promise<AggregateUser>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateUserSubscription
-  extends Promise<AsyncIterator<AggregateUser>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface RepoSubscriptionPayload {
-  mutation: MutationType;
-  node: Repo;
-  updatedFields: String[];
-  previousValues: RepoPreviousValues;
-}
-
-export interface RepoSubscriptionPayloadPromise
-  extends Promise<RepoSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = RepoPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = RepoPreviousValuesPromise>() => T;
-}
-
-export interface RepoSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<RepoSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = RepoSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = RepoPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateTalk {
-  count: Int;
-}
-
-export interface AggregateTalkPromise
-  extends Promise<AggregateTalk>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateTalkSubscription
-  extends Promise<AsyncIterator<AggregateTalk>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface TagEdge {
-  node: Tag;
-  cursor: String;
-}
-
-export interface TagEdgePromise extends Promise<TagEdge>, Fragmentable {
-  node: <T = TagPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface TagEdgeSubscription
-  extends Promise<AsyncIterator<TagEdge>>,
-    Fragmentable {
-  node: <T = TagSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface TagPreviousValues {
-  id: ID_Output;
-  name: String;
-}
-
-export interface TagPreviousValuesPromise
-  extends Promise<TagPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-}
-
-export interface TagPreviousValuesSubscription
-  extends Promise<AsyncIterator<TagPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-}
-
-export interface TagSubscriptionPayload {
-  mutation: MutationType;
-  node: Tag;
-  updatedFields: String[];
-  previousValues: TagPreviousValues;
-}
-
-export interface TagSubscriptionPayloadPromise
-  extends Promise<TagSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = TagPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = TagPreviousValuesPromise>() => T;
-}
-
-export interface TagSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<TagSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = TagSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = TagPreviousValuesSubscription>() => T;
 }
 
 export interface Tag {
@@ -2773,6 +2426,561 @@ export interface TagSubscription
   ) => T;
 }
 
+export interface Repo {
+  id: ID_Output;
+  slug: String;
+  githubName: String;
+  githubOwner: String;
+  githubUrl: String;
+  ownerUsername: String;
+  isFeatured?: Boolean;
+  description?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface RepoPromise extends Promise<Repo>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  githubName: () => Promise<String>;
+  githubOwner: () => Promise<String>;
+  githubUrl: () => Promise<String>;
+  ownerUsername: () => Promise<String>;
+  isFeatured: () => Promise<Boolean>;
+  description: () => Promise<String>;
+  owner: <T = UserPromise>() => T;
+  tags: <T = FragmentableArray<Tag>>(
+    args?: {
+      where?: TagWhereInput;
+      orderBy?: TagOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  upvotes: <T = FragmentableArray<Upvote>>(
+    args?: {
+      where?: UpvoteWhereInput;
+      orderBy?: UpvoteOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface RepoSubscription
+  extends Promise<AsyncIterator<Repo>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  githubName: () => Promise<AsyncIterator<String>>;
+  githubOwner: () => Promise<AsyncIterator<String>>;
+  githubUrl: () => Promise<AsyncIterator<String>>;
+  ownerUsername: () => Promise<AsyncIterator<String>>;
+  isFeatured: () => Promise<AsyncIterator<Boolean>>;
+  description: () => Promise<AsyncIterator<String>>;
+  owner: <T = UserSubscription>() => T;
+  tags: <T = Promise<AsyncIterator<TagSubscription>>>(
+    args?: {
+      where?: TagWhereInput;
+      orderBy?: TagOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  upvotes: <T = Promise<AsyncIterator<UpvoteSubscription>>>(
+    args?: {
+      where?: UpvoteWhereInput;
+      orderBy?: UpvoteOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface Upvote {
+  id: ID_Output;
+}
+
+export interface UpvotePromise extends Promise<Upvote>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  user: <T = UserPromise>() => T;
+  repo: <T = RepoPromise>() => T;
+}
+
+export interface UpvoteSubscription
+  extends Promise<AsyncIterator<Upvote>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  user: <T = UserSubscription>() => T;
+  repo: <T = RepoSubscription>() => T;
+}
+
+export interface NewsConnection {
+  pageInfo: PageInfo;
+  edges: NewsEdge[];
+}
+
+export interface NewsConnectionPromise
+  extends Promise<NewsConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<NewsEdge>>() => T;
+  aggregate: <T = AggregateNewsPromise>() => T;
+}
+
+export interface NewsConnectionSubscription
+  extends Promise<AsyncIterator<NewsConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<NewsEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateNewsSubscription>() => T;
+}
+
+export interface PageInfo {
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String;
+  endCursor?: String;
+}
+
+export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>;
+  hasPreviousPage: () => Promise<Boolean>;
+  startCursor: () => Promise<String>;
+  endCursor: () => Promise<String>;
+}
+
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfo>>,
+    Fragmentable {
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
+  startCursor: () => Promise<AsyncIterator<String>>;
+  endCursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface NewsEdge {
+  node: News;
+  cursor: String;
+}
+
+export interface NewsEdgePromise extends Promise<NewsEdge>, Fragmentable {
+  node: <T = NewsPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface NewsEdgeSubscription
+  extends Promise<AsyncIterator<NewsEdge>>,
+    Fragmentable {
+  node: <T = NewsSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateNews {
+  count: Int;
+}
+
+export interface AggregateNewsPromise
+  extends Promise<AggregateNews>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateNewsSubscription
+  extends Promise<AsyncIterator<AggregateNews>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface RepoConnection {
+  pageInfo: PageInfo;
+  edges: RepoEdge[];
+}
+
+export interface RepoConnectionPromise
+  extends Promise<RepoConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<RepoEdge>>() => T;
+  aggregate: <T = AggregateRepoPromise>() => T;
+}
+
+export interface RepoConnectionSubscription
+  extends Promise<AsyncIterator<RepoConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<RepoEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateRepoSubscription>() => T;
+}
+
+export interface RepoEdge {
+  node: Repo;
+  cursor: String;
+}
+
+export interface RepoEdgePromise extends Promise<RepoEdge>, Fragmentable {
+  node: <T = RepoPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface RepoEdgeSubscription
+  extends Promise<AsyncIterator<RepoEdge>>,
+    Fragmentable {
+  node: <T = RepoSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateRepo {
+  count: Int;
+}
+
+export interface AggregateRepoPromise
+  extends Promise<AggregateRepo>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateRepoSubscription
+  extends Promise<AsyncIterator<AggregateRepo>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface TagConnection {
+  pageInfo: PageInfo;
+  edges: TagEdge[];
+}
+
+export interface TagConnectionPromise
+  extends Promise<TagConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<TagEdge>>() => T;
+  aggregate: <T = AggregateTagPromise>() => T;
+}
+
+export interface TagConnectionSubscription
+  extends Promise<AsyncIterator<TagConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<TagEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateTagSubscription>() => T;
+}
+
+export interface TagEdge {
+  node: Tag;
+  cursor: String;
+}
+
+export interface TagEdgePromise extends Promise<TagEdge>, Fragmentable {
+  node: <T = TagPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface TagEdgeSubscription
+  extends Promise<AsyncIterator<TagEdge>>,
+    Fragmentable {
+  node: <T = TagSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateTag {
+  count: Int;
+}
+
+export interface AggregateTagPromise
+  extends Promise<AggregateTag>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateTagSubscription
+  extends Promise<AsyncIterator<AggregateTag>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface TalkConnection {
+  pageInfo: PageInfo;
+  edges: TalkEdge[];
+}
+
+export interface TalkConnectionPromise
+  extends Promise<TalkConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<TalkEdge>>() => T;
+  aggregate: <T = AggregateTalkPromise>() => T;
+}
+
+export interface TalkConnectionSubscription
+  extends Promise<AsyncIterator<TalkConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<TalkEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateTalkSubscription>() => T;
+}
+
+export interface TalkEdge {
+  node: Talk;
+  cursor: String;
+}
+
+export interface TalkEdgePromise extends Promise<TalkEdge>, Fragmentable {
+  node: <T = TalkPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface TalkEdgeSubscription
+  extends Promise<AsyncIterator<TalkEdge>>,
+    Fragmentable {
+  node: <T = TalkSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateTalk {
+  count: Int;
+}
+
+export interface AggregateTalkPromise
+  extends Promise<AggregateTalk>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateTalkSubscription
+  extends Promise<AsyncIterator<AggregateTalk>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface UpvoteConnection {
+  pageInfo: PageInfo;
+  edges: UpvoteEdge[];
+}
+
+export interface UpvoteConnectionPromise
+  extends Promise<UpvoteConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UpvoteEdge>>() => T;
+  aggregate: <T = AggregateUpvotePromise>() => T;
+}
+
+export interface UpvoteConnectionSubscription
+  extends Promise<AsyncIterator<UpvoteConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UpvoteEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUpvoteSubscription>() => T;
+}
+
+export interface UpvoteEdge {
+  node: Upvote;
+  cursor: String;
+}
+
+export interface UpvoteEdgePromise extends Promise<UpvoteEdge>, Fragmentable {
+  node: <T = UpvotePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface UpvoteEdgeSubscription
+  extends Promise<AsyncIterator<UpvoteEdge>>,
+    Fragmentable {
+  node: <T = UpvoteSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateUpvote {
+  count: Int;
+}
+
+export interface AggregateUpvotePromise
+  extends Promise<AggregateUpvote>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateUpvoteSubscription
+  extends Promise<AsyncIterator<AggregateUpvote>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface UserConnection {
+  pageInfo: PageInfo;
+  edges: UserEdge[];
+}
+
+export interface UserConnectionPromise
+  extends Promise<UserConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserEdge>>() => T;
+  aggregate: <T = AggregateUserPromise>() => T;
+}
+
+export interface UserConnectionSubscription
+  extends Promise<AsyncIterator<UserConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserSubscription>() => T;
+}
+
+export interface UserEdge {
+  node: User;
+  cursor: String;
+}
+
+export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
+  node: <T = UserPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface UserEdgeSubscription
+  extends Promise<AsyncIterator<UserEdge>>,
+    Fragmentable {
+  node: <T = UserSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateUser {
+  count: Int;
+}
+
+export interface AggregateUserPromise
+  extends Promise<AggregateUser>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateUserSubscription
+  extends Promise<AsyncIterator<AggregateUser>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface BatchPayload {
+  count: Long;
+}
+
+export interface BatchPayloadPromise
+  extends Promise<BatchPayload>,
+    Fragmentable {
+  count: () => Promise<Long>;
+}
+
+export interface BatchPayloadSubscription
+  extends Promise<AsyncIterator<BatchPayload>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface NewsSubscriptionPayload {
+  mutation: MutationType;
+  node: News;
+  updatedFields: String[];
+  previousValues: NewsPreviousValues;
+}
+
+export interface NewsSubscriptionPayloadPromise
+  extends Promise<NewsSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = NewsPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = NewsPreviousValuesPromise>() => T;
+}
+
+export interface NewsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<NewsSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = NewsSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = NewsPreviousValuesSubscription>() => T;
+}
+
+export interface NewsPreviousValues {
+  id: ID_Output;
+  slug: String;
+  title: String;
+  content: String;
+  previewImage?: String;
+  isFeatured?: Boolean;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface NewsPreviousValuesPromise
+  extends Promise<NewsPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  previewImage: () => Promise<String>;
+  isFeatured: () => Promise<Boolean>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface NewsPreviousValuesSubscription
+  extends Promise<AsyncIterator<NewsPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  previewImage: () => Promise<AsyncIterator<String>>;
+  isFeatured: () => Promise<AsyncIterator<Boolean>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface RepoSubscriptionPayload {
+  mutation: MutationType;
+  node: Repo;
+  updatedFields: String[];
+  previousValues: RepoPreviousValues;
+}
+
+export interface RepoSubscriptionPayloadPromise
+  extends Promise<RepoSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = RepoPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = RepoPreviousValuesPromise>() => T;
+}
+
+export interface RepoSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<RepoSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = RepoSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = RepoPreviousValuesSubscription>() => T;
+}
+
 export interface RepoPreviousValues {
   id: ID_Output;
   slug: String;
@@ -2816,96 +3024,214 @@ export interface RepoPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface AggregateRepo {
-  count: Int;
+export interface TagSubscriptionPayload {
+  mutation: MutationType;
+  node: Tag;
+  updatedFields: String[];
+  previousValues: TagPreviousValues;
 }
 
-export interface AggregateRepoPromise
-  extends Promise<AggregateRepo>,
+export interface TagSubscriptionPayloadPromise
+  extends Promise<TagSubscriptionPayload>,
     Fragmentable {
-  count: () => Promise<Int>;
+  mutation: () => Promise<MutationType>;
+  node: <T = TagPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = TagPreviousValuesPromise>() => T;
 }
 
-export interface AggregateRepoSubscription
-  extends Promise<AsyncIterator<AggregateRepo>>,
+export interface TagSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<TagSubscriptionPayload>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = TagSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = TagPreviousValuesSubscription>() => T;
 }
 
-export interface TalkConnection {
-  pageInfo: PageInfo;
-  edges: TalkEdge[];
+export interface TagPreviousValues {
+  id: ID_Output;
+  name: String;
 }
 
-export interface TalkConnectionPromise
-  extends Promise<TalkConnection>,
+export interface TagPreviousValuesPromise
+  extends Promise<TagPreviousValues>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<TalkEdge>>() => T;
-  aggregate: <T = AggregateTalkPromise>() => T;
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
 }
 
-export interface TalkConnectionSubscription
-  extends Promise<AsyncIterator<TalkConnection>>,
+export interface TagPreviousValuesSubscription
+  extends Promise<AsyncIterator<TagPreviousValues>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<TalkEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateTalkSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
 }
 
-export interface UserConnection {
-  pageInfo: PageInfo;
-  edges: UserEdge[];
+export interface TalkSubscriptionPayload {
+  mutation: MutationType;
+  node: Talk;
+  updatedFields: String[];
+  previousValues: TalkPreviousValues;
 }
 
-export interface UserConnectionPromise
-  extends Promise<UserConnection>,
+export interface TalkSubscriptionPayloadPromise
+  extends Promise<TalkSubscriptionPayload>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
+  mutation: () => Promise<MutationType>;
+  node: <T = TalkPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = TalkPreviousValuesPromise>() => T;
 }
 
-export interface UserConnectionSubscription
-  extends Promise<AsyncIterator<UserConnection>>,
+export interface TalkSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<TalkSubscriptionPayload>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = TalkSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = TalkPreviousValuesSubscription>() => T;
 }
 
-export interface BatchPayload {
-  count: Long;
+export interface TalkPreviousValues {
+  id: ID_Output;
+  slug: String;
+  title: String;
+  previewImage: String;
+  isFeatured?: Boolean;
+  length?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface BatchPayloadPromise
-  extends Promise<BatchPayload>,
+export interface TalkPreviousValuesPromise
+  extends Promise<TalkPreviousValues>,
     Fragmentable {
-  count: () => Promise<Long>;
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  title: () => Promise<String>;
+  previewImage: () => Promise<String>;
+  isFeatured: () => Promise<Boolean>;
+  length: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface BatchPayloadSubscription
-  extends Promise<AsyncIterator<BatchPayload>>,
+export interface TalkPreviousValuesSubscription
+  extends Promise<AsyncIterator<TalkPreviousValues>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Long>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  previewImage: () => Promise<AsyncIterator<String>>;
+  isFeatured: () => Promise<AsyncIterator<Boolean>>;
+  length: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-/*
-DateTime scalar input type, allowing Date
-*/
-export type DateTimeInput = Date | string;
+export interface UpvoteSubscriptionPayload {
+  mutation: MutationType;
+  node: Upvote;
+  updatedFields: String[];
+  previousValues: UpvotePreviousValues;
+}
 
-/*
-DateTime scalar output type, which is always a string
-*/
-export type DateTimeOutput = string;
+export interface UpvoteSubscriptionPayloadPromise
+  extends Promise<UpvoteSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = UpvotePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = UpvotePreviousValuesPromise>() => T;
+}
 
-/*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
-*/
-export type Int = number;
+export interface UpvoteSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<UpvoteSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = UpvoteSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = UpvotePreviousValuesSubscription>() => T;
+}
 
-export type Long = string;
+export interface UpvotePreviousValues {
+  id: ID_Output;
+}
+
+export interface UpvotePreviousValuesPromise
+  extends Promise<UpvotePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+}
+
+export interface UpvotePreviousValuesSubscription
+  extends Promise<AsyncIterator<UpvotePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface UserSubscriptionPayload {
+  mutation: MutationType;
+  node: User;
+  updatedFields: String[];
+  previousValues: UserPreviousValues;
+}
+
+export interface UserSubscriptionPayloadPromise
+  extends Promise<UserSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = UserPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = UserPreviousValuesPromise>() => T;
+}
+
+export interface UserSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = UserSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = UserPreviousValuesSubscription>() => T;
+}
+
+export interface UserPreviousValues {
+  id: ID_Output;
+  name: String;
+  username: String;
+  email?: String;
+  githubToken: String;
+  profilePic?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface UserPreviousValuesPromise
+  extends Promise<UserPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  username: () => Promise<String>;
+  email: () => Promise<String>;
+  githubToken: () => Promise<String>;
+  profilePic: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface UserPreviousValuesSubscription
+  extends Promise<AsyncIterator<UserPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  username: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
+  githubToken: () => Promise<AsyncIterator<String>>;
+  profilePic: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
 
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
@@ -2922,6 +3248,23 @@ export type String = string;
 The `Boolean` scalar type represents `true` or `false`.
 */
 export type Boolean = boolean;
+
+/*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
+*/
+export type Int = number;
+
+/*
+DateTime scalar input type, allowing Date
+*/
+export type DateTimeInput = Date | string;
+
+/*
+DateTime scalar output type, which is always a string
+*/
+export type DateTimeOutput = string;
+
+export type Long = string;
 
 /**
  * Model Metadata
@@ -2942,6 +3285,10 @@ export const models: Model[] = [
   },
   {
     name: 'Talk',
+    embedded: false,
+  },
+  {
+    name: 'Upvote',
     embedded: false,
   },
   {

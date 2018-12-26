@@ -12,4 +12,10 @@ export const Repo: RepoResolvers.Type = {
   tags: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
+  upvotes: (parent, args, ctx) => {
+    throw new Error('Resolver not implemented');
+  },
+  aggregatedUpvotes: (parent, args, ctx) => {
+    throw new Error('Resolver not implemented');
+  },
 };

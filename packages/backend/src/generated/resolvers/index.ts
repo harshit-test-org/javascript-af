@@ -9,6 +9,7 @@ import { User } from './User';
 import { Talk } from './Talk';
 import { Tag } from './Tag';
 import { Repo } from './Repo';
+import { Upvote } from './Upvote';
 import { NewsConnection } from './NewsConnection';
 import { PageInfo } from './PageInfo';
 import { NewsEdge } from './NewsEdge';
@@ -27,6 +28,7 @@ export const resolvers: Resolvers = {
   Talk,
   Tag,
   Repo,
+  Upvote,
   NewsConnection,
   PageInfo,
   NewsEdge,

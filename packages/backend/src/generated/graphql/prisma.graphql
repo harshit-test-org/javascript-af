@@ -14,6 +14,10 @@ type AggregateTalk {
   count: Int!
 }
 
+type AggregateUpvote {
+  count: Int!
+}
+
 type AggregateUser {
   count: Int!
 }
@@ -51,6 +55,11 @@ type Mutation {
   upsertTalk(where: TalkWhereUniqueInput!, create: TalkCreateInput!, update: TalkUpdateInput!): Talk!
   deleteTalk(where: TalkWhereUniqueInput!): Talk
   deleteManyTalks(where: TalkWhereInput): BatchPayload!
+  createUpvote(data: UpvoteCreateInput!): Upvote!
+  updateUpvote(data: UpvoteUpdateInput!, where: UpvoteWhereUniqueInput!): Upvote
+  upsertUpvote(where: UpvoteWhereUniqueInput!, create: UpvoteCreateInput!, update: UpvoteUpdateInput!): Upvote!
+  deleteUpvote(where: UpvoteWhereUniqueInput!): Upvote
+  deleteManyUpvotes(where: UpvoteWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -489,6 +498,9 @@ type Query {
   talk(where: TalkWhereUniqueInput!): Talk
   talks(where: TalkWhereInput, orderBy: TalkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Talk]!
   talksConnection(where: TalkWhereInput, orderBy: TalkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TalkConnection!
+  upvote(where: UpvoteWhereUniqueInput!): Upvote
+  upvotes(where: UpvoteWhereInput, orderBy: UpvoteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Upvote]!
+  upvotesConnection(where: UpvoteWhereInput, orderBy: UpvoteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UpvoteConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
@@ -506,6 +518,7 @@ type Repo {
   description: String
   owner: User
   tags(where: TagWhereInput, orderBy: TagOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Tag!]
+  upvotes(where: UpvoteWhereInput, orderBy: UpvoteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Upvote!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -526,11 +539,17 @@ input RepoCreateInput {
   description: String
   owner: UserCreateOneInput
   tags: TagCreateManyWithoutReposInput
+  upvotes: UpvoteCreateManyWithoutRepoInput
 }
 
 input RepoCreateManyWithoutTagsInput {
   create: [RepoCreateWithoutTagsInput!]
   connect: [RepoWhereUniqueInput!]
+}
+
+input RepoCreateOneWithoutUpvotesInput {
+  create: RepoCreateWithoutUpvotesInput
+  connect: RepoWhereUniqueInput
 }
 
 input RepoCreateWithoutTagsInput {
@@ -542,6 +561,19 @@ input RepoCreateWithoutTagsInput {
   isFeatured: Boolean
   description: String
   owner: UserCreateOneInput
+  upvotes: UpvoteCreateManyWithoutRepoInput
+}
+
+input RepoCreateWithoutUpvotesInput {
+  slug: String!
+  githubName: String!
+  githubOwner: String!
+  githubUrl: String!
+  ownerUsername: String!
+  isFeatured: Boolean
+  description: String
+  owner: UserCreateOneInput
+  tags: TagCreateManyWithoutReposInput
 }
 
 type RepoEdge {
@@ -735,6 +767,7 @@ input RepoUpdateInput {
   description: String
   owner: UserUpdateOneInput
   tags: TagUpdateManyWithoutReposInput
+  upvotes: UpvoteUpdateManyWithoutRepoInput
 }
 
 input RepoUpdateManyDataInput {
@@ -773,6 +806,13 @@ input RepoUpdateManyWithWhereNestedInput {
   data: RepoUpdateManyDataInput!
 }
 
+input RepoUpdateOneRequiredWithoutUpvotesInput {
+  create: RepoCreateWithoutUpvotesInput
+  update: RepoUpdateWithoutUpvotesDataInput
+  upsert: RepoUpsertWithoutUpvotesInput
+  connect: RepoWhereUniqueInput
+}
+
 input RepoUpdateWithoutTagsDataInput {
   slug: String
   githubName: String
@@ -782,11 +822,29 @@ input RepoUpdateWithoutTagsDataInput {
   isFeatured: Boolean
   description: String
   owner: UserUpdateOneInput
+  upvotes: UpvoteUpdateManyWithoutRepoInput
+}
+
+input RepoUpdateWithoutUpvotesDataInput {
+  slug: String
+  githubName: String
+  githubOwner: String
+  githubUrl: String
+  ownerUsername: String
+  isFeatured: Boolean
+  description: String
+  owner: UserUpdateOneInput
+  tags: TagUpdateManyWithoutReposInput
 }
 
 input RepoUpdateWithWhereUniqueWithoutTagsInput {
   where: RepoWhereUniqueInput!
   data: RepoUpdateWithoutTagsDataInput!
+}
+
+input RepoUpsertWithoutUpvotesInput {
+  update: RepoUpdateWithoutUpvotesDataInput!
+  create: RepoCreateWithoutUpvotesInput!
 }
 
 input RepoUpsertWithWhereUniqueWithoutTagsInput {
@@ -900,6 +958,9 @@ input RepoWhereInput {
   tags_every: TagWhereInput
   tags_some: TagWhereInput
   tags_none: TagWhereInput
+  upvotes_every: UpvoteWhereInput
+  upvotes_some: UpvoteWhereInput
+  upvotes_none: UpvoteWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -931,6 +992,7 @@ type Subscription {
   repo(where: RepoSubscriptionWhereInput): RepoSubscriptionPayload
   tag(where: TagSubscriptionWhereInput): TagSubscriptionPayload
   talk(where: TalkSubscriptionWhereInput): TalkSubscriptionPayload
+  upvote(where: UpvoteSubscriptionWhereInput): UpvoteSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
 }
 
@@ -1601,6 +1663,144 @@ input TalkWhereUniqueInput {
   slug: String
 }
 
+type Upvote {
+  id: ID!
+  user: User!
+  repo: Repo!
+}
+
+type UpvoteConnection {
+  pageInfo: PageInfo!
+  edges: [UpvoteEdge]!
+  aggregate: AggregateUpvote!
+}
+
+input UpvoteCreateInput {
+  user: UserCreateOneInput!
+  repo: RepoCreateOneWithoutUpvotesInput!
+}
+
+input UpvoteCreateManyWithoutRepoInput {
+  create: [UpvoteCreateWithoutRepoInput!]
+  connect: [UpvoteWhereUniqueInput!]
+}
+
+input UpvoteCreateWithoutRepoInput {
+  user: UserCreateOneInput!
+}
+
+type UpvoteEdge {
+  node: Upvote!
+  cursor: String!
+}
+
+enum UpvoteOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type UpvotePreviousValues {
+  id: ID!
+}
+
+input UpvoteScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  AND: [UpvoteScalarWhereInput!]
+  OR: [UpvoteScalarWhereInput!]
+  NOT: [UpvoteScalarWhereInput!]
+}
+
+type UpvoteSubscriptionPayload {
+  mutation: MutationType!
+  node: Upvote
+  updatedFields: [String!]
+  previousValues: UpvotePreviousValues
+}
+
+input UpvoteSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UpvoteWhereInput
+  AND: [UpvoteSubscriptionWhereInput!]
+  OR: [UpvoteSubscriptionWhereInput!]
+  NOT: [UpvoteSubscriptionWhereInput!]
+}
+
+input UpvoteUpdateInput {
+  user: UserUpdateOneRequiredInput
+  repo: RepoUpdateOneRequiredWithoutUpvotesInput
+}
+
+input UpvoteUpdateManyWithoutRepoInput {
+  create: [UpvoteCreateWithoutRepoInput!]
+  delete: [UpvoteWhereUniqueInput!]
+  connect: [UpvoteWhereUniqueInput!]
+  disconnect: [UpvoteWhereUniqueInput!]
+  update: [UpvoteUpdateWithWhereUniqueWithoutRepoInput!]
+  upsert: [UpvoteUpsertWithWhereUniqueWithoutRepoInput!]
+  deleteMany: [UpvoteScalarWhereInput!]
+}
+
+input UpvoteUpdateWithoutRepoDataInput {
+  user: UserUpdateOneRequiredInput
+}
+
+input UpvoteUpdateWithWhereUniqueWithoutRepoInput {
+  where: UpvoteWhereUniqueInput!
+  data: UpvoteUpdateWithoutRepoDataInput!
+}
+
+input UpvoteUpsertWithWhereUniqueWithoutRepoInput {
+  where: UpvoteWhereUniqueInput!
+  update: UpvoteUpdateWithoutRepoDataInput!
+  create: UpvoteCreateWithoutRepoInput!
+}
+
+input UpvoteWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  user: UserWhereInput
+  repo: RepoWhereInput
+  AND: [UpvoteWhereInput!]
+  OR: [UpvoteWhereInput!]
+  NOT: [UpvoteWhereInput!]
+}
+
+input UpvoteWhereUniqueInput {
+  id: ID
+}
+
 type User {
   id: ID!
   name: String!
@@ -1750,6 +1950,13 @@ input UserUpdateOneInput {
   upsert: UserUpsertNestedInput
   delete: Boolean
   disconnect: Boolean
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
   connect: UserWhereUniqueInput
 }
 

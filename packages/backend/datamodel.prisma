@@ -48,8 +48,15 @@ type Repo {
   description: String
   owner: User
   tags: [Tag!]!
+  upvotes: [Upvote!]!
   createdAt: DateTime!
   updatedAt: DateTime!
+}
+
+type Upvote {
+  id: ID! @unique
+  user: User!
+  repo: Repo!
 }
 
 type Tag {

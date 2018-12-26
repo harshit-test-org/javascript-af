@@ -7,6 +7,7 @@ import {
   Talk,
   Tag,
   Repo,
+  Upvote,
   NewsConnection,
   PageInfo,
   NewsEdge,
@@ -17,7 +18,7 @@ import {
   RepoConnection,
   RepoEdge,
   AggregateRepo,
-} from './prisma-client/index';
+} from './prisma-client';
 import { MyContext } from '../context';
 
 type NewsOrderByInput =
@@ -80,6 +81,13 @@ type RepoOrderByInput =
   | 'isFeatured_DESC'
   | 'description_ASC'
   | 'description_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC';
+type UpvoteOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
@@ -534,6 +542,9 @@ export namespace QueryResolvers {
     tags_every: TagWhereInput | null;
     tags_some: TagWhereInput | null;
     tags_none: TagWhereInput | null;
+    upvotes_every: UpvoteWhereInput | null;
+    upvotes_some: UpvoteWhereInput | null;
+    upvotes_none: UpvoteWhereInput | null;
     createdAt: string | null;
     createdAt_not: string | null;
     createdAt_in: string[];
@@ -553,6 +564,27 @@ export namespace QueryResolvers {
     AND: RepoWhereInput[];
     OR: RepoWhereInput[];
     NOT: RepoWhereInput[];
+  }
+  export interface UpvoteWhereInput {
+    id: string | null;
+    id_not: string | null;
+    id_in: string[];
+    id_not_in: string[];
+    id_lt: string | null;
+    id_lte: string | null;
+    id_gt: string | null;
+    id_gte: string | null;
+    id_contains: string | null;
+    id_not_contains: string | null;
+    id_starts_with: string | null;
+    id_not_starts_with: string | null;
+    id_ends_with: string | null;
+    id_not_ends_with: string | null;
+    user: UserWhereInput | null;
+    repo: RepoWhereInput | null;
+    AND: UpvoteWhereInput[];
+    OR: UpvoteWhereInput[];
+    NOT: UpvoteWhereInput[];
   }
 
   export interface ArgsNewsItemBySlug {
@@ -1144,6 +1176,9 @@ export namespace NewsResolvers {
     tags_every: TagWhereInput | null;
     tags_some: TagWhereInput | null;
     tags_none: TagWhereInput | null;
+    upvotes_every: UpvoteWhereInput | null;
+    upvotes_some: UpvoteWhereInput | null;
+    upvotes_none: UpvoteWhereInput | null;
     createdAt: string | null;
     createdAt_not: string | null;
     createdAt_in: string[];
@@ -1163,6 +1198,27 @@ export namespace NewsResolvers {
     AND: RepoWhereInput[];
     OR: RepoWhereInput[];
     NOT: RepoWhereInput[];
+  }
+  export interface UpvoteWhereInput {
+    id: string | null;
+    id_not: string | null;
+    id_in: string[];
+    id_not_in: string[];
+    id_lt: string | null;
+    id_lte: string | null;
+    id_gt: string | null;
+    id_gte: string | null;
+    id_contains: string | null;
+    id_not_contains: string | null;
+    id_starts_with: string | null;
+    id_not_starts_with: string | null;
+    id_ends_with: string | null;
+    id_not_ends_with: string | null;
+    user: UserWhereInput | null;
+    repo: RepoWhereInput | null;
+    AND: UpvoteWhereInput[];
+    OR: UpvoteWhereInput[];
+    NOT: UpvoteWhereInput[];
   }
 
   export interface ArgsTags {
@@ -1777,6 +1833,9 @@ export namespace UserResolvers {
     tags_every: TagWhereInput | null;
     tags_some: TagWhereInput | null;
     tags_none: TagWhereInput | null;
+    upvotes_every: UpvoteWhereInput | null;
+    upvotes_some: UpvoteWhereInput | null;
+    upvotes_none: UpvoteWhereInput | null;
     createdAt: string | null;
     createdAt_not: string | null;
     createdAt_in: string[];
@@ -1796,6 +1855,27 @@ export namespace UserResolvers {
     AND: RepoWhereInput[];
     OR: RepoWhereInput[];
     NOT: RepoWhereInput[];
+  }
+  export interface UpvoteWhereInput {
+    id: string | null;
+    id_not: string | null;
+    id_in: string[];
+    id_not_in: string[];
+    id_lt: string | null;
+    id_lte: string | null;
+    id_gt: string | null;
+    id_gte: string | null;
+    id_contains: string | null;
+    id_not_contains: string | null;
+    id_starts_with: string | null;
+    id_not_starts_with: string | null;
+    id_ends_with: string | null;
+    id_not_ends_with: string | null;
+    user: UserWhereInput | null;
+    repo: RepoWhereInput | null;
+    AND: UpvoteWhereInput[];
+    OR: UpvoteWhereInput[];
+    NOT: UpvoteWhereInput[];
   }
 
   export interface ArgsNewsItems {
@@ -2421,6 +2501,9 @@ export namespace TalkResolvers {
     tags_every: TagWhereInput | null;
     tags_some: TagWhereInput | null;
     tags_none: TagWhereInput | null;
+    upvotes_every: UpvoteWhereInput | null;
+    upvotes_some: UpvoteWhereInput | null;
+    upvotes_none: UpvoteWhereInput | null;
     createdAt: string | null;
     createdAt_not: string | null;
     createdAt_in: string[];
@@ -2440,6 +2523,27 @@ export namespace TalkResolvers {
     AND: RepoWhereInput[];
     OR: RepoWhereInput[];
     NOT: RepoWhereInput[];
+  }
+  export interface UpvoteWhereInput {
+    id: string | null;
+    id_not: string | null;
+    id_in: string[];
+    id_not_in: string[];
+    id_lt: string | null;
+    id_lte: string | null;
+    id_gt: string | null;
+    id_gte: string | null;
+    id_contains: string | null;
+    id_not_contains: string | null;
+    id_starts_with: string | null;
+    id_not_starts_with: string | null;
+    id_ends_with: string | null;
+    id_not_ends_with: string | null;
+    user: UserWhereInput | null;
+    repo: RepoWhereInput | null;
+    AND: UpvoteWhereInput[];
+    OR: UpvoteWhereInput[];
+    NOT: UpvoteWhereInput[];
   }
 
   export interface ArgsTags {
@@ -3047,6 +3151,9 @@ export namespace TagResolvers {
     tags_every: TagWhereInput | null;
     tags_some: TagWhereInput | null;
     tags_none: TagWhereInput | null;
+    upvotes_every: UpvoteWhereInput | null;
+    upvotes_some: UpvoteWhereInput | null;
+    upvotes_none: UpvoteWhereInput | null;
     createdAt: string | null;
     createdAt_not: string | null;
     createdAt_in: string[];
@@ -3066,6 +3173,27 @@ export namespace TagResolvers {
     AND: RepoWhereInput[];
     OR: RepoWhereInput[];
     NOT: RepoWhereInput[];
+  }
+  export interface UpvoteWhereInput {
+    id: string | null;
+    id_not: string | null;
+    id_in: string[];
+    id_not_in: string[];
+    id_lt: string | null;
+    id_lte: string | null;
+    id_gt: string | null;
+    id_gte: string | null;
+    id_contains: string | null;
+    id_not_contains: string | null;
+    id_starts_with: string | null;
+    id_not_starts_with: string | null;
+    id_ends_with: string | null;
+    id_not_ends_with: string | null;
+    user: UserWhereInput | null;
+    repo: RepoWhereInput | null;
+    AND: UpvoteWhereInput[];
+    OR: UpvoteWhereInput[];
+    NOT: UpvoteWhereInput[];
   }
 
   export interface ArgsTalks {
@@ -3633,6 +3761,9 @@ export namespace RepoResolvers {
     tags_every: TagWhereInput | null;
     tags_some: TagWhereInput | null;
     tags_none: TagWhereInput | null;
+    upvotes_every: UpvoteWhereInput | null;
+    upvotes_some: UpvoteWhereInput | null;
+    upvotes_none: UpvoteWhereInput | null;
     createdAt: string | null;
     createdAt_not: string | null;
     createdAt_in: string[];
@@ -3653,10 +3784,41 @@ export namespace RepoResolvers {
     OR: RepoWhereInput[];
     NOT: RepoWhereInput[];
   }
+  export interface UpvoteWhereInput {
+    id: string | null;
+    id_not: string | null;
+    id_in: string[];
+    id_not_in: string[];
+    id_lt: string | null;
+    id_lte: string | null;
+    id_gt: string | null;
+    id_gte: string | null;
+    id_contains: string | null;
+    id_not_contains: string | null;
+    id_starts_with: string | null;
+    id_not_starts_with: string | null;
+    id_ends_with: string | null;
+    id_not_ends_with: string | null;
+    user: UserWhereInput | null;
+    repo: RepoWhereInput | null;
+    AND: UpvoteWhereInput[];
+    OR: UpvoteWhereInput[];
+    NOT: UpvoteWhereInput[];
+  }
 
   export interface ArgsTags {
     where: TagWhereInput | null;
     orderBy: TagOrderByInput | null;
+    skip: number | null;
+    after: string | null;
+    before: string | null;
+    first: number | null;
+    last: number | null;
+  }
+
+  export interface ArgsUpvotes {
+    where: UpvoteWhereInput | null;
+    orderBy: UpvoteOrderByInput | null;
     skip: number | null;
     after: string | null;
     before: string | null;
@@ -3733,6 +3895,20 @@ export namespace RepoResolvers {
     ctx: MyContext,
     info: GraphQLResolveInfo
   ) => Tag[] | Promise<Tag[]>;
+
+  export type UpvotesResolver = (
+    parent: Repo,
+    args: ArgsUpvotes,
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => Upvote[] | Promise<Upvote[]>;
+
+  export type AggregatedUpvotesResolver = (
+    parent: Repo,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => number | null | Promise<number | null>;
 
   export type CreatedAtResolver = (
     parent: Repo,
@@ -3819,6 +3995,20 @@ export namespace RepoResolvers {
       info: GraphQLResolveInfo
     ) => Tag[] | Promise<Tag[]>;
 
+    upvotes: (
+      parent: Repo,
+      args: ArgsUpvotes,
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => Upvote[] | Promise<Upvote[]>;
+
+    aggregatedUpvotes: (
+      parent: Repo,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => number | null | Promise<number | null>;
+
     createdAt: (
       parent: Repo,
       args: {},
@@ -3832,6 +4022,56 @@ export namespace RepoResolvers {
       ctx: MyContext,
       info: GraphQLResolveInfo
     ) => string | Promise<string>;
+  }
+}
+
+export namespace UpvoteResolvers {
+  export const defaultResolvers = {
+    id: (parent: Upvote) => parent.id,
+  };
+
+  export type IdResolver = (
+    parent: Upvote,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => string | Promise<string>;
+
+  export type UserResolver = (
+    parent: Upvote,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => User | Promise<User>;
+
+  export type RepoResolver = (
+    parent: Upvote,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => Repo | Promise<Repo>;
+
+  export interface Type {
+    id: (
+      parent: Upvote,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => string | Promise<string>;
+
+    user: (
+      parent: Upvote,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => User | Promise<User>;
+
+    repo: (
+      parent: Upvote,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => Repo | Promise<Repo>;
   }
 }
 
@@ -4241,6 +4481,7 @@ export interface Resolvers {
   Talk: TalkResolvers.Type;
   Tag: TagResolvers.Type;
   Repo: RepoResolvers.Type;
+  Upvote: UpvoteResolvers.Type;
   NewsConnection: NewsConnectionResolvers.Type;
   PageInfo: PageInfoResolvers.Type;
   NewsEdge: NewsEdgeResolvers.Type;

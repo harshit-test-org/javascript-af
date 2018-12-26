@@ -1,4 +1,37 @@
 # import * from './generated/graphql/prisma.graphql'
+type Repo {
+  id: ID!
+  slug: String!
+  githubName: String!
+  githubOwner: String!
+  githubUrl: String!
+  ownerUsername: String!
+  isFeatured: Boolean
+  description: String
+  owner: User
+  tags(
+    where: TagWhereInput
+    orderBy: TagOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Tag!]
+  upvotes(
+    where: UpvoteWhereInput
+    orderBy: UpvoteOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Upvote!]
+  aggregatedUpvotes: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type Query {
   newsItemBySlug(slug: String!): News
   talkBySlug(slug: String!): Talk

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upvote Resolvers it should not upvote when not logged in  1`] = `
+Object {
+  "data": null,
+  "errors": Array [
+    [GraphQLError: Not Authorised!],
+  ],
+}
+`;
+
+exports[`Upvote Resolvers should remove existing upvote from user 1`] = `
+Object {
+  "data": Object {
+    "toggleRepoVote": Object {
+      "id": "someid",
+    },
+  },
+}
+`;
+
+exports[`Upvote Resolvers should upvote the repo if we are logged in and there is no previous upvotes 1`] = `
+Object {
+  "data": Object {
+    "toggleRepoVote": Object {
+      "id": "someid",
+    },
+  },
+}
+`;

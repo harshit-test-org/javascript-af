@@ -1,4 +1,4 @@
-export const writerMock = jest.fn(() => ({
+export const userMock = jest.fn(() => ({
   id: 'cjpxpmpgr000c097495f1kz8w',
   username: 'pantharshit00',
   email: 'pantharshit00@gmail.com',

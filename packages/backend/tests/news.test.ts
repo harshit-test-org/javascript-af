@@ -1,6 +1,6 @@
 import { graphqlTestCall } from './utils/gqlTestClient';
 import { prisma } from './utils/createPrismaMock';
-import { writerMock, tagsMock, aggregateMock } from './mocks';
+import { userMock, tagsMock, aggregateMock } from './mocks';
 
 describe('News Resolvers', () => {
   prisma.news = jest.fn(() => ({
@@ -13,7 +13,7 @@ describe('News Resolvers', () => {
     createdAt: '2018-12-21T07:32:22.501Z',
     updatedAt: '2018-12-21T07:32:22.501Z',
     tags: tagsMock,
-    writer: writerMock,
+    writer: userMock,
   }));
 
   prisma.newsesConnection = jest.fn(() => ({
@@ -70,7 +70,7 @@ describe('News Resolvers', () => {
     }
   `);
     expect(prisma.news).toHaveBeenCalledWith({ slug: 'some-thing' });
-    expect(writerMock).toHaveBeenCalled();
+    expect(userMock).toHaveBeenCalled();
     expect(tagsMock).toHaveBeenCalled();
     expect(response).toMatchSnapshot();
   });

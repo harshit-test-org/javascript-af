@@ -14,6 +14,7 @@ export const Mutation: MutationResolvers.Type = {
         },
       },
     });
+
     if (alreadyUpvoted.length > 0) {
       return ctx.prisma.deleteUpvote({ id: alreadyUpvoted[0].id });
     }

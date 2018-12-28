@@ -17,6 +17,7 @@ import { RepoConnection } from './Repo/RepoConnection';
 import { RepoEdge } from './Repo/RepoEdge';
 import { Tag } from './Tag/Tag';
 import { Upvote } from './Upvote/Upvote';
+import { Mutation } from './Mutation';
 
 export const resolvers: Resolvers = {
   Query,
@@ -36,4 +37,5 @@ export const resolvers: Resolvers = {
   RepoEdge,
   Tag,
   Upvote,
+  Mutation,
 };

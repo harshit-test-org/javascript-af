@@ -28,6 +28,7 @@ type Repo {
     last: Int
   ): [Upvote!]
   aggregatedUpvotes: Int
+  userHasVoted: Boolean
   createdAt: DateTime!
   updatedAt: DateTime!
 }

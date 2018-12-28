@@ -3910,6 +3910,13 @@ export namespace RepoResolvers {
     info: GraphQLResolveInfo
   ) => number | null | Promise<number | null>;
 
+  export type UserHasVotedResolver = (
+    parent: Repo,
+    args: {},
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => boolean | null | Promise<boolean | null>;
+
   export type CreatedAtResolver = (
     parent: Repo,
     args: {},
@@ -4008,6 +4015,13 @@ export namespace RepoResolvers {
       ctx: MyContext,
       info: GraphQLResolveInfo
     ) => number | null | Promise<number | null>;
+
+    userHasVoted: (
+      parent: Repo,
+      args: {},
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => boolean | null | Promise<boolean | null>;
 
     createdAt: (
       parent: Repo,

@@ -18,4 +18,18 @@ export const Repo: RepoResolvers.Type = {
       .aggregate();
     return result.count;
   },
+  userHasVoted: (parent, args, ctx) => {
+    if (!ctx.req.user) {
+      return null;
+    }
+    // all good here
+    return ctx.prisma.$exists.upvote({
+      user: {
+        id: ctx.req.user.id,
+      },
+      repo: {
+        id: parent.id,
+      },
+    });
+  },
 };

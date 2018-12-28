@@ -1,14 +1,16 @@
 import { importSchema } from 'graphql-import';
 import { makeExecutableSchema } from 'apollo-server-express';
-// import { applyMiddleware } from 'graphql-middleware'
+import { applyMiddleware } from 'graphql-middleware';
 
 import { resolvers } from './resolvers';
+import { permissions } from './authentication/permissions';
 
-const schema = importSchema('./src/schema.graphql');
+const typeDefs = importSchema('./src/schema.graphql');
 
 export default () => {
-  return makeExecutableSchema({
-    typeDefs: schema,
+  const schema = makeExecutableSchema({
+    typeDefs,
     resolvers: resolvers as any,
   });
+  return applyMiddleware(schema, permissions);
 };

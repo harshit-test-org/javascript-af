@@ -21,11 +21,11 @@ authInit();
 app.use((req: IRequest, _, next) => {
   const { token }: { token?: string } = req.cookies;
   if (token) {
-    const { id } = jwt.verify(
+    const decoded = jwt.verify(
       token,
       process.env.JWT_SECRET
     ) as UserTokenDecoded;
-    req.userId = id;
+    req.userId = decoded.id;
   }
   next();
 });
@@ -38,6 +38,11 @@ app.use(async (req: IRequest, _, next) => {
   const user = await db.user({ id: req.userId });
   req.user = user;
   next();
+});
+
+app.get('/auth/logout', (req: IRequest, res) => {
+  res.clearCookie('token');
+  res.redirect('/graphql');
 });
 
 app.get(

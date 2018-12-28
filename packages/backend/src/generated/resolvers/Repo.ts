@@ -18,4 +18,7 @@ export const Repo: RepoResolvers.Type = {
   aggregatedUpvotes: (parent, args, ctx) => {
     throw new Error('Resolver not implemented');
   },
+  userHasVoted: (parent, args, ctx) => {
+    throw new Error('Resolver not implemented');
+  },
 };

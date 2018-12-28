@@ -20,6 +20,7 @@ import { AggregateTalk } from './AggregateTalk';
 import { RepoConnection } from './RepoConnection';
 import { RepoEdge } from './RepoEdge';
 import { AggregateRepo } from './AggregateRepo';
+import { Mutation } from './Mutation';
 
 export const resolvers: Resolvers = {
   Query,
@@ -39,4 +40,5 @@ export const resolvers: Resolvers = {
   RepoConnection,
   RepoEdge,
   AggregateRepo,
+  Mutation,
 };

@@ -4474,6 +4474,30 @@ export namespace AggregateRepoResolvers {
   }
 }
 
+export namespace MutationResolvers {
+  export const defaultResolvers = {};
+
+  export interface ArgsToggleRepoVote {
+    repoId: string;
+  }
+
+  export type ToggleRepoVoteResolver = (
+    parent: undefined,
+    args: ArgsToggleRepoVote,
+    ctx: MyContext,
+    info: GraphQLResolveInfo
+  ) => Upvote | Promise<Upvote>;
+
+  export interface Type {
+    toggleRepoVote: (
+      parent: undefined,
+      args: ArgsToggleRepoVote,
+      ctx: MyContext,
+      info: GraphQLResolveInfo
+    ) => Upvote | Promise<Upvote>;
+  }
+}
+
 export interface Resolvers {
   Query: QueryResolvers.Type;
   News: NewsResolvers.Type;
@@ -4492,4 +4516,5 @@ export interface Resolvers {
   RepoConnection: RepoConnectionResolvers.Type;
   RepoEdge: RepoEdgeResolvers.Type;
   AggregateRepo: AggregateRepoResolvers.Type;
+  Mutation: MutationResolvers.Type;
 }

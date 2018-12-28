@@ -54,10 +54,16 @@ app.get(
     failureRedirect: '/login?msg=failed', // update later on!
   }),
   (req, res) => {
-    res.cookie('token', jwt.sign({ id: req.user.id }, process.env.JWT_SECRET), {
-      httpOnly: true,
-      maxAge: ms('14d'),
-    });
+    res.cookie(
+      'token',
+      jwt.sign({ id: req.user.id }, process.env.JWT_SECRET, {
+        expiresIn: '14d',
+      }),
+      {
+        httpOnly: true,
+        maxAge: ms('14d'),
+      }
+    );
     res.redirect('/graphql'); // to frontend in the future
   }
 );

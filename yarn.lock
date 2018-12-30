@@ -2035,7 +2035,7 @@
     "@types/connect" "*"
     "@types/node" "*"
 
-"@types/classnames@^2.2.6":
+"@types/classnames@2.2.6":
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.6.tgz#dbe8a666156d556ed018e15a4c65f08937c3f628"
   integrity sha512-XHcYvVdbtAxVstjKxuULYqYaWIzHR15yr1pZj4fnGChuBVJlIAp9StJna0ZJNSgxPh4Nac2FL4JM3M11Tm6fqQ==
@@ -2268,7 +2268,7 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
-"@types/styled-components@^4.1.4":
+"@types/styled-components@4.1.4":
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.1.4.tgz#c6915ccee4413da2e1e81b4df9d7ea5b97eb56aa"
   integrity sha512-zEj6BptOBBxob0hnNdr/qiXZjlC8EUVl7GDN1z+kp58zLtDBjbrbo+1yjL2Gi64IjhFaF7Qz4MbsDdbBuUa83A==
@@ -2277,7 +2277,7 @@
     "@types/react" "*"
     csstype "^2.2.0"
 
-"@types/styled-system@^3.1.0":
+"@types/styled-system@3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-3.1.0.tgz#1394fa60516f404df5e85f10616d17902c937d00"
   integrity sha512-ptinr11BRe/9H1uFVPgfx/zzl0wwZU1pJISIYgEZNAppLxVZl3iKhR7jqMj0NQr4szat7GepecdGWUxiEqeOaQ==
@@ -5660,7 +5660,7 @@ docz-core@^0.13.7:
     ws "^6.1.2"
     yargs "^12.0.5"
 
-docz-theme-default@^0.13.7:
+docz-theme-default@0.13.7:
   version "0.13.7"
   resolved "https://registry.yarnpkg.com/docz-theme-default/-/docz-theme-default-0.13.7.tgz#16a2641df2364bb6b1ec5d8f10e21d8eb02b5060"
   integrity sha512-N/T6IJG4K9VldqgnA07AkzOxAZ5eUS3wa4XlvOZ+ADOM8b3s6O3RFD6Fr1xVaHpEKmPi1Ia9qVVYZuYxN0vfYA==
@@ -5719,7 +5719,7 @@ docz-utils@^0.13.6:
     unist-util-is "^2.1.2"
     unist-util-visit "^1.4.0"
 
-docz@^0.13.7:
+docz@0.13.7, docz@^0.13.7:
   version "0.13.7"
   resolved "https://registry.yarnpkg.com/docz/-/docz-0.13.7.tgz#dcf6bd4bcdec121cbd973a21da25eef2108a4ac3"
   integrity sha512-kxbluFEkkIZFC6P2AYNDCi2qQAyRXj6AL0z3mebptvctu0veuB1YqEL1GqTZ9DtuUr4ZLsqmg34MqJrJNzhlHw==

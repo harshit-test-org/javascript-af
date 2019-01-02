@@ -7,8 +7,9 @@ test('should pass', () => {
 
 test('should use react-testing-library', () => {
   const { getByText } = render(
+    /* tslint:disable */
     // @ts-ignore
-    /> as ForTest
+    <ForTest />
   );
   expect(getByText(/hello/).innerHTML).toBe('hello jsaf');
 });

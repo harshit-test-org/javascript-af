@@ -5,6 +5,11 @@ module.exports = {
   transform: {
     '^.+\\.tsx?$': 'babel-jest',
   },
-  testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
+  testPathIgnorePatterns: [
+    '<rootDir>/.next/',
+    '<rootDir>/node_modules/',
+    '<rootDir>/cypress/',
+    '<rootDir>/coverage/',
+  ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
 };

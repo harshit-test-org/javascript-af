@@ -1,5 +1,11 @@
 {
   "yaml.schemas": {
     "http://json.schemastore.org/prisma": "prisma.yml"
-  }
+  },
+  "json.schemas": [
+    {
+      "fileMatch": ["renovate.json"],
+      "url": "http://json.schemastore.org/renovate"
+    }
+  ]
 }

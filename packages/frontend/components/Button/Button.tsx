@@ -11,20 +11,59 @@ import {
   borderRadius,
   fontSize,
   FontSizeProps,
+  variant,
 } from 'styled-system';
 import { SANS_FAMILY } from '../shared';
 
+const applyVariant = variant({
+  key: 'buttons',
+});
+
 const StyledButton = styled.button<
-  ColorProps & SpaceProps & BorderRadiusProps & FontSizeProps
+  ColorProps &
+    SpaceProps &
+    BorderRadiusProps &
+    FontSizeProps & { variant: string }
 >`
   border: 0;
   outline: none;
   cursor: pointer;
+  font-family: ${SANS_FAMILY};
+  padding: 16px;
+  margin: 8px;
+  font-size: 1.2rem;
+  border-radius: 44px;
+  /* for ripple */
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  &:after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+  }
+  &:active:after{
+    transform: scale(0, 0);
+    opacity: .3;
+    transition: 0s;
+  }
   ${color}
   ${space}
   ${fontFamily}
   ${fontSize}
   ${borderRadius}
+  ${applyVariant}
 `;
 
 interface Props
@@ -32,19 +71,17 @@ interface Props
     SpaceProps,
     FontFamilyProps,
     BorderRadiusProps,
-    FontSizeProps {}
+    FontSizeProps {
+  variant?: string;
+}
 
-export const Button: React.SFC<Props> = ({ p = 3, children, ...others }) => {
+export const Button: React.SFC<Props> = ({
+  children,
+  variant: v = 'primary',
+  ...others
+}) => {
   return (
-    <StyledButton
-      fontFamily={SANS_FAMILY}
-      p={p}
-      fontSize="1.25rem"
-      borderRadius="44px"
-      color="#fff"
-      bg="#6200EE"
-      {...others}
-    >
+    <StyledButton variant={v} {...others}>
       {children}
     </StyledButton>
   );

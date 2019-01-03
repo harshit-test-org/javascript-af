@@ -1,7 +1,8 @@
 export default {
   typescript: true,
-  baseConfig: './packages/frontend/components',
+  baseConfig: 'packages/frontend/components',
   title: 'JSUi',
+  wrapper : '../../components/shared/docz-wrapper.tsx',
   propsParser: false,
   themeConfig: {
     repository: 'https://github.com/javascript-af/javascript-af',

@@ -1,1 +1,2 @@
-export const SANS_FAMILY = ` 'PT Sans', sans-serif`;
+export { default as theme } from './theme';
+export * from './constants';

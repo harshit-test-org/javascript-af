@@ -2,6 +2,7 @@ import App, { Container } from 'next/app';
 import { ApolloProvider } from 'react-apollo';
 import withData from '../lib/withData';
 import { ApolloClient } from 'apollo-boost';
+import { Meta } from '../components/Meta';
 
 class MyApp extends App<{ apollo?: ApolloClient<{}> }> {
   static async getInitialProps({ Component, ctx }) {
@@ -19,6 +20,7 @@ class MyApp extends App<{ apollo?: ApolloClient<{}> }> {
     return (
       <Container>
         <ApolloProvider client={apollo}>
+          <Meta />
           <Component {...pageProps} />
         </ApolloProvider>
       </Container>

@@ -1,25 +1,23 @@
 import { render } from 'react-testing-library';
+import React from 'react';
 import { Meta } from '../components/Meta';
-import Index from '../pages/index';
 
 // TODO: make JSX work
 
-test('should display default title', () => {
-  return;
-  const { container } = render(
-    /> as Meta as div
-      <Index />
-    /div> as 
-  );
-  expect(container.title).toBe('JavaScript-AF');
+test.skip('should display default title', () => {
+  const { container } = render((
+    <div>
+      <Meta />
+    </div>
+  ) as React.ReactElement<any>);
+  expect(container.title).not.toBe('');
 });
 
-test('should display passed title', () => {
-  return;
-  const { container } = render(
-    title as Meta as div="Codswallop" />
-      /> as Index
+test.skip('should display passed title', () => {
+  const { container } = render((
+    <div>
+      <Meta title={'Codswallop'} />
     </div>
-  );
+  ) as React.ReactElement<any>);
   expect(container.title).toBe('Codswallop');
 });

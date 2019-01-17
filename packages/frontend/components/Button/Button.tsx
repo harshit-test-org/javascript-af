@@ -75,7 +75,7 @@ interface Props
   variant?: string;
 }
 
-export const Button: React.SFC<Props> = ({
+export const Button: React.FC<Props> = ({
   children,
   variant: v = 'primary',
   ...others

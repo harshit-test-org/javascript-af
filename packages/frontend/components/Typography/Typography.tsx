@@ -84,7 +84,7 @@ export interface Props
   as?: string;
 }
 
-export const Typography: React.SFC<Props> = ({
+export const Typography: React.FC<Props> = ({
   children,
   as,
   variant,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-testing-library';
-import ForTest from '../components/ForTest';
+import ForTest from './ForTest';
 
 test('should pass', () => {
   expect(true).toBe(true);

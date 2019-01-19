@@ -1,16 +1,20 @@
 import React from 'react';
-import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
+import styled from 'styled-components';
 import {
   fontWeight,
   textAlign,
   space,
   fontSize,
   fontFamily,
+  color,
+  ColorProps,
   TextAlignProps,
   SpaceProps,
   FontWeightProps,
   FontFamilyProps,
   FontSizeProps,
+  lineHeight,
+  LineHeightProps,
 } from 'styled-system';
 import { SANS_FAMILY } from '../shared';
 
@@ -48,9 +52,6 @@ const styleMapping: {
   p: {
     size: '20px',
     component: 'p',
-    additionalStyles: `
-    line-height: 2rem;
-    `,
   },
   default: {
     size: '16px',
@@ -63,15 +64,18 @@ const StyledTypography = styled.span<
     TextAlignProps &
     FontFamilyProps &
     SpaceProps &
+    ColorProps &
+    LineHeightProps &
     FontSizeProps & { mapping: any }
 >`
-  ${props => props.mapping.additionalStyles || ''}
   font-family: ${SANS_FAMILY};
   ${fontWeight}
   ${fontFamily}
   ${textAlign}
   ${space}
   ${fontSize}
+  ${color}
+  ${lineHeight}
 `;
 
 export interface Props
@@ -79,9 +83,11 @@ export interface Props
     TextAlignProps,
     FontFamilyProps,
     FontSizeProps,
+    LineHeightProps,
     SpaceProps {
   variant?: string;
   as?: string;
+  color?: string;
 }
 
 export const Typography: React.FC<Props> = ({

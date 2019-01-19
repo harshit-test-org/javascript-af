@@ -4,6 +4,7 @@ export default {
   colors: {
     purple: '#6200EE',
     while: '#FFFFFF',
+    blue: '#2F47C7',
   },
   fontFamily: {
     sans: SANS_FAMILY,
@@ -13,6 +14,18 @@ export default {
     primary: {
       color: 'white',
       backgroundColor: '#6200EE',
+      '&:hover': {
+        opacity: '0.9',
+      },
+      '&:after': {
+        backgroundImage:
+          'radial-gradient(circle, #fff 10%, transparent 10.01%)',
+      },
+    },
+    icon: {
+      padding: '8px',
+      display: 'flex',
+      alignItems: 'center',
       '&:hover': {
         opacity: '0.9',
       },

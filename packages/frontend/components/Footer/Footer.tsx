@@ -1,0 +1,74 @@
+import React from 'react';
+import styled from 'styled-components';
+import { Button } from '../Button';
+import { GithubIcon } from '../Icons/GithubIcon';
+import { TwitterIcon } from '../Icons/TwitterIcon';
+import logo from '../../static/logo.png';
+
+const StyledFooter = styled.footer`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: ${props => props.theme.fontFamily.sans};
+  color: ${props => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.purple};
+  padding: 3rem 0;
+  /* no padding horizontally, whole site inside container, implementation to follow */
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .main {
+    flex: 1;
+    text-align: center;
+  }
+`;
+
+interface Props {}
+
+export const Footer: React.FC<Props> = ({ children, ...others }) => {
+  return (
+    <StyledFooter {...others}>
+      <div className="logo">
+        <img src={logo} />
+      </div>
+      <div className="main">
+        <p>
+          Made with 💖‍ by{' '}
+          <span>
+            <a href="https://twitter.com/pantharshit00">Harshit Pant</a>
+          </span>{' '}
+          and{' '}
+          <span>
+            <a href="https://twitter.com/NMeuleman">Nicky Meuleman</a>
+          </span>
+        </p>
+      </div>
+      <div className="social">
+        <ul>
+          <li>
+            <a href="https://github.com/javascript-af/javascript-af">
+              <Button variant="icon" as="a">
+                <GithubIcon />
+              </Button>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com">
+              <Button variant="icon" as="a">
+                <TwitterIcon />
+              </Button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </StyledFooter>
+  );
+};

@@ -18,7 +18,7 @@ import {
 } from 'styled-system';
 import { SANS_FAMILY } from '../shared';
 
-const styleMapping: {
+export const styleMapping: {
   [key: string]: {
     size: string;
     component: string;

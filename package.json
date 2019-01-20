@@ -1,8 +1,14 @@
 {
   "name": "javascript-af",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/jest-styled-components",
+      "**/jest-styled-components/**"
+    ]
+  },
   "version": "0.0.1",
   "main": "index.js",
   "repository": "git@github.com:javascript-af/javascript-af.git",

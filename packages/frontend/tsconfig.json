@@ -14,7 +14,7 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "baseUrl": ".",
-    "lib": ["dom", "es2015", "es2016"]
+    "lib": ["dom", "esnext"]
   },
   "include": ["./**/**.ts", "./**/**.tsx"],
   "exclude": ["node_modules", "cypress/**"]

@@ -26,7 +26,7 @@ export interface Props extends SpaceProps {
 
 export const Paper = StyledCard;
 
-export const Card: React.FC<Props> = ({ content, children, heading, tags }) => {
+export const Card: React.FC<Props> = ({ content, heading, tags }) => {
   return (
     <StyledCard>
       {tags && (

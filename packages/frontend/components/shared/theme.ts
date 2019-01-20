@@ -3,7 +3,7 @@ import { SANS_FAMILY, MONO_FAMILY } from './constants';
 export default {
   colors: {
     purple: '#6200EE',
-    while: '#FFFFFF',
+    white: '#FFFFFF',
     blue: '#2F47C7',
   },
   fontFamily: {

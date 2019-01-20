@@ -66,9 +66,10 @@ const StyledTypography = styled.span<
     SpaceProps &
     ColorProps &
     LineHeightProps &
-    FontSizeProps & { mapping: any }
+    FontSizeProps & { cursor?: string; mapping: any }
 >`
   font-family: ${SANS_FAMILY};
+  ${p => (p.cursor ? `cursor: ${p.cursor};` : '')}
   ${fontWeight}
   ${fontFamily}
   ${textAlign}
@@ -88,6 +89,7 @@ export interface Props
   variant?: string;
   as?: string;
   color?: string;
+  cursor?: string;
 }
 
 export const Typography: React.FC<Props> = ({

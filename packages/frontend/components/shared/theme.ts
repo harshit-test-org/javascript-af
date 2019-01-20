@@ -31,7 +31,7 @@ export default {
       },
       '&:after': {
         backgroundImage:
-          'radial-gradient(circle, #fff 10%, transparent 10.01%)',
+          'radial-gradient(circle, #808080 10%, transparent 10.01%)',
       },
     },
     outlined: {

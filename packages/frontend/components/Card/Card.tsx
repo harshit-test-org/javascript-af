@@ -42,6 +42,8 @@ export const Card: React.FC<Props> = ({ content, children, heading, tags }) => {
               color="blue"
               fontFamily={MONO_FAMILY}
               variant="default"
+              as="a"
+              cursor="pointer"
             >
               #{tag}{' '}
             </Typography>
@@ -105,7 +107,7 @@ export const Card: React.FC<Props> = ({ content, children, heading, tags }) => {
               />{' '}
               100
             </Button>
-            <Button variant="icon" m={0} p={2}>
+            <Button variant="icon" as="a" m={0} p={2}>
               <GithubIcon />
             </Button>
           </div>

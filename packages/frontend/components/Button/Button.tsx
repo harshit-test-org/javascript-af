@@ -73,6 +73,7 @@ interface Props
     BorderRadiusProps,
     FontSizeProps {
   variant?: string;
+  as?: any;
 }
 
 export const Button: React.FC<Props> = ({

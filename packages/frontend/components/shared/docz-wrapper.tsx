@@ -5,13 +5,15 @@ import { normalize } from 'polished';
 
 const GlobalNormalization = createGlobalStyle`
   ${normalize()}
-  *{
+  html {
     box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
   }
 `;
 
 const Wrapper = ({ children }) => {
-  console.log('hi');
   return (
     <ThemeProvider theme={theme}>
       <>

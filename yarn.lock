@@ -2640,10 +2640,10 @@
     "@types/react" "*"
     csstype "^2.2.0"
 
-"@types/styled-system@3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-3.1.1.tgz#ff4430f5b5fe21e6f0dee49fdbf6f7a993bdb502"
-  integrity sha512-jyUmr/I/tMDG4COSLHE4DXzGcGGRxRvSUjLGPV1Xy5jZ3+KLg+EJ+e04rOrw0AzLaKHSnZCM/P1iUwKq6b6cnQ==
+"@types/styled-system@3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-3.1.2.tgz#968d5d073858cc0d82511e1b0c37ccdbd3757416"
+  integrity sha512-yXXxIp3jeGpp6ENvqB2mhNXxsZJHYSZKGi8yO/uxK+TqlG+wdZqdeY+hx9rRwqSBRLzYuq5y5l6YFi/p8oqfJw==
   dependencies:
     csstype "^2.2.0"
 

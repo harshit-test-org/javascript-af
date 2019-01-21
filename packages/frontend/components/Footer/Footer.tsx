@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Button } from '../Button';
 import { GithubIcon } from '../Icons/GithubIcon';
 import { TwitterIcon } from '../Icons/TwitterIcon';
-import logo from '../../static/logo.png';
+import { JsafLogo } from '../Icons/JsafLogo';
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -29,6 +29,9 @@ const StyledFooter = styled.footer`
     flex: 1;
     text-align: center;
   }
+  .logo {
+    padding: 1rem;
+  }
 `;
 
 interface Props {}
@@ -37,7 +40,7 @@ export const Footer: React.FC<Props> = ({ children, ...others }) => {
   return (
     <StyledFooter {...others}>
       <div className="logo">
-        <img src={logo} />
+        <JsafLogo />
       </div>
       <div className="main">
         <p>

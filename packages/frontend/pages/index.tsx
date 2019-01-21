@@ -1,4 +1,3 @@
 import React from 'react';
-import ForTest from '../components/ForTest';
 
-export default () => <ForTest />;
+export default () => <div>Jsaf 🙃</div>;

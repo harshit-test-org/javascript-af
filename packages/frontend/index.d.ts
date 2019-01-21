@@ -11,3 +11,8 @@ declare module 'react' {
     css?: CSSProp;
   }
 }
+
+declare module '*.png' {
+  const value: any;
+  export default value;
+}

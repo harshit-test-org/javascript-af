@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Typography } from '../../components/Typography';
+import { Typography } from '../Typography';
 import { space, SpaceProps } from 'styled-system';
-import { MONO_FAMILY } from '../../components/shared';
-import { Button } from '../../components/Button';
-import { GithubIcon } from '../../components/Icons/GithubIcon';
-import { UpVoteIcon } from '../../components/Icons/UpVoteIcon';
+import { MONO_FAMILY } from '../shared';
+import { Button } from '../Button';
+import { GithubIcon } from '../Icons/GithubIcon';
+import { UpVoteIcon } from '../Icons/UpVoteIcon';
 
 const StyledCard = styled.div<SpaceProps>`
   box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);

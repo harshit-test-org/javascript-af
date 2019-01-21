@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from './Button';
-import { theme } from '../../components/shared';
+import { theme } from '../shared';
 import { renderWithTheme } from '../../testUtils/renderWithTheme';
-import { GithubIcon } from '../../components/Icons/GithubIcon';
+import { GithubIcon } from '../Icons/GithubIcon';
 
 describe('Button', () => {
   test('should render primary button if no props are passed', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, styleMapping } from './Typography';
 import { renderWithTheme } from '../../testUtils/renderWithTheme';
-import { theme } from '../../components/shared';
+import { theme } from '../shared';
 
 describe('Button', () => {
   test('should render text', () => {

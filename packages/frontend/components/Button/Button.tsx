@@ -67,7 +67,7 @@ const StyledButton = styled.button<
 `;
 
 interface Props
-  extends React.HTMLAttributes<HTMLButtonElement>,
+  extends React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement>,
     SpaceProps,
     FontFamilyProps,
     BorderRadiusProps,

@@ -1,0 +1,226 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render 1`] = `
+.c1 {
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  font-family: 'PT Sans',sans-serif;
+  padding: 16px;
+  margin: 8px;
+  font-size: 1.2rem;
+  border-radius: 44px;
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  padding: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle,#fff 10%,transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  -webkit-transform: scale(10,10);
+  -ms-transform: scale(10,10);
+  transform: scale(10,10);
+  opacity: 0;
+  -webkit-transition: -webkit-transform .5s,opacity 1s;
+  -webkit-transition: transform .5s,opacity 1s;
+  transition: transform .5s,opacity 1s;
+}
+
+.c1:active:after {
+  -webkit-transform: scale(0,0);
+  -ms-transform: scale(0,0);
+  transform: scale(0,0);
+  opacity: .3;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+
+.c1:hover {
+  opacity: 0.9;
+}
+
+.c1:after {
+  background-image: radial-gradient(circle,#808080 10%,transparent 10.01%);
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'PT Sans',sans-serif;
+  color: #FFFFFF;
+  background-color: #6200EE;
+  padding: 3rem 0;
+}
+
+.c0 ul {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  list-style: none;
+}
+
+.c0 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #fff;
+}
+
+.c0 .main {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: center;
+}
+
+.c0 .logo {
+  padding: 1rem;
+}
+
+<footer
+  class="c0"
+>
+  <div
+    class="logo"
+  >
+    <svg
+      fill="none"
+      height="38"
+      role="img"
+      width="60"
+    >
+      <title>
+        Javascript AF logo
+      </title>
+      <path
+        d="M10.714 25.577V2.923L15 0v25.577C15 36.538 8.571 38 0 38l2.857-4.385c5 0 7.857-.73 7.857-8.038z"
+        fill="#fff"
+      />
+      <path
+        d="M18 20L34 1l-5.5 15.5H38L25 37l3.5-17H18z"
+        fill="#FFC600"
+      />
+      <path
+        d="M35.284 35.198c-.288 0-.534-.102-.738-.306a.985.985 0 0 1-.306-.72c0-.276.102-.516.306-.72.204-.204.45-.306.738-.306.276 0 .516.102.72.306a.985.985 0 0 1 .306.72.985.985 0 0 1-.306.72.985.985 0 0 1-.72.306zm9.108-8.604c1.176 0 2.07.306 2.682.918.624.612.936 1.65.936 3.114V35h-1.404v-1.26c-.504.972-1.44 1.458-2.808 1.458-.912 0-1.626-.204-2.142-.612-.516-.42-.774-.972-.774-1.656 0-.576.186-1.08.558-1.512.372-.432.87-.762 1.494-.99a5.869 5.869 0 0 1 2.088-.36c.684 0 1.302.036 1.854.108-.072-.924-.318-1.572-.738-1.944-.408-.384-1.02-.576-1.836-.576-.408 0-.804.078-1.188.234a3.338 3.338 0 0 0-1.026.684l-.63-.828c.768-.768 1.746-1.152 2.934-1.152zm-.468 7.614c.888 0 1.59-.258 2.106-.774.516-.528.798-1.284.846-2.268a11.376 11.376 0 0 0-1.746-.126c-.912 0-1.632.15-2.16.45-.528.3-.792.756-.792 1.368 0 .9.582 1.35 1.746 1.35zm7.992-6.408h-1.782v-1.026h1.782v-.684c0-1.056.27-1.848.81-2.376.552-.528 1.29-.792 2.214-.792.528 0 1.014.096 1.458.288.456.192.828.474 1.116.846l-.684.954-.108.144-.108-.072a.59.59 0 0 0-.036-.144.71.71 0 0 0-.09-.252 1.01 1.01 0 0 0-.216-.252 1.699 1.699 0 0 0-.558-.36 2.13 2.13 0 0 0-.738-.108c-.564 0-1.008.168-1.332.504-.324.336-.486.876-.486 1.62v.684h2.7V27.8h-2.7V35h-1.242v-7.2z"
+        fill="#D7D1D1"
+      />
+    </svg>
+  </div>
+  <div
+    class="main"
+  >
+    <p>
+      Made with 💖‍ by
+       
+      <span>
+        <a
+          href="https://twitter.com/pantharshit00"
+        >
+          Harshit Pant
+        </a>
+      </span>
+       
+      and
+       
+      <span>
+        <a
+          href="https://twitter.com/NMeuleman"
+        >
+          Nicky Meuleman
+        </a>
+      </span>
+    </p>
+  </div>
+  <div
+    class="social"
+  >
+    <ul>
+      <li>
+        <a
+          class="c1"
+          href="https://github.com/javascript-af/javascript-af"
+        >
+          <svg
+            fill="none"
+            height="24"
+            role="img"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            width="24"
+          >
+            <title>
+              Github icon
+            </title>
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+            />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a
+          class="c1"
+          href="https://twitter.com"
+        >
+          <svg
+            fill="none"
+            height="24"
+            role="img"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            width="24"
+          >
+            <title>
+              Twitter Icon
+            </title>
+            <path
+              d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+            />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+`;

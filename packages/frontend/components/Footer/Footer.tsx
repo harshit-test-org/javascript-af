@@ -57,18 +57,18 @@ export const Footer: React.FC<Props> = ({ children, ...others }) => {
       <div className="social">
         <ul>
           <li>
-            <a href="https://github.com/javascript-af/javascript-af">
-              <Button variant="icon" as="a">
-                <GithubIcon />
-              </Button>
-            </a>
+            <Button
+              variant="icon"
+              as="a"
+              href="https://github.com/javascript-af/javascript-af"
+            >
+              <GithubIcon />
+            </Button>
           </li>
           <li>
-            <a href="https://twitter.com">
-              <Button variant="icon" as="a">
-                <TwitterIcon />
-              </Button>
-            </a>
+            <Button variant="icon" as="a" href="https://twitter.com">
+              <TwitterIcon />
+            </Button>
           </li>
         </ul>
       </div>

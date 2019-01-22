@@ -1,7 +1,8 @@
 import React from 'react';
 
 export const JsafLogo: React.FC = props => (
-  <svg width={60} height={38} fill="none" {...props}>
+  <svg width={60} height={38} fill="none" role="img" {...props}>
+    <title>Javascript AF logo</title>
     <path
       d="M10.714 25.577V2.923L15 0v25.577C15 36.538 8.571 38 0 38l2.857-4.385c5 0 7.857-.73 7.857-8.038z"
       fill="#fff"

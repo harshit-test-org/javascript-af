@@ -10,8 +10,10 @@ export const UpVoteIcon: React.FC = props => (
     stroke="currentColor"
     stroke-width="2"
     stroke-linecap="round"
+    role="img"
     {...props}
   >
+    <title>Upvote icon</title>
     <circle cx="12" cy="12" r="10" />
     <polyline points="16 12 12 8 8 12" />
     <line x1="12" y1="16" x2="12" y2="8" />

@@ -23,7 +23,9 @@ const StyledButton = styled.button<
   ColorProps &
     SpaceProps &
     BorderRadiusProps &
-    FontSizeProps & { variant: string }
+    FontSizeProps & { variant: string } & React.AnchorHTMLAttributes<
+      HTMLButtonElement | HTMLAnchorElement
+    >
 >`
   border: 0;
   outline: none;
@@ -67,11 +69,11 @@ const StyledButton = styled.button<
 `;
 
 interface Props
-  extends React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement>,
-    SpaceProps,
+  extends SpaceProps,
     FontFamilyProps,
     BorderRadiusProps,
-    FontSizeProps {
+    FontSizeProps,
+    React.AnchorHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   variant?: string;
   as?: any;
 }

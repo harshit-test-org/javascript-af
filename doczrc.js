@@ -12,7 +12,6 @@ export default {
     },
     logo: {
       src: 'https://i.imgur.com/hNUdz1y.png',
-      width: 200,
     },
   },
 };

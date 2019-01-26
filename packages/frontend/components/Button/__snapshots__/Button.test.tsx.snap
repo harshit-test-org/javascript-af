@@ -75,6 +75,7 @@ exports[`Button should render icon variant 1`] = `
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke-width="2"
+    viewBox="0 0 24 24"
     width="24"
   >
     <title>

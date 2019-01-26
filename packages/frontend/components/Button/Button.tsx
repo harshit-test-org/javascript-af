@@ -7,6 +7,8 @@ import {
   SpaceProps,
   FontFamilyProps,
   fontFamily,
+  fontWeight,
+  FontWeightProps,
   BorderRadiusProps,
   borderRadius,
   fontSize,
@@ -22,6 +24,7 @@ const applyVariant = variant({
 const StyledButton = styled.button<
   ColorProps &
     SpaceProps &
+    FontWeightProps &
     BorderRadiusProps &
     FontSizeProps & { variant: string } & React.AnchorHTMLAttributes<
       HTMLButtonElement | HTMLAnchorElement
@@ -66,12 +69,14 @@ const StyledButton = styled.button<
   ${fontSize}
   ${borderRadius}
   ${applyVariant}
+  ${fontWeight}
 `;
 
 interface Props
   extends SpaceProps,
     FontFamilyProps,
     BorderRadiusProps,
+    FontWeightProps,
     FontSizeProps,
     React.AnchorHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   variant?: string;

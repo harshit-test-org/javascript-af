@@ -18,13 +18,12 @@ import {
 } from 'styled-system';
 import { SANS_FAMILY } from '../shared';
 
-export const styleMapping: {
-  [key: string]: {
-    size: string;
-    component: string;
-    additionalStyles?: string;
-  };
-} = {
+export interface StyleMappingKey {
+  size: string;
+  component: string;
+}
+
+export const styleMapping: Record<string, StyleMappingKey> = {
   h1: {
     size: '38px',
     component: 'h1',

@@ -35,7 +35,7 @@
     "@types/passport": "1.0.0",
     "@types/passport-github2": "1.2.2",
     "graphqlgen": "0.5.1",
-    "jest": "23.6.0",
+    "jest": "24.0.0",
     "nodemon": "1.18.9",
     "ts-jest": "23.10.5",
     "ts-node": "7.0.1",

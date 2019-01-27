@@ -4,14 +4,33 @@ menu: Components
 ---
 
 import { Playground } from 'docz';
-import { Card } from './';
+import { Card, NewsCard } from './';
 
-# Card
+## Card
 
-## Basic Usage
+### Basic Usage
 
 <Playground>
-  <Card tags={["react","testing"]}
-    content="Simple and complete react dom testing utilities that encourage good testing practice"
-   heading="react-testing-library" />
+  <div style={{
+    height: "300px",
+    width: "400px",
+  }}>
+    <Card tags={["react","testing"]}
+      content="Simple and complete react dom testing utilities that encourage good testing practice"
+    heading="react-testing-library" />
+  </div>
+</Playground>
+
+
+## NewsCard
+
+### Basic Usage
+
+<Playground>
+  <div style={{
+    height: "400px",
+    width: "500px",
+  }}>
+    <NewsCard />
+    </div>
 </Playground>

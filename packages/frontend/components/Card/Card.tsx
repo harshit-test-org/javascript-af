@@ -9,8 +9,6 @@ import { UpVoteIcon } from '../Icons/UpVoteIcon';
 
 const StyledCard = styled.div<SpaceProps>`
   box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);
-  height: 300px;
-  width: 400px;
   border-radius: 44px;
   display: flex;
   flex-direction: column;

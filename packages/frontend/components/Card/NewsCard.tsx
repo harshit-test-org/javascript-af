@@ -1,15 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Typography } from '../Typography';
 import { MONO_FAMILY } from '../shared';
 
-const StyledNewsCard = styled.div`
+const StyledNewsCard = styled.div<{ haveImage: boolean }>`
   border: 1.5px solid #707070;
   height: 100%;
   width: 100%;
   display: flex;
   border-radius: 44px;
   flex-direction: column;
+  ${p => (!p.haveImage ? 'border: 1px solid #707070;' : '')}
   .img {
     border-bottom: 1.5px solid #707070;
     padding: 1.5px;
@@ -23,8 +24,16 @@ const StyledNewsCard = styled.div`
   }
   .information {
     padding: 1rem;
-    flex-basis: 1;
-    max-height: auto;
+    ${p =>
+      !p.haveImage
+        ? css`
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            width: 100%;
+          `
+        : ''}
     .heading {
       margin-bottom: 4px;
     }
@@ -35,15 +44,25 @@ const StyledNewsCard = styled.div`
   }
 `;
 
-export const NewsCard: React.FC = () => {
+export interface INewsCardProps {
+  heading: string;
+  image?: string;
+  tags: string[];
+}
+
+export const NewsCard: React.FC<INewsCardProps> = ({
+  heading,
+  image,
+  tags,
+  ...rest
+}) => {
   return (
-    <StyledNewsCard>
-      <div className="img">
-        <img
-          src="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548588337/esoplan_production/kzyfdwpaudkusftihy7c.png"
-          alt="something"
-        />
-      </div>
+    <StyledNewsCard haveImage={Boolean(image)} {...rest}>
+      {image && (
+        <div className="img">
+          <img src={image} alt="something" />
+        </div>
+      )}
       <div className="information">
         <div className="heading">
           <Typography
@@ -54,7 +73,7 @@ export const NewsCard: React.FC = () => {
             m="0"
             p="0"
           >
-            Next.js 8 is released with suspense support
+            {heading}
           </Typography>
         </div>
         <div className="infos">
@@ -62,24 +81,18 @@ export const NewsCard: React.FC = () => {
             <Typography as="div">3 min</Typography>
           </div>
           <div className="tags">
-            <Typography
-              color="blue"
-              fontFamily={MONO_FAMILY}
-              variant="default"
-              as="a"
-              cursor="pointer"
-            >
-              #react{' '}
-            </Typography>
-            <Typography
-              color="blue"
-              fontFamily={MONO_FAMILY}
-              variant="default"
-              as="a"
-              cursor="pointer"
-            >
-              #nextjs
-            </Typography>
+            {tags.map((tag, index) => (
+              <Typography
+                key={`${heading}-${tag}-${index}`}
+                color="blue"
+                fontFamily={MONO_FAMILY}
+                variant="default"
+                as="a"
+                cursor="pointer"
+              >
+                #{tag}{' '}
+              </Typography>
+            ))}
           </div>
         </div>
       </div>

@@ -15,9 +15,11 @@ import { Card, NewsCard } from './';
     height: "300px",
     width: "400px",
   }}>
-    <Card tags={["react","testing"]}
+    <Card 
+      tags={["react","testing"]}
       content="Simple and complete react dom testing utilities that encourage good testing practice"
-    heading="react-testing-library" />
+      heading="react-testing-library" 
+    />
   </div>
 </Playground>
 
@@ -31,6 +33,23 @@ import { Card, NewsCard } from './';
     height: "400px",
     width: "500px",
   }}>
-    <NewsCard />
+    <NewsCard 
+      heading="Next.js 8 is released with suspense support" 
+      image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548588337/esoplan_production/kzyfdwpaudkusftihy7c.png"
+      tags={["react","testing"]}
+    />
+    </div>
+</Playground>
+
+
+<Playground>
+  <div style={{
+    height: "100px",
+    width: "500px",
+  }}>
+    <NewsCard 
+      heading="Server Renderer for React suspense is released" 
+      tags={["react","suspense"]}
+    />
     </div>
 </Playground>

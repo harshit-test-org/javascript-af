@@ -9,19 +9,19 @@
     "codegen": "graphqlgen"
   },
   "dependencies": {
-    "apollo-server-express": "^2.3.1",
+    "apollo-server-express": "^2.3.3",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "graphql": "^14.1.1",
     "graphql-import": "^0.7.1",
-    "graphql-middleware": "^3.0.0",
+    "graphql-middleware": "^3.0.1",
     "graphql-shield": "^5.1.0",
     "jsonwebtoken": "^8.4.0",
     "ms": "^2.1.1",
     "passport": "^0.4.0",
     "passport-github2": "^0.1.11",
-    "prisma-client-lib": "^1.24.0"
+    "prisma-client-lib": "^1.25.4"
   },
   "devDependencies": {
     "@types/cookie-parser": "1.4.1",
@@ -31,10 +31,10 @@
     "@types/jest": "23.3.13",
     "@types/jsonwebtoken": "8.3.0",
     "@types/ms": "0.7.30",
-    "@types/node": "10.12.18",
+    "@types/node": "10.12.19",
     "@types/passport": "1.0.0",
     "@types/passport-github2": "1.2.2",
-    "graphqlgen": "0.5.1",
+    "graphqlgen": "0.6.0-rc2",
     "jest": "24.0.0",
     "nodemon": "1.18.9",
     "ts-jest": "23.10.5",

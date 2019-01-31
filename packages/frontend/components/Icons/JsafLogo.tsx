@@ -1,7 +1,7 @@
 import React from 'react';
 import { theme } from '../shared';
 
-export const JsafLogo: React.FC = props => (
+export const JsafLogo: React.FC<React.SVGAttributes<SVGSVGElement>> = props => (
   <svg width={60} height={38} fill="none" role="img" {...props}>
     <title>Javascript AF logo</title>
     <path
@@ -16,7 +16,9 @@ export const JsafLogo: React.FC = props => (
   </svg>
 );
 
-export const JsafLogoBlack: React.FC = props => (
+export const JsafLogoBlack: React.FC<
+  React.SVGAttributes<SVGSVGElement>
+> = props => (
   <svg width={60} height={38} fill="none" role="img" {...props}>
     <title>Javascript AF logo</title>
     <path

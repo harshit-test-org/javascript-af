@@ -1,6 +1,8 @@
 import React from 'react';
 
-export const GithubIcon: React.FC = props => (
+export const GithubIcon: React.FC<
+  React.SVGAttributes<SVGSVGElement>
+> = props => (
   <svg
     width={24}
     height={24}

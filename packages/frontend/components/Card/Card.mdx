@@ -4,7 +4,7 @@ menu: Components
 ---
 
 import { Playground } from 'docz';
-import { Card, NewsCard } from './';
+import { Card, NewsCard, TalkCard } from './';
 
 ## Card
 
@@ -50,6 +50,23 @@ import { Card, NewsCard } from './';
     <NewsCard 
       heading="Server Renderer for React suspense is released" 
       tags={["react","suspense"]}
+    />
+    </div>
+</Playground>
+
+<Playground>
+  <div style={{
+    height: "400px",
+    width: "500px",
+  }}>
+    <TalkCard
+     heading="This is a Talk About You!" 
+     image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+     tags={["react","personal"]}
+     avatar={{
+       name:"Jani Evakallio",
+       image: "https://pbs.twimg.com/profile_images/1074414240088449030/fAbT29ic_400x400.jpg"
+     }}
     />
     </div>
 </Playground>

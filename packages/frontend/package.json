@@ -47,6 +47,6 @@
     "lerna": "3.10.8",
     "react-testing-library": "5.4.4",
     "tslint": "5.12.1",
-    "typescript": "3.2.4"
+    "typescript": "3.3.1"
   }
 }

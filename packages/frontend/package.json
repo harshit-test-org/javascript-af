@@ -27,9 +27,9 @@
     "typeface-pt-sans": "^0.0.54"
   },
   "devDependencies": {
-    "@commitlint/cli": "7.4.0",
-    "@commitlint/config-conventional": "7.3.1",
-    "@commitlint/prompt-cli": "7.3.1",
+    "@commitlint/cli": "7.5.0",
+    "@commitlint/config-conventional": "7.5.0",
+    "@commitlint/prompt-cli": "7.5.0",
     "@types/classnames": "2.2.7",
     "@types/jest": "23.3.13",
     "@types/next": "7.0.7",

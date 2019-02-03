@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '../../lib/styled-components';
 import { Typography } from '../Typography';
 import { space, SpaceProps } from 'styled-system';
 import { MONO_FAMILY } from '../shared';

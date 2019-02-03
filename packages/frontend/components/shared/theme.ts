@@ -1,6 +1,54 @@
 import { SANS_FAMILY, MONO_FAMILY } from './constants';
 
-export default {
+interface ThemeInterface {
+  colors: {
+    purple: string;
+    white: string;
+    blue: string;
+  };
+  fontFamily: {
+    sans: string;
+    mono: string;
+  };
+  buttons: {
+    primary: {
+      color: string;
+      backgroundColor: string;
+      '&:hover': {
+        opacity: string;
+      };
+      '&:after': {
+        backgroundImage: string;
+      };
+    };
+    icon: {
+      padding: string;
+      display: string;
+      alignItems: string;
+      '&:hover': {
+        opacity: string;
+      };
+      '&:after': {
+        backgroundImage: string;
+      };
+    };
+    outlined: {
+      backgroundColor: string;
+      borderRadius: string;
+      border: string;
+      color: string;
+      '&:hover': {
+        opacity: string;
+      };
+      '&:after': {
+        backgroundImage: string;
+      };
+    };
+  };
+  maxWidth: string;
+}
+
+const theme: ThemeInterface = {
   colors: {
     purple: '#6200EE',
     white: '#FFFFFF',
@@ -50,3 +98,5 @@ export default {
   },
   maxWidth: '1000px',
 };
+
+export { theme as default, ThemeInterface };

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '../../lib/styled-components';
 import { Button } from '../Button';
 import { Typography } from '../Typography';
 import { GithubIcon } from '../Icons/GithubIcon';

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css } from '../../lib/styled-components';
 import { boxShadow, BoxShadowProps, space, SpaceProps } from 'styled-system';
 import { theme, MONO_FAMILY } from '../shared';
 import { JsafLogoBlack } from '../Icons/JsafLogo';

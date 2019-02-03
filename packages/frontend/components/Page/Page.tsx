@@ -1,5 +1,8 @@
 import React from 'react';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import styled, {
+  ThemeProvider,
+  createGlobalStyle,
+} from '../../lib/styled-components';
 import theme from '../shared/theme';
 import { Header } from '../Header';
 import { Footer } from '../Footer';

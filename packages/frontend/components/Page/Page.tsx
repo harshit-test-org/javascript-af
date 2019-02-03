@@ -5,10 +5,17 @@ import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { Meta } from '../Meta';
 
+const StyledPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
 const Inner = styled.div`
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
   padding: 2rem;
+  flex-grow: 1;
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -27,20 +34,15 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-interface Props {
-  title?: string;
-}
-
-const Page: React.FC<Props> = props => (
-  // @ts-ignore
+const Page: React.FC<{}> = props => (
   <ThemeProvider theme={theme}>
-    <div>
+    <StyledPage>
       <GlobalStyle />
       <Meta />
       <Header />
       <Inner>{props.children}</Inner>
       <Footer />
-    </div>
+    </StyledPage>
   </ThemeProvider>
 );
 

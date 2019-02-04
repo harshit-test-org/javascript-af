@@ -99,4 +99,4 @@ const theme: ThemeInterface = {
   maxWidth: '1000px',
 };
 
-export { theme as default, ThemeInterface };
+export { theme as default };

@@ -1,6 +1,9 @@
 import * as styledComponents from 'styled-components';
 
-import { ThemeInterface } from '../components/shared/theme';
+// weird song and dance because babel throws when imported directly
+// https://github.com/babel/babel/issues/7641
+import * as theme from '../components/shared/theme';
+interface ThemeInterface extends theme.ThemeInterface {}
 
 const {
   default: styled,

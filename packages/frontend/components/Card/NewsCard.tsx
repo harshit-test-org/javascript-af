@@ -10,7 +10,7 @@ const StyledNewsCard = styled.div<{ haveImage: boolean }>`
   display: flex;
   border-radius: 44px;
   flex-direction: column;
-  ${p => (!p.haveImage ? 'border: 1px solid #707070;' : '')}
+  ${p => (!p.haveImage ? 'border: 1.5px solid #707070;' : '')}
   .img {
     border-bottom: 1.5px solid #707070;
     padding: 1.5px;

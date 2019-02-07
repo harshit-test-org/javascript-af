@@ -1,6 +1,6 @@
 import { SANS_FAMILY, MONO_FAMILY } from './constants';
 
-interface ThemeInterface {
+export interface ThemeInterface {
   colors: {
     purple: string;
     white: string;

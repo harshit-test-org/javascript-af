@@ -13,8 +13,7 @@ const StyledFooter = styled.footer`
   font-family: ${props => props.theme.fontFamily.sans};
   color: ${props => props.theme.colors.white};
   background-color: ${props => props.theme.colors.purple};
-  padding: 3rem 0;
-  /* no padding horizontally, whole site inside container, implementation to follow */
+  padding: 3rem 3rem;
   a {
     text-decoration: none;
     color: ${props => props.theme.colors.white};

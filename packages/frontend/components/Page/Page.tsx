@@ -7,6 +7,7 @@ import theme from '../shared/theme';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { Meta } from '../Meta';
+import { normalize } from 'polished';
 
 const StyledPage = styled.div`
   display: flex;
@@ -15,13 +16,16 @@ const StyledPage = styled.div`
 `;
 
 const Inner = styled.div`
-  max-width: ${props => props.theme.maxWidth};
-  margin: 0 auto;
-  padding: 2rem;
+  @media all and (min-width: 1920px) {
+    margin: 0 auto;
+    max-width: ${props => props.theme.maxWidth};
+  }
   flex-grow: 1;
+  padding: 2rem;
 `;
 
 const GlobalStyle = createGlobalStyle`
+  ${normalize()}
   html {
     box-sizing: border-box;
   }
@@ -37,9 +41,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Page: React.FC<{}> = props => (
+const Page: React.FC = props => (
   <ThemeProvider theme={theme}>
-    <StyledPage>
+    <StyledPage {...props}>
       <GlobalStyle />
       <Meta />
       <Header />

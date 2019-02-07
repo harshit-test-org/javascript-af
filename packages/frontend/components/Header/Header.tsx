@@ -38,7 +38,11 @@ export interface Props extends BoxShadowProps, SpaceProps {}
 export const Header: React.FC<Props> = props => {
   return (
     <StyledHeader {...props}>
-      <div>
+      <div
+        css={`
+          margin-top: 5px;
+        `}
+      >
         <Navlink active>Home</Navlink>
         <Navlink>Repos</Navlink>
         <Navlink>News</Navlink>

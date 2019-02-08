@@ -39,7 +39,7 @@
     "@types/styled-system": "3.2.0",
     "@zeit/next-typescript": "1.1.1",
     "babel-jest": "24.0.0",
-    "babel-plugin-styled-components": "^1.10.0",
+    "babel-plugin-styled-components": "1.10.0",
     "cypress": "3.1.5",
     "cypress-testing-library": "2.3.5",
     "jest": "24.0.0",

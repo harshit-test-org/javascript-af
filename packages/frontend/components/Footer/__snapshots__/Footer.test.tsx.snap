@@ -85,7 +85,7 @@ exports[`Footer should render 1`] = `
   font-family: 'PT Sans',sans-serif;
   color: #FFFFFF;
   background-color: #6200EE;
-  padding: 3rem 0;
+  padding: 3rem 3rem;
 }
 
 .c0 a {

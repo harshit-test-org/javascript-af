@@ -2451,10 +2451,10 @@
     "@types/react" "*"
     csstype "^2.2.0"
 
-"@types/styled-system@3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-3.2.0.tgz#0aaca42e6a66c94dc8f4709c8be3629fb355570f"
-  integrity sha512-8bKJ+lOvAMB1VxKPwszx7eF4juTqSGGIZV214WzE+kmqx5OOcvMXOh9E/d/jS2/0vWOp6OhMWqcP5LzfSfBZNA==
+"@types/styled-system@3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-3.2.1.tgz#4242dd1e7e5ae64450eb3255c58feb77d708d184"
+  integrity sha512-390tcxaA+OWfgCQFIDa+yiPaX6eS8M1XLP1alauvLplxgjFTKKXbIU77c8WG8967/mvnyUqWpNlMVK4FLuR9Yg==
   dependencies:
     csstype "^2.2.0"
 

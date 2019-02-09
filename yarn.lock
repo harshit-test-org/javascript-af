@@ -7303,15 +7303,15 @@ graphql-upload@^8.0.2:
   dependencies:
     iterall "^1.2.2"
 
-graphqlgen-json-schema@0.2.12:
-  version "0.2.12"
-  resolved "https://registry.yarnpkg.com/graphqlgen-json-schema/-/graphqlgen-json-schema-0.2.12.tgz#445a2da9839a460841d729fba5941fd3007249c2"
-  integrity sha512-Q87J16Di8mWLJV2Xd5IG+13ec6U6hZJHSlsCGfnQz4CoM7K8wiHcXeMb4be9Cru4a43PBOuOI/qjkwCqdX2mEg==
+graphqlgen-json-schema@0.6.0-rc8:
+  version "0.6.0-rc8"
+  resolved "https://registry.yarnpkg.com/graphqlgen-json-schema/-/graphqlgen-json-schema-0.6.0-rc8.tgz#09451b333d0eba12b217181a7699a07d44e768d1"
+  integrity sha512-DAYX/Pzfm7Nki8GX4tnOYMT68mDUooXup3xo3TbbQ/IcR5DoJvWEWK2TmO4QBiDvC7/JZC6MB6riAeZwUMOWSQ==
 
-graphqlgen@0.6.0-rc2:
-  version "0.6.0-rc2"
-  resolved "https://registry.yarnpkg.com/graphqlgen/-/graphqlgen-0.6.0-rc2.tgz#65545c266a0b0e39adc86083d0522d19ee359d43"
-  integrity sha512-RHl0YammAdJl2sZfDZmy1iWyFZDt9h1CGQIRx+R3lU/jjjXHYW566awcf0fwcJmcqR0IOYAhznqklZ+eg7YsNA==
+graphqlgen@0.6.0-rc8:
+  version "0.6.0-rc8"
+  resolved "https://registry.yarnpkg.com/graphqlgen/-/graphqlgen-0.6.0-rc8.tgz#90af229dcf1883558640546f4b57456ec22d4567"
+  integrity sha512-pRTbHqCfHnj9LuiLpYJOIO3dLqgEt13+CyRiRZ7LlfYUEBdGtZ8/y72/bqE1hUF+vngE9lJ8qHZ1kQDQEtd8yQ==
   dependencies:
     "@babel/parser" "^7.1.5"
     "@babel/types" "7.3.0"
@@ -7321,13 +7321,13 @@ graphqlgen@0.6.0-rc2:
     glob "^7.1.3"
     graphql "^0.13.0 || ^14.0.0"
     graphql-import "0.7.1"
-    graphqlgen-json-schema "0.2.12"
+    graphqlgen-json-schema "0.6.0-rc8"
     js-yaml "3.12.1"
     mkdirp "0.5.1"
-    prettier "1.16.1"
+    prettier "1.16.4"
     reason "3.3.4"
     rimraf "2.6.3"
-    typescript "3.2.4"
+    typescript "3.3.3"
     yargs "12.0.5"
 
 growly@^1.3.0:
@@ -11694,11 +11694,6 @@ prepend-http@^1.0.1:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
 
-prettier@1.16.1:
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.16.1.tgz#534c2c9d7853f8845e5e078384e71973bd74089f"
-  integrity sha512-XXUITwIkGb3CPJ2hforHah/zTINRyie5006Jd2HKy2qz7snEJXl0KLfsJZW/wst9g6R2rFvqba3VpNYdu1hDcA==
-
 prettier@1.16.4:
   version "1.16.4"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.16.4.tgz#73e37e73e018ad2db9c76742e2647e21790c9717"
@@ -14592,15 +14587,15 @@ typeface-pt-sans@^0.0.54:
   resolved "https://registry.yarnpkg.com/typeface-pt-sans/-/typeface-pt-sans-0.0.54.tgz#b6d5a409b2ee618b961f1116b86c421a18a7efd0"
   integrity sha512-uvf3OIiTRXBly8iXD09iNZcLndJ89iGCyzWh4YzxdL+OMXPZxROupW8OR4JYo1RRfhzCdvebE6W/KrKDnAbdmw==
 
-typescript@3.2.4:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.4.tgz#c585cb952912263d915b462726ce244ba510ef3d"
-  integrity sha512-0RNDbSdEokBeEAkgNbxJ+BLwSManFy9TeXz8uW+48j/xhEXv1ePME60olyzw2XzUqUBNAYFeJadIqAgNqIACwg==
-
 typescript@3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.1.tgz#6de14e1db4b8a006ac535e482c8ba018c55f750b"
   integrity sha512-cTmIDFW7O0IHbn1DPYjkiebHxwtCMU+eTy30ZtJNBPF9j2O1ITu5XH2YnBeVRKWHqF+3JQwWJv0Q0aUgX8W7IA==
+
+typescript@3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.3.tgz#f1657fc7daa27e1a8930758ace9ae8da31403221"
+  integrity sha512-Y21Xqe54TBVp+VDSNbuDYdGw0BpoR/Q6wo/+35M8PAU0vipahnyduJWirxxdxjsAkS7hue53x2zp8gz7F05u0A==
 
 ua-parser-js@^0.7.18:
   version "0.7.19"

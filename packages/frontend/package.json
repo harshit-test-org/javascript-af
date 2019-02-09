@@ -32,7 +32,7 @@
     "@commitlint/prompt-cli": "7.5.0",
     "@types/classnames": "2.2.7",
     "@types/jest": "23.3.13",
-    "@types/next": "7.0.8",
+    "@types/next": "7.0.9",
     "@types/react": "16.8.1",
     "@types/react-dom": "16.0.11",
     "@types/styled-components": "4.1.6",

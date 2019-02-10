@@ -1,17 +1,17 @@
 import withApollo from 'next-with-apollo';
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { Operation } from 'apollo-boost';
 
 function createClient({ headers }) {
   return new ApolloClient({
     uri: 'http://localhost:4000/graphql',
-    request: (operation => {
+    request: async (operation: Operation) => {
       operation.setContext({
         fetchOptions: {
           credentials: 'include',
         },
         headers,
       });
-    }) as any,
+    },
   });
 }
 

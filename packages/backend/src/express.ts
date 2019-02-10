@@ -42,7 +42,7 @@ app.use(async (req: IRequest, _, next) => {
 
 app.get('/auth/logout', (req: IRequest, res) => {
   res.clearCookie('token');
-  res.redirect('/graphql');
+  res.redirect('/');
 });
 
 app.get(
@@ -69,10 +69,10 @@ app.get(
         maxAge: ms('14d'),
       }
     );
-    res.redirect('/graphql'); // to frontend in the future
+    res.redirect('/');
   }
 );
 
-server.applyMiddleware({ app });
+server.applyMiddleware({ app, cors: false });
 
 export { app as default };

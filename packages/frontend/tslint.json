@@ -5,5 +5,8 @@
     "no-empty-interface": false,
     "no-implicit-dependencies": [true, "dev"],
     "no-angle-bracket-type-assertion": false
+  },
+  "linterOptions": {
+    "exclude": ["generated/*"]
   }
 }

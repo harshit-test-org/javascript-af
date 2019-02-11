@@ -1,8 +1,7 @@
 import React from 'react';
 import { NewsCard } from '../components/Card';
 import styled from '../lib/styled-components';
-import { Query } from 'react-apollo';
-import { gql } from 'apollo-boost';
+import { TalkAggregateQueryComponent } from '../generated/apolloComponents';
 
 const HeroTop = styled.section`
   display: grid;
@@ -48,27 +47,15 @@ export default () => (
       tags={['vue', 'release']}
     />
     <NewsCard heading="Vue 2.6 has just landed" tags={['react', 'suspense']} />
-    <Query
-      query={gql`
-        query {
-          newsConnection {
-            aggregate {
-              count
-            }
-            pageInfo {
-              hasPreviousPage
-              hasNextPage
-            }
-            edges {
-              node {
-                id
-              }
-            }
-          }
-        }
-      `}
-    >
-      {payload => <pre>{JSON.stringify(payload.data, null, 2)}</pre>}
-    </Query>
+
+    {/* temp test, remove this */}
+    <TalkAggregateQueryComponent>
+      {payload => (
+        <>
+          <button onClick={payload.refetch}>refetch</button>
+          <pre>{JSON.stringify(payload.data, null, 2)}</pre>
+        </>
+      )}
+    </TalkAggregateQueryComponent>
   </HeroTop>
 );

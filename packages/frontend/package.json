@@ -7,7 +7,8 @@
     "dev": "next",
     "test": "jest",
     "cy:open": "cypress open",
-    "ui": "docz dev"
+    "ui": "docz dev",
+    "generate": "gql-gen --config codegen.yml"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
@@ -44,12 +45,16 @@
     "babel-plugin-styled-components": "1.10.0",
     "cypress": "3.1.5",
     "cypress-testing-library": "2.3.5",
+    "graphql-code-generator": "^0.16.1",
     "jest": "24.1.0",
     "jest-dom": "3.1.0",
     "jest-styled-components": "6.3.1",
     "lerna": "3.11.0",
     "react-testing-library": "5.5.4",
     "tslint": "5.12.1",
-    "typescript": "3.3.3"
+    "typescript": "3.3.3",
+    "graphql-codegen-typescript-common": "0.16.1",
+    "graphql-codegen-typescript-client": "0.16.1",
+    "graphql-codegen-typescript-react-apollo": "0.16.1"
   }
 }

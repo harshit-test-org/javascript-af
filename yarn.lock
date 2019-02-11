@@ -2238,7 +2238,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/graphql@14.0.5", "@types/graphql@^14.0.5":
+"@types/graphql@14.0.5":
   version "14.0.5"
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-14.0.5.tgz#e696292fd2d77dc168b5b791710f83463aa39abd"
   integrity sha512-bwGYLE0SRy5ZraC91dqI2bxbspfm10kyJ2Yjuvk4OjdGznh7fkoWW+xXZHfFydJaqu9syZi099cpiZw3GlPDiA==

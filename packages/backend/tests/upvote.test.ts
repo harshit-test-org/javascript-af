@@ -8,18 +8,12 @@ import { prisma } from './utils/createPrismaMock';
 
 describe('Upvote Resolvers', () => {
   const mutation = /* GraphQL */ `
-     mutation {
-      toggleRepoVote(repoId:"cjq3kf0yq000v0904cqvmnnuf"){
+    mutation {
+      toggleRepoVote(repoId: "cjq3kf0yq000v0904cqvmnnuf") {
         id
-      } 
+      }
     }
-    `;
-  prisma.createUpvote = jest.fn(() => ({
-    id: 'someid',
-  }));
-  prisma.deleteUpvote = jest.fn(() => ({
-    id: 'someid',
-  }));
+  `;
   test('it should not upvote when not logged in ', async () => {
     const response = await graphqlTestCall(mutation);
     expect(response.data).toBeFalsy();

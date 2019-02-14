@@ -1,5 +1,6 @@
 export const userMock = jest.fn(() => ({
   id: 'cjpxpmpgr000c097495f1kz8w',
+  name: 'Harshit',
   username: 'pantharshit00',
   email: 'pantharshit00@gmail.com',
   githubToken: 's',

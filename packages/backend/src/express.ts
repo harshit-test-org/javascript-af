@@ -73,6 +73,12 @@ app.get(
   }
 );
 
-server.applyMiddleware({ app, cors: false });
+server.applyMiddleware({
+  app,
+  cors: {
+    origin: ['http://localhost:3000'],
+    credentials: true,
+  },
+});
 
 export { app as default };

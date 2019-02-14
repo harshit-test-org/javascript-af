@@ -52,7 +52,13 @@ export default () => (
     <TalkAggregateQueryComponent>
       {payload => (
         <>
-          <button onClick={payload.refetch}>refetch</button>
+          <button
+            onClick={() => {
+              payload.refetch({});
+            }}
+          >
+            refetch
+          </button>
           <pre>{JSON.stringify(payload.data, null, 2)}</pre>
         </>
       )}

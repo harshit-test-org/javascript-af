@@ -56,6 +56,7 @@ export const Header: React.FC<Props> = props => {
           css={`
             position: relative;
             left: 37.7777%;
+            width: 60px;
           `}
         >
           <JsafLogoBlack />

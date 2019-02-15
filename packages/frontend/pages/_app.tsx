@@ -4,6 +4,8 @@ import { ApolloClient } from 'apollo-boost';
 import withData from '../lib/withData';
 import { Page } from '../components/Page';
 
+import 'typeface-inconsolata';
+
 class MyApp extends App<{ apollo?: ApolloClient<{}> }> {
   static async getInitialProps({ Component, ctx }) {
     let pageProps: { query?: any } = {};

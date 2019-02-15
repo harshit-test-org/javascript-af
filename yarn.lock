@@ -15031,11 +15031,6 @@ typeface-inconsolata@^0.0.54:
   resolved "https://registry.yarnpkg.com/typeface-inconsolata/-/typeface-inconsolata-0.0.54.tgz#9a7f7726eb615a3ab53dc19732f6c77adc65d5b5"
   integrity sha512-T7hV2VUY4cPkdEHSC7/iKw/mFA3VbQFnxqr9Kl/T7mGK5Me73z+TBCo0uN5KZPER12ud6rqxldnh5JsglgzwFA==
 
-typeface-pt-sans@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-pt-sans/-/typeface-pt-sans-0.0.54.tgz#b6d5a409b2ee618b961f1116b86c421a18a7efd0"
-  integrity sha512-uvf3OIiTRXBly8iXD09iNZcLndJ89iGCyzWh4YzxdL+OMXPZxROupW8OR4JYo1RRfhzCdvebE6W/KrKDnAbdmw==
-
 typescript@3.3.3, typescript@^3.2.2:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.3.tgz#f1657fc7daa27e1a8930758ace9ae8da31403221"

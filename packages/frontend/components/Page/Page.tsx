@@ -12,11 +12,10 @@ import { normalize } from 'polished';
 const StyledPage = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 `;
 
 const Inner = styled.div`
-  @media all and (min-width: 1920px) {
+  @media all and (min-width: 1400px) {
     margin: 0 auto;
     max-width: ${props => props.theme.maxWidth};
   }

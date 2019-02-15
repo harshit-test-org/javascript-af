@@ -4,15 +4,15 @@ import { Typography } from '../Typography';
 import { MONO_FAMILY } from '../shared';
 
 const StyledNewsCard = styled.div<{ haveImage: boolean }>`
-  border: 1.5px solid #707070;
+  border: 1px solid #707070;
   height: 100%;
   width: 100%;
   display: flex;
   border-radius: 44px;
   flex-direction: column;
-  ${p => (!p.haveImage ? 'border: 1.5px solid #707070;' : '')}
+  ${p => (!p.haveImage ? 'border: 1px solid #707070;' : '')}
   .img {
-    border-bottom: 1.5px solid #707070;
+    border-bottom: 1px solid #707070;
     padding: 1.5px;
     flex-basis: 74%;
     max-height: 74%;
@@ -24,16 +24,11 @@ const StyledNewsCard = styled.div<{ haveImage: boolean }>`
   }
   .information {
     padding: 1rem;
-    ${p =>
-      !p.haveImage
-        ? css`
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-            width: 100%;
-          `
-        : ''}
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
     .heading {
       margin-bottom: 4px;
     }
@@ -68,8 +63,8 @@ export const NewsCard: React.FC<INewsCardProps> = ({
           <Typography
             as="a"
             cursor="pointer"
-            fontWeight="bold"
-            variant="h4"
+            fontWeight={image ? 500 : 400}
+            variant="h3"
             m="0"
             p="0"
           >
@@ -78,14 +73,18 @@ export const NewsCard: React.FC<INewsCardProps> = ({
         </div>
         <div className="infos">
           <div className="read-time">
-            <Typography as="div">3 min</Typography>
+            <Typography as="div" fontSize="20px">
+              3 min
+            </Typography>
           </div>
           <div className="tags">
             {tags.map((tag, index) => (
               <Typography
                 key={`${heading}-${tag}-${index}`}
                 color="blue"
+                fontSize="20px"
                 fontFamily={MONO_FAMILY}
+                fontWeight="bold"
                 variant="default"
                 as="a"
                 cursor="pointer"

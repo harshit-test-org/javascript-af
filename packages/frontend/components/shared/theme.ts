@@ -96,7 +96,7 @@ const theme: ThemeInterface = {
       },
     },
   },
-  maxWidth: '1000px',
+  maxWidth: '1370px',
 };
 
 export { theme as default };

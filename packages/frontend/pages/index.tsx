@@ -1,13 +1,13 @@
 import React from 'react';
 import { NewsCard } from '../components/Card';
 import styled from '../lib/styled-components';
-import { TalkAggregateQueryComponent } from '../generated/apolloComponents';
+import { Typography } from '../components/Typography';
+import { MONO_FAMILY } from '../components/shared';
 
 const HeroTop = styled.section`
   display: grid;
   grid-gap: 2rem;
-  max-width: 1180px;
-  margin: 0 auto;
+  margin: 2rem 0;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas: 'featured item1' 'featured item2' 'featured item3';
@@ -32,36 +32,28 @@ const HeroTop = styled.section`
 `;
 
 export default () => (
-  <HeroTop>
-    <NewsCard
-      heading="Next.js 8 is released with suspense support"
-      image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548588337/esoplan_production/kzyfdwpaudkusftihy7c.png"
-      tags={['react', 'testing']}
-    />
-    <NewsCard
-      heading="Server Renderer for React suspense is released"
-      tags={['react', 'release']}
-    />
-    <NewsCard
-      heading="React 16.8 is here, the one with the hooks!"
-      tags={['vue', 'release']}
-    />
-    <NewsCard heading="Vue 2.6 has just landed" tags={['react', 'suspense']} />
-
-    {/* temp test, remove this */}
-    <TalkAggregateQueryComponent>
-      {payload => (
-        <>
-          <button
-            onClick={() => {
-              payload.refetch({});
-            }}
-          >
-            refetch
-          </button>
-          <pre>{JSON.stringify(payload.data, null, 2)}</pre>
-        </>
-      )}
-    </TalkAggregateQueryComponent>
-  </HeroTop>
+  <>
+    <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
+      📰 Latest News
+    </Typography>
+    <HeroTop>
+      <NewsCard
+        heading="Next.js 8 is released with suspense support"
+        image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548588337/esoplan_production/kzyfdwpaudkusftihy7c.png"
+        tags={['react', 'testing']}
+      />
+      <NewsCard
+        heading="Server Renderer for React suspense is released"
+        tags={['react', 'release']}
+      />
+      <NewsCard
+        heading="React 16.8 is here, the one with the hooks!"
+        tags={['vue', 'release']}
+      />
+      <NewsCard
+        heading="Vue 2.6 has just landed"
+        tags={['react', 'suspense']}
+      />
+    </HeroTop>
+  </>
 );

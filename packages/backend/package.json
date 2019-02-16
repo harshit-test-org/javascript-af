@@ -33,7 +33,7 @@
     "@types/ms": "0.7.30",
     "@types/node": "10.12.26",
     "@types/passport": "1.0.0",
-    "@types/passport-github2": "1.2.2",
+    "@types/passport-github2": "1.2.3",
     "graphqlgen": "0.6.0-rc8",
     "jest": "24.1.0",
     "nodemon": "1.18.10",

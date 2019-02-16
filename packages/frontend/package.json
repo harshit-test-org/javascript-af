@@ -49,7 +49,7 @@
     "graphql-codegen-typescript-common": "0.16.1",
     "graphql-codegen-typescript-react-apollo": "0.16.1",
     "jest": "24.1.0",
-    "jest-dom": "3.1.0",
+    "jest-dom": "3.1.2",
     "jest-styled-components": "6.3.1",
     "lerna": "3.13.0",
     "react-testing-library": "5.5.4",

@@ -7,6 +7,9 @@ import { Button } from '../Button';
 
 export const StyledHeader = styled.header<BoxShadowProps & SpaceProps>`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
+  position: sticky;
+  background: ${p => p.theme.colors.white};
+  top: 0;
   border-top: 4px solid ${theme.colors.purple};
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -41,12 +44,12 @@ export interface Props extends BoxShadowProps, SpaceProps {}
 export const Header: React.FC<Props> = props => {
   return (
     <StyledHeader {...props}>
-      <div>
+      <nav>
         <Navlink active>Home</Navlink>
         <Navlink>Repos</Navlink>
         <Navlink>News</Navlink>
         <Navlink>Talks</Navlink>
-      </div>
+      </nav>
       <div
         css={`
           padding: 0.6rem;
@@ -68,7 +71,15 @@ export const Header: React.FC<Props> = props => {
           justify-content: center;
         `}
       >
-        <Button fontSize={'20px'} mx={3} my={0} variant="icon">
+        <Button
+          as="a"
+          href="#"
+          color="black"
+          fontSize={'20px'}
+          mx={3}
+          my={0}
+          variant="icon"
+        >
           Sign In
         </Button>
       </div>

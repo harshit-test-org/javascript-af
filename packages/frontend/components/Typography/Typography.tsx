@@ -84,7 +84,8 @@ export interface Props
     FontFamilyProps,
     FontSizeProps,
     LineHeightProps,
-    SpaceProps {
+    SpaceProps,
+    React.AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: string;
   as?: string;
   color?: string;

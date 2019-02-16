@@ -24,6 +24,15 @@ export interface Props extends SpaceProps {
 
 export const Paper = StyledCard;
 
+// hack till https://github.com/styled-components/styled-components/issues/2129
+const handleAs = Comp => ({ innerAs, ...rest }) => (
+  <Comp as={innerAs} {...rest} />
+);
+
+const ViewButton = styled(handleAs(Button))`
+  display: inline-block;
+`;
+
 export const Card: React.FC<Props> = ({ content, heading, tags }) => {
   return (
     <StyledCard>
@@ -81,9 +90,9 @@ export const Card: React.FC<Props> = ({ content, heading, tags }) => {
             flex: 1;
           `}
         >
-          <Button m={0} px={4} p={2}>
+          <ViewButton innerAs="a" m={0} px={4} p={2}>
             View
-          </Button>
+          </ViewButton>
         </div>
         <div
           css={`

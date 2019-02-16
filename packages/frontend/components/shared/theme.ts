@@ -17,9 +17,6 @@ export interface ThemeInterface {
       '&:hover': {
         opacity: string;
       };
-      '&:after': {
-        backgroundImage: string;
-      };
     };
     icon: {
       padding: string;
@@ -27,9 +24,6 @@ export interface ThemeInterface {
       alignItems: string;
       '&:hover': {
         opacity: string;
-      };
-      '&:after': {
-        backgroundImage: string;
       };
     };
     outlined: {
@@ -39,9 +33,6 @@ export interface ThemeInterface {
       color: string;
       '&:hover': {
         opacity: string;
-      };
-      '&:after': {
-        backgroundImage: string;
       };
     };
   };
@@ -65,10 +56,6 @@ const theme: ThemeInterface = {
       '&:hover': {
         opacity: '0.9',
       },
-      '&:after': {
-        backgroundImage:
-          'radial-gradient(circle, #fff 10%, transparent 10.01%)',
-      },
     },
     icon: {
       padding: '8px',
@@ -76,10 +63,6 @@ const theme: ThemeInterface = {
       alignItems: 'center',
       '&:hover': {
         opacity: '0.9',
-      },
-      '&:after': {
-        backgroundImage:
-          'radial-gradient(circle, #808080 10%, transparent 10.01%)',
       },
     },
     outlined: {
@@ -89,10 +72,6 @@ const theme: ThemeInterface = {
       color: '#6200EE',
       '&:hover': {
         opacity: '0.9',
-      },
-      '&:after': {
-        backgroundImage:
-          'radial-gradient(circle, #6200EE 10%, transparent 10.01%)',
       },
     },
   },

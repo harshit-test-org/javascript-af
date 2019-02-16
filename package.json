@@ -41,7 +41,7 @@
     "docz-theme-default": "0.13.7",
     "husky": "1.3.1",
     "lerna": "3.13.0",
-    "lint-staged": "8.1.3",
+    "lint-staged": "8.1.4",
     "prettier": "1.16.4",
     "tslint": "5.12.1",
     "tslint-config-prettier": "1.18.0",

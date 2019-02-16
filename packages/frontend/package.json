@@ -28,7 +28,7 @@
     "typeface-inconsolata": "^0.0.54"
   },
   "devDependencies": {
-    "@commitlint/cli": "7.5.1",
+    "@commitlint/cli": "7.5.2",
     "@commitlint/config-conventional": "7.5.0",
     "@commitlint/prompt-cli": "7.5.0",
     "@types/classnames": "2.2.7",

@@ -51,7 +51,7 @@
     "jest": "24.1.0",
     "jest-dom": "3.1.0",
     "jest-styled-components": "6.3.1",
-    "lerna": "3.11.0",
+    "lerna": "3.13.0",
     "react-testing-library": "5.5.4",
     "tslint": "5.12.1",
     "typescript": "3.3.3"

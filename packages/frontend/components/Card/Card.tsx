@@ -10,10 +10,11 @@ import { UpVoteIcon } from '../Icons/UpVoteIcon';
 const StyledCard = styled.div<SpaceProps>`
   box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);
   border-radius: 44px;
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  ${space}
+  padding: 44px;
+  display: grid;
+  grid-template-rows:
+    auto auto 1fr auto
+    ${space};
 `;
 
 export interface Props extends SpaceProps {
@@ -33,91 +34,64 @@ const ViewButton = styled(handleAs(Button))`
   display: inline-block;
 `;
 
-export const Card: React.FC<Props> = ({ content, heading, tags }) => {
+export const Card: React.FC<Props> = ({
+  content = '',
+  heading = '',
+  tags = [],
+}) => {
   return (
     <StyledCard>
-      {tags && (
-        <div
-          css={`
-            margin: 10px 0 0 0;
-            flex: 0.7;
-          `}
-        >
-          {tags.map((tag, index) => (
-            <Typography
-              key={`${heading}-${tag}-${index}`}
-              color="blue"
-              fontFamily={MONO_FAMILY}
-              variant="default"
-              as="a"
-              cursor="pointer"
-            >
-              #{tag}{' '}
-            </Typography>
-          ))}
-        </div>
-      )}
-      {heading && (
-        <div
-          css={`
-            flex: 1;
-          `}
-        >
-          <Typography my="1" variant="h2">
-            {heading}
-          </Typography>
-        </div>
-      )}
-      {content && (
-        <div
-          css={`
-            flex: 2;
-          `}
-        >
-          <Typography lineHeight="1.75rem" my="3" variant="p">
-            {content}
-          </Typography>
-        </div>
-      )}
       <div
         css={`
-          flex: 1;
-          display: flex;
+          text-transform: uppercase;
+          font-weight: bold;
         `}
       >
-        <div
-          css={`
-            flex: 1;
-          `}
-        >
-          <ViewButton innerAs="a" m={0} px={4} p={2}>
-            View
-          </ViewButton>
-        </div>
-        <div
-          css={`
-            flex: 2;
-          `}
-        >
-          <div
-            css={`
-              display: flex;
-              flex-direction: row;
-              justify-content: flex-end;
-            `}
+        {tags.map((tag, index) => (
+          <Typography
+            key={`${heading}-${tag}-${index}`}
+            color="blue"
+            fontFamily={MONO_FAMILY}
+            variant="default"
+            as="a"
+            cursor="pointer"
           >
-            <Button variant="icon" m={0} p={2}>
-              <UpVoteIcon
-                css={`
-                  margin-right: 5px;
-                `}
-              />{' '}
-              100
-            </Button>
-            <Button variant="icon" as="a" m={0} p={2}>
-              <GithubIcon />
-            </Button>
-          </div>
+            #{tag}{' '}
+          </Typography>
+        ))}
+      </div>
+      <Typography variant="h2" mt="3" mb="4">
+        {heading}
+      </Typography>
+      <Typography variant="p" lineHeight="1.75rem" mt="0" mb="3">
+        {content}
+      </Typography>
+      <div
+        css={`
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        `}
+      >
+        <ViewButton innerAs="a" m={0} px={4} p={2}>
+          View
+        </ViewButton>
+        <div
+          css={`
+            display: flex;
+          `}
+        >
+          <Button variant="icon">
+            <UpVoteIcon
+              css={`
+                margin-right: 5px;
+              `}
+            />
+            100
+          </Button>
+          <Button variant="icon" as="a" m={0} pr={0}>
+            <GithubIcon />
+          </Button>
         </div>
       </div>
     </StyledCard>

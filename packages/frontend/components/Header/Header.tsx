@@ -16,6 +16,7 @@ export const StyledHeader = styled.header<BoxShadowProps & SpaceProps>`
   grid-template-rows: 1fr;
   padding-left: 1rem;
   padding-right: 1rem;
+  z-index: 1000;
   ${boxShadow}
   ${space}
 `;

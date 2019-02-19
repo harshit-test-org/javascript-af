@@ -1,5 +1,5 @@
 import React from 'react';
-import { NewsCard, Card } from '../components/Card';
+import { NewsCard, Card, TalkCard } from '../components/Card';
 import styled from '../lib/styled-components';
 import { Typography } from '../components/Typography';
 import { MONO_FAMILY } from '../components/shared';
@@ -34,10 +34,18 @@ const HeroTop = styled.section`
 const RepoHero = styled.div`
   display: grid;
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
   grid-template-rows: 1fr;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+`;
+
+const TalksHero = styled.div`
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 1rem;
+  margin-top: 3rem;
 `;
 
 export default () => (
@@ -99,5 +107,62 @@ export default () => (
         heading="react-native-web"
       />
     </RepoHero>
+    <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
+      🎤 Awesome Talks
+    </Typography>
+    <TalksHero>
+      <TalkCard
+        heading="This is a Talk About You!"
+        image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+        tags={['react', 'personal']}
+        avatar={{
+          name: 'Jani Evakallio',
+          image:
+            'https://pbs.twimg.com/profile_images/1074414240088449030/fAbT29ic_400x400.jpg',
+        }}
+      />
+      <TalkCard
+        heading="This is a Talk About You!"
+        image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+        tags={['react', 'personal']}
+        avatar={{
+          name: 'Jani Evakallio',
+          image:
+            'https://pbs.twimg.com/profile_images/1074414240088449030/fAbT29ic_400x400.jpg',
+        }}
+      />
+    </TalksHero>
+    <TalksHero>
+      <TalkCard
+        heading="This is a Talk About You!"
+        image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+        tags={['react', 'personal']}
+        avatar={{
+          name: 'Jani Evakallio',
+          image:
+            'https://pbs.twimg.com/profile_images/1074414240088449030/fAbT29ic_400x400.jpg',
+        }}
+      />
+      <TalkCard
+        heading="This is a Talk About You!"
+        image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+        tags={['react', 'personal']}
+        avatar={{
+          name: 'Jani Evakallio',
+          image:
+            'https://pbs.twimg.com/profile_images/1074414240088449030/fAbT29ic_400x400.jpg',
+        }}
+      />
+      <TalkCard
+        heading="This is a Talk About You!"
+        image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+        tags={['react', 'personal']}
+        avatar={{
+          name: 'Jani Evakallio',
+          image:
+            'https://pbs.twimg.com/profile_images/1074414240088449030/fAbT29ic_400x400.jpg',
+        }}
+      />
+    </TalksHero>
   </>
 );

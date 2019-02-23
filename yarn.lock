@@ -7644,10 +7644,10 @@ graphqlgen-json-schema@0.6.0-rc8:
   resolved "https://registry.yarnpkg.com/graphqlgen-json-schema/-/graphqlgen-json-schema-0.6.0-rc8.tgz#09451b333d0eba12b217181a7699a07d44e768d1"
   integrity sha512-DAYX/Pzfm7Nki8GX4tnOYMT68mDUooXup3xo3TbbQ/IcR5DoJvWEWK2TmO4QBiDvC7/JZC6MB6riAeZwUMOWSQ==
 
-graphqlgen@0.6.0-rc8:
-  version "0.6.0-rc8"
-  resolved "https://registry.yarnpkg.com/graphqlgen/-/graphqlgen-0.6.0-rc8.tgz#90af229dcf1883558640546f4b57456ec22d4567"
-  integrity sha512-pRTbHqCfHnj9LuiLpYJOIO3dLqgEt13+CyRiRZ7LlfYUEBdGtZ8/y72/bqE1hUF+vngE9lJ8qHZ1kQDQEtd8yQ==
+graphqlgen@0.6.0-rc9:
+  version "0.6.0-rc9"
+  resolved "https://registry.yarnpkg.com/graphqlgen/-/graphqlgen-0.6.0-rc9.tgz#b50137281a64717ff663109a707e810594425c28"
+  integrity sha512-blQWWIuMIRxgUrts74VlPE2krNC/rxTIlSz0r5unm6Mgt2shpzvb8y6W2hymaKR12KYPh6IYEMwwUy6xB7HoRg==
   dependencies:
     "@babel/parser" "^7.1.5"
     "@babel/types" "7.3.0"
@@ -7663,6 +7663,7 @@ graphqlgen@0.6.0-rc8:
     prettier "1.16.4"
     reason "3.3.4"
     rimraf "2.6.3"
+    ts-node "8.0.2"
     typescript "3.3.3"
     yargs "12.0.5"
 

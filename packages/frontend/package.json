@@ -55,6 +55,6 @@
     "lerna": "3.13.0",
     "react-testing-library": "5.8.0",
     "tslint": "5.12.1",
-    "typescript": "3.3.3"
+    "typescript": "3.3.3333"
   }
 }

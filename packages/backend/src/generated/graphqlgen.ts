@@ -21,7 +21,7 @@ import {
 } from './prisma-client';
 import { MyContext } from '../context';
 
-type NewsOrderByInput =
+export type NewsOrderByInput =
   | 'id_ASC'
   | 'id_DESC'
   | 'slug_ASC'
@@ -38,7 +38,7 @@ type NewsOrderByInput =
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC';
-type TalkOrderByInput =
+export type TalkOrderByInput =
   | 'id_ASC'
   | 'id_DESC'
   | 'slug_ASC'
@@ -55,7 +55,7 @@ type TalkOrderByInput =
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC';
-type TagOrderByInput =
+export type TagOrderByInput =
   | 'id_ASC'
   | 'id_DESC'
   | 'name_ASC'
@@ -64,7 +64,7 @@ type TagOrderByInput =
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC';
-type RepoOrderByInput =
+export type RepoOrderByInput =
   | 'id_ASC'
   | 'id_DESC'
   | 'slug_ASC'
@@ -85,7 +85,7 @@ type RepoOrderByInput =
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC';
-type UpvoteOrderByInput =
+export type UpvoteOrderByInput =
   | 'id_ASC'
   | 'id_DESC'
   | 'createdAt_ASC'
@@ -97,494 +97,494 @@ export namespace QueryResolvers {
   export const defaultResolvers = {};
 
   export interface NewsWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    title: string | null;
-    title_not: string | null;
-    title_in: string[];
-    title_not_in: string[];
-    title_lt: string | null;
-    title_lte: string | null;
-    title_gt: string | null;
-    title_gte: string | null;
-    title_contains: string | null;
-    title_not_contains: string | null;
-    title_starts_with: string | null;
-    title_not_starts_with: string | null;
-    title_ends_with: string | null;
-    title_not_ends_with: string | null;
-    content: string | null;
-    content_not: string | null;
-    content_in: string[];
-    content_not_in: string[];
-    content_lt: string | null;
-    content_lte: string | null;
-    content_gt: string | null;
-    content_gte: string | null;
-    content_contains: string | null;
-    content_not_contains: string | null;
-    content_starts_with: string | null;
-    content_not_starts_with: string | null;
-    content_ends_with: string | null;
-    content_not_ends_with: string | null;
-    previewImage: string | null;
-    previewImage_not: string | null;
-    previewImage_in: string[];
-    previewImage_not_in: string[];
-    previewImage_lt: string | null;
-    previewImage_lte: string | null;
-    previewImage_gt: string | null;
-    previewImage_gte: string | null;
-    previewImage_contains: string | null;
-    previewImage_not_contains: string | null;
-    previewImage_starts_with: string | null;
-    previewImage_not_starts_with: string | null;
-    previewImage_ends_with: string | null;
-    previewImage_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    writer: UserWhereInput | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: NewsWhereInput[];
-    OR: NewsWhereInput[];
-    NOT: NewsWhereInput[];
-  }
-  export interface UserWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    name: string | null;
-    name_not: string | null;
-    name_in: string[];
-    name_not_in: string[];
-    name_lt: string | null;
-    name_lte: string | null;
-    name_gt: string | null;
-    name_gte: string | null;
-    name_contains: string | null;
-    name_not_contains: string | null;
-    name_starts_with: string | null;
-    name_not_starts_with: string | null;
-    name_ends_with: string | null;
-    name_not_ends_with: string | null;
-    username: string | null;
-    username_not: string | null;
-    username_in: string[];
-    username_not_in: string[];
-    username_lt: string | null;
-    username_lte: string | null;
-    username_gt: string | null;
-    username_gte: string | null;
-    username_contains: string | null;
-    username_not_contains: string | null;
-    username_starts_with: string | null;
-    username_not_starts_with: string | null;
-    username_ends_with: string | null;
-    username_not_ends_with: string | null;
-    email: string | null;
-    email_not: string | null;
-    email_in: string[];
-    email_not_in: string[];
-    email_lt: string | null;
-    email_lte: string | null;
-    email_gt: string | null;
-    email_gte: string | null;
-    email_contains: string | null;
-    email_not_contains: string | null;
-    email_starts_with: string | null;
-    email_not_starts_with: string | null;
-    email_ends_with: string | null;
-    email_not_ends_with: string | null;
-    newsItems_every: NewsWhereInput | null;
-    newsItems_some: NewsWhereInput | null;
-    newsItems_none: NewsWhereInput | null;
-    talks_every: TalkWhereInput | null;
-    talks_some: TalkWhereInput | null;
-    talks_none: TalkWhereInput | null;
-    githubToken: string | null;
-    githubToken_not: string | null;
-    githubToken_in: string[];
-    githubToken_not_in: string[];
-    githubToken_lt: string | null;
-    githubToken_lte: string | null;
-    githubToken_gt: string | null;
-    githubToken_gte: string | null;
-    githubToken_contains: string | null;
-    githubToken_not_contains: string | null;
-    githubToken_starts_with: string | null;
-    githubToken_not_starts_with: string | null;
-    githubToken_ends_with: string | null;
-    githubToken_not_ends_with: string | null;
-    profilePic: string | null;
-    profilePic_not: string | null;
-    profilePic_in: string[];
-    profilePic_not_in: string[];
-    profilePic_lt: string | null;
-    profilePic_lte: string | null;
-    profilePic_gt: string | null;
-    profilePic_gte: string | null;
-    profilePic_contains: string | null;
-    profilePic_not_contains: string | null;
-    profilePic_starts_with: string | null;
-    profilePic_not_starts_with: string | null;
-    profilePic_ends_with: string | null;
-    profilePic_not_ends_with: string | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: UserWhereInput[];
-    OR: UserWhereInput[];
-    NOT: UserWhereInput[];
-  }
-  export interface TagWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    name: string | null;
-    name_not: string | null;
-    name_in: string[];
-    name_not_in: string[];
-    name_lt: string | null;
-    name_lte: string | null;
-    name_gt: string | null;
-    name_gte: string | null;
-    name_contains: string | null;
-    name_not_contains: string | null;
-    name_starts_with: string | null;
-    name_not_starts_with: string | null;
-    name_ends_with: string | null;
-    name_not_ends_with: string | null;
-    talks_every: TalkWhereInput | null;
-    talks_some: TalkWhereInput | null;
-    talks_none: TalkWhereInput | null;
-    newsItems_every: NewsWhereInput | null;
-    newsItems_some: NewsWhereInput | null;
-    newsItems_none: NewsWhereInput | null;
-    repos_every: RepoWhereInput | null;
-    repos_some: RepoWhereInput | null;
-    repos_none: RepoWhereInput | null;
-    AND: TagWhereInput[];
-    OR: TagWhereInput[];
-    NOT: TagWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    title?: string | null;
+    title_not?: string | null;
+    title_in?: string[] | null;
+    title_not_in?: string[] | null;
+    title_lt?: string | null;
+    title_lte?: string | null;
+    title_gt?: string | null;
+    title_gte?: string | null;
+    title_contains?: string | null;
+    title_not_contains?: string | null;
+    title_starts_with?: string | null;
+    title_not_starts_with?: string | null;
+    title_ends_with?: string | null;
+    title_not_ends_with?: string | null;
+    content?: string | null;
+    content_not?: string | null;
+    content_in?: string[] | null;
+    content_not_in?: string[] | null;
+    content_lt?: string | null;
+    content_lte?: string | null;
+    content_gt?: string | null;
+    content_gte?: string | null;
+    content_contains?: string | null;
+    content_not_contains?: string | null;
+    content_starts_with?: string | null;
+    content_not_starts_with?: string | null;
+    content_ends_with?: string | null;
+    content_not_ends_with?: string | null;
+    previewImage?: string | null;
+    previewImage_not?: string | null;
+    previewImage_in?: string[] | null;
+    previewImage_not_in?: string[] | null;
+    previewImage_lt?: string | null;
+    previewImage_lte?: string | null;
+    previewImage_gt?: string | null;
+    previewImage_gte?: string | null;
+    previewImage_contains?: string | null;
+    previewImage_not_contains?: string | null;
+    previewImage_starts_with?: string | null;
+    previewImage_not_starts_with?: string | null;
+    previewImage_ends_with?: string | null;
+    previewImage_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    writer?: UserWhereInput | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: NewsWhereInput[] | null;
+    OR?: NewsWhereInput[] | null;
+    NOT?: NewsWhereInput[] | null;
   }
   export interface TalkWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    title: string | null;
-    title_not: string | null;
-    title_in: string[];
-    title_not_in: string[];
-    title_lt: string | null;
-    title_lte: string | null;
-    title_gt: string | null;
-    title_gte: string | null;
-    title_contains: string | null;
-    title_not_contains: string | null;
-    title_starts_with: string | null;
-    title_not_starts_with: string | null;
-    title_ends_with: string | null;
-    title_not_ends_with: string | null;
-    previewImage: string | null;
-    previewImage_not: string | null;
-    previewImage_in: string[];
-    previewImage_not_in: string[];
-    previewImage_lt: string | null;
-    previewImage_lte: string | null;
-    previewImage_gt: string | null;
-    previewImage_gte: string | null;
-    previewImage_contains: string | null;
-    previewImage_not_contains: string | null;
-    previewImage_starts_with: string | null;
-    previewImage_not_starts_with: string | null;
-    previewImage_ends_with: string | null;
-    previewImage_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    speaker: UserWhereInput | null;
-    length: number | null;
-    length_not: number | null;
-    length_in: number[];
-    length_not_in: number[];
-    length_lt: number | null;
-    length_lte: number | null;
-    length_gt: number | null;
-    length_gte: number | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: TalkWhereInput[];
-    OR: TalkWhereInput[];
-    NOT: TalkWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    title?: string | null;
+    title_not?: string | null;
+    title_in?: string[] | null;
+    title_not_in?: string[] | null;
+    title_lt?: string | null;
+    title_lte?: string | null;
+    title_gt?: string | null;
+    title_gte?: string | null;
+    title_contains?: string | null;
+    title_not_contains?: string | null;
+    title_starts_with?: string | null;
+    title_not_starts_with?: string | null;
+    title_ends_with?: string | null;
+    title_not_ends_with?: string | null;
+    previewImage?: string | null;
+    previewImage_not?: string | null;
+    previewImage_in?: string[] | null;
+    previewImage_not_in?: string[] | null;
+    previewImage_lt?: string | null;
+    previewImage_lte?: string | null;
+    previewImage_gt?: string | null;
+    previewImage_gte?: string | null;
+    previewImage_contains?: string | null;
+    previewImage_not_contains?: string | null;
+    previewImage_starts_with?: string | null;
+    previewImage_not_starts_with?: string | null;
+    previewImage_ends_with?: string | null;
+    previewImage_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    speaker?: UserWhereInput | null;
+    length?: number | null;
+    length_not?: number | null;
+    length_in?: number[] | null;
+    length_not_in?: number[] | null;
+    length_lt?: number | null;
+    length_lte?: number | null;
+    length_gt?: number | null;
+    length_gte?: number | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: TalkWhereInput[] | null;
+    OR?: TalkWhereInput[] | null;
+    NOT?: TalkWhereInput[] | null;
   }
   export interface RepoWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    githubName: string | null;
-    githubName_not: string | null;
-    githubName_in: string[];
-    githubName_not_in: string[];
-    githubName_lt: string | null;
-    githubName_lte: string | null;
-    githubName_gt: string | null;
-    githubName_gte: string | null;
-    githubName_contains: string | null;
-    githubName_not_contains: string | null;
-    githubName_starts_with: string | null;
-    githubName_not_starts_with: string | null;
-    githubName_ends_with: string | null;
-    githubName_not_ends_with: string | null;
-    githubOwner: string | null;
-    githubOwner_not: string | null;
-    githubOwner_in: string[];
-    githubOwner_not_in: string[];
-    githubOwner_lt: string | null;
-    githubOwner_lte: string | null;
-    githubOwner_gt: string | null;
-    githubOwner_gte: string | null;
-    githubOwner_contains: string | null;
-    githubOwner_not_contains: string | null;
-    githubOwner_starts_with: string | null;
-    githubOwner_not_starts_with: string | null;
-    githubOwner_ends_with: string | null;
-    githubOwner_not_ends_with: string | null;
-    githubUrl: string | null;
-    githubUrl_not: string | null;
-    githubUrl_in: string[];
-    githubUrl_not_in: string[];
-    githubUrl_lt: string | null;
-    githubUrl_lte: string | null;
-    githubUrl_gt: string | null;
-    githubUrl_gte: string | null;
-    githubUrl_contains: string | null;
-    githubUrl_not_contains: string | null;
-    githubUrl_starts_with: string | null;
-    githubUrl_not_starts_with: string | null;
-    githubUrl_ends_with: string | null;
-    githubUrl_not_ends_with: string | null;
-    ownerUsername: string | null;
-    ownerUsername_not: string | null;
-    ownerUsername_in: string[];
-    ownerUsername_not_in: string[];
-    ownerUsername_lt: string | null;
-    ownerUsername_lte: string | null;
-    ownerUsername_gt: string | null;
-    ownerUsername_gte: string | null;
-    ownerUsername_contains: string | null;
-    ownerUsername_not_contains: string | null;
-    ownerUsername_starts_with: string | null;
-    ownerUsername_not_starts_with: string | null;
-    ownerUsername_ends_with: string | null;
-    ownerUsername_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    description: string | null;
-    description_not: string | null;
-    description_in: string[];
-    description_not_in: string[];
-    description_lt: string | null;
-    description_lte: string | null;
-    description_gt: string | null;
-    description_gte: string | null;
-    description_contains: string | null;
-    description_not_contains: string | null;
-    description_starts_with: string | null;
-    description_not_starts_with: string | null;
-    description_ends_with: string | null;
-    description_not_ends_with: string | null;
-    owner: UserWhereInput | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    upvotes_every: UpvoteWhereInput | null;
-    upvotes_some: UpvoteWhereInput | null;
-    upvotes_none: UpvoteWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: RepoWhereInput[];
-    OR: RepoWhereInput[];
-    NOT: RepoWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    githubName?: string | null;
+    githubName_not?: string | null;
+    githubName_in?: string[] | null;
+    githubName_not_in?: string[] | null;
+    githubName_lt?: string | null;
+    githubName_lte?: string | null;
+    githubName_gt?: string | null;
+    githubName_gte?: string | null;
+    githubName_contains?: string | null;
+    githubName_not_contains?: string | null;
+    githubName_starts_with?: string | null;
+    githubName_not_starts_with?: string | null;
+    githubName_ends_with?: string | null;
+    githubName_not_ends_with?: string | null;
+    githubOwner?: string | null;
+    githubOwner_not?: string | null;
+    githubOwner_in?: string[] | null;
+    githubOwner_not_in?: string[] | null;
+    githubOwner_lt?: string | null;
+    githubOwner_lte?: string | null;
+    githubOwner_gt?: string | null;
+    githubOwner_gte?: string | null;
+    githubOwner_contains?: string | null;
+    githubOwner_not_contains?: string | null;
+    githubOwner_starts_with?: string | null;
+    githubOwner_not_starts_with?: string | null;
+    githubOwner_ends_with?: string | null;
+    githubOwner_not_ends_with?: string | null;
+    githubUrl?: string | null;
+    githubUrl_not?: string | null;
+    githubUrl_in?: string[] | null;
+    githubUrl_not_in?: string[] | null;
+    githubUrl_lt?: string | null;
+    githubUrl_lte?: string | null;
+    githubUrl_gt?: string | null;
+    githubUrl_gte?: string | null;
+    githubUrl_contains?: string | null;
+    githubUrl_not_contains?: string | null;
+    githubUrl_starts_with?: string | null;
+    githubUrl_not_starts_with?: string | null;
+    githubUrl_ends_with?: string | null;
+    githubUrl_not_ends_with?: string | null;
+    ownerUsername?: string | null;
+    ownerUsername_not?: string | null;
+    ownerUsername_in?: string[] | null;
+    ownerUsername_not_in?: string[] | null;
+    ownerUsername_lt?: string | null;
+    ownerUsername_lte?: string | null;
+    ownerUsername_gt?: string | null;
+    ownerUsername_gte?: string | null;
+    ownerUsername_contains?: string | null;
+    ownerUsername_not_contains?: string | null;
+    ownerUsername_starts_with?: string | null;
+    ownerUsername_not_starts_with?: string | null;
+    ownerUsername_ends_with?: string | null;
+    ownerUsername_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    description?: string | null;
+    description_not?: string | null;
+    description_in?: string[] | null;
+    description_not_in?: string[] | null;
+    description_lt?: string | null;
+    description_lte?: string | null;
+    description_gt?: string | null;
+    description_gte?: string | null;
+    description_contains?: string | null;
+    description_not_contains?: string | null;
+    description_starts_with?: string | null;
+    description_not_starts_with?: string | null;
+    description_ends_with?: string | null;
+    description_not_ends_with?: string | null;
+    owner?: UserWhereInput | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    upvotes_every?: UpvoteWhereInput | null;
+    upvotes_some?: UpvoteWhereInput | null;
+    upvotes_none?: UpvoteWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: RepoWhereInput[] | null;
+    OR?: RepoWhereInput[] | null;
+    NOT?: RepoWhereInput[] | null;
+  }
+  export interface UserWhereInput {
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    name?: string | null;
+    name_not?: string | null;
+    name_in?: string[] | null;
+    name_not_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_contains?: string | null;
+    name_not_contains?: string | null;
+    name_starts_with?: string | null;
+    name_not_starts_with?: string | null;
+    name_ends_with?: string | null;
+    name_not_ends_with?: string | null;
+    username?: string | null;
+    username_not?: string | null;
+    username_in?: string[] | null;
+    username_not_in?: string[] | null;
+    username_lt?: string | null;
+    username_lte?: string | null;
+    username_gt?: string | null;
+    username_gte?: string | null;
+    username_contains?: string | null;
+    username_not_contains?: string | null;
+    username_starts_with?: string | null;
+    username_not_starts_with?: string | null;
+    username_ends_with?: string | null;
+    username_not_ends_with?: string | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    newsItems_every?: NewsWhereInput | null;
+    newsItems_some?: NewsWhereInput | null;
+    newsItems_none?: NewsWhereInput | null;
+    talks_every?: TalkWhereInput | null;
+    talks_some?: TalkWhereInput | null;
+    talks_none?: TalkWhereInput | null;
+    githubToken?: string | null;
+    githubToken_not?: string | null;
+    githubToken_in?: string[] | null;
+    githubToken_not_in?: string[] | null;
+    githubToken_lt?: string | null;
+    githubToken_lte?: string | null;
+    githubToken_gt?: string | null;
+    githubToken_gte?: string | null;
+    githubToken_contains?: string | null;
+    githubToken_not_contains?: string | null;
+    githubToken_starts_with?: string | null;
+    githubToken_not_starts_with?: string | null;
+    githubToken_ends_with?: string | null;
+    githubToken_not_ends_with?: string | null;
+    profilePic?: string | null;
+    profilePic_not?: string | null;
+    profilePic_in?: string[] | null;
+    profilePic_not_in?: string[] | null;
+    profilePic_lt?: string | null;
+    profilePic_lte?: string | null;
+    profilePic_gt?: string | null;
+    profilePic_gte?: string | null;
+    profilePic_contains?: string | null;
+    profilePic_not_contains?: string | null;
+    profilePic_starts_with?: string | null;
+    profilePic_not_starts_with?: string | null;
+    profilePic_ends_with?: string | null;
+    profilePic_not_ends_with?: string | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: UserWhereInput[] | null;
+    OR?: UserWhereInput[] | null;
+    NOT?: UserWhereInput[] | null;
+  }
+  export interface TagWhereInput {
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    name?: string | null;
+    name_not?: string | null;
+    name_in?: string[] | null;
+    name_not_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_contains?: string | null;
+    name_not_contains?: string | null;
+    name_starts_with?: string | null;
+    name_not_starts_with?: string | null;
+    name_ends_with?: string | null;
+    name_not_ends_with?: string | null;
+    talks_every?: TalkWhereInput | null;
+    talks_some?: TalkWhereInput | null;
+    talks_none?: TalkWhereInput | null;
+    newsItems_every?: NewsWhereInput | null;
+    newsItems_some?: NewsWhereInput | null;
+    newsItems_none?: NewsWhereInput | null;
+    repos_every?: RepoWhereInput | null;
+    repos_some?: RepoWhereInput | null;
+    repos_none?: RepoWhereInput | null;
+    AND?: TagWhereInput[] | null;
+    OR?: TagWhereInput[] | null;
+    NOT?: TagWhereInput[] | null;
   }
   export interface UpvoteWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    user: UserWhereInput | null;
-    repo: RepoWhereInput | null;
-    AND: UpvoteWhereInput[];
-    OR: UpvoteWhereInput[];
-    NOT: UpvoteWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    user?: UserWhereInput | null;
+    repo?: RepoWhereInput | null;
+    AND?: UpvoteWhereInput[] | null;
+    OR?: UpvoteWhereInput[] | null;
+    NOT?: UpvoteWhereInput[] | null;
   }
 
   export interface ArgsNewsItemBySlug {
@@ -600,119 +600,239 @@ export namespace QueryResolvers {
   }
 
   export interface ArgsNewsConnection {
-    where: NewsWhereInput | null;
-    orderBy: NewsOrderByInput | null;
-    skip: number | null;
-    after: string | null;
-    before: string | null;
-    first: number | null;
-    last: number | null;
+    where?: NewsWhereInput | null;
+    orderBy?: NewsOrderByInput | null;
+    skip?: number | null;
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
   }
 
   export interface ArgsTalkConnection {
-    where: TalkWhereInput | null;
-    orderBy: TalkOrderByInput | null;
-    skip: number | null;
-    after: string | null;
-    before: string | null;
-    first: number | null;
-    last: number | null;
+    where?: TalkWhereInput | null;
+    orderBy?: TalkOrderByInput | null;
+    skip?: number | null;
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
   }
 
   export interface ArgsRepoConnection {
-    where: RepoWhereInput | null;
-    orderBy: RepoOrderByInput | null;
-    skip: number | null;
-    after: string | null;
-    before: string | null;
-    first: number | null;
-    last: number | null;
+    where?: RepoWhereInput | null;
+    orderBy?: RepoOrderByInput | null;
+    skip?: number | null;
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
   }
 
-  export type NewsItemBySlugResolver = (
-    parent: undefined,
-    args: ArgsNewsItemBySlug,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => News | null | Promise<News | null>;
+  export type NewsItemBySlugResolver =
+    | ((
+        parent: undefined,
+        args: ArgsNewsItemBySlug,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => News | null | Promise<News | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsNewsItemBySlug,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => News | null | Promise<News | null>;
+      };
 
-  export type TalkBySlugResolver = (
-    parent: undefined,
-    args: ArgsTalkBySlug,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Talk | null | Promise<Talk | null>;
+  export type TalkBySlugResolver =
+    | ((
+        parent: undefined,
+        args: ArgsTalkBySlug,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Talk | null | Promise<Talk | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsTalkBySlug,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Talk | null | Promise<Talk | null>;
+      };
 
-  export type RepoBySlugResolver = (
-    parent: undefined,
-    args: ArgsRepoBySlug,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Repo | null | Promise<Repo | null>;
+  export type RepoBySlugResolver =
+    | ((
+        parent: undefined,
+        args: ArgsRepoBySlug,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Repo | null | Promise<Repo | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsRepoBySlug,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Repo | null | Promise<Repo | null>;
+      };
 
-  export type NewsConnectionResolver = (
-    parent: undefined,
-    args: ArgsNewsConnection,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => NewsConnection | Promise<NewsConnection>;
+  export type NewsConnectionResolver =
+    | ((
+        parent: undefined,
+        args: ArgsNewsConnection,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => NewsConnection | Promise<NewsConnection>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsNewsConnection,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => NewsConnection | Promise<NewsConnection>;
+      };
 
-  export type TalkConnectionResolver = (
-    parent: undefined,
-    args: ArgsTalkConnection,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => TalkConnection | Promise<TalkConnection>;
+  export type TalkConnectionResolver =
+    | ((
+        parent: undefined,
+        args: ArgsTalkConnection,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => TalkConnection | Promise<TalkConnection>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsTalkConnection,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => TalkConnection | Promise<TalkConnection>;
+      };
 
-  export type RepoConnectionResolver = (
-    parent: undefined,
-    args: ArgsRepoConnection,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => RepoConnection | Promise<RepoConnection>;
+  export type RepoConnectionResolver =
+    | ((
+        parent: undefined,
+        args: ArgsRepoConnection,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => RepoConnection | Promise<RepoConnection>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsRepoConnection,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => RepoConnection | Promise<RepoConnection>;
+      };
 
   export interface Type {
-    newsItemBySlug: (
-      parent: undefined,
-      args: ArgsNewsItemBySlug,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => News | null | Promise<News | null>;
+    newsItemBySlug:
+      | ((
+          parent: undefined,
+          args: ArgsNewsItemBySlug,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => News | null | Promise<News | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsNewsItemBySlug,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => News | null | Promise<News | null>;
+        };
 
-    talkBySlug: (
-      parent: undefined,
-      args: ArgsTalkBySlug,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Talk | null | Promise<Talk | null>;
+    talkBySlug:
+      | ((
+          parent: undefined,
+          args: ArgsTalkBySlug,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Talk | null | Promise<Talk | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsTalkBySlug,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Talk | null | Promise<Talk | null>;
+        };
 
-    repoBySlug: (
-      parent: undefined,
-      args: ArgsRepoBySlug,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Repo | null | Promise<Repo | null>;
+    repoBySlug:
+      | ((
+          parent: undefined,
+          args: ArgsRepoBySlug,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Repo | null | Promise<Repo | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsRepoBySlug,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Repo | null | Promise<Repo | null>;
+        };
 
-    newsConnection: (
-      parent: undefined,
-      args: ArgsNewsConnection,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => NewsConnection | Promise<NewsConnection>;
+    newsConnection:
+      | ((
+          parent: undefined,
+          args: ArgsNewsConnection,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => NewsConnection | Promise<NewsConnection>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsNewsConnection,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => NewsConnection | Promise<NewsConnection>;
+        };
 
-    talkConnection: (
-      parent: undefined,
-      args: ArgsTalkConnection,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => TalkConnection | Promise<TalkConnection>;
+    talkConnection:
+      | ((
+          parent: undefined,
+          args: ArgsTalkConnection,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => TalkConnection | Promise<TalkConnection>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsTalkConnection,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => TalkConnection | Promise<TalkConnection>;
+        };
 
-    repoConnection: (
-      parent: undefined,
-      args: ArgsRepoConnection,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => RepoConnection | Promise<RepoConnection>;
+    repoConnection:
+      | ((
+          parent: undefined,
+          args: ArgsRepoConnection,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => RepoConnection | Promise<RepoConnection>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsRepoConnection,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => RepoConnection | Promise<RepoConnection>;
+        };
   }
 }
 
@@ -731,646 +851,846 @@ export namespace NewsResolvers {
   };
 
   export interface TagWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    name: string | null;
-    name_not: string | null;
-    name_in: string[];
-    name_not_in: string[];
-    name_lt: string | null;
-    name_lte: string | null;
-    name_gt: string | null;
-    name_gte: string | null;
-    name_contains: string | null;
-    name_not_contains: string | null;
-    name_starts_with: string | null;
-    name_not_starts_with: string | null;
-    name_ends_with: string | null;
-    name_not_ends_with: string | null;
-    talks_every: TalkWhereInput | null;
-    talks_some: TalkWhereInput | null;
-    talks_none: TalkWhereInput | null;
-    newsItems_every: NewsWhereInput | null;
-    newsItems_some: NewsWhereInput | null;
-    newsItems_none: NewsWhereInput | null;
-    repos_every: RepoWhereInput | null;
-    repos_some: RepoWhereInput | null;
-    repos_none: RepoWhereInput | null;
-    AND: TagWhereInput[];
-    OR: TagWhereInput[];
-    NOT: TagWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    name?: string | null;
+    name_not?: string | null;
+    name_in?: string[] | null;
+    name_not_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_contains?: string | null;
+    name_not_contains?: string | null;
+    name_starts_with?: string | null;
+    name_not_starts_with?: string | null;
+    name_ends_with?: string | null;
+    name_not_ends_with?: string | null;
+    talks_every?: TalkWhereInput | null;
+    talks_some?: TalkWhereInput | null;
+    talks_none?: TalkWhereInput | null;
+    newsItems_every?: NewsWhereInput | null;
+    newsItems_some?: NewsWhereInput | null;
+    newsItems_none?: NewsWhereInput | null;
+    repos_every?: RepoWhereInput | null;
+    repos_some?: RepoWhereInput | null;
+    repos_none?: RepoWhereInput | null;
+    AND?: TagWhereInput[] | null;
+    OR?: TagWhereInput[] | null;
+    NOT?: TagWhereInput[] | null;
   }
   export interface TalkWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    title: string | null;
-    title_not: string | null;
-    title_in: string[];
-    title_not_in: string[];
-    title_lt: string | null;
-    title_lte: string | null;
-    title_gt: string | null;
-    title_gte: string | null;
-    title_contains: string | null;
-    title_not_contains: string | null;
-    title_starts_with: string | null;
-    title_not_starts_with: string | null;
-    title_ends_with: string | null;
-    title_not_ends_with: string | null;
-    previewImage: string | null;
-    previewImage_not: string | null;
-    previewImage_in: string[];
-    previewImage_not_in: string[];
-    previewImage_lt: string | null;
-    previewImage_lte: string | null;
-    previewImage_gt: string | null;
-    previewImage_gte: string | null;
-    previewImage_contains: string | null;
-    previewImage_not_contains: string | null;
-    previewImage_starts_with: string | null;
-    previewImage_not_starts_with: string | null;
-    previewImage_ends_with: string | null;
-    previewImage_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    speaker: UserWhereInput | null;
-    length: number | null;
-    length_not: number | null;
-    length_in: number[];
-    length_not_in: number[];
-    length_lt: number | null;
-    length_lte: number | null;
-    length_gt: number | null;
-    length_gte: number | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: TalkWhereInput[];
-    OR: TalkWhereInput[];
-    NOT: TalkWhereInput[];
-  }
-  export interface UserWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    name: string | null;
-    name_not: string | null;
-    name_in: string[];
-    name_not_in: string[];
-    name_lt: string | null;
-    name_lte: string | null;
-    name_gt: string | null;
-    name_gte: string | null;
-    name_contains: string | null;
-    name_not_contains: string | null;
-    name_starts_with: string | null;
-    name_not_starts_with: string | null;
-    name_ends_with: string | null;
-    name_not_ends_with: string | null;
-    username: string | null;
-    username_not: string | null;
-    username_in: string[];
-    username_not_in: string[];
-    username_lt: string | null;
-    username_lte: string | null;
-    username_gt: string | null;
-    username_gte: string | null;
-    username_contains: string | null;
-    username_not_contains: string | null;
-    username_starts_with: string | null;
-    username_not_starts_with: string | null;
-    username_ends_with: string | null;
-    username_not_ends_with: string | null;
-    email: string | null;
-    email_not: string | null;
-    email_in: string[];
-    email_not_in: string[];
-    email_lt: string | null;
-    email_lte: string | null;
-    email_gt: string | null;
-    email_gte: string | null;
-    email_contains: string | null;
-    email_not_contains: string | null;
-    email_starts_with: string | null;
-    email_not_starts_with: string | null;
-    email_ends_with: string | null;
-    email_not_ends_with: string | null;
-    newsItems_every: NewsWhereInput | null;
-    newsItems_some: NewsWhereInput | null;
-    newsItems_none: NewsWhereInput | null;
-    talks_every: TalkWhereInput | null;
-    talks_some: TalkWhereInput | null;
-    talks_none: TalkWhereInput | null;
-    githubToken: string | null;
-    githubToken_not: string | null;
-    githubToken_in: string[];
-    githubToken_not_in: string[];
-    githubToken_lt: string | null;
-    githubToken_lte: string | null;
-    githubToken_gt: string | null;
-    githubToken_gte: string | null;
-    githubToken_contains: string | null;
-    githubToken_not_contains: string | null;
-    githubToken_starts_with: string | null;
-    githubToken_not_starts_with: string | null;
-    githubToken_ends_with: string | null;
-    githubToken_not_ends_with: string | null;
-    profilePic: string | null;
-    profilePic_not: string | null;
-    profilePic_in: string[];
-    profilePic_not_in: string[];
-    profilePic_lt: string | null;
-    profilePic_lte: string | null;
-    profilePic_gt: string | null;
-    profilePic_gte: string | null;
-    profilePic_contains: string | null;
-    profilePic_not_contains: string | null;
-    profilePic_starts_with: string | null;
-    profilePic_not_starts_with: string | null;
-    profilePic_ends_with: string | null;
-    profilePic_not_ends_with: string | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: UserWhereInput[];
-    OR: UserWhereInput[];
-    NOT: UserWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    title?: string | null;
+    title_not?: string | null;
+    title_in?: string[] | null;
+    title_not_in?: string[] | null;
+    title_lt?: string | null;
+    title_lte?: string | null;
+    title_gt?: string | null;
+    title_gte?: string | null;
+    title_contains?: string | null;
+    title_not_contains?: string | null;
+    title_starts_with?: string | null;
+    title_not_starts_with?: string | null;
+    title_ends_with?: string | null;
+    title_not_ends_with?: string | null;
+    previewImage?: string | null;
+    previewImage_not?: string | null;
+    previewImage_in?: string[] | null;
+    previewImage_not_in?: string[] | null;
+    previewImage_lt?: string | null;
+    previewImage_lte?: string | null;
+    previewImage_gt?: string | null;
+    previewImage_gte?: string | null;
+    previewImage_contains?: string | null;
+    previewImage_not_contains?: string | null;
+    previewImage_starts_with?: string | null;
+    previewImage_not_starts_with?: string | null;
+    previewImage_ends_with?: string | null;
+    previewImage_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    speaker?: UserWhereInput | null;
+    length?: number | null;
+    length_not?: number | null;
+    length_in?: number[] | null;
+    length_not_in?: number[] | null;
+    length_lt?: number | null;
+    length_lte?: number | null;
+    length_gt?: number | null;
+    length_gte?: number | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: TalkWhereInput[] | null;
+    OR?: TalkWhereInput[] | null;
+    NOT?: TalkWhereInput[] | null;
   }
   export interface NewsWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    title: string | null;
-    title_not: string | null;
-    title_in: string[];
-    title_not_in: string[];
-    title_lt: string | null;
-    title_lte: string | null;
-    title_gt: string | null;
-    title_gte: string | null;
-    title_contains: string | null;
-    title_not_contains: string | null;
-    title_starts_with: string | null;
-    title_not_starts_with: string | null;
-    title_ends_with: string | null;
-    title_not_ends_with: string | null;
-    content: string | null;
-    content_not: string | null;
-    content_in: string[];
-    content_not_in: string[];
-    content_lt: string | null;
-    content_lte: string | null;
-    content_gt: string | null;
-    content_gte: string | null;
-    content_contains: string | null;
-    content_not_contains: string | null;
-    content_starts_with: string | null;
-    content_not_starts_with: string | null;
-    content_ends_with: string | null;
-    content_not_ends_with: string | null;
-    previewImage: string | null;
-    previewImage_not: string | null;
-    previewImage_in: string[];
-    previewImage_not_in: string[];
-    previewImage_lt: string | null;
-    previewImage_lte: string | null;
-    previewImage_gt: string | null;
-    previewImage_gte: string | null;
-    previewImage_contains: string | null;
-    previewImage_not_contains: string | null;
-    previewImage_starts_with: string | null;
-    previewImage_not_starts_with: string | null;
-    previewImage_ends_with: string | null;
-    previewImage_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    writer: UserWhereInput | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: NewsWhereInput[];
-    OR: NewsWhereInput[];
-    NOT: NewsWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    title?: string | null;
+    title_not?: string | null;
+    title_in?: string[] | null;
+    title_not_in?: string[] | null;
+    title_lt?: string | null;
+    title_lte?: string | null;
+    title_gt?: string | null;
+    title_gte?: string | null;
+    title_contains?: string | null;
+    title_not_contains?: string | null;
+    title_starts_with?: string | null;
+    title_not_starts_with?: string | null;
+    title_ends_with?: string | null;
+    title_not_ends_with?: string | null;
+    content?: string | null;
+    content_not?: string | null;
+    content_in?: string[] | null;
+    content_not_in?: string[] | null;
+    content_lt?: string | null;
+    content_lte?: string | null;
+    content_gt?: string | null;
+    content_gte?: string | null;
+    content_contains?: string | null;
+    content_not_contains?: string | null;
+    content_starts_with?: string | null;
+    content_not_starts_with?: string | null;
+    content_ends_with?: string | null;
+    content_not_ends_with?: string | null;
+    previewImage?: string | null;
+    previewImage_not?: string | null;
+    previewImage_in?: string[] | null;
+    previewImage_not_in?: string[] | null;
+    previewImage_lt?: string | null;
+    previewImage_lte?: string | null;
+    previewImage_gt?: string | null;
+    previewImage_gte?: string | null;
+    previewImage_contains?: string | null;
+    previewImage_not_contains?: string | null;
+    previewImage_starts_with?: string | null;
+    previewImage_not_starts_with?: string | null;
+    previewImage_ends_with?: string | null;
+    previewImage_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    writer?: UserWhereInput | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: NewsWhereInput[] | null;
+    OR?: NewsWhereInput[] | null;
+    NOT?: NewsWhereInput[] | null;
   }
   export interface RepoWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    githubName: string | null;
-    githubName_not: string | null;
-    githubName_in: string[];
-    githubName_not_in: string[];
-    githubName_lt: string | null;
-    githubName_lte: string | null;
-    githubName_gt: string | null;
-    githubName_gte: string | null;
-    githubName_contains: string | null;
-    githubName_not_contains: string | null;
-    githubName_starts_with: string | null;
-    githubName_not_starts_with: string | null;
-    githubName_ends_with: string | null;
-    githubName_not_ends_with: string | null;
-    githubOwner: string | null;
-    githubOwner_not: string | null;
-    githubOwner_in: string[];
-    githubOwner_not_in: string[];
-    githubOwner_lt: string | null;
-    githubOwner_lte: string | null;
-    githubOwner_gt: string | null;
-    githubOwner_gte: string | null;
-    githubOwner_contains: string | null;
-    githubOwner_not_contains: string | null;
-    githubOwner_starts_with: string | null;
-    githubOwner_not_starts_with: string | null;
-    githubOwner_ends_with: string | null;
-    githubOwner_not_ends_with: string | null;
-    githubUrl: string | null;
-    githubUrl_not: string | null;
-    githubUrl_in: string[];
-    githubUrl_not_in: string[];
-    githubUrl_lt: string | null;
-    githubUrl_lte: string | null;
-    githubUrl_gt: string | null;
-    githubUrl_gte: string | null;
-    githubUrl_contains: string | null;
-    githubUrl_not_contains: string | null;
-    githubUrl_starts_with: string | null;
-    githubUrl_not_starts_with: string | null;
-    githubUrl_ends_with: string | null;
-    githubUrl_not_ends_with: string | null;
-    ownerUsername: string | null;
-    ownerUsername_not: string | null;
-    ownerUsername_in: string[];
-    ownerUsername_not_in: string[];
-    ownerUsername_lt: string | null;
-    ownerUsername_lte: string | null;
-    ownerUsername_gt: string | null;
-    ownerUsername_gte: string | null;
-    ownerUsername_contains: string | null;
-    ownerUsername_not_contains: string | null;
-    ownerUsername_starts_with: string | null;
-    ownerUsername_not_starts_with: string | null;
-    ownerUsername_ends_with: string | null;
-    ownerUsername_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    description: string | null;
-    description_not: string | null;
-    description_in: string[];
-    description_not_in: string[];
-    description_lt: string | null;
-    description_lte: string | null;
-    description_gt: string | null;
-    description_gte: string | null;
-    description_contains: string | null;
-    description_not_contains: string | null;
-    description_starts_with: string | null;
-    description_not_starts_with: string | null;
-    description_ends_with: string | null;
-    description_not_ends_with: string | null;
-    owner: UserWhereInput | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    upvotes_every: UpvoteWhereInput | null;
-    upvotes_some: UpvoteWhereInput | null;
-    upvotes_none: UpvoteWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: RepoWhereInput[];
-    OR: RepoWhereInput[];
-    NOT: RepoWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    githubName?: string | null;
+    githubName_not?: string | null;
+    githubName_in?: string[] | null;
+    githubName_not_in?: string[] | null;
+    githubName_lt?: string | null;
+    githubName_lte?: string | null;
+    githubName_gt?: string | null;
+    githubName_gte?: string | null;
+    githubName_contains?: string | null;
+    githubName_not_contains?: string | null;
+    githubName_starts_with?: string | null;
+    githubName_not_starts_with?: string | null;
+    githubName_ends_with?: string | null;
+    githubName_not_ends_with?: string | null;
+    githubOwner?: string | null;
+    githubOwner_not?: string | null;
+    githubOwner_in?: string[] | null;
+    githubOwner_not_in?: string[] | null;
+    githubOwner_lt?: string | null;
+    githubOwner_lte?: string | null;
+    githubOwner_gt?: string | null;
+    githubOwner_gte?: string | null;
+    githubOwner_contains?: string | null;
+    githubOwner_not_contains?: string | null;
+    githubOwner_starts_with?: string | null;
+    githubOwner_not_starts_with?: string | null;
+    githubOwner_ends_with?: string | null;
+    githubOwner_not_ends_with?: string | null;
+    githubUrl?: string | null;
+    githubUrl_not?: string | null;
+    githubUrl_in?: string[] | null;
+    githubUrl_not_in?: string[] | null;
+    githubUrl_lt?: string | null;
+    githubUrl_lte?: string | null;
+    githubUrl_gt?: string | null;
+    githubUrl_gte?: string | null;
+    githubUrl_contains?: string | null;
+    githubUrl_not_contains?: string | null;
+    githubUrl_starts_with?: string | null;
+    githubUrl_not_starts_with?: string | null;
+    githubUrl_ends_with?: string | null;
+    githubUrl_not_ends_with?: string | null;
+    ownerUsername?: string | null;
+    ownerUsername_not?: string | null;
+    ownerUsername_in?: string[] | null;
+    ownerUsername_not_in?: string[] | null;
+    ownerUsername_lt?: string | null;
+    ownerUsername_lte?: string | null;
+    ownerUsername_gt?: string | null;
+    ownerUsername_gte?: string | null;
+    ownerUsername_contains?: string | null;
+    ownerUsername_not_contains?: string | null;
+    ownerUsername_starts_with?: string | null;
+    ownerUsername_not_starts_with?: string | null;
+    ownerUsername_ends_with?: string | null;
+    ownerUsername_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    description?: string | null;
+    description_not?: string | null;
+    description_in?: string[] | null;
+    description_not_in?: string[] | null;
+    description_lt?: string | null;
+    description_lte?: string | null;
+    description_gt?: string | null;
+    description_gte?: string | null;
+    description_contains?: string | null;
+    description_not_contains?: string | null;
+    description_starts_with?: string | null;
+    description_not_starts_with?: string | null;
+    description_ends_with?: string | null;
+    description_not_ends_with?: string | null;
+    owner?: UserWhereInput | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    upvotes_every?: UpvoteWhereInput | null;
+    upvotes_some?: UpvoteWhereInput | null;
+    upvotes_none?: UpvoteWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: RepoWhereInput[] | null;
+    OR?: RepoWhereInput[] | null;
+    NOT?: RepoWhereInput[] | null;
+  }
+  export interface UserWhereInput {
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    name?: string | null;
+    name_not?: string | null;
+    name_in?: string[] | null;
+    name_not_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_contains?: string | null;
+    name_not_contains?: string | null;
+    name_starts_with?: string | null;
+    name_not_starts_with?: string | null;
+    name_ends_with?: string | null;
+    name_not_ends_with?: string | null;
+    username?: string | null;
+    username_not?: string | null;
+    username_in?: string[] | null;
+    username_not_in?: string[] | null;
+    username_lt?: string | null;
+    username_lte?: string | null;
+    username_gt?: string | null;
+    username_gte?: string | null;
+    username_contains?: string | null;
+    username_not_contains?: string | null;
+    username_starts_with?: string | null;
+    username_not_starts_with?: string | null;
+    username_ends_with?: string | null;
+    username_not_ends_with?: string | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    newsItems_every?: NewsWhereInput | null;
+    newsItems_some?: NewsWhereInput | null;
+    newsItems_none?: NewsWhereInput | null;
+    talks_every?: TalkWhereInput | null;
+    talks_some?: TalkWhereInput | null;
+    talks_none?: TalkWhereInput | null;
+    githubToken?: string | null;
+    githubToken_not?: string | null;
+    githubToken_in?: string[] | null;
+    githubToken_not_in?: string[] | null;
+    githubToken_lt?: string | null;
+    githubToken_lte?: string | null;
+    githubToken_gt?: string | null;
+    githubToken_gte?: string | null;
+    githubToken_contains?: string | null;
+    githubToken_not_contains?: string | null;
+    githubToken_starts_with?: string | null;
+    githubToken_not_starts_with?: string | null;
+    githubToken_ends_with?: string | null;
+    githubToken_not_ends_with?: string | null;
+    profilePic?: string | null;
+    profilePic_not?: string | null;
+    profilePic_in?: string[] | null;
+    profilePic_not_in?: string[] | null;
+    profilePic_lt?: string | null;
+    profilePic_lte?: string | null;
+    profilePic_gt?: string | null;
+    profilePic_gte?: string | null;
+    profilePic_contains?: string | null;
+    profilePic_not_contains?: string | null;
+    profilePic_starts_with?: string | null;
+    profilePic_not_starts_with?: string | null;
+    profilePic_ends_with?: string | null;
+    profilePic_not_ends_with?: string | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: UserWhereInput[] | null;
+    OR?: UserWhereInput[] | null;
+    NOT?: UserWhereInput[] | null;
   }
   export interface UpvoteWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    user: UserWhereInput | null;
-    repo: RepoWhereInput | null;
-    AND: UpvoteWhereInput[];
-    OR: UpvoteWhereInput[];
-    NOT: UpvoteWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    user?: UserWhereInput | null;
+    repo?: RepoWhereInput | null;
+    AND?: UpvoteWhereInput[] | null;
+    OR?: UpvoteWhereInput[] | null;
+    NOT?: UpvoteWhereInput[] | null;
   }
 
   export interface ArgsTags {
-    where: TagWhereInput | null;
-    orderBy: TagOrderByInput | null;
-    skip: number | null;
-    after: string | null;
-    before: string | null;
-    first: number | null;
-    last: number | null;
+    where?: TagWhereInput | null;
+    orderBy?: TagOrderByInput | null;
+    skip?: number | null;
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
   }
 
-  export type IdResolver = (
-    parent: News,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type IdResolver =
+    | ((
+        parent: News,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type SlugResolver = (
-    parent: News,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type SlugResolver =
+    | ((
+        parent: News,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type TitleResolver = (
-    parent: News,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type TitleResolver =
+    | ((
+        parent: News,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type ContentResolver = (
-    parent: News,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type ContentResolver =
+    | ((
+        parent: News,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type PreviewImageResolver = (
-    parent: News,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | null | Promise<string | null>;
+  export type PreviewImageResolver =
+    | ((
+        parent: News,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | null | Promise<string | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>;
+      };
 
-  export type IsFeaturedResolver = (
-    parent: News,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => boolean | null | Promise<boolean | null>;
+  export type IsFeaturedResolver =
+    | ((
+        parent: News,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => boolean | null | Promise<boolean | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => boolean | null | Promise<boolean | null>;
+      };
 
-  export type WriterResolver = (
-    parent: News,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => User | Promise<User>;
+  export type WriterResolver =
+    | ((
+        parent: News,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => User | Promise<User>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => User | Promise<User>;
+      };
 
-  export type TagsResolver = (
-    parent: News,
-    args: ArgsTags,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Tag[] | Promise<Tag[]>;
+  export type TagsResolver =
+    | ((
+        parent: News,
+        args: ArgsTags,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Tag[] | null | Promise<Tag[] | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: News,
+          args: ArgsTags,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Tag[] | null | Promise<Tag[] | null>;
+      };
 
-  export type CreatedAtResolver = (
-    parent: News,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type CreatedAtResolver =
+    | ((
+        parent: News,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type UpdatedAtResolver = (
-    parent: News,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type UpdatedAtResolver =
+    | ((
+        parent: News,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
   export interface Type {
-    id: (
-      parent: News,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    id:
+      | ((
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: News,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    slug: (
-      parent: News,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    slug:
+      | ((
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: News,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    title: (
-      parent: News,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    title:
+      | ((
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: News,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    content: (
-      parent: News,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    content:
+      | ((
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: News,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    previewImage: (
-      parent: News,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | null | Promise<string | null>;
+    previewImage:
+      | ((
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: News,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | null | Promise<string | null>;
+        };
 
-    isFeatured: (
-      parent: News,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => boolean | null | Promise<boolean | null>;
+    isFeatured:
+      | ((
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => boolean | null | Promise<boolean | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: News,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => boolean | null | Promise<boolean | null>;
+        };
 
-    writer: (
-      parent: News,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => User | Promise<User>;
+    writer:
+      | ((
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => User | Promise<User>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: News,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => User | Promise<User>;
+        };
 
-    tags: (
-      parent: News,
-      args: ArgsTags,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Tag[] | Promise<Tag[]>;
+    tags:
+      | ((
+          parent: News,
+          args: ArgsTags,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Tag[] | null | Promise<Tag[] | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: News,
+            args: ArgsTags,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Tag[] | null | Promise<Tag[] | null>;
+        };
 
-    createdAt: (
-      parent: News,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    createdAt:
+      | ((
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: News,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    updatedAt: (
-      parent: News,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    updatedAt:
+      | ((
+          parent: News,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: News,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
   }
 }
 
@@ -1388,656 +1708,856 @@ export namespace UserResolvers {
   };
 
   export interface NewsWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    title: string | null;
-    title_not: string | null;
-    title_in: string[];
-    title_not_in: string[];
-    title_lt: string | null;
-    title_lte: string | null;
-    title_gt: string | null;
-    title_gte: string | null;
-    title_contains: string | null;
-    title_not_contains: string | null;
-    title_starts_with: string | null;
-    title_not_starts_with: string | null;
-    title_ends_with: string | null;
-    title_not_ends_with: string | null;
-    content: string | null;
-    content_not: string | null;
-    content_in: string[];
-    content_not_in: string[];
-    content_lt: string | null;
-    content_lte: string | null;
-    content_gt: string | null;
-    content_gte: string | null;
-    content_contains: string | null;
-    content_not_contains: string | null;
-    content_starts_with: string | null;
-    content_not_starts_with: string | null;
-    content_ends_with: string | null;
-    content_not_ends_with: string | null;
-    previewImage: string | null;
-    previewImage_not: string | null;
-    previewImage_in: string[];
-    previewImage_not_in: string[];
-    previewImage_lt: string | null;
-    previewImage_lte: string | null;
-    previewImage_gt: string | null;
-    previewImage_gte: string | null;
-    previewImage_contains: string | null;
-    previewImage_not_contains: string | null;
-    previewImage_starts_with: string | null;
-    previewImage_not_starts_with: string | null;
-    previewImage_ends_with: string | null;
-    previewImage_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    writer: UserWhereInput | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: NewsWhereInput[];
-    OR: NewsWhereInput[];
-    NOT: NewsWhereInput[];
-  }
-  export interface UserWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    name: string | null;
-    name_not: string | null;
-    name_in: string[];
-    name_not_in: string[];
-    name_lt: string | null;
-    name_lte: string | null;
-    name_gt: string | null;
-    name_gte: string | null;
-    name_contains: string | null;
-    name_not_contains: string | null;
-    name_starts_with: string | null;
-    name_not_starts_with: string | null;
-    name_ends_with: string | null;
-    name_not_ends_with: string | null;
-    username: string | null;
-    username_not: string | null;
-    username_in: string[];
-    username_not_in: string[];
-    username_lt: string | null;
-    username_lte: string | null;
-    username_gt: string | null;
-    username_gte: string | null;
-    username_contains: string | null;
-    username_not_contains: string | null;
-    username_starts_with: string | null;
-    username_not_starts_with: string | null;
-    username_ends_with: string | null;
-    username_not_ends_with: string | null;
-    email: string | null;
-    email_not: string | null;
-    email_in: string[];
-    email_not_in: string[];
-    email_lt: string | null;
-    email_lte: string | null;
-    email_gt: string | null;
-    email_gte: string | null;
-    email_contains: string | null;
-    email_not_contains: string | null;
-    email_starts_with: string | null;
-    email_not_starts_with: string | null;
-    email_ends_with: string | null;
-    email_not_ends_with: string | null;
-    newsItems_every: NewsWhereInput | null;
-    newsItems_some: NewsWhereInput | null;
-    newsItems_none: NewsWhereInput | null;
-    talks_every: TalkWhereInput | null;
-    talks_some: TalkWhereInput | null;
-    talks_none: TalkWhereInput | null;
-    githubToken: string | null;
-    githubToken_not: string | null;
-    githubToken_in: string[];
-    githubToken_not_in: string[];
-    githubToken_lt: string | null;
-    githubToken_lte: string | null;
-    githubToken_gt: string | null;
-    githubToken_gte: string | null;
-    githubToken_contains: string | null;
-    githubToken_not_contains: string | null;
-    githubToken_starts_with: string | null;
-    githubToken_not_starts_with: string | null;
-    githubToken_ends_with: string | null;
-    githubToken_not_ends_with: string | null;
-    profilePic: string | null;
-    profilePic_not: string | null;
-    profilePic_in: string[];
-    profilePic_not_in: string[];
-    profilePic_lt: string | null;
-    profilePic_lte: string | null;
-    profilePic_gt: string | null;
-    profilePic_gte: string | null;
-    profilePic_contains: string | null;
-    profilePic_not_contains: string | null;
-    profilePic_starts_with: string | null;
-    profilePic_not_starts_with: string | null;
-    profilePic_ends_with: string | null;
-    profilePic_not_ends_with: string | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: UserWhereInput[];
-    OR: UserWhereInput[];
-    NOT: UserWhereInput[];
-  }
-  export interface TagWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    name: string | null;
-    name_not: string | null;
-    name_in: string[];
-    name_not_in: string[];
-    name_lt: string | null;
-    name_lte: string | null;
-    name_gt: string | null;
-    name_gte: string | null;
-    name_contains: string | null;
-    name_not_contains: string | null;
-    name_starts_with: string | null;
-    name_not_starts_with: string | null;
-    name_ends_with: string | null;
-    name_not_ends_with: string | null;
-    talks_every: TalkWhereInput | null;
-    talks_some: TalkWhereInput | null;
-    talks_none: TalkWhereInput | null;
-    newsItems_every: NewsWhereInput | null;
-    newsItems_some: NewsWhereInput | null;
-    newsItems_none: NewsWhereInput | null;
-    repos_every: RepoWhereInput | null;
-    repos_some: RepoWhereInput | null;
-    repos_none: RepoWhereInput | null;
-    AND: TagWhereInput[];
-    OR: TagWhereInput[];
-    NOT: TagWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    title?: string | null;
+    title_not?: string | null;
+    title_in?: string[] | null;
+    title_not_in?: string[] | null;
+    title_lt?: string | null;
+    title_lte?: string | null;
+    title_gt?: string | null;
+    title_gte?: string | null;
+    title_contains?: string | null;
+    title_not_contains?: string | null;
+    title_starts_with?: string | null;
+    title_not_starts_with?: string | null;
+    title_ends_with?: string | null;
+    title_not_ends_with?: string | null;
+    content?: string | null;
+    content_not?: string | null;
+    content_in?: string[] | null;
+    content_not_in?: string[] | null;
+    content_lt?: string | null;
+    content_lte?: string | null;
+    content_gt?: string | null;
+    content_gte?: string | null;
+    content_contains?: string | null;
+    content_not_contains?: string | null;
+    content_starts_with?: string | null;
+    content_not_starts_with?: string | null;
+    content_ends_with?: string | null;
+    content_not_ends_with?: string | null;
+    previewImage?: string | null;
+    previewImage_not?: string | null;
+    previewImage_in?: string[] | null;
+    previewImage_not_in?: string[] | null;
+    previewImage_lt?: string | null;
+    previewImage_lte?: string | null;
+    previewImage_gt?: string | null;
+    previewImage_gte?: string | null;
+    previewImage_contains?: string | null;
+    previewImage_not_contains?: string | null;
+    previewImage_starts_with?: string | null;
+    previewImage_not_starts_with?: string | null;
+    previewImage_ends_with?: string | null;
+    previewImage_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    writer?: UserWhereInput | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: NewsWhereInput[] | null;
+    OR?: NewsWhereInput[] | null;
+    NOT?: NewsWhereInput[] | null;
   }
   export interface TalkWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    title: string | null;
-    title_not: string | null;
-    title_in: string[];
-    title_not_in: string[];
-    title_lt: string | null;
-    title_lte: string | null;
-    title_gt: string | null;
-    title_gte: string | null;
-    title_contains: string | null;
-    title_not_contains: string | null;
-    title_starts_with: string | null;
-    title_not_starts_with: string | null;
-    title_ends_with: string | null;
-    title_not_ends_with: string | null;
-    previewImage: string | null;
-    previewImage_not: string | null;
-    previewImage_in: string[];
-    previewImage_not_in: string[];
-    previewImage_lt: string | null;
-    previewImage_lte: string | null;
-    previewImage_gt: string | null;
-    previewImage_gte: string | null;
-    previewImage_contains: string | null;
-    previewImage_not_contains: string | null;
-    previewImage_starts_with: string | null;
-    previewImage_not_starts_with: string | null;
-    previewImage_ends_with: string | null;
-    previewImage_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    speaker: UserWhereInput | null;
-    length: number | null;
-    length_not: number | null;
-    length_in: number[];
-    length_not_in: number[];
-    length_lt: number | null;
-    length_lte: number | null;
-    length_gt: number | null;
-    length_gte: number | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: TalkWhereInput[];
-    OR: TalkWhereInput[];
-    NOT: TalkWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    title?: string | null;
+    title_not?: string | null;
+    title_in?: string[] | null;
+    title_not_in?: string[] | null;
+    title_lt?: string | null;
+    title_lte?: string | null;
+    title_gt?: string | null;
+    title_gte?: string | null;
+    title_contains?: string | null;
+    title_not_contains?: string | null;
+    title_starts_with?: string | null;
+    title_not_starts_with?: string | null;
+    title_ends_with?: string | null;
+    title_not_ends_with?: string | null;
+    previewImage?: string | null;
+    previewImage_not?: string | null;
+    previewImage_in?: string[] | null;
+    previewImage_not_in?: string[] | null;
+    previewImage_lt?: string | null;
+    previewImage_lte?: string | null;
+    previewImage_gt?: string | null;
+    previewImage_gte?: string | null;
+    previewImage_contains?: string | null;
+    previewImage_not_contains?: string | null;
+    previewImage_starts_with?: string | null;
+    previewImage_not_starts_with?: string | null;
+    previewImage_ends_with?: string | null;
+    previewImage_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    speaker?: UserWhereInput | null;
+    length?: number | null;
+    length_not?: number | null;
+    length_in?: number[] | null;
+    length_not_in?: number[] | null;
+    length_lt?: number | null;
+    length_lte?: number | null;
+    length_gt?: number | null;
+    length_gte?: number | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: TalkWhereInput[] | null;
+    OR?: TalkWhereInput[] | null;
+    NOT?: TalkWhereInput[] | null;
+  }
+  export interface UserWhereInput {
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    name?: string | null;
+    name_not?: string | null;
+    name_in?: string[] | null;
+    name_not_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_contains?: string | null;
+    name_not_contains?: string | null;
+    name_starts_with?: string | null;
+    name_not_starts_with?: string | null;
+    name_ends_with?: string | null;
+    name_not_ends_with?: string | null;
+    username?: string | null;
+    username_not?: string | null;
+    username_in?: string[] | null;
+    username_not_in?: string[] | null;
+    username_lt?: string | null;
+    username_lte?: string | null;
+    username_gt?: string | null;
+    username_gte?: string | null;
+    username_contains?: string | null;
+    username_not_contains?: string | null;
+    username_starts_with?: string | null;
+    username_not_starts_with?: string | null;
+    username_ends_with?: string | null;
+    username_not_ends_with?: string | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    newsItems_every?: NewsWhereInput | null;
+    newsItems_some?: NewsWhereInput | null;
+    newsItems_none?: NewsWhereInput | null;
+    talks_every?: TalkWhereInput | null;
+    talks_some?: TalkWhereInput | null;
+    talks_none?: TalkWhereInput | null;
+    githubToken?: string | null;
+    githubToken_not?: string | null;
+    githubToken_in?: string[] | null;
+    githubToken_not_in?: string[] | null;
+    githubToken_lt?: string | null;
+    githubToken_lte?: string | null;
+    githubToken_gt?: string | null;
+    githubToken_gte?: string | null;
+    githubToken_contains?: string | null;
+    githubToken_not_contains?: string | null;
+    githubToken_starts_with?: string | null;
+    githubToken_not_starts_with?: string | null;
+    githubToken_ends_with?: string | null;
+    githubToken_not_ends_with?: string | null;
+    profilePic?: string | null;
+    profilePic_not?: string | null;
+    profilePic_in?: string[] | null;
+    profilePic_not_in?: string[] | null;
+    profilePic_lt?: string | null;
+    profilePic_lte?: string | null;
+    profilePic_gt?: string | null;
+    profilePic_gte?: string | null;
+    profilePic_contains?: string | null;
+    profilePic_not_contains?: string | null;
+    profilePic_starts_with?: string | null;
+    profilePic_not_starts_with?: string | null;
+    profilePic_ends_with?: string | null;
+    profilePic_not_ends_with?: string | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: UserWhereInput[] | null;
+    OR?: UserWhereInput[] | null;
+    NOT?: UserWhereInput[] | null;
+  }
+  export interface TagWhereInput {
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    name?: string | null;
+    name_not?: string | null;
+    name_in?: string[] | null;
+    name_not_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_contains?: string | null;
+    name_not_contains?: string | null;
+    name_starts_with?: string | null;
+    name_not_starts_with?: string | null;
+    name_ends_with?: string | null;
+    name_not_ends_with?: string | null;
+    talks_every?: TalkWhereInput | null;
+    talks_some?: TalkWhereInput | null;
+    talks_none?: TalkWhereInput | null;
+    newsItems_every?: NewsWhereInput | null;
+    newsItems_some?: NewsWhereInput | null;
+    newsItems_none?: NewsWhereInput | null;
+    repos_every?: RepoWhereInput | null;
+    repos_some?: RepoWhereInput | null;
+    repos_none?: RepoWhereInput | null;
+    AND?: TagWhereInput[] | null;
+    OR?: TagWhereInput[] | null;
+    NOT?: TagWhereInput[] | null;
   }
   export interface RepoWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    githubName: string | null;
-    githubName_not: string | null;
-    githubName_in: string[];
-    githubName_not_in: string[];
-    githubName_lt: string | null;
-    githubName_lte: string | null;
-    githubName_gt: string | null;
-    githubName_gte: string | null;
-    githubName_contains: string | null;
-    githubName_not_contains: string | null;
-    githubName_starts_with: string | null;
-    githubName_not_starts_with: string | null;
-    githubName_ends_with: string | null;
-    githubName_not_ends_with: string | null;
-    githubOwner: string | null;
-    githubOwner_not: string | null;
-    githubOwner_in: string[];
-    githubOwner_not_in: string[];
-    githubOwner_lt: string | null;
-    githubOwner_lte: string | null;
-    githubOwner_gt: string | null;
-    githubOwner_gte: string | null;
-    githubOwner_contains: string | null;
-    githubOwner_not_contains: string | null;
-    githubOwner_starts_with: string | null;
-    githubOwner_not_starts_with: string | null;
-    githubOwner_ends_with: string | null;
-    githubOwner_not_ends_with: string | null;
-    githubUrl: string | null;
-    githubUrl_not: string | null;
-    githubUrl_in: string[];
-    githubUrl_not_in: string[];
-    githubUrl_lt: string | null;
-    githubUrl_lte: string | null;
-    githubUrl_gt: string | null;
-    githubUrl_gte: string | null;
-    githubUrl_contains: string | null;
-    githubUrl_not_contains: string | null;
-    githubUrl_starts_with: string | null;
-    githubUrl_not_starts_with: string | null;
-    githubUrl_ends_with: string | null;
-    githubUrl_not_ends_with: string | null;
-    ownerUsername: string | null;
-    ownerUsername_not: string | null;
-    ownerUsername_in: string[];
-    ownerUsername_not_in: string[];
-    ownerUsername_lt: string | null;
-    ownerUsername_lte: string | null;
-    ownerUsername_gt: string | null;
-    ownerUsername_gte: string | null;
-    ownerUsername_contains: string | null;
-    ownerUsername_not_contains: string | null;
-    ownerUsername_starts_with: string | null;
-    ownerUsername_not_starts_with: string | null;
-    ownerUsername_ends_with: string | null;
-    ownerUsername_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    description: string | null;
-    description_not: string | null;
-    description_in: string[];
-    description_not_in: string[];
-    description_lt: string | null;
-    description_lte: string | null;
-    description_gt: string | null;
-    description_gte: string | null;
-    description_contains: string | null;
-    description_not_contains: string | null;
-    description_starts_with: string | null;
-    description_not_starts_with: string | null;
-    description_ends_with: string | null;
-    description_not_ends_with: string | null;
-    owner: UserWhereInput | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    upvotes_every: UpvoteWhereInput | null;
-    upvotes_some: UpvoteWhereInput | null;
-    upvotes_none: UpvoteWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: RepoWhereInput[];
-    OR: RepoWhereInput[];
-    NOT: RepoWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    githubName?: string | null;
+    githubName_not?: string | null;
+    githubName_in?: string[] | null;
+    githubName_not_in?: string[] | null;
+    githubName_lt?: string | null;
+    githubName_lte?: string | null;
+    githubName_gt?: string | null;
+    githubName_gte?: string | null;
+    githubName_contains?: string | null;
+    githubName_not_contains?: string | null;
+    githubName_starts_with?: string | null;
+    githubName_not_starts_with?: string | null;
+    githubName_ends_with?: string | null;
+    githubName_not_ends_with?: string | null;
+    githubOwner?: string | null;
+    githubOwner_not?: string | null;
+    githubOwner_in?: string[] | null;
+    githubOwner_not_in?: string[] | null;
+    githubOwner_lt?: string | null;
+    githubOwner_lte?: string | null;
+    githubOwner_gt?: string | null;
+    githubOwner_gte?: string | null;
+    githubOwner_contains?: string | null;
+    githubOwner_not_contains?: string | null;
+    githubOwner_starts_with?: string | null;
+    githubOwner_not_starts_with?: string | null;
+    githubOwner_ends_with?: string | null;
+    githubOwner_not_ends_with?: string | null;
+    githubUrl?: string | null;
+    githubUrl_not?: string | null;
+    githubUrl_in?: string[] | null;
+    githubUrl_not_in?: string[] | null;
+    githubUrl_lt?: string | null;
+    githubUrl_lte?: string | null;
+    githubUrl_gt?: string | null;
+    githubUrl_gte?: string | null;
+    githubUrl_contains?: string | null;
+    githubUrl_not_contains?: string | null;
+    githubUrl_starts_with?: string | null;
+    githubUrl_not_starts_with?: string | null;
+    githubUrl_ends_with?: string | null;
+    githubUrl_not_ends_with?: string | null;
+    ownerUsername?: string | null;
+    ownerUsername_not?: string | null;
+    ownerUsername_in?: string[] | null;
+    ownerUsername_not_in?: string[] | null;
+    ownerUsername_lt?: string | null;
+    ownerUsername_lte?: string | null;
+    ownerUsername_gt?: string | null;
+    ownerUsername_gte?: string | null;
+    ownerUsername_contains?: string | null;
+    ownerUsername_not_contains?: string | null;
+    ownerUsername_starts_with?: string | null;
+    ownerUsername_not_starts_with?: string | null;
+    ownerUsername_ends_with?: string | null;
+    ownerUsername_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    description?: string | null;
+    description_not?: string | null;
+    description_in?: string[] | null;
+    description_not_in?: string[] | null;
+    description_lt?: string | null;
+    description_lte?: string | null;
+    description_gt?: string | null;
+    description_gte?: string | null;
+    description_contains?: string | null;
+    description_not_contains?: string | null;
+    description_starts_with?: string | null;
+    description_not_starts_with?: string | null;
+    description_ends_with?: string | null;
+    description_not_ends_with?: string | null;
+    owner?: UserWhereInput | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    upvotes_every?: UpvoteWhereInput | null;
+    upvotes_some?: UpvoteWhereInput | null;
+    upvotes_none?: UpvoteWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: RepoWhereInput[] | null;
+    OR?: RepoWhereInput[] | null;
+    NOT?: RepoWhereInput[] | null;
   }
   export interface UpvoteWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    user: UserWhereInput | null;
-    repo: RepoWhereInput | null;
-    AND: UpvoteWhereInput[];
-    OR: UpvoteWhereInput[];
-    NOT: UpvoteWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    user?: UserWhereInput | null;
+    repo?: RepoWhereInput | null;
+    AND?: UpvoteWhereInput[] | null;
+    OR?: UpvoteWhereInput[] | null;
+    NOT?: UpvoteWhereInput[] | null;
   }
 
   export interface ArgsNewsItems {
-    where: NewsWhereInput | null;
-    orderBy: NewsOrderByInput | null;
-    skip: number | null;
-    after: string | null;
-    before: string | null;
-    first: number | null;
-    last: number | null;
+    where?: NewsWhereInput | null;
+    orderBy?: NewsOrderByInput | null;
+    skip?: number | null;
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
   }
 
   export interface ArgsTalks {
-    where: TalkWhereInput | null;
-    orderBy: TalkOrderByInput | null;
-    skip: number | null;
-    after: string | null;
-    before: string | null;
-    first: number | null;
-    last: number | null;
+    where?: TalkWhereInput | null;
+    orderBy?: TalkOrderByInput | null;
+    skip?: number | null;
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
   }
 
-  export type IdResolver = (
-    parent: User,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type IdResolver =
+    | ((
+        parent: User,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type NameResolver = (
-    parent: User,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type NameResolver =
+    | ((
+        parent: User,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type UsernameResolver = (
-    parent: User,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type UsernameResolver =
+    | ((
+        parent: User,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type EmailResolver = (
-    parent: User,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | null | Promise<string | null>;
+  export type EmailResolver =
+    | ((
+        parent: User,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | null | Promise<string | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>;
+      };
 
-  export type NewsItemsResolver = (
-    parent: User,
-    args: ArgsNewsItems,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => News[] | Promise<News[]>;
+  export type NewsItemsResolver =
+    | ((
+        parent: User,
+        args: ArgsNewsItems,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => News[] | null | Promise<News[] | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: User,
+          args: ArgsNewsItems,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => News[] | null | Promise<News[] | null>;
+      };
 
-  export type TalksResolver = (
-    parent: User,
-    args: ArgsTalks,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Talk[] | Promise<Talk[]>;
+  export type TalksResolver =
+    | ((
+        parent: User,
+        args: ArgsTalks,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Talk[] | null | Promise<Talk[] | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: User,
+          args: ArgsTalks,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Talk[] | null | Promise<Talk[] | null>;
+      };
 
-  export type GithubTokenResolver = (
-    parent: User,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type GithubTokenResolver =
+    | ((
+        parent: User,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type ProfilePicResolver = (
-    parent: User,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | null | Promise<string | null>;
+  export type ProfilePicResolver =
+    | ((
+        parent: User,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | null | Promise<string | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>;
+      };
 
-  export type CreatedAtResolver = (
-    parent: User,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type CreatedAtResolver =
+    | ((
+        parent: User,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type UpdatedAtResolver = (
-    parent: User,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type UpdatedAtResolver =
+    | ((
+        parent: User,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
   export interface Type {
-    id: (
-      parent: User,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    id:
+      | ((
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: User,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    name: (
-      parent: User,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    name:
+      | ((
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: User,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    username: (
-      parent: User,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    username:
+      | ((
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: User,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    email: (
-      parent: User,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | null | Promise<string | null>;
+    email:
+      | ((
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: User,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | null | Promise<string | null>;
+        };
 
-    newsItems: (
-      parent: User,
-      args: ArgsNewsItems,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => News[] | Promise<News[]>;
+    newsItems:
+      | ((
+          parent: User,
+          args: ArgsNewsItems,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => News[] | null | Promise<News[] | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: User,
+            args: ArgsNewsItems,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => News[] | null | Promise<News[] | null>;
+        };
 
-    talks: (
-      parent: User,
-      args: ArgsTalks,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Talk[] | Promise<Talk[]>;
+    talks:
+      | ((
+          parent: User,
+          args: ArgsTalks,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Talk[] | null | Promise<Talk[] | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: User,
+            args: ArgsTalks,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Talk[] | null | Promise<Talk[] | null>;
+        };
 
-    githubToken: (
-      parent: User,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    githubToken:
+      | ((
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: User,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    profilePic: (
-      parent: User,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | null | Promise<string | null>;
+    profilePic:
+      | ((
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: User,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | null | Promise<string | null>;
+        };
 
-    createdAt: (
-      parent: User,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    createdAt:
+      | ((
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: User,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    updatedAt: (
-      parent: User,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    updatedAt:
+      | ((
+          parent: User,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: User,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
   }
 }
 
@@ -2056,646 +2576,846 @@ export namespace TalkResolvers {
   };
 
   export interface TagWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    name: string | null;
-    name_not: string | null;
-    name_in: string[];
-    name_not_in: string[];
-    name_lt: string | null;
-    name_lte: string | null;
-    name_gt: string | null;
-    name_gte: string | null;
-    name_contains: string | null;
-    name_not_contains: string | null;
-    name_starts_with: string | null;
-    name_not_starts_with: string | null;
-    name_ends_with: string | null;
-    name_not_ends_with: string | null;
-    talks_every: TalkWhereInput | null;
-    talks_some: TalkWhereInput | null;
-    talks_none: TalkWhereInput | null;
-    newsItems_every: NewsWhereInput | null;
-    newsItems_some: NewsWhereInput | null;
-    newsItems_none: NewsWhereInput | null;
-    repos_every: RepoWhereInput | null;
-    repos_some: RepoWhereInput | null;
-    repos_none: RepoWhereInput | null;
-    AND: TagWhereInput[];
-    OR: TagWhereInput[];
-    NOT: TagWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    name?: string | null;
+    name_not?: string | null;
+    name_in?: string[] | null;
+    name_not_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_contains?: string | null;
+    name_not_contains?: string | null;
+    name_starts_with?: string | null;
+    name_not_starts_with?: string | null;
+    name_ends_with?: string | null;
+    name_not_ends_with?: string | null;
+    talks_every?: TalkWhereInput | null;
+    talks_some?: TalkWhereInput | null;
+    talks_none?: TalkWhereInput | null;
+    newsItems_every?: NewsWhereInput | null;
+    newsItems_some?: NewsWhereInput | null;
+    newsItems_none?: NewsWhereInput | null;
+    repos_every?: RepoWhereInput | null;
+    repos_some?: RepoWhereInput | null;
+    repos_none?: RepoWhereInput | null;
+    AND?: TagWhereInput[] | null;
+    OR?: TagWhereInput[] | null;
+    NOT?: TagWhereInput[] | null;
   }
   export interface TalkWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    title: string | null;
-    title_not: string | null;
-    title_in: string[];
-    title_not_in: string[];
-    title_lt: string | null;
-    title_lte: string | null;
-    title_gt: string | null;
-    title_gte: string | null;
-    title_contains: string | null;
-    title_not_contains: string | null;
-    title_starts_with: string | null;
-    title_not_starts_with: string | null;
-    title_ends_with: string | null;
-    title_not_ends_with: string | null;
-    previewImage: string | null;
-    previewImage_not: string | null;
-    previewImage_in: string[];
-    previewImage_not_in: string[];
-    previewImage_lt: string | null;
-    previewImage_lte: string | null;
-    previewImage_gt: string | null;
-    previewImage_gte: string | null;
-    previewImage_contains: string | null;
-    previewImage_not_contains: string | null;
-    previewImage_starts_with: string | null;
-    previewImage_not_starts_with: string | null;
-    previewImage_ends_with: string | null;
-    previewImage_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    speaker: UserWhereInput | null;
-    length: number | null;
-    length_not: number | null;
-    length_in: number[];
-    length_not_in: number[];
-    length_lt: number | null;
-    length_lte: number | null;
-    length_gt: number | null;
-    length_gte: number | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: TalkWhereInput[];
-    OR: TalkWhereInput[];
-    NOT: TalkWhereInput[];
-  }
-  export interface UserWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    name: string | null;
-    name_not: string | null;
-    name_in: string[];
-    name_not_in: string[];
-    name_lt: string | null;
-    name_lte: string | null;
-    name_gt: string | null;
-    name_gte: string | null;
-    name_contains: string | null;
-    name_not_contains: string | null;
-    name_starts_with: string | null;
-    name_not_starts_with: string | null;
-    name_ends_with: string | null;
-    name_not_ends_with: string | null;
-    username: string | null;
-    username_not: string | null;
-    username_in: string[];
-    username_not_in: string[];
-    username_lt: string | null;
-    username_lte: string | null;
-    username_gt: string | null;
-    username_gte: string | null;
-    username_contains: string | null;
-    username_not_contains: string | null;
-    username_starts_with: string | null;
-    username_not_starts_with: string | null;
-    username_ends_with: string | null;
-    username_not_ends_with: string | null;
-    email: string | null;
-    email_not: string | null;
-    email_in: string[];
-    email_not_in: string[];
-    email_lt: string | null;
-    email_lte: string | null;
-    email_gt: string | null;
-    email_gte: string | null;
-    email_contains: string | null;
-    email_not_contains: string | null;
-    email_starts_with: string | null;
-    email_not_starts_with: string | null;
-    email_ends_with: string | null;
-    email_not_ends_with: string | null;
-    newsItems_every: NewsWhereInput | null;
-    newsItems_some: NewsWhereInput | null;
-    newsItems_none: NewsWhereInput | null;
-    talks_every: TalkWhereInput | null;
-    talks_some: TalkWhereInput | null;
-    talks_none: TalkWhereInput | null;
-    githubToken: string | null;
-    githubToken_not: string | null;
-    githubToken_in: string[];
-    githubToken_not_in: string[];
-    githubToken_lt: string | null;
-    githubToken_lte: string | null;
-    githubToken_gt: string | null;
-    githubToken_gte: string | null;
-    githubToken_contains: string | null;
-    githubToken_not_contains: string | null;
-    githubToken_starts_with: string | null;
-    githubToken_not_starts_with: string | null;
-    githubToken_ends_with: string | null;
-    githubToken_not_ends_with: string | null;
-    profilePic: string | null;
-    profilePic_not: string | null;
-    profilePic_in: string[];
-    profilePic_not_in: string[];
-    profilePic_lt: string | null;
-    profilePic_lte: string | null;
-    profilePic_gt: string | null;
-    profilePic_gte: string | null;
-    profilePic_contains: string | null;
-    profilePic_not_contains: string | null;
-    profilePic_starts_with: string | null;
-    profilePic_not_starts_with: string | null;
-    profilePic_ends_with: string | null;
-    profilePic_not_ends_with: string | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: UserWhereInput[];
-    OR: UserWhereInput[];
-    NOT: UserWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    title?: string | null;
+    title_not?: string | null;
+    title_in?: string[] | null;
+    title_not_in?: string[] | null;
+    title_lt?: string | null;
+    title_lte?: string | null;
+    title_gt?: string | null;
+    title_gte?: string | null;
+    title_contains?: string | null;
+    title_not_contains?: string | null;
+    title_starts_with?: string | null;
+    title_not_starts_with?: string | null;
+    title_ends_with?: string | null;
+    title_not_ends_with?: string | null;
+    previewImage?: string | null;
+    previewImage_not?: string | null;
+    previewImage_in?: string[] | null;
+    previewImage_not_in?: string[] | null;
+    previewImage_lt?: string | null;
+    previewImage_lte?: string | null;
+    previewImage_gt?: string | null;
+    previewImage_gte?: string | null;
+    previewImage_contains?: string | null;
+    previewImage_not_contains?: string | null;
+    previewImage_starts_with?: string | null;
+    previewImage_not_starts_with?: string | null;
+    previewImage_ends_with?: string | null;
+    previewImage_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    speaker?: UserWhereInput | null;
+    length?: number | null;
+    length_not?: number | null;
+    length_in?: number[] | null;
+    length_not_in?: number[] | null;
+    length_lt?: number | null;
+    length_lte?: number | null;
+    length_gt?: number | null;
+    length_gte?: number | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: TalkWhereInput[] | null;
+    OR?: TalkWhereInput[] | null;
+    NOT?: TalkWhereInput[] | null;
   }
   export interface NewsWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    title: string | null;
-    title_not: string | null;
-    title_in: string[];
-    title_not_in: string[];
-    title_lt: string | null;
-    title_lte: string | null;
-    title_gt: string | null;
-    title_gte: string | null;
-    title_contains: string | null;
-    title_not_contains: string | null;
-    title_starts_with: string | null;
-    title_not_starts_with: string | null;
-    title_ends_with: string | null;
-    title_not_ends_with: string | null;
-    content: string | null;
-    content_not: string | null;
-    content_in: string[];
-    content_not_in: string[];
-    content_lt: string | null;
-    content_lte: string | null;
-    content_gt: string | null;
-    content_gte: string | null;
-    content_contains: string | null;
-    content_not_contains: string | null;
-    content_starts_with: string | null;
-    content_not_starts_with: string | null;
-    content_ends_with: string | null;
-    content_not_ends_with: string | null;
-    previewImage: string | null;
-    previewImage_not: string | null;
-    previewImage_in: string[];
-    previewImage_not_in: string[];
-    previewImage_lt: string | null;
-    previewImage_lte: string | null;
-    previewImage_gt: string | null;
-    previewImage_gte: string | null;
-    previewImage_contains: string | null;
-    previewImage_not_contains: string | null;
-    previewImage_starts_with: string | null;
-    previewImage_not_starts_with: string | null;
-    previewImage_ends_with: string | null;
-    previewImage_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    writer: UserWhereInput | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: NewsWhereInput[];
-    OR: NewsWhereInput[];
-    NOT: NewsWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    title?: string | null;
+    title_not?: string | null;
+    title_in?: string[] | null;
+    title_not_in?: string[] | null;
+    title_lt?: string | null;
+    title_lte?: string | null;
+    title_gt?: string | null;
+    title_gte?: string | null;
+    title_contains?: string | null;
+    title_not_contains?: string | null;
+    title_starts_with?: string | null;
+    title_not_starts_with?: string | null;
+    title_ends_with?: string | null;
+    title_not_ends_with?: string | null;
+    content?: string | null;
+    content_not?: string | null;
+    content_in?: string[] | null;
+    content_not_in?: string[] | null;
+    content_lt?: string | null;
+    content_lte?: string | null;
+    content_gt?: string | null;
+    content_gte?: string | null;
+    content_contains?: string | null;
+    content_not_contains?: string | null;
+    content_starts_with?: string | null;
+    content_not_starts_with?: string | null;
+    content_ends_with?: string | null;
+    content_not_ends_with?: string | null;
+    previewImage?: string | null;
+    previewImage_not?: string | null;
+    previewImage_in?: string[] | null;
+    previewImage_not_in?: string[] | null;
+    previewImage_lt?: string | null;
+    previewImage_lte?: string | null;
+    previewImage_gt?: string | null;
+    previewImage_gte?: string | null;
+    previewImage_contains?: string | null;
+    previewImage_not_contains?: string | null;
+    previewImage_starts_with?: string | null;
+    previewImage_not_starts_with?: string | null;
+    previewImage_ends_with?: string | null;
+    previewImage_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    writer?: UserWhereInput | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: NewsWhereInput[] | null;
+    OR?: NewsWhereInput[] | null;
+    NOT?: NewsWhereInput[] | null;
   }
   export interface RepoWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    githubName: string | null;
-    githubName_not: string | null;
-    githubName_in: string[];
-    githubName_not_in: string[];
-    githubName_lt: string | null;
-    githubName_lte: string | null;
-    githubName_gt: string | null;
-    githubName_gte: string | null;
-    githubName_contains: string | null;
-    githubName_not_contains: string | null;
-    githubName_starts_with: string | null;
-    githubName_not_starts_with: string | null;
-    githubName_ends_with: string | null;
-    githubName_not_ends_with: string | null;
-    githubOwner: string | null;
-    githubOwner_not: string | null;
-    githubOwner_in: string[];
-    githubOwner_not_in: string[];
-    githubOwner_lt: string | null;
-    githubOwner_lte: string | null;
-    githubOwner_gt: string | null;
-    githubOwner_gte: string | null;
-    githubOwner_contains: string | null;
-    githubOwner_not_contains: string | null;
-    githubOwner_starts_with: string | null;
-    githubOwner_not_starts_with: string | null;
-    githubOwner_ends_with: string | null;
-    githubOwner_not_ends_with: string | null;
-    githubUrl: string | null;
-    githubUrl_not: string | null;
-    githubUrl_in: string[];
-    githubUrl_not_in: string[];
-    githubUrl_lt: string | null;
-    githubUrl_lte: string | null;
-    githubUrl_gt: string | null;
-    githubUrl_gte: string | null;
-    githubUrl_contains: string | null;
-    githubUrl_not_contains: string | null;
-    githubUrl_starts_with: string | null;
-    githubUrl_not_starts_with: string | null;
-    githubUrl_ends_with: string | null;
-    githubUrl_not_ends_with: string | null;
-    ownerUsername: string | null;
-    ownerUsername_not: string | null;
-    ownerUsername_in: string[];
-    ownerUsername_not_in: string[];
-    ownerUsername_lt: string | null;
-    ownerUsername_lte: string | null;
-    ownerUsername_gt: string | null;
-    ownerUsername_gte: string | null;
-    ownerUsername_contains: string | null;
-    ownerUsername_not_contains: string | null;
-    ownerUsername_starts_with: string | null;
-    ownerUsername_not_starts_with: string | null;
-    ownerUsername_ends_with: string | null;
-    ownerUsername_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    description: string | null;
-    description_not: string | null;
-    description_in: string[];
-    description_not_in: string[];
-    description_lt: string | null;
-    description_lte: string | null;
-    description_gt: string | null;
-    description_gte: string | null;
-    description_contains: string | null;
-    description_not_contains: string | null;
-    description_starts_with: string | null;
-    description_not_starts_with: string | null;
-    description_ends_with: string | null;
-    description_not_ends_with: string | null;
-    owner: UserWhereInput | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    upvotes_every: UpvoteWhereInput | null;
-    upvotes_some: UpvoteWhereInput | null;
-    upvotes_none: UpvoteWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: RepoWhereInput[];
-    OR: RepoWhereInput[];
-    NOT: RepoWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    githubName?: string | null;
+    githubName_not?: string | null;
+    githubName_in?: string[] | null;
+    githubName_not_in?: string[] | null;
+    githubName_lt?: string | null;
+    githubName_lte?: string | null;
+    githubName_gt?: string | null;
+    githubName_gte?: string | null;
+    githubName_contains?: string | null;
+    githubName_not_contains?: string | null;
+    githubName_starts_with?: string | null;
+    githubName_not_starts_with?: string | null;
+    githubName_ends_with?: string | null;
+    githubName_not_ends_with?: string | null;
+    githubOwner?: string | null;
+    githubOwner_not?: string | null;
+    githubOwner_in?: string[] | null;
+    githubOwner_not_in?: string[] | null;
+    githubOwner_lt?: string | null;
+    githubOwner_lte?: string | null;
+    githubOwner_gt?: string | null;
+    githubOwner_gte?: string | null;
+    githubOwner_contains?: string | null;
+    githubOwner_not_contains?: string | null;
+    githubOwner_starts_with?: string | null;
+    githubOwner_not_starts_with?: string | null;
+    githubOwner_ends_with?: string | null;
+    githubOwner_not_ends_with?: string | null;
+    githubUrl?: string | null;
+    githubUrl_not?: string | null;
+    githubUrl_in?: string[] | null;
+    githubUrl_not_in?: string[] | null;
+    githubUrl_lt?: string | null;
+    githubUrl_lte?: string | null;
+    githubUrl_gt?: string | null;
+    githubUrl_gte?: string | null;
+    githubUrl_contains?: string | null;
+    githubUrl_not_contains?: string | null;
+    githubUrl_starts_with?: string | null;
+    githubUrl_not_starts_with?: string | null;
+    githubUrl_ends_with?: string | null;
+    githubUrl_not_ends_with?: string | null;
+    ownerUsername?: string | null;
+    ownerUsername_not?: string | null;
+    ownerUsername_in?: string[] | null;
+    ownerUsername_not_in?: string[] | null;
+    ownerUsername_lt?: string | null;
+    ownerUsername_lte?: string | null;
+    ownerUsername_gt?: string | null;
+    ownerUsername_gte?: string | null;
+    ownerUsername_contains?: string | null;
+    ownerUsername_not_contains?: string | null;
+    ownerUsername_starts_with?: string | null;
+    ownerUsername_not_starts_with?: string | null;
+    ownerUsername_ends_with?: string | null;
+    ownerUsername_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    description?: string | null;
+    description_not?: string | null;
+    description_in?: string[] | null;
+    description_not_in?: string[] | null;
+    description_lt?: string | null;
+    description_lte?: string | null;
+    description_gt?: string | null;
+    description_gte?: string | null;
+    description_contains?: string | null;
+    description_not_contains?: string | null;
+    description_starts_with?: string | null;
+    description_not_starts_with?: string | null;
+    description_ends_with?: string | null;
+    description_not_ends_with?: string | null;
+    owner?: UserWhereInput | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    upvotes_every?: UpvoteWhereInput | null;
+    upvotes_some?: UpvoteWhereInput | null;
+    upvotes_none?: UpvoteWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: RepoWhereInput[] | null;
+    OR?: RepoWhereInput[] | null;
+    NOT?: RepoWhereInput[] | null;
+  }
+  export interface UserWhereInput {
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    name?: string | null;
+    name_not?: string | null;
+    name_in?: string[] | null;
+    name_not_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_contains?: string | null;
+    name_not_contains?: string | null;
+    name_starts_with?: string | null;
+    name_not_starts_with?: string | null;
+    name_ends_with?: string | null;
+    name_not_ends_with?: string | null;
+    username?: string | null;
+    username_not?: string | null;
+    username_in?: string[] | null;
+    username_not_in?: string[] | null;
+    username_lt?: string | null;
+    username_lte?: string | null;
+    username_gt?: string | null;
+    username_gte?: string | null;
+    username_contains?: string | null;
+    username_not_contains?: string | null;
+    username_starts_with?: string | null;
+    username_not_starts_with?: string | null;
+    username_ends_with?: string | null;
+    username_not_ends_with?: string | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    newsItems_every?: NewsWhereInput | null;
+    newsItems_some?: NewsWhereInput | null;
+    newsItems_none?: NewsWhereInput | null;
+    talks_every?: TalkWhereInput | null;
+    talks_some?: TalkWhereInput | null;
+    talks_none?: TalkWhereInput | null;
+    githubToken?: string | null;
+    githubToken_not?: string | null;
+    githubToken_in?: string[] | null;
+    githubToken_not_in?: string[] | null;
+    githubToken_lt?: string | null;
+    githubToken_lte?: string | null;
+    githubToken_gt?: string | null;
+    githubToken_gte?: string | null;
+    githubToken_contains?: string | null;
+    githubToken_not_contains?: string | null;
+    githubToken_starts_with?: string | null;
+    githubToken_not_starts_with?: string | null;
+    githubToken_ends_with?: string | null;
+    githubToken_not_ends_with?: string | null;
+    profilePic?: string | null;
+    profilePic_not?: string | null;
+    profilePic_in?: string[] | null;
+    profilePic_not_in?: string[] | null;
+    profilePic_lt?: string | null;
+    profilePic_lte?: string | null;
+    profilePic_gt?: string | null;
+    profilePic_gte?: string | null;
+    profilePic_contains?: string | null;
+    profilePic_not_contains?: string | null;
+    profilePic_starts_with?: string | null;
+    profilePic_not_starts_with?: string | null;
+    profilePic_ends_with?: string | null;
+    profilePic_not_ends_with?: string | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: UserWhereInput[] | null;
+    OR?: UserWhereInput[] | null;
+    NOT?: UserWhereInput[] | null;
   }
   export interface UpvoteWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    user: UserWhereInput | null;
-    repo: RepoWhereInput | null;
-    AND: UpvoteWhereInput[];
-    OR: UpvoteWhereInput[];
-    NOT: UpvoteWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    user?: UserWhereInput | null;
+    repo?: RepoWhereInput | null;
+    AND?: UpvoteWhereInput[] | null;
+    OR?: UpvoteWhereInput[] | null;
+    NOT?: UpvoteWhereInput[] | null;
   }
 
   export interface ArgsTags {
-    where: TagWhereInput | null;
-    orderBy: TagOrderByInput | null;
-    skip: number | null;
-    after: string | null;
-    before: string | null;
-    first: number | null;
-    last: number | null;
+    where?: TagWhereInput | null;
+    orderBy?: TagOrderByInput | null;
+    skip?: number | null;
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
   }
 
-  export type IdResolver = (
-    parent: Talk,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type IdResolver =
+    | ((
+        parent: Talk,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type SlugResolver = (
-    parent: Talk,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type SlugResolver =
+    | ((
+        parent: Talk,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type TitleResolver = (
-    parent: Talk,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type TitleResolver =
+    | ((
+        parent: Talk,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type PreviewImageResolver = (
-    parent: Talk,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type PreviewImageResolver =
+    | ((
+        parent: Talk,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type IsFeaturedResolver = (
-    parent: Talk,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => boolean | null | Promise<boolean | null>;
+  export type IsFeaturedResolver =
+    | ((
+        parent: Talk,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => boolean | null | Promise<boolean | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => boolean | null | Promise<boolean | null>;
+      };
 
-  export type SpeakerResolver = (
-    parent: Talk,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => User | null | Promise<User | null>;
+  export type SpeakerResolver =
+    | ((
+        parent: Talk,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => User | null | Promise<User | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => User | null | Promise<User | null>;
+      };
 
-  export type LengthResolver = (
-    parent: Talk,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => number | null | Promise<number | null>;
+  export type LengthResolver =
+    | ((
+        parent: Talk,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => number | null | Promise<number | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => number | null | Promise<number | null>;
+      };
 
-  export type TagsResolver = (
-    parent: Talk,
-    args: ArgsTags,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Tag[] | Promise<Tag[]>;
+  export type TagsResolver =
+    | ((
+        parent: Talk,
+        args: ArgsTags,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Tag[] | null | Promise<Tag[] | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Talk,
+          args: ArgsTags,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Tag[] | null | Promise<Tag[] | null>;
+      };
 
-  export type CreatedAtResolver = (
-    parent: Talk,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type CreatedAtResolver =
+    | ((
+        parent: Talk,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type UpdatedAtResolver = (
-    parent: Talk,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type UpdatedAtResolver =
+    | ((
+        parent: Talk,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
   export interface Type {
-    id: (
-      parent: Talk,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    id:
+      | ((
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Talk,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    slug: (
-      parent: Talk,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    slug:
+      | ((
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Talk,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    title: (
-      parent: Talk,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    title:
+      | ((
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Talk,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    previewImage: (
-      parent: Talk,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    previewImage:
+      | ((
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Talk,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    isFeatured: (
-      parent: Talk,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => boolean | null | Promise<boolean | null>;
+    isFeatured:
+      | ((
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => boolean | null | Promise<boolean | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Talk,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => boolean | null | Promise<boolean | null>;
+        };
 
-    speaker: (
-      parent: Talk,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => User | null | Promise<User | null>;
+    speaker:
+      | ((
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => User | null | Promise<User | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Talk,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => User | null | Promise<User | null>;
+        };
 
-    length: (
-      parent: Talk,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => number | null | Promise<number | null>;
+    length:
+      | ((
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => number | null | Promise<number | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Talk,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => number | null | Promise<number | null>;
+        };
 
-    tags: (
-      parent: Talk,
-      args: ArgsTags,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Tag[] | Promise<Tag[]>;
+    tags:
+      | ((
+          parent: Talk,
+          args: ArgsTags,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Tag[] | null | Promise<Tag[] | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Talk,
+            args: ArgsTags,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Tag[] | null | Promise<Tag[] | null>;
+        };
 
-    createdAt: (
-      parent: Talk,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    createdAt:
+      | ((
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Talk,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    updatedAt: (
-      parent: Talk,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    updatedAt:
+      | ((
+          parent: Talk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Talk,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
   }
 }
 
@@ -2706,596 +3426,696 @@ export namespace TagResolvers {
   };
 
   export interface TalkWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    title: string | null;
-    title_not: string | null;
-    title_in: string[];
-    title_not_in: string[];
-    title_lt: string | null;
-    title_lte: string | null;
-    title_gt: string | null;
-    title_gte: string | null;
-    title_contains: string | null;
-    title_not_contains: string | null;
-    title_starts_with: string | null;
-    title_not_starts_with: string | null;
-    title_ends_with: string | null;
-    title_not_ends_with: string | null;
-    previewImage: string | null;
-    previewImage_not: string | null;
-    previewImage_in: string[];
-    previewImage_not_in: string[];
-    previewImage_lt: string | null;
-    previewImage_lte: string | null;
-    previewImage_gt: string | null;
-    previewImage_gte: string | null;
-    previewImage_contains: string | null;
-    previewImage_not_contains: string | null;
-    previewImage_starts_with: string | null;
-    previewImage_not_starts_with: string | null;
-    previewImage_ends_with: string | null;
-    previewImage_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    speaker: UserWhereInput | null;
-    length: number | null;
-    length_not: number | null;
-    length_in: number[];
-    length_not_in: number[];
-    length_lt: number | null;
-    length_lte: number | null;
-    length_gt: number | null;
-    length_gte: number | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: TalkWhereInput[];
-    OR: TalkWhereInput[];
-    NOT: TalkWhereInput[];
-  }
-  export interface UserWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    name: string | null;
-    name_not: string | null;
-    name_in: string[];
-    name_not_in: string[];
-    name_lt: string | null;
-    name_lte: string | null;
-    name_gt: string | null;
-    name_gte: string | null;
-    name_contains: string | null;
-    name_not_contains: string | null;
-    name_starts_with: string | null;
-    name_not_starts_with: string | null;
-    name_ends_with: string | null;
-    name_not_ends_with: string | null;
-    username: string | null;
-    username_not: string | null;
-    username_in: string[];
-    username_not_in: string[];
-    username_lt: string | null;
-    username_lte: string | null;
-    username_gt: string | null;
-    username_gte: string | null;
-    username_contains: string | null;
-    username_not_contains: string | null;
-    username_starts_with: string | null;
-    username_not_starts_with: string | null;
-    username_ends_with: string | null;
-    username_not_ends_with: string | null;
-    email: string | null;
-    email_not: string | null;
-    email_in: string[];
-    email_not_in: string[];
-    email_lt: string | null;
-    email_lte: string | null;
-    email_gt: string | null;
-    email_gte: string | null;
-    email_contains: string | null;
-    email_not_contains: string | null;
-    email_starts_with: string | null;
-    email_not_starts_with: string | null;
-    email_ends_with: string | null;
-    email_not_ends_with: string | null;
-    newsItems_every: NewsWhereInput | null;
-    newsItems_some: NewsWhereInput | null;
-    newsItems_none: NewsWhereInput | null;
-    talks_every: TalkWhereInput | null;
-    talks_some: TalkWhereInput | null;
-    talks_none: TalkWhereInput | null;
-    githubToken: string | null;
-    githubToken_not: string | null;
-    githubToken_in: string[];
-    githubToken_not_in: string[];
-    githubToken_lt: string | null;
-    githubToken_lte: string | null;
-    githubToken_gt: string | null;
-    githubToken_gte: string | null;
-    githubToken_contains: string | null;
-    githubToken_not_contains: string | null;
-    githubToken_starts_with: string | null;
-    githubToken_not_starts_with: string | null;
-    githubToken_ends_with: string | null;
-    githubToken_not_ends_with: string | null;
-    profilePic: string | null;
-    profilePic_not: string | null;
-    profilePic_in: string[];
-    profilePic_not_in: string[];
-    profilePic_lt: string | null;
-    profilePic_lte: string | null;
-    profilePic_gt: string | null;
-    profilePic_gte: string | null;
-    profilePic_contains: string | null;
-    profilePic_not_contains: string | null;
-    profilePic_starts_with: string | null;
-    profilePic_not_starts_with: string | null;
-    profilePic_ends_with: string | null;
-    profilePic_not_ends_with: string | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: UserWhereInput[];
-    OR: UserWhereInput[];
-    NOT: UserWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    title?: string | null;
+    title_not?: string | null;
+    title_in?: string[] | null;
+    title_not_in?: string[] | null;
+    title_lt?: string | null;
+    title_lte?: string | null;
+    title_gt?: string | null;
+    title_gte?: string | null;
+    title_contains?: string | null;
+    title_not_contains?: string | null;
+    title_starts_with?: string | null;
+    title_not_starts_with?: string | null;
+    title_ends_with?: string | null;
+    title_not_ends_with?: string | null;
+    previewImage?: string | null;
+    previewImage_not?: string | null;
+    previewImage_in?: string[] | null;
+    previewImage_not_in?: string[] | null;
+    previewImage_lt?: string | null;
+    previewImage_lte?: string | null;
+    previewImage_gt?: string | null;
+    previewImage_gte?: string | null;
+    previewImage_contains?: string | null;
+    previewImage_not_contains?: string | null;
+    previewImage_starts_with?: string | null;
+    previewImage_not_starts_with?: string | null;
+    previewImage_ends_with?: string | null;
+    previewImage_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    speaker?: UserWhereInput | null;
+    length?: number | null;
+    length_not?: number | null;
+    length_in?: number[] | null;
+    length_not_in?: number[] | null;
+    length_lt?: number | null;
+    length_lte?: number | null;
+    length_gt?: number | null;
+    length_gte?: number | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: TalkWhereInput[] | null;
+    OR?: TalkWhereInput[] | null;
+    NOT?: TalkWhereInput[] | null;
   }
   export interface NewsWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    title: string | null;
-    title_not: string | null;
-    title_in: string[];
-    title_not_in: string[];
-    title_lt: string | null;
-    title_lte: string | null;
-    title_gt: string | null;
-    title_gte: string | null;
-    title_contains: string | null;
-    title_not_contains: string | null;
-    title_starts_with: string | null;
-    title_not_starts_with: string | null;
-    title_ends_with: string | null;
-    title_not_ends_with: string | null;
-    content: string | null;
-    content_not: string | null;
-    content_in: string[];
-    content_not_in: string[];
-    content_lt: string | null;
-    content_lte: string | null;
-    content_gt: string | null;
-    content_gte: string | null;
-    content_contains: string | null;
-    content_not_contains: string | null;
-    content_starts_with: string | null;
-    content_not_starts_with: string | null;
-    content_ends_with: string | null;
-    content_not_ends_with: string | null;
-    previewImage: string | null;
-    previewImage_not: string | null;
-    previewImage_in: string[];
-    previewImage_not_in: string[];
-    previewImage_lt: string | null;
-    previewImage_lte: string | null;
-    previewImage_gt: string | null;
-    previewImage_gte: string | null;
-    previewImage_contains: string | null;
-    previewImage_not_contains: string | null;
-    previewImage_starts_with: string | null;
-    previewImage_not_starts_with: string | null;
-    previewImage_ends_with: string | null;
-    previewImage_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    writer: UserWhereInput | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: NewsWhereInput[];
-    OR: NewsWhereInput[];
-    NOT: NewsWhereInput[];
-  }
-  export interface TagWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    name: string | null;
-    name_not: string | null;
-    name_in: string[];
-    name_not_in: string[];
-    name_lt: string | null;
-    name_lte: string | null;
-    name_gt: string | null;
-    name_gte: string | null;
-    name_contains: string | null;
-    name_not_contains: string | null;
-    name_starts_with: string | null;
-    name_not_starts_with: string | null;
-    name_ends_with: string | null;
-    name_not_ends_with: string | null;
-    talks_every: TalkWhereInput | null;
-    talks_some: TalkWhereInput | null;
-    talks_none: TalkWhereInput | null;
-    newsItems_every: NewsWhereInput | null;
-    newsItems_some: NewsWhereInput | null;
-    newsItems_none: NewsWhereInput | null;
-    repos_every: RepoWhereInput | null;
-    repos_some: RepoWhereInput | null;
-    repos_none: RepoWhereInput | null;
-    AND: TagWhereInput[];
-    OR: TagWhereInput[];
-    NOT: TagWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    title?: string | null;
+    title_not?: string | null;
+    title_in?: string[] | null;
+    title_not_in?: string[] | null;
+    title_lt?: string | null;
+    title_lte?: string | null;
+    title_gt?: string | null;
+    title_gte?: string | null;
+    title_contains?: string | null;
+    title_not_contains?: string | null;
+    title_starts_with?: string | null;
+    title_not_starts_with?: string | null;
+    title_ends_with?: string | null;
+    title_not_ends_with?: string | null;
+    content?: string | null;
+    content_not?: string | null;
+    content_in?: string[] | null;
+    content_not_in?: string[] | null;
+    content_lt?: string | null;
+    content_lte?: string | null;
+    content_gt?: string | null;
+    content_gte?: string | null;
+    content_contains?: string | null;
+    content_not_contains?: string | null;
+    content_starts_with?: string | null;
+    content_not_starts_with?: string | null;
+    content_ends_with?: string | null;
+    content_not_ends_with?: string | null;
+    previewImage?: string | null;
+    previewImage_not?: string | null;
+    previewImage_in?: string[] | null;
+    previewImage_not_in?: string[] | null;
+    previewImage_lt?: string | null;
+    previewImage_lte?: string | null;
+    previewImage_gt?: string | null;
+    previewImage_gte?: string | null;
+    previewImage_contains?: string | null;
+    previewImage_not_contains?: string | null;
+    previewImage_starts_with?: string | null;
+    previewImage_not_starts_with?: string | null;
+    previewImage_ends_with?: string | null;
+    previewImage_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    writer?: UserWhereInput | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: NewsWhereInput[] | null;
+    OR?: NewsWhereInput[] | null;
+    NOT?: NewsWhereInput[] | null;
   }
   export interface RepoWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    githubName: string | null;
-    githubName_not: string | null;
-    githubName_in: string[];
-    githubName_not_in: string[];
-    githubName_lt: string | null;
-    githubName_lte: string | null;
-    githubName_gt: string | null;
-    githubName_gte: string | null;
-    githubName_contains: string | null;
-    githubName_not_contains: string | null;
-    githubName_starts_with: string | null;
-    githubName_not_starts_with: string | null;
-    githubName_ends_with: string | null;
-    githubName_not_ends_with: string | null;
-    githubOwner: string | null;
-    githubOwner_not: string | null;
-    githubOwner_in: string[];
-    githubOwner_not_in: string[];
-    githubOwner_lt: string | null;
-    githubOwner_lte: string | null;
-    githubOwner_gt: string | null;
-    githubOwner_gte: string | null;
-    githubOwner_contains: string | null;
-    githubOwner_not_contains: string | null;
-    githubOwner_starts_with: string | null;
-    githubOwner_not_starts_with: string | null;
-    githubOwner_ends_with: string | null;
-    githubOwner_not_ends_with: string | null;
-    githubUrl: string | null;
-    githubUrl_not: string | null;
-    githubUrl_in: string[];
-    githubUrl_not_in: string[];
-    githubUrl_lt: string | null;
-    githubUrl_lte: string | null;
-    githubUrl_gt: string | null;
-    githubUrl_gte: string | null;
-    githubUrl_contains: string | null;
-    githubUrl_not_contains: string | null;
-    githubUrl_starts_with: string | null;
-    githubUrl_not_starts_with: string | null;
-    githubUrl_ends_with: string | null;
-    githubUrl_not_ends_with: string | null;
-    ownerUsername: string | null;
-    ownerUsername_not: string | null;
-    ownerUsername_in: string[];
-    ownerUsername_not_in: string[];
-    ownerUsername_lt: string | null;
-    ownerUsername_lte: string | null;
-    ownerUsername_gt: string | null;
-    ownerUsername_gte: string | null;
-    ownerUsername_contains: string | null;
-    ownerUsername_not_contains: string | null;
-    ownerUsername_starts_with: string | null;
-    ownerUsername_not_starts_with: string | null;
-    ownerUsername_ends_with: string | null;
-    ownerUsername_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    description: string | null;
-    description_not: string | null;
-    description_in: string[];
-    description_not_in: string[];
-    description_lt: string | null;
-    description_lte: string | null;
-    description_gt: string | null;
-    description_gte: string | null;
-    description_contains: string | null;
-    description_not_contains: string | null;
-    description_starts_with: string | null;
-    description_not_starts_with: string | null;
-    description_ends_with: string | null;
-    description_not_ends_with: string | null;
-    owner: UserWhereInput | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    upvotes_every: UpvoteWhereInput | null;
-    upvotes_some: UpvoteWhereInput | null;
-    upvotes_none: UpvoteWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: RepoWhereInput[];
-    OR: RepoWhereInput[];
-    NOT: RepoWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    githubName?: string | null;
+    githubName_not?: string | null;
+    githubName_in?: string[] | null;
+    githubName_not_in?: string[] | null;
+    githubName_lt?: string | null;
+    githubName_lte?: string | null;
+    githubName_gt?: string | null;
+    githubName_gte?: string | null;
+    githubName_contains?: string | null;
+    githubName_not_contains?: string | null;
+    githubName_starts_with?: string | null;
+    githubName_not_starts_with?: string | null;
+    githubName_ends_with?: string | null;
+    githubName_not_ends_with?: string | null;
+    githubOwner?: string | null;
+    githubOwner_not?: string | null;
+    githubOwner_in?: string[] | null;
+    githubOwner_not_in?: string[] | null;
+    githubOwner_lt?: string | null;
+    githubOwner_lte?: string | null;
+    githubOwner_gt?: string | null;
+    githubOwner_gte?: string | null;
+    githubOwner_contains?: string | null;
+    githubOwner_not_contains?: string | null;
+    githubOwner_starts_with?: string | null;
+    githubOwner_not_starts_with?: string | null;
+    githubOwner_ends_with?: string | null;
+    githubOwner_not_ends_with?: string | null;
+    githubUrl?: string | null;
+    githubUrl_not?: string | null;
+    githubUrl_in?: string[] | null;
+    githubUrl_not_in?: string[] | null;
+    githubUrl_lt?: string | null;
+    githubUrl_lte?: string | null;
+    githubUrl_gt?: string | null;
+    githubUrl_gte?: string | null;
+    githubUrl_contains?: string | null;
+    githubUrl_not_contains?: string | null;
+    githubUrl_starts_with?: string | null;
+    githubUrl_not_starts_with?: string | null;
+    githubUrl_ends_with?: string | null;
+    githubUrl_not_ends_with?: string | null;
+    ownerUsername?: string | null;
+    ownerUsername_not?: string | null;
+    ownerUsername_in?: string[] | null;
+    ownerUsername_not_in?: string[] | null;
+    ownerUsername_lt?: string | null;
+    ownerUsername_lte?: string | null;
+    ownerUsername_gt?: string | null;
+    ownerUsername_gte?: string | null;
+    ownerUsername_contains?: string | null;
+    ownerUsername_not_contains?: string | null;
+    ownerUsername_starts_with?: string | null;
+    ownerUsername_not_starts_with?: string | null;
+    ownerUsername_ends_with?: string | null;
+    ownerUsername_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    description?: string | null;
+    description_not?: string | null;
+    description_in?: string[] | null;
+    description_not_in?: string[] | null;
+    description_lt?: string | null;
+    description_lte?: string | null;
+    description_gt?: string | null;
+    description_gte?: string | null;
+    description_contains?: string | null;
+    description_not_contains?: string | null;
+    description_starts_with?: string | null;
+    description_not_starts_with?: string | null;
+    description_ends_with?: string | null;
+    description_not_ends_with?: string | null;
+    owner?: UserWhereInput | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    upvotes_every?: UpvoteWhereInput | null;
+    upvotes_some?: UpvoteWhereInput | null;
+    upvotes_none?: UpvoteWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: RepoWhereInput[] | null;
+    OR?: RepoWhereInput[] | null;
+    NOT?: RepoWhereInput[] | null;
+  }
+  export interface UserWhereInput {
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    name?: string | null;
+    name_not?: string | null;
+    name_in?: string[] | null;
+    name_not_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_contains?: string | null;
+    name_not_contains?: string | null;
+    name_starts_with?: string | null;
+    name_not_starts_with?: string | null;
+    name_ends_with?: string | null;
+    name_not_ends_with?: string | null;
+    username?: string | null;
+    username_not?: string | null;
+    username_in?: string[] | null;
+    username_not_in?: string[] | null;
+    username_lt?: string | null;
+    username_lte?: string | null;
+    username_gt?: string | null;
+    username_gte?: string | null;
+    username_contains?: string | null;
+    username_not_contains?: string | null;
+    username_starts_with?: string | null;
+    username_not_starts_with?: string | null;
+    username_ends_with?: string | null;
+    username_not_ends_with?: string | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    newsItems_every?: NewsWhereInput | null;
+    newsItems_some?: NewsWhereInput | null;
+    newsItems_none?: NewsWhereInput | null;
+    talks_every?: TalkWhereInput | null;
+    talks_some?: TalkWhereInput | null;
+    talks_none?: TalkWhereInput | null;
+    githubToken?: string | null;
+    githubToken_not?: string | null;
+    githubToken_in?: string[] | null;
+    githubToken_not_in?: string[] | null;
+    githubToken_lt?: string | null;
+    githubToken_lte?: string | null;
+    githubToken_gt?: string | null;
+    githubToken_gte?: string | null;
+    githubToken_contains?: string | null;
+    githubToken_not_contains?: string | null;
+    githubToken_starts_with?: string | null;
+    githubToken_not_starts_with?: string | null;
+    githubToken_ends_with?: string | null;
+    githubToken_not_ends_with?: string | null;
+    profilePic?: string | null;
+    profilePic_not?: string | null;
+    profilePic_in?: string[] | null;
+    profilePic_not_in?: string[] | null;
+    profilePic_lt?: string | null;
+    profilePic_lte?: string | null;
+    profilePic_gt?: string | null;
+    profilePic_gte?: string | null;
+    profilePic_contains?: string | null;
+    profilePic_not_contains?: string | null;
+    profilePic_starts_with?: string | null;
+    profilePic_not_starts_with?: string | null;
+    profilePic_ends_with?: string | null;
+    profilePic_not_ends_with?: string | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: UserWhereInput[] | null;
+    OR?: UserWhereInput[] | null;
+    NOT?: UserWhereInput[] | null;
+  }
+  export interface TagWhereInput {
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    name?: string | null;
+    name_not?: string | null;
+    name_in?: string[] | null;
+    name_not_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_contains?: string | null;
+    name_not_contains?: string | null;
+    name_starts_with?: string | null;
+    name_not_starts_with?: string | null;
+    name_ends_with?: string | null;
+    name_not_ends_with?: string | null;
+    talks_every?: TalkWhereInput | null;
+    talks_some?: TalkWhereInput | null;
+    talks_none?: TalkWhereInput | null;
+    newsItems_every?: NewsWhereInput | null;
+    newsItems_some?: NewsWhereInput | null;
+    newsItems_none?: NewsWhereInput | null;
+    repos_every?: RepoWhereInput | null;
+    repos_some?: RepoWhereInput | null;
+    repos_none?: RepoWhereInput | null;
+    AND?: TagWhereInput[] | null;
+    OR?: TagWhereInput[] | null;
+    NOT?: TagWhereInput[] | null;
   }
   export interface UpvoteWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    user: UserWhereInput | null;
-    repo: RepoWhereInput | null;
-    AND: UpvoteWhereInput[];
-    OR: UpvoteWhereInput[];
-    NOT: UpvoteWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    user?: UserWhereInput | null;
+    repo?: RepoWhereInput | null;
+    AND?: UpvoteWhereInput[] | null;
+    OR?: UpvoteWhereInput[] | null;
+    NOT?: UpvoteWhereInput[] | null;
   }
 
   export interface ArgsTalks {
-    where: TalkWhereInput | null;
-    orderBy: TalkOrderByInput | null;
-    skip: number | null;
-    after: string | null;
-    before: string | null;
-    first: number | null;
-    last: number | null;
+    where?: TalkWhereInput | null;
+    orderBy?: TalkOrderByInput | null;
+    skip?: number | null;
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
   }
 
   export interface ArgsNewsItems {
-    where: NewsWhereInput | null;
-    orderBy: NewsOrderByInput | null;
-    skip: number | null;
-    after: string | null;
-    before: string | null;
-    first: number | null;
-    last: number | null;
+    where?: NewsWhereInput | null;
+    orderBy?: NewsOrderByInput | null;
+    skip?: number | null;
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
   }
 
   export interface ArgsRepos {
-    where: RepoWhereInput | null;
-    orderBy: RepoOrderByInput | null;
-    skip: number | null;
-    after: string | null;
-    before: string | null;
-    first: number | null;
-    last: number | null;
+    where?: RepoWhereInput | null;
+    orderBy?: RepoOrderByInput | null;
+    skip?: number | null;
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
   }
 
-  export type IdResolver = (
-    parent: Tag,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type IdResolver =
+    | ((
+        parent: Tag,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Tag,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type NameResolver = (
-    parent: Tag,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type NameResolver =
+    | ((
+        parent: Tag,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Tag,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type TalksResolver = (
-    parent: Tag,
-    args: ArgsTalks,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Talk[] | Promise<Talk[]>;
+  export type TalksResolver =
+    | ((
+        parent: Tag,
+        args: ArgsTalks,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Talk[] | null | Promise<Talk[] | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Tag,
+          args: ArgsTalks,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Talk[] | null | Promise<Talk[] | null>;
+      };
 
-  export type NewsItemsResolver = (
-    parent: Tag,
-    args: ArgsNewsItems,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => News[] | Promise<News[]>;
+  export type NewsItemsResolver =
+    | ((
+        parent: Tag,
+        args: ArgsNewsItems,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => News[] | null | Promise<News[] | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Tag,
+          args: ArgsNewsItems,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => News[] | null | Promise<News[] | null>;
+      };
 
-  export type ReposResolver = (
-    parent: Tag,
-    args: ArgsRepos,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Repo[] | Promise<Repo[]>;
+  export type ReposResolver =
+    | ((
+        parent: Tag,
+        args: ArgsRepos,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Repo[] | null | Promise<Repo[] | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Tag,
+          args: ArgsRepos,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Repo[] | null | Promise<Repo[] | null>;
+      };
 
   export interface Type {
-    id: (
-      parent: Tag,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    id:
+      | ((
+          parent: Tag,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Tag,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    name: (
-      parent: Tag,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    name:
+      | ((
+          parent: Tag,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Tag,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    talks: (
-      parent: Tag,
-      args: ArgsTalks,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Talk[] | Promise<Talk[]>;
+    talks:
+      | ((
+          parent: Tag,
+          args: ArgsTalks,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Talk[] | null | Promise<Talk[] | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Tag,
+            args: ArgsTalks,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Talk[] | null | Promise<Talk[] | null>;
+        };
 
-    newsItems: (
-      parent: Tag,
-      args: ArgsNewsItems,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => News[] | Promise<News[]>;
+    newsItems:
+      | ((
+          parent: Tag,
+          args: ArgsNewsItems,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => News[] | null | Promise<News[] | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Tag,
+            args: ArgsNewsItems,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => News[] | null | Promise<News[] | null>;
+        };
 
-    repos: (
-      parent: Tag,
-      args: ArgsRepos,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Repo[] | Promise<Repo[]>;
+    repos:
+      | ((
+          parent: Tag,
+          args: ArgsRepos,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Repo[] | null | Promise<Repo[] | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Tag,
+            args: ArgsRepos,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Repo[] | null | Promise<Repo[] | null>;
+        };
   }
 }
 
@@ -3316,726 +4136,1026 @@ export namespace RepoResolvers {
   };
 
   export interface TagWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    name: string | null;
-    name_not: string | null;
-    name_in: string[];
-    name_not_in: string[];
-    name_lt: string | null;
-    name_lte: string | null;
-    name_gt: string | null;
-    name_gte: string | null;
-    name_contains: string | null;
-    name_not_contains: string | null;
-    name_starts_with: string | null;
-    name_not_starts_with: string | null;
-    name_ends_with: string | null;
-    name_not_ends_with: string | null;
-    talks_every: TalkWhereInput | null;
-    talks_some: TalkWhereInput | null;
-    talks_none: TalkWhereInput | null;
-    newsItems_every: NewsWhereInput | null;
-    newsItems_some: NewsWhereInput | null;
-    newsItems_none: NewsWhereInput | null;
-    repos_every: RepoWhereInput | null;
-    repos_some: RepoWhereInput | null;
-    repos_none: RepoWhereInput | null;
-    AND: TagWhereInput[];
-    OR: TagWhereInput[];
-    NOT: TagWhereInput[];
-  }
-  export interface TalkWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    title: string | null;
-    title_not: string | null;
-    title_in: string[];
-    title_not_in: string[];
-    title_lt: string | null;
-    title_lte: string | null;
-    title_gt: string | null;
-    title_gte: string | null;
-    title_contains: string | null;
-    title_not_contains: string | null;
-    title_starts_with: string | null;
-    title_not_starts_with: string | null;
-    title_ends_with: string | null;
-    title_not_ends_with: string | null;
-    previewImage: string | null;
-    previewImage_not: string | null;
-    previewImage_in: string[];
-    previewImage_not_in: string[];
-    previewImage_lt: string | null;
-    previewImage_lte: string | null;
-    previewImage_gt: string | null;
-    previewImage_gte: string | null;
-    previewImage_contains: string | null;
-    previewImage_not_contains: string | null;
-    previewImage_starts_with: string | null;
-    previewImage_not_starts_with: string | null;
-    previewImage_ends_with: string | null;
-    previewImage_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    speaker: UserWhereInput | null;
-    length: number | null;
-    length_not: number | null;
-    length_in: number[];
-    length_not_in: number[];
-    length_lt: number | null;
-    length_lte: number | null;
-    length_gt: number | null;
-    length_gte: number | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: TalkWhereInput[];
-    OR: TalkWhereInput[];
-    NOT: TalkWhereInput[];
-  }
-  export interface UserWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    name: string | null;
-    name_not: string | null;
-    name_in: string[];
-    name_not_in: string[];
-    name_lt: string | null;
-    name_lte: string | null;
-    name_gt: string | null;
-    name_gte: string | null;
-    name_contains: string | null;
-    name_not_contains: string | null;
-    name_starts_with: string | null;
-    name_not_starts_with: string | null;
-    name_ends_with: string | null;
-    name_not_ends_with: string | null;
-    username: string | null;
-    username_not: string | null;
-    username_in: string[];
-    username_not_in: string[];
-    username_lt: string | null;
-    username_lte: string | null;
-    username_gt: string | null;
-    username_gte: string | null;
-    username_contains: string | null;
-    username_not_contains: string | null;
-    username_starts_with: string | null;
-    username_not_starts_with: string | null;
-    username_ends_with: string | null;
-    username_not_ends_with: string | null;
-    email: string | null;
-    email_not: string | null;
-    email_in: string[];
-    email_not_in: string[];
-    email_lt: string | null;
-    email_lte: string | null;
-    email_gt: string | null;
-    email_gte: string | null;
-    email_contains: string | null;
-    email_not_contains: string | null;
-    email_starts_with: string | null;
-    email_not_starts_with: string | null;
-    email_ends_with: string | null;
-    email_not_ends_with: string | null;
-    newsItems_every: NewsWhereInput | null;
-    newsItems_some: NewsWhereInput | null;
-    newsItems_none: NewsWhereInput | null;
-    talks_every: TalkWhereInput | null;
-    talks_some: TalkWhereInput | null;
-    talks_none: TalkWhereInput | null;
-    githubToken: string | null;
-    githubToken_not: string | null;
-    githubToken_in: string[];
-    githubToken_not_in: string[];
-    githubToken_lt: string | null;
-    githubToken_lte: string | null;
-    githubToken_gt: string | null;
-    githubToken_gte: string | null;
-    githubToken_contains: string | null;
-    githubToken_not_contains: string | null;
-    githubToken_starts_with: string | null;
-    githubToken_not_starts_with: string | null;
-    githubToken_ends_with: string | null;
-    githubToken_not_ends_with: string | null;
-    profilePic: string | null;
-    profilePic_not: string | null;
-    profilePic_in: string[];
-    profilePic_not_in: string[];
-    profilePic_lt: string | null;
-    profilePic_lte: string | null;
-    profilePic_gt: string | null;
-    profilePic_gte: string | null;
-    profilePic_contains: string | null;
-    profilePic_not_contains: string | null;
-    profilePic_starts_with: string | null;
-    profilePic_not_starts_with: string | null;
-    profilePic_ends_with: string | null;
-    profilePic_not_ends_with: string | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: UserWhereInput[];
-    OR: UserWhereInput[];
-    NOT: UserWhereInput[];
-  }
-  export interface NewsWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    title: string | null;
-    title_not: string | null;
-    title_in: string[];
-    title_not_in: string[];
-    title_lt: string | null;
-    title_lte: string | null;
-    title_gt: string | null;
-    title_gte: string | null;
-    title_contains: string | null;
-    title_not_contains: string | null;
-    title_starts_with: string | null;
-    title_not_starts_with: string | null;
-    title_ends_with: string | null;
-    title_not_ends_with: string | null;
-    content: string | null;
-    content_not: string | null;
-    content_in: string[];
-    content_not_in: string[];
-    content_lt: string | null;
-    content_lte: string | null;
-    content_gt: string | null;
-    content_gte: string | null;
-    content_contains: string | null;
-    content_not_contains: string | null;
-    content_starts_with: string | null;
-    content_not_starts_with: string | null;
-    content_ends_with: string | null;
-    content_not_ends_with: string | null;
-    previewImage: string | null;
-    previewImage_not: string | null;
-    previewImage_in: string[];
-    previewImage_not_in: string[];
-    previewImage_lt: string | null;
-    previewImage_lte: string | null;
-    previewImage_gt: string | null;
-    previewImage_gte: string | null;
-    previewImage_contains: string | null;
-    previewImage_not_contains: string | null;
-    previewImage_starts_with: string | null;
-    previewImage_not_starts_with: string | null;
-    previewImage_ends_with: string | null;
-    previewImage_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    writer: UserWhereInput | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: NewsWhereInput[];
-    OR: NewsWhereInput[];
-    NOT: NewsWhereInput[];
-  }
-  export interface RepoWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    slug: string | null;
-    slug_not: string | null;
-    slug_in: string[];
-    slug_not_in: string[];
-    slug_lt: string | null;
-    slug_lte: string | null;
-    slug_gt: string | null;
-    slug_gte: string | null;
-    slug_contains: string | null;
-    slug_not_contains: string | null;
-    slug_starts_with: string | null;
-    slug_not_starts_with: string | null;
-    slug_ends_with: string | null;
-    slug_not_ends_with: string | null;
-    githubName: string | null;
-    githubName_not: string | null;
-    githubName_in: string[];
-    githubName_not_in: string[];
-    githubName_lt: string | null;
-    githubName_lte: string | null;
-    githubName_gt: string | null;
-    githubName_gte: string | null;
-    githubName_contains: string | null;
-    githubName_not_contains: string | null;
-    githubName_starts_with: string | null;
-    githubName_not_starts_with: string | null;
-    githubName_ends_with: string | null;
-    githubName_not_ends_with: string | null;
-    githubOwner: string | null;
-    githubOwner_not: string | null;
-    githubOwner_in: string[];
-    githubOwner_not_in: string[];
-    githubOwner_lt: string | null;
-    githubOwner_lte: string | null;
-    githubOwner_gt: string | null;
-    githubOwner_gte: string | null;
-    githubOwner_contains: string | null;
-    githubOwner_not_contains: string | null;
-    githubOwner_starts_with: string | null;
-    githubOwner_not_starts_with: string | null;
-    githubOwner_ends_with: string | null;
-    githubOwner_not_ends_with: string | null;
-    githubUrl: string | null;
-    githubUrl_not: string | null;
-    githubUrl_in: string[];
-    githubUrl_not_in: string[];
-    githubUrl_lt: string | null;
-    githubUrl_lte: string | null;
-    githubUrl_gt: string | null;
-    githubUrl_gte: string | null;
-    githubUrl_contains: string | null;
-    githubUrl_not_contains: string | null;
-    githubUrl_starts_with: string | null;
-    githubUrl_not_starts_with: string | null;
-    githubUrl_ends_with: string | null;
-    githubUrl_not_ends_with: string | null;
-    ownerUsername: string | null;
-    ownerUsername_not: string | null;
-    ownerUsername_in: string[];
-    ownerUsername_not_in: string[];
-    ownerUsername_lt: string | null;
-    ownerUsername_lte: string | null;
-    ownerUsername_gt: string | null;
-    ownerUsername_gte: string | null;
-    ownerUsername_contains: string | null;
-    ownerUsername_not_contains: string | null;
-    ownerUsername_starts_with: string | null;
-    ownerUsername_not_starts_with: string | null;
-    ownerUsername_ends_with: string | null;
-    ownerUsername_not_ends_with: string | null;
-    isFeatured: boolean | null;
-    isFeatured_not: boolean | null;
-    description: string | null;
-    description_not: string | null;
-    description_in: string[];
-    description_not_in: string[];
-    description_lt: string | null;
-    description_lte: string | null;
-    description_gt: string | null;
-    description_gte: string | null;
-    description_contains: string | null;
-    description_not_contains: string | null;
-    description_starts_with: string | null;
-    description_not_starts_with: string | null;
-    description_ends_with: string | null;
-    description_not_ends_with: string | null;
-    owner: UserWhereInput | null;
-    tags_every: TagWhereInput | null;
-    tags_some: TagWhereInput | null;
-    tags_none: TagWhereInput | null;
-    upvotes_every: UpvoteWhereInput | null;
-    upvotes_some: UpvoteWhereInput | null;
-    upvotes_none: UpvoteWhereInput | null;
-    createdAt: string | null;
-    createdAt_not: string | null;
-    createdAt_in: string[];
-    createdAt_not_in: string[];
-    createdAt_lt: string | null;
-    createdAt_lte: string | null;
-    createdAt_gt: string | null;
-    createdAt_gte: string | null;
-    updatedAt: string | null;
-    updatedAt_not: string | null;
-    updatedAt_in: string[];
-    updatedAt_not_in: string[];
-    updatedAt_lt: string | null;
-    updatedAt_lte: string | null;
-    updatedAt_gt: string | null;
-    updatedAt_gte: string | null;
-    AND: RepoWhereInput[];
-    OR: RepoWhereInput[];
-    NOT: RepoWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    name?: string | null;
+    name_not?: string | null;
+    name_in?: string[] | null;
+    name_not_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_contains?: string | null;
+    name_not_contains?: string | null;
+    name_starts_with?: string | null;
+    name_not_starts_with?: string | null;
+    name_ends_with?: string | null;
+    name_not_ends_with?: string | null;
+    talks_every?: TalkWhereInput | null;
+    talks_some?: TalkWhereInput | null;
+    talks_none?: TalkWhereInput | null;
+    newsItems_every?: NewsWhereInput | null;
+    newsItems_some?: NewsWhereInput | null;
+    newsItems_none?: NewsWhereInput | null;
+    repos_every?: RepoWhereInput | null;
+    repos_some?: RepoWhereInput | null;
+    repos_none?: RepoWhereInput | null;
+    AND?: TagWhereInput[] | null;
+    OR?: TagWhereInput[] | null;
+    NOT?: TagWhereInput[] | null;
   }
   export interface UpvoteWhereInput {
-    id: string | null;
-    id_not: string | null;
-    id_in: string[];
-    id_not_in: string[];
-    id_lt: string | null;
-    id_lte: string | null;
-    id_gt: string | null;
-    id_gte: string | null;
-    id_contains: string | null;
-    id_not_contains: string | null;
-    id_starts_with: string | null;
-    id_not_starts_with: string | null;
-    id_ends_with: string | null;
-    id_not_ends_with: string | null;
-    user: UserWhereInput | null;
-    repo: RepoWhereInput | null;
-    AND: UpvoteWhereInput[];
-    OR: UpvoteWhereInput[];
-    NOT: UpvoteWhereInput[];
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    user?: UserWhereInput | null;
+    repo?: RepoWhereInput | null;
+    AND?: UpvoteWhereInput[] | null;
+    OR?: UpvoteWhereInput[] | null;
+    NOT?: UpvoteWhereInput[] | null;
+  }
+  export interface TalkWhereInput {
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    title?: string | null;
+    title_not?: string | null;
+    title_in?: string[] | null;
+    title_not_in?: string[] | null;
+    title_lt?: string | null;
+    title_lte?: string | null;
+    title_gt?: string | null;
+    title_gte?: string | null;
+    title_contains?: string | null;
+    title_not_contains?: string | null;
+    title_starts_with?: string | null;
+    title_not_starts_with?: string | null;
+    title_ends_with?: string | null;
+    title_not_ends_with?: string | null;
+    previewImage?: string | null;
+    previewImage_not?: string | null;
+    previewImage_in?: string[] | null;
+    previewImage_not_in?: string[] | null;
+    previewImage_lt?: string | null;
+    previewImage_lte?: string | null;
+    previewImage_gt?: string | null;
+    previewImage_gte?: string | null;
+    previewImage_contains?: string | null;
+    previewImage_not_contains?: string | null;
+    previewImage_starts_with?: string | null;
+    previewImage_not_starts_with?: string | null;
+    previewImage_ends_with?: string | null;
+    previewImage_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    speaker?: UserWhereInput | null;
+    length?: number | null;
+    length_not?: number | null;
+    length_in?: number[] | null;
+    length_not_in?: number[] | null;
+    length_lt?: number | null;
+    length_lte?: number | null;
+    length_gt?: number | null;
+    length_gte?: number | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: TalkWhereInput[] | null;
+    OR?: TalkWhereInput[] | null;
+    NOT?: TalkWhereInput[] | null;
+  }
+  export interface NewsWhereInput {
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    title?: string | null;
+    title_not?: string | null;
+    title_in?: string[] | null;
+    title_not_in?: string[] | null;
+    title_lt?: string | null;
+    title_lte?: string | null;
+    title_gt?: string | null;
+    title_gte?: string | null;
+    title_contains?: string | null;
+    title_not_contains?: string | null;
+    title_starts_with?: string | null;
+    title_not_starts_with?: string | null;
+    title_ends_with?: string | null;
+    title_not_ends_with?: string | null;
+    content?: string | null;
+    content_not?: string | null;
+    content_in?: string[] | null;
+    content_not_in?: string[] | null;
+    content_lt?: string | null;
+    content_lte?: string | null;
+    content_gt?: string | null;
+    content_gte?: string | null;
+    content_contains?: string | null;
+    content_not_contains?: string | null;
+    content_starts_with?: string | null;
+    content_not_starts_with?: string | null;
+    content_ends_with?: string | null;
+    content_not_ends_with?: string | null;
+    previewImage?: string | null;
+    previewImage_not?: string | null;
+    previewImage_in?: string[] | null;
+    previewImage_not_in?: string[] | null;
+    previewImage_lt?: string | null;
+    previewImage_lte?: string | null;
+    previewImage_gt?: string | null;
+    previewImage_gte?: string | null;
+    previewImage_contains?: string | null;
+    previewImage_not_contains?: string | null;
+    previewImage_starts_with?: string | null;
+    previewImage_not_starts_with?: string | null;
+    previewImage_ends_with?: string | null;
+    previewImage_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    writer?: UserWhereInput | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: NewsWhereInput[] | null;
+    OR?: NewsWhereInput[] | null;
+    NOT?: NewsWhereInput[] | null;
+  }
+  export interface RepoWhereInput {
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    slug?: string | null;
+    slug_not?: string | null;
+    slug_in?: string[] | null;
+    slug_not_in?: string[] | null;
+    slug_lt?: string | null;
+    slug_lte?: string | null;
+    slug_gt?: string | null;
+    slug_gte?: string | null;
+    slug_contains?: string | null;
+    slug_not_contains?: string | null;
+    slug_starts_with?: string | null;
+    slug_not_starts_with?: string | null;
+    slug_ends_with?: string | null;
+    slug_not_ends_with?: string | null;
+    githubName?: string | null;
+    githubName_not?: string | null;
+    githubName_in?: string[] | null;
+    githubName_not_in?: string[] | null;
+    githubName_lt?: string | null;
+    githubName_lte?: string | null;
+    githubName_gt?: string | null;
+    githubName_gte?: string | null;
+    githubName_contains?: string | null;
+    githubName_not_contains?: string | null;
+    githubName_starts_with?: string | null;
+    githubName_not_starts_with?: string | null;
+    githubName_ends_with?: string | null;
+    githubName_not_ends_with?: string | null;
+    githubOwner?: string | null;
+    githubOwner_not?: string | null;
+    githubOwner_in?: string[] | null;
+    githubOwner_not_in?: string[] | null;
+    githubOwner_lt?: string | null;
+    githubOwner_lte?: string | null;
+    githubOwner_gt?: string | null;
+    githubOwner_gte?: string | null;
+    githubOwner_contains?: string | null;
+    githubOwner_not_contains?: string | null;
+    githubOwner_starts_with?: string | null;
+    githubOwner_not_starts_with?: string | null;
+    githubOwner_ends_with?: string | null;
+    githubOwner_not_ends_with?: string | null;
+    githubUrl?: string | null;
+    githubUrl_not?: string | null;
+    githubUrl_in?: string[] | null;
+    githubUrl_not_in?: string[] | null;
+    githubUrl_lt?: string | null;
+    githubUrl_lte?: string | null;
+    githubUrl_gt?: string | null;
+    githubUrl_gte?: string | null;
+    githubUrl_contains?: string | null;
+    githubUrl_not_contains?: string | null;
+    githubUrl_starts_with?: string | null;
+    githubUrl_not_starts_with?: string | null;
+    githubUrl_ends_with?: string | null;
+    githubUrl_not_ends_with?: string | null;
+    ownerUsername?: string | null;
+    ownerUsername_not?: string | null;
+    ownerUsername_in?: string[] | null;
+    ownerUsername_not_in?: string[] | null;
+    ownerUsername_lt?: string | null;
+    ownerUsername_lte?: string | null;
+    ownerUsername_gt?: string | null;
+    ownerUsername_gte?: string | null;
+    ownerUsername_contains?: string | null;
+    ownerUsername_not_contains?: string | null;
+    ownerUsername_starts_with?: string | null;
+    ownerUsername_not_starts_with?: string | null;
+    ownerUsername_ends_with?: string | null;
+    ownerUsername_not_ends_with?: string | null;
+    isFeatured?: boolean | null;
+    isFeatured_not?: boolean | null;
+    description?: string | null;
+    description_not?: string | null;
+    description_in?: string[] | null;
+    description_not_in?: string[] | null;
+    description_lt?: string | null;
+    description_lte?: string | null;
+    description_gt?: string | null;
+    description_gte?: string | null;
+    description_contains?: string | null;
+    description_not_contains?: string | null;
+    description_starts_with?: string | null;
+    description_not_starts_with?: string | null;
+    description_ends_with?: string | null;
+    description_not_ends_with?: string | null;
+    owner?: UserWhereInput | null;
+    tags_every?: TagWhereInput | null;
+    tags_some?: TagWhereInput | null;
+    tags_none?: TagWhereInput | null;
+    upvotes_every?: UpvoteWhereInput | null;
+    upvotes_some?: UpvoteWhereInput | null;
+    upvotes_none?: UpvoteWhereInput | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: RepoWhereInput[] | null;
+    OR?: RepoWhereInput[] | null;
+    NOT?: RepoWhereInput[] | null;
+  }
+  export interface UserWhereInput {
+    id?: string | null;
+    id_not?: string | null;
+    id_in?: string[] | null;
+    id_not_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_contains?: string | null;
+    id_not_contains?: string | null;
+    id_starts_with?: string | null;
+    id_not_starts_with?: string | null;
+    id_ends_with?: string | null;
+    id_not_ends_with?: string | null;
+    name?: string | null;
+    name_not?: string | null;
+    name_in?: string[] | null;
+    name_not_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_contains?: string | null;
+    name_not_contains?: string | null;
+    name_starts_with?: string | null;
+    name_not_starts_with?: string | null;
+    name_ends_with?: string | null;
+    name_not_ends_with?: string | null;
+    username?: string | null;
+    username_not?: string | null;
+    username_in?: string[] | null;
+    username_not_in?: string[] | null;
+    username_lt?: string | null;
+    username_lte?: string | null;
+    username_gt?: string | null;
+    username_gte?: string | null;
+    username_contains?: string | null;
+    username_not_contains?: string | null;
+    username_starts_with?: string | null;
+    username_not_starts_with?: string | null;
+    username_ends_with?: string | null;
+    username_not_ends_with?: string | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    newsItems_every?: NewsWhereInput | null;
+    newsItems_some?: NewsWhereInput | null;
+    newsItems_none?: NewsWhereInput | null;
+    talks_every?: TalkWhereInput | null;
+    talks_some?: TalkWhereInput | null;
+    talks_none?: TalkWhereInput | null;
+    githubToken?: string | null;
+    githubToken_not?: string | null;
+    githubToken_in?: string[] | null;
+    githubToken_not_in?: string[] | null;
+    githubToken_lt?: string | null;
+    githubToken_lte?: string | null;
+    githubToken_gt?: string | null;
+    githubToken_gte?: string | null;
+    githubToken_contains?: string | null;
+    githubToken_not_contains?: string | null;
+    githubToken_starts_with?: string | null;
+    githubToken_not_starts_with?: string | null;
+    githubToken_ends_with?: string | null;
+    githubToken_not_ends_with?: string | null;
+    profilePic?: string | null;
+    profilePic_not?: string | null;
+    profilePic_in?: string[] | null;
+    profilePic_not_in?: string[] | null;
+    profilePic_lt?: string | null;
+    profilePic_lte?: string | null;
+    profilePic_gt?: string | null;
+    profilePic_gte?: string | null;
+    profilePic_contains?: string | null;
+    profilePic_not_contains?: string | null;
+    profilePic_starts_with?: string | null;
+    profilePic_not_starts_with?: string | null;
+    profilePic_ends_with?: string | null;
+    profilePic_not_ends_with?: string | null;
+    createdAt?: string | null;
+    createdAt_not?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_not_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    updatedAt?: string | null;
+    updatedAt_not?: string | null;
+    updatedAt_in?: string[] | null;
+    updatedAt_not_in?: string[] | null;
+    updatedAt_lt?: string | null;
+    updatedAt_lte?: string | null;
+    updatedAt_gt?: string | null;
+    updatedAt_gte?: string | null;
+    AND?: UserWhereInput[] | null;
+    OR?: UserWhereInput[] | null;
+    NOT?: UserWhereInput[] | null;
   }
 
   export interface ArgsTags {
-    where: TagWhereInput | null;
-    orderBy: TagOrderByInput | null;
-    skip: number | null;
-    after: string | null;
-    before: string | null;
-    first: number | null;
-    last: number | null;
+    where?: TagWhereInput | null;
+    orderBy?: TagOrderByInput | null;
+    skip?: number | null;
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
   }
 
   export interface ArgsUpvotes {
-    where: UpvoteWhereInput | null;
-    orderBy: UpvoteOrderByInput | null;
-    skip: number | null;
-    after: string | null;
-    before: string | null;
-    first: number | null;
-    last: number | null;
+    where?: UpvoteWhereInput | null;
+    orderBy?: UpvoteOrderByInput | null;
+    skip?: number | null;
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
   }
 
-  export type IdResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type IdResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type SlugResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type SlugResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type GithubNameResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type GithubNameResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type GithubOwnerResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type GithubOwnerResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type GithubUrlResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type GithubUrlResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type OwnerUsernameResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type OwnerUsernameResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type IsFeaturedResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => boolean | null | Promise<boolean | null>;
+  export type IsFeaturedResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => boolean | null | Promise<boolean | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => boolean | null | Promise<boolean | null>;
+      };
 
-  export type DescriptionResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | null | Promise<string | null>;
+  export type DescriptionResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | null | Promise<string | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>;
+      };
 
-  export type OwnerResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => User | null | Promise<User | null>;
+  export type OwnerResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => User | null | Promise<User | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => User | null | Promise<User | null>;
+      };
 
-  export type TagsResolver = (
-    parent: Repo,
-    args: ArgsTags,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Tag[] | Promise<Tag[]>;
+  export type TagsResolver =
+    | ((
+        parent: Repo,
+        args: ArgsTags,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Tag[] | null | Promise<Tag[] | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: ArgsTags,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Tag[] | null | Promise<Tag[] | null>;
+      };
 
-  export type UpvotesResolver = (
-    parent: Repo,
-    args: ArgsUpvotes,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Upvote[] | Promise<Upvote[]>;
+  export type UpvotesResolver =
+    | ((
+        parent: Repo,
+        args: ArgsUpvotes,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Upvote[] | null | Promise<Upvote[] | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: ArgsUpvotes,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Upvote[] | null | Promise<Upvote[] | null>;
+      };
 
-  export type AggregatedUpvotesResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => number | null | Promise<number | null>;
+  export type AggregatedUpvotesResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => number | null | Promise<number | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => number | null | Promise<number | null>;
+      };
 
-  export type UserHasVotedResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => boolean | null | Promise<boolean | null>;
+  export type UserHasVotedResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => boolean | null | Promise<boolean | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => boolean | null | Promise<boolean | null>;
+      };
 
-  export type CreatedAtResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type CreatedAtResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type UpdatedAtResolver = (
-    parent: Repo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type UpdatedAtResolver =
+    | ((
+        parent: Repo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
   export interface Type {
-    id: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    id:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    slug: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    slug:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    githubName: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    githubName:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    githubOwner: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    githubOwner:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    githubUrl: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    githubUrl:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    ownerUsername: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    ownerUsername:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    isFeatured: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => boolean | null | Promise<boolean | null>;
+    isFeatured:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => boolean | null | Promise<boolean | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => boolean | null | Promise<boolean | null>;
+        };
 
-    description: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | null | Promise<string | null>;
+    description:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | null | Promise<string | null>;
+        };
 
-    owner: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => User | null | Promise<User | null>;
+    owner:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => User | null | Promise<User | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => User | null | Promise<User | null>;
+        };
 
-    tags: (
-      parent: Repo,
-      args: ArgsTags,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Tag[] | Promise<Tag[]>;
+    tags:
+      | ((
+          parent: Repo,
+          args: ArgsTags,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Tag[] | null | Promise<Tag[] | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: ArgsTags,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Tag[] | null | Promise<Tag[] | null>;
+        };
 
-    upvotes: (
-      parent: Repo,
-      args: ArgsUpvotes,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Upvote[] | Promise<Upvote[]>;
+    upvotes:
+      | ((
+          parent: Repo,
+          args: ArgsUpvotes,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Upvote[] | null | Promise<Upvote[] | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: ArgsUpvotes,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Upvote[] | null | Promise<Upvote[] | null>;
+        };
 
-    aggregatedUpvotes: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => number | null | Promise<number | null>;
+    aggregatedUpvotes:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => number | null | Promise<number | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => number | null | Promise<number | null>;
+        };
 
-    userHasVoted: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => boolean | null | Promise<boolean | null>;
+    userHasVoted:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => boolean | null | Promise<boolean | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => boolean | null | Promise<boolean | null>;
+        };
 
-    createdAt: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    createdAt:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    updatedAt: (
-      parent: Repo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    updatedAt:
+      | ((
+          parent: Repo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Repo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
   }
 }
 
@@ -4044,48 +5164,108 @@ export namespace UpvoteResolvers {
     id: (parent: Upvote) => parent.id,
   };
 
-  export type IdResolver = (
-    parent: Upvote,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type IdResolver =
+    | ((
+        parent: Upvote,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Upvote,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
-  export type UserResolver = (
-    parent: Upvote,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => User | Promise<User>;
+  export type UserResolver =
+    | ((
+        parent: Upvote,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => User | Promise<User>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Upvote,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => User | Promise<User>;
+      };
 
-  export type RepoResolver = (
-    parent: Upvote,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Repo | Promise<Repo>;
+  export type RepoResolver =
+    | ((
+        parent: Upvote,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Repo | Promise<Repo>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Upvote,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Repo | Promise<Repo>;
+      };
 
   export interface Type {
-    id: (
-      parent: Upvote,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    id:
+      | ((
+          parent: Upvote,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Upvote,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
 
-    user: (
-      parent: Upvote,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => User | Promise<User>;
+    user:
+      | ((
+          parent: Upvote,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => User | Promise<User>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Upvote,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => User | Promise<User>;
+        };
 
-    repo: (
-      parent: Upvote,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Repo | Promise<Repo>;
+    repo:
+      | ((
+          parent: Upvote,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Repo | Promise<Repo>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Upvote,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Repo | Promise<Repo>;
+        };
   }
 }
 
@@ -4095,48 +5275,108 @@ export namespace NewsConnectionResolvers {
     edges: (parent: NewsConnection) => parent.edges,
   };
 
-  export type PageInfoResolver = (
-    parent: NewsConnection,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => PageInfo | Promise<PageInfo>;
+  export type PageInfoResolver =
+    | ((
+        parent: NewsConnection,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => PageInfo | Promise<PageInfo>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: NewsConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => PageInfo | Promise<PageInfo>;
+      };
 
-  export type EdgesResolver = (
-    parent: NewsConnection,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => NewsEdge[] | Promise<NewsEdge[]>;
+  export type EdgesResolver =
+    | ((
+        parent: NewsConnection,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Array<NewsEdge | null> | Promise<Array<NewsEdge | null>>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: NewsConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Array<NewsEdge | null> | Promise<Array<NewsEdge | null>>;
+      };
 
-  export type AggregateResolver = (
-    parent: NewsConnection,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => AggregateNews | Promise<AggregateNews>;
+  export type AggregateResolver =
+    | ((
+        parent: NewsConnection,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => AggregateNews | Promise<AggregateNews>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: NewsConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => AggregateNews | Promise<AggregateNews>;
+      };
 
   export interface Type {
-    pageInfo: (
-      parent: NewsConnection,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => PageInfo | Promise<PageInfo>;
+    pageInfo:
+      | ((
+          parent: NewsConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => PageInfo | Promise<PageInfo>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: NewsConnection,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => PageInfo | Promise<PageInfo>;
+        };
 
-    edges: (
-      parent: NewsConnection,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => NewsEdge[] | Promise<NewsEdge[]>;
+    edges:
+      | ((
+          parent: NewsConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Array<NewsEdge | null> | Promise<Array<NewsEdge | null>>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: NewsConnection,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Array<NewsEdge | null> | Promise<Array<NewsEdge | null>>;
+        };
 
-    aggregate: (
-      parent: NewsConnection,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => AggregateNews | Promise<AggregateNews>;
+    aggregate:
+      | ((
+          parent: NewsConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => AggregateNews | Promise<AggregateNews>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: NewsConnection,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => AggregateNews | Promise<AggregateNews>;
+        };
   }
 }
 
@@ -4150,62 +5390,142 @@ export namespace PageInfoResolvers {
       parent.endCursor === undefined ? null : parent.endCursor,
   };
 
-  export type HasNextPageResolver = (
-    parent: PageInfo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => boolean | Promise<boolean>;
+  export type HasNextPageResolver =
+    | ((
+        parent: PageInfo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => boolean | Promise<boolean>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: PageInfo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => boolean | Promise<boolean>;
+      };
 
-  export type HasPreviousPageResolver = (
-    parent: PageInfo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => boolean | Promise<boolean>;
+  export type HasPreviousPageResolver =
+    | ((
+        parent: PageInfo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => boolean | Promise<boolean>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: PageInfo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => boolean | Promise<boolean>;
+      };
 
-  export type StartCursorResolver = (
-    parent: PageInfo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | null | Promise<string | null>;
+  export type StartCursorResolver =
+    | ((
+        parent: PageInfo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | null | Promise<string | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: PageInfo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>;
+      };
 
-  export type EndCursorResolver = (
-    parent: PageInfo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | null | Promise<string | null>;
+  export type EndCursorResolver =
+    | ((
+        parent: PageInfo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | null | Promise<string | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: PageInfo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>;
+      };
 
   export interface Type {
-    hasNextPage: (
-      parent: PageInfo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => boolean | Promise<boolean>;
+    hasNextPage:
+      | ((
+          parent: PageInfo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => boolean | Promise<boolean>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: PageInfo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => boolean | Promise<boolean>;
+        };
 
-    hasPreviousPage: (
-      parent: PageInfo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => boolean | Promise<boolean>;
+    hasPreviousPage:
+      | ((
+          parent: PageInfo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => boolean | Promise<boolean>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: PageInfo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => boolean | Promise<boolean>;
+        };
 
-    startCursor: (
-      parent: PageInfo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | null | Promise<string | null>;
+    startCursor:
+      | ((
+          parent: PageInfo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: PageInfo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | null | Promise<string | null>;
+        };
 
-    endCursor: (
-      parent: PageInfo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | null | Promise<string | null>;
+    endCursor:
+      | ((
+          parent: PageInfo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: PageInfo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | null | Promise<string | null>;
+        };
   }
 }
 
@@ -4215,34 +5535,74 @@ export namespace NewsEdgeResolvers {
     cursor: (parent: NewsEdge) => parent.cursor,
   };
 
-  export type NodeResolver = (
-    parent: NewsEdge,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => News | Promise<News>;
+  export type NodeResolver =
+    | ((
+        parent: NewsEdge,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => News | Promise<News>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: NewsEdge,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => News | Promise<News>;
+      };
 
-  export type CursorResolver = (
-    parent: NewsEdge,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type CursorResolver =
+    | ((
+        parent: NewsEdge,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: NewsEdge,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
   export interface Type {
-    node: (
-      parent: NewsEdge,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => News | Promise<News>;
+    node:
+      | ((
+          parent: NewsEdge,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => News | Promise<News>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: NewsEdge,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => News | Promise<News>;
+        };
 
-    cursor: (
-      parent: NewsEdge,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    cursor:
+      | ((
+          parent: NewsEdge,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: NewsEdge,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
   }
 }
 
@@ -4251,20 +5611,40 @@ export namespace AggregateNewsResolvers {
     count: (parent: AggregateNews) => parent.count,
   };
 
-  export type CountResolver = (
-    parent: AggregateNews,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => number | Promise<number>;
+  export type CountResolver =
+    | ((
+        parent: AggregateNews,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => number | Promise<number>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: AggregateNews,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => number | Promise<number>;
+      };
 
   export interface Type {
-    count: (
-      parent: AggregateNews,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => number | Promise<number>;
+    count:
+      | ((
+          parent: AggregateNews,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => number | Promise<number>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: AggregateNews,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => number | Promise<number>;
+        };
   }
 }
 
@@ -4274,48 +5654,108 @@ export namespace TalkConnectionResolvers {
     edges: (parent: TalkConnection) => parent.edges,
   };
 
-  export type PageInfoResolver = (
-    parent: TalkConnection,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => PageInfo | Promise<PageInfo>;
+  export type PageInfoResolver =
+    | ((
+        parent: TalkConnection,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => PageInfo | Promise<PageInfo>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: TalkConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => PageInfo | Promise<PageInfo>;
+      };
 
-  export type EdgesResolver = (
-    parent: TalkConnection,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => TalkEdge[] | Promise<TalkEdge[]>;
+  export type EdgesResolver =
+    | ((
+        parent: TalkConnection,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Array<TalkEdge | null> | Promise<Array<TalkEdge | null>>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: TalkConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Array<TalkEdge | null> | Promise<Array<TalkEdge | null>>;
+      };
 
-  export type AggregateResolver = (
-    parent: TalkConnection,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => AggregateTalk | Promise<AggregateTalk>;
+  export type AggregateResolver =
+    | ((
+        parent: TalkConnection,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => AggregateTalk | Promise<AggregateTalk>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: TalkConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => AggregateTalk | Promise<AggregateTalk>;
+      };
 
   export interface Type {
-    pageInfo: (
-      parent: TalkConnection,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => PageInfo | Promise<PageInfo>;
+    pageInfo:
+      | ((
+          parent: TalkConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => PageInfo | Promise<PageInfo>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: TalkConnection,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => PageInfo | Promise<PageInfo>;
+        };
 
-    edges: (
-      parent: TalkConnection,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => TalkEdge[] | Promise<TalkEdge[]>;
+    edges:
+      | ((
+          parent: TalkConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Array<TalkEdge | null> | Promise<Array<TalkEdge | null>>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: TalkConnection,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Array<TalkEdge | null> | Promise<Array<TalkEdge | null>>;
+        };
 
-    aggregate: (
-      parent: TalkConnection,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => AggregateTalk | Promise<AggregateTalk>;
+    aggregate:
+      | ((
+          parent: TalkConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => AggregateTalk | Promise<AggregateTalk>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: TalkConnection,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => AggregateTalk | Promise<AggregateTalk>;
+        };
   }
 }
 
@@ -4325,34 +5765,74 @@ export namespace TalkEdgeResolvers {
     cursor: (parent: TalkEdge) => parent.cursor,
   };
 
-  export type NodeResolver = (
-    parent: TalkEdge,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Talk | Promise<Talk>;
+  export type NodeResolver =
+    | ((
+        parent: TalkEdge,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Talk | Promise<Talk>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: TalkEdge,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Talk | Promise<Talk>;
+      };
 
-  export type CursorResolver = (
-    parent: TalkEdge,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type CursorResolver =
+    | ((
+        parent: TalkEdge,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: TalkEdge,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
   export interface Type {
-    node: (
-      parent: TalkEdge,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Talk | Promise<Talk>;
+    node:
+      | ((
+          parent: TalkEdge,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Talk | Promise<Talk>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: TalkEdge,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Talk | Promise<Talk>;
+        };
 
-    cursor: (
-      parent: TalkEdge,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    cursor:
+      | ((
+          parent: TalkEdge,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: TalkEdge,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
   }
 }
 
@@ -4361,20 +5841,40 @@ export namespace AggregateTalkResolvers {
     count: (parent: AggregateTalk) => parent.count,
   };
 
-  export type CountResolver = (
-    parent: AggregateTalk,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => number | Promise<number>;
+  export type CountResolver =
+    | ((
+        parent: AggregateTalk,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => number | Promise<number>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: AggregateTalk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => number | Promise<number>;
+      };
 
   export interface Type {
-    count: (
-      parent: AggregateTalk,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => number | Promise<number>;
+    count:
+      | ((
+          parent: AggregateTalk,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => number | Promise<number>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: AggregateTalk,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => number | Promise<number>;
+        };
   }
 }
 
@@ -4384,48 +5884,108 @@ export namespace RepoConnectionResolvers {
     edges: (parent: RepoConnection) => parent.edges,
   };
 
-  export type PageInfoResolver = (
-    parent: RepoConnection,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => PageInfo | Promise<PageInfo>;
+  export type PageInfoResolver =
+    | ((
+        parent: RepoConnection,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => PageInfo | Promise<PageInfo>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: RepoConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => PageInfo | Promise<PageInfo>;
+      };
 
-  export type EdgesResolver = (
-    parent: RepoConnection,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => RepoEdge[] | Promise<RepoEdge[]>;
+  export type EdgesResolver =
+    | ((
+        parent: RepoConnection,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Array<RepoEdge | null> | Promise<Array<RepoEdge | null>>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: RepoConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Array<RepoEdge | null> | Promise<Array<RepoEdge | null>>;
+      };
 
-  export type AggregateResolver = (
-    parent: RepoConnection,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => AggregateRepo | Promise<AggregateRepo>;
+  export type AggregateResolver =
+    | ((
+        parent: RepoConnection,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => AggregateRepo | Promise<AggregateRepo>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: RepoConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => AggregateRepo | Promise<AggregateRepo>;
+      };
 
   export interface Type {
-    pageInfo: (
-      parent: RepoConnection,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => PageInfo | Promise<PageInfo>;
+    pageInfo:
+      | ((
+          parent: RepoConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => PageInfo | Promise<PageInfo>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: RepoConnection,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => PageInfo | Promise<PageInfo>;
+        };
 
-    edges: (
-      parent: RepoConnection,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => RepoEdge[] | Promise<RepoEdge[]>;
+    edges:
+      | ((
+          parent: RepoConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Array<RepoEdge | null> | Promise<Array<RepoEdge | null>>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: RepoConnection,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Array<RepoEdge | null> | Promise<Array<RepoEdge | null>>;
+        };
 
-    aggregate: (
-      parent: RepoConnection,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => AggregateRepo | Promise<AggregateRepo>;
+    aggregate:
+      | ((
+          parent: RepoConnection,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => AggregateRepo | Promise<AggregateRepo>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: RepoConnection,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => AggregateRepo | Promise<AggregateRepo>;
+        };
   }
 }
 
@@ -4435,34 +5995,74 @@ export namespace RepoEdgeResolvers {
     cursor: (parent: RepoEdge) => parent.cursor,
   };
 
-  export type NodeResolver = (
-    parent: RepoEdge,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Repo | Promise<Repo>;
+  export type NodeResolver =
+    | ((
+        parent: RepoEdge,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Repo | Promise<Repo>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: RepoEdge,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Repo | Promise<Repo>;
+      };
 
-  export type CursorResolver = (
-    parent: RepoEdge,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => string | Promise<string>;
+  export type CursorResolver =
+    | ((
+        parent: RepoEdge,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: RepoEdge,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
 
   export interface Type {
-    node: (
-      parent: RepoEdge,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Repo | Promise<Repo>;
+    node:
+      | ((
+          parent: RepoEdge,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Repo | Promise<Repo>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: RepoEdge,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Repo | Promise<Repo>;
+        };
 
-    cursor: (
-      parent: RepoEdge,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => string | Promise<string>;
+    cursor:
+      | ((
+          parent: RepoEdge,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: RepoEdge,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
   }
 }
 
@@ -4471,20 +6071,40 @@ export namespace AggregateRepoResolvers {
     count: (parent: AggregateRepo) => parent.count,
   };
 
-  export type CountResolver = (
-    parent: AggregateRepo,
-    args: {},
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => number | Promise<number>;
+  export type CountResolver =
+    | ((
+        parent: AggregateRepo,
+        args: {},
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => number | Promise<number>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: AggregateRepo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => number | Promise<number>;
+      };
 
   export interface Type {
-    count: (
-      parent: AggregateRepo,
-      args: {},
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => number | Promise<number>;
+    count:
+      | ((
+          parent: AggregateRepo,
+          args: {},
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => number | Promise<number>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: AggregateRepo,
+            args: {},
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => number | Promise<number>;
+        };
   }
 }
 
@@ -4495,20 +6115,40 @@ export namespace MutationResolvers {
     repoId: string;
   }
 
-  export type ToggleRepoVoteResolver = (
-    parent: undefined,
-    args: ArgsToggleRepoVote,
-    ctx: MyContext,
-    info: GraphQLResolveInfo
-  ) => Upvote | Promise<Upvote>;
+  export type ToggleRepoVoteResolver =
+    | ((
+        parent: undefined,
+        args: ArgsToggleRepoVote,
+        ctx: MyContext,
+        info: GraphQLResolveInfo
+      ) => Upvote | Promise<Upvote>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsToggleRepoVote,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Upvote | Promise<Upvote>;
+      };
 
   export interface Type {
-    toggleRepoVote: (
-      parent: undefined,
-      args: ArgsToggleRepoVote,
-      ctx: MyContext,
-      info: GraphQLResolveInfo
-    ) => Upvote | Promise<Upvote>;
+    toggleRepoVote:
+      | ((
+          parent: undefined,
+          args: ArgsToggleRepoVote,
+          ctx: MyContext,
+          info: GraphQLResolveInfo
+        ) => Upvote | Promise<Upvote>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsToggleRepoVote,
+            ctx: MyContext,
+            info: GraphQLResolveInfo
+          ) => Upvote | Promise<Upvote>;
+        };
   }
 }
 
@@ -4531,4 +6171,9 @@ export interface Resolvers {
   RepoEdge: RepoEdgeResolvers.Type;
   AggregateRepo: AggregateRepoResolvers.Type;
   Mutation: MutationResolvers.Type;
+}
+
+// @ts-ignore
+declare module 'graphql-tools' {
+  interface IResolvers extends Resolvers {}
 }

@@ -4,7 +4,7 @@ menu: Components
 ---
 
 import { Playground } from 'docz';
-import { Card, NewsCard, TalkCard } from './';
+import { Card, NewsCard, TalkCard, RepoHeroCard } from './';
 
 ## Card
 
@@ -30,7 +30,7 @@ import { Card, NewsCard, TalkCard } from './';
 
 <Playground>
   <div style={{
-    height: "400px",
+    height: "500px",
     width: "500px",
   }}>
     <NewsCard 
@@ -44,7 +44,7 @@ import { Card, NewsCard, TalkCard } from './';
 
 <Playground>
   <div style={{
-    height: "100px",
+    height: "200px",
     width: "500px",
   }}>
     <NewsCard 
@@ -69,4 +69,18 @@ import { Card, NewsCard, TalkCard } from './';
      }}
     />
     </div>
+</Playground>
+
+<Playground>
+  <div style={{
+    height: "400px",
+    width: "600px",
+  }}>
+    <RepoHeroCard 
+      tags={["react","testing"]}
+      content="The right way to test your react apps"
+      heading="react-testing-library"
+      image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600,h_300,e_blur:300/v1550943805/Screenshot_2019-02-23_at_11.12.47_PM.png"
+    />
+  </div>
 </Playground>

@@ -10,11 +10,10 @@ import { UpVoteIcon } from '../Icons/UpVoteIcon';
 const StyledCard = styled.div<SpaceProps>`
   box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);
   border-radius: 44px;
-  padding: 44px;
+  padding: 1rem 2rem;
   display: grid;
-  grid-template-rows:
-    auto auto 1fr auto
-    ${space};
+  grid-template-rows: auto auto 1fr auto;
+  ${space}
 `;
 
 export interface Props extends SpaceProps {
@@ -26,7 +25,7 @@ export interface Props extends SpaceProps {
 export const Paper = StyledCard;
 
 // hack till https://github.com/styled-components/styled-components/issues/2129
-const handleAs = Comp => ({ innerAs, ...rest }) => (
+export const handleAs = Comp => ({ innerAs, ...rest }) => (
   <Comp as={innerAs} {...rest} />
 );
 
@@ -61,7 +60,15 @@ export const Card: React.FC<Props> = ({
         ))}
       </div>
       <Typography variant="h2" mt="3" mb="4">
-        {heading}
+        <a
+          href=""
+          css={`
+            color: black;
+            text-decoration: none;
+          `}
+        >
+          {heading}
+        </a>
       </Typography>
       <Typography variant="p" lineHeight="1.75rem" mt="0" mb="3">
         {content}

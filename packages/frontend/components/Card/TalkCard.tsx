@@ -3,52 +3,54 @@ import styled from '../../lib/styled-components';
 import { Typography } from '../Typography';
 import { MONO_FAMILY } from '../shared';
 import { PlayIcon } from '../Icons/PlayIcon';
-// import { Typography } from '../Typography';
-// import { MONO_FAMILY } from '../shared';
 
 const StyledTalksCard = styled.div`
   box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);
   border-radius: 44px;
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  .img {
-    flex-basis: 74%;
+  overflow: hidden;
+  .img-container {
     position: relative;
-    max-height: 74%;
-    .play_icon {
-      position: absolute;
-      top: 44%;
-      left: 47%;
-    }
-    img {
-      height: 100%;
-      width: 100%;
-    }
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .play-icon {
+    position: absolute;
+    /* center the play icon */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .information {
-    padding: 1rem;
-    .title_section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .avatar {
-        display: flex;
-        align-items: center;
-        img {
-          height: 30px;
-          width: 30px;
-          border-radius: 50%;
-          margin-right: 6px;
-        }
-      }
-    }
+    padding: 1rem 2rem;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+  .duration {
+    text-align: end;
+  }
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .avatar {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .avatar img {
+    border-radius: 50%;
+    width: 30px;
+    margin-right: 6px;
   }
 `;
 
@@ -60,6 +62,7 @@ export interface ITalkCardProps {
     name: string;
     image: string;
   };
+  featured?: boolean;
 }
 
 export const TalkCard: React.FC<ITalkCardProps> = ({
@@ -67,30 +70,37 @@ export const TalkCard: React.FC<ITalkCardProps> = ({
   heading,
   tags,
   avatar,
+  featured,
   ...rest
 }) => {
   return (
     <StyledTalksCard {...rest}>
-      <div className="img">
-        <PlayIcon className="play_icon" />
+      <div className="img-container">
         <img src={image} />
+        <PlayIcon className="play-icon" />
       </div>
       <div className="information">
-        <div className="title_section">
+        <div className="header">
           <Typography
             as="a"
             cursor="pointer"
             fontWeight="bold"
-            variant="h3"
+            variant={featured ? 'h3' : 'h4'}
             m="0"
             p="0"
           >
             {heading}
           </Typography>
-          <Typography>45 min</Typography>
+          <Typography className="duration">45 min</Typography>
         </div>
         <div className="info">
-          <div className="tags">
+          <div
+            className="tags"
+            css={`
+              text-transform: uppercase;
+              font-weight: bold;
+            `}
+          >
             {tags.map((tag, index) => (
               <Typography
                 key={`talk-${heading}-${tag}-${index}`}

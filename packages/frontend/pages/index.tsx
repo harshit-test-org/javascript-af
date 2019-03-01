@@ -112,6 +112,7 @@ export default () => (
     </Typography>
     <TalksHero>
       <TalkCard
+        featured
         heading="This is a Talk About You!"
         image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
         tags={['react', 'personal']}
@@ -122,6 +123,7 @@ export default () => (
         }}
       />
       <TalkCard
+        featured
         heading="This is a Talk About You!"
         image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
         tags={['react', 'personal']}

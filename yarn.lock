@@ -7479,6 +7479,14 @@ graphql-codegen-plugin-helpers@0.17.0:
     graphql-codegen-core "0.17.0"
     import-from "2.1.0"
 
+graphql-codegen-plugin-helpers@0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/graphql-codegen-plugin-helpers/-/graphql-codegen-plugin-helpers-0.18.0.tgz#2502c35e6ae790d761be2126e8743fc1a7310f6f"
+  integrity sha512-Ac9XobEIgBzjsxPBtoAeMG4d9xoFtVCIsUIQr8aY3HFU9h1F5UwlOC6a0yHcUq0n8VtB/6Yu7TNveAuv0oHPSg==
+  dependencies:
+    graphql-codegen-core "0.18.0"
+    import-from "2.1.0"
+
 graphql-codegen-typescript-client@0.17.0:
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/graphql-codegen-typescript-client/-/graphql-codegen-typescript-client-0.17.0.tgz#cafb228f6ed7b4f8d202ab58f7a162d73ead236b"
@@ -7497,6 +7505,16 @@ graphql-codegen-typescript-common@0.17.0:
     common-tags "1.8.0"
     graphql-codegen-core "0.17.0"
     graphql-codegen-plugin-helpers "0.17.0"
+
+graphql-codegen-typescript-common@0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/graphql-codegen-typescript-common/-/graphql-codegen-typescript-common-0.18.0.tgz#f0b7121e6d7acdf4568630cefc4ddd413621405e"
+  integrity sha512-eyS3CSilqiK+JPQ7qPtTGFbOBaTuBaPJL1bd3VvzXx03j0nR/6bgNsGKlTyUTDyZ90el++IhFfGGja8cBUjt9g==
+  dependencies:
+    change-case "3.1.0"
+    common-tags "1.8.0"
+    graphql-codegen-core "0.18.0"
+    graphql-codegen-plugin-helpers "0.18.0"
 
 graphql-codegen-typescript-react-apollo@0.17.0:
   version "0.17.0"

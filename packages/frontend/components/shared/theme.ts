@@ -1,8 +1,18 @@
 import { SANS_FAMILY, MONO_FAMILY } from './constants';
+import { transitions } from 'polished';
+
+type swatch =
+  | 'darkest'
+  | 'darker'
+  | 'dark'
+  | 'main'
+  | 'light'
+  | 'lighter'
+  | 'lightest';
 
 export interface ThemeInterface {
   colors: {
-    purple: string;
+    primary: Record<swatch, string>;
     white: string;
     blue: string;
   };
@@ -16,6 +26,7 @@ export interface ThemeInterface {
       backgroundColor: string;
       '&:hover': {
         opacity: string;
+        backgroundColor: string;
       };
     };
     icon: {
@@ -39,9 +50,19 @@ export interface ThemeInterface {
   maxWidth: string;
 }
 
+const primarySwatch: Record<swatch, string> = {
+  darkest: '#2B0448',
+  darker: '#300958',
+  dark: '#38116E',
+  main: '#452984',
+  light: '#5D48A7',
+  lighter: '#7568C5',
+  lightest: '#A098F1',
+};
+
 const theme: ThemeInterface = {
   colors: {
-    purple: '#6200EE',
+    primary: primarySwatch,
     white: '#FFFFFF',
     blue: '#2F47C7',
   },
@@ -52,9 +73,11 @@ const theme: ThemeInterface = {
   buttons: {
     primary: {
       color: 'white',
-      backgroundColor: '#6200EE',
+      backgroundColor: primarySwatch.main,
+      ...transitions('0.2s background ease'),
       '&:hover': {
         opacity: '0.9',
+        backgroundColor: primarySwatch.light,
       },
     },
     icon: {
@@ -68,8 +91,8 @@ const theme: ThemeInterface = {
     outlined: {
       backgroundColor: 'white',
       borderRadius: '44px',
-      border: '2px solid #6200EE',
-      color: '#6200EE',
+      border: `2px solid ${primarySwatch.main}`,
+      color: primarySwatch.main,
       '&:hover': {
         opacity: '0.9',
       },

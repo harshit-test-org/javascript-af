@@ -11,7 +11,7 @@ describe('Button', () => {
     expect(container.firstChild).toHaveTextContent('Sign In');
     expect(container.firstChild).toHaveStyleRule(
       'background-color',
-      theme.colors.purple
+      theme.colors.primary.main
     );
   });
   test('should render outlined variant', () => {
@@ -23,7 +23,7 @@ describe('Button', () => {
     expect(container.firstChild).toHaveStyleRule('background-color', 'white');
     expect(container.firstChild).toHaveStyleRule(
       'border',
-      `2px solid ${theme.colors.purple}`
+      `2px solid ${theme.colors.primary.main}`
     );
   });
   test('should render icon variant', () => {

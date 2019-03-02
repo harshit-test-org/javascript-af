@@ -18,6 +18,7 @@ const Inner = styled.div`
   @media all and (min-width: 1400px) {
     margin: 0 auto;
     max-width: ${props => props.theme.maxWidth};
+    width: 100%;
   }
   flex-grow: 1;
   padding: 2rem;
@@ -34,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
+    font-family: ${theme.fontFamily.sans}
   }
   a {
     text-decoration: none;

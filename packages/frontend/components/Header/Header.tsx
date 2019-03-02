@@ -10,7 +10,7 @@ export const StyledHeader = styled.header<BoxShadowProps & SpaceProps>`
   position: sticky;
   background: ${p => p.theme.colors.white};
   top: 0;
-  border-top: 4px solid ${theme.colors.purple};
+  border-top: 4px solid ${theme.colors.primary.light};
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr;
@@ -36,7 +36,7 @@ export const Navlink = styled.a<{ active?: boolean }>`
   ${props =>
     props.active &&
     css`
-      box-shadow: ${p => p.theme.colors.purple} 0px -4px 0px inset;
+      box-shadow: ${p => p.theme.colors.primary.main} 0px -4px 0px inset;
     `}
 `;
 

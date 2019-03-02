@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from '../../lib/styled-components';
+import styled from '../../lib/styled-components';
 import { Typography } from '../Typography';
 import { MONO_FAMILY } from '../shared';
 

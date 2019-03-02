@@ -12,7 +12,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   font-family: ${props => props.theme.fontFamily.sans};
   color: ${props => props.theme.colors.white};
-  background-color: ${props => props.theme.colors.purple};
+  background-color: ${props => props.theme.colors.primary.main};
   padding: 3rem 3rem;
   a {
     text-decoration: none;

@@ -23,7 +23,7 @@ export const JsafLogoBlack: React.FC<
     <title>Javascript AF logo</title>
     <path
       d="M10.714 25.577V2.923L15 0v25.577C15 36.538 8.571 38 0 38l2.857-4.385c5 0 7.857-.73 7.857-8.038z"
-      fill={theme.colors.purple}
+      fill={theme.colors.primary.main}
     />
     <path d="M18 20L34 1l-5.5 15.5H38L25 37l3.5-17H18z" fill="#FFC600" />
     <path

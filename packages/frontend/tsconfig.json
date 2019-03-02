@@ -4,6 +4,7 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
+    "strict": true,
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,

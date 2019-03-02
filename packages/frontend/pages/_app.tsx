@@ -1,4 +1,4 @@
-import App, { Container } from 'next/app';
+import App, { Container, NextAppContext } from 'next/app';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-boost';
 import withData from '../lib/withData';
@@ -6,8 +6,8 @@ import { Page } from '../components/Page';
 
 import 'typeface-inconsolata';
 
-class MyApp extends App<{ apollo?: ApolloClient<{}> }> {
-  static async getInitialProps({ Component, ctx }) {
+class MyApp extends App<{ apollo: ApolloClient<{}> }> {
+  static async getInitialProps({ Component, ctx }: NextAppContext) {
     let pageProps: { query?: any } = {};
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);

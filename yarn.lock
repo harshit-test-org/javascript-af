@@ -7454,20 +7454,6 @@ graphql-code-generator@0.18.0:
     request "2.88.0"
     valid-url "1.0.9"
 
-graphql-codegen-core@0.17.0:
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/graphql-codegen-core/-/graphql-codegen-core-0.17.0.tgz#e0e23cf0e1138ff3e75912604cf04aae82aa27be"
-  integrity sha512-3WULDb+XaRrSsVbTU8VBf7yzGGnW9pAKl+wE3p2NjaKPm0IPBKlWrDtVCUPpTXE0oANv0V4ytsHjMMJ8oTtRLg==
-  dependencies:
-    chalk "2.4.2"
-    change-case "3.1.0"
-    common-tags "1.8.0"
-    graphql-tag "2.10.1"
-    graphql-toolkit "0.0.5"
-    graphql-tools "4.0.4"
-    ts-log "2.1.4"
-    winston "3.2.1"
-
 graphql-codegen-core@0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/graphql-codegen-core/-/graphql-codegen-core-0.18.0.tgz#4ddeae8b0ee06041d255b5f6e55e6f48ca9ca316"
@@ -7481,14 +7467,6 @@ graphql-codegen-core@0.18.0:
     graphql-tools "4.0.4"
     ts-log "2.1.4"
     winston "3.2.1"
-
-graphql-codegen-plugin-helpers@0.17.0:
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/graphql-codegen-plugin-helpers/-/graphql-codegen-plugin-helpers-0.17.0.tgz#f65edde8a0810c457a85171d2e8bd0d29c8c7ac3"
-  integrity sha512-zcTvtvJqGrGTUjM9qz4vGml967uORX5yeSBc9n4du+Ah+y4TLG0GdjmEqfP7Jokwb8YpCGKivY6hXF8AZ7yPdw==
-  dependencies:
-    graphql-codegen-core "0.17.0"
-    import-from "2.1.0"
 
 graphql-codegen-plugin-helpers@0.18.0:
   version "0.18.0"
@@ -7506,16 +7484,6 @@ graphql-codegen-typescript-client@0.18.0:
     graphql-codegen-core "0.18.0"
     graphql-codegen-plugin-helpers "0.18.0"
     graphql-codegen-typescript-common "0.18.0"
-
-graphql-codegen-typescript-common@0.17.0:
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/graphql-codegen-typescript-common/-/graphql-codegen-typescript-common-0.17.0.tgz#76cfeefa92ee8420f2c9a687576fd5ac3d6e14fb"
-  integrity sha512-tUaJB4fuHHgZa1JFroe5V4kIn69HKmKwaHEvizXhuAmJUnHGThzjnn71Ot0FMSpF6RLcMf/adDsNts/BQrUEYg==
-  dependencies:
-    change-case "3.1.0"
-    common-tags "1.8.0"
-    graphql-codegen-core "0.17.0"
-    graphql-codegen-plugin-helpers "0.17.0"
 
 graphql-codegen-typescript-common@0.18.0:
   version "0.18.0"
@@ -7598,17 +7566,6 @@ graphql-subscriptions@^1.0.0:
   dependencies:
     iterall "^1.2.1"
 
-graphql-tag-pluck@0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/graphql-tag-pluck/-/graphql-tag-pluck-0.5.0.tgz#81f5dee3a6ca829f205ab032336be7b107398b2e"
-  integrity sha512-SlsIpXKbrKIV2+QxYZ7bFPQ0DpIXFd0BEz3U+Krt8tuHYMFtElcctNDppW4EeQTrSX9H5zpStBZyfOYQjQOH1w==
-  dependencies:
-    "@babel/parser" "^7.2.0"
-    "@babel/traverse" "^7.1.6"
-    "@babel/types" "^7.2.0"
-    source-map-support "^0.5.9"
-    typescript "^3.2.2"
-
 graphql-tag-pluck@0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/graphql-tag-pluck/-/graphql-tag-pluck-0.6.0.tgz#d03ab981cd8d31e564d37f8b9bac94a523dc29dd"
@@ -7624,21 +7581,6 @@ graphql-tag@2.10.1, graphql-tag@^2.10.0, graphql-tag@^2.4.2, graphql-tag@^2.9.2:
   version "2.10.1"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.10.1.tgz#10aa41f1cd8fae5373eaf11f1f67260a3cad5e02"
   integrity sha512-jApXqWBzNXQ8jYa/HLkZJaVw9jgwNqZkywa2zfFn16Iv1Zb7ELNHkJaXHR7Quvd5SIGsy6Ny7SUKATgnu05uEg==
-
-graphql-toolkit@0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/graphql-toolkit/-/graphql-toolkit-0.0.5.tgz#9e6ebe3d4b33fc329e5ee3b7775bfe7fba2f48a5"
-  integrity sha512-655RP1y8cn65mOa9EE/jnttczHE0lFXpOV1zYLTsE1A0b5j8RVuKWllSZBnnL2WHSAPPqLZ1oJEZV2uzSdV9VQ==
-  dependencies:
-    deepmerge "3.1.0"
-    glob "7.1.3"
-    graphql-import "0.7.1"
-    graphql-tag-pluck "0.5.0"
-    is-glob "4.0.0"
-    is-valid-path "0.1.1"
-    lodash "4.17.11"
-    request "2.88.0"
-    valid-url "1.0.9"
 
 graphql-toolkit@0.2.0:
   version "0.2.0"
@@ -15007,10 +14949,10 @@ tslint-react@3.6.0:
   dependencies:
     tsutils "^2.13.1"
 
-tslint@5.13.0:
-  version "5.13.0"
-  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.13.0.tgz#239a2357c36b620d72d86744754b6fc088a25359"
-  integrity sha512-ECOOQRxXCYnUUePG5h/+Z1Zouobk3KFpIHA9aKBB/nnMxs97S1JJPDGt5J4cGm1y9U9VmVlfboOxA8n1kSNzGw==
+tslint@5.13.1:
+  version "5.13.1"
+  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.13.1.tgz#fbc0541c425647a33cd9108ce4fd4cd18d7904ed"
+  integrity sha512-fplQqb2miLbcPhyHoMV4FU9PtNRbgmm/zI5d3SZwwmJQM6V0eodju+hplpyfhLWpmwrDNfNYU57uYRb8s0zZoQ==
   dependencies:
     babel-code-frame "^6.22.0"
     builtin-modules "^1.1.1"

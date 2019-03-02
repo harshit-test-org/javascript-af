@@ -28,6 +28,7 @@ exports[`Button should render icon variant 1`] = `
 
 <button
   class="c0"
+  role="button"
 >
   <svg
     fill="none"
@@ -68,8 +69,8 @@ exports[`Button should render outlined variant 1`] = `
   border-radius: 44px;
   background-color: white;
   border-radius: 44px;
-  border: 2px solid #6200EE;
-  color: #6200EE;
+  border: 2px solid #452984;
+  color: #452984;
 }
 
 .c0:hover {
@@ -78,6 +79,7 @@ exports[`Button should render outlined variant 1`] = `
 
 <button
   class="c0"
+  role="button"
 >
   Learn More
   <canvas
@@ -100,15 +102,19 @@ exports[`Button should render primary button if no props are passed 1`] = `
   font-size: 1.2rem;
   border-radius: 44px;
   color: white;
-  background-color: #6200EE;
+  background-color: #452984;
+  -webkit-transition: 0.2s background ease;
+  transition: 0.2s background ease;
 }
 
 .c0:hover {
   opacity: 0.9;
+  background-color: #5D48A7;
 }
 
 <button
   class="c0"
+  role="button"
 >
   Sign In
   <canvas
@@ -132,15 +138,19 @@ exports[`Button should work with the as prop and other styled-system ones 1`] = 
   border-radius: 44px;
   padding: 8px;
   color: white;
-  background-color: #6200EE;
+  background-color: #452984;
+  -webkit-transition: 0.2s background ease;
+  transition: 0.2s background ease;
 }
 
 .c0:hover {
   opacity: 0.9;
+  background-color: #5D48A7;
 }
 
 <a
   class="c0"
+  role="button"
 >
   Just test
   <canvas

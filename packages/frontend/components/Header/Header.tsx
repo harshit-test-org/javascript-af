@@ -1,9 +1,10 @@
 import React from 'react';
-import styled, { css } from '../../lib/styled-components';
 import { boxShadow, BoxShadowProps, space, SpaceProps } from 'styled-system';
-import { theme, MONO_FAMILY } from '../shared';
-import { JsafLogoBlack } from '../Icons/JsafLogo';
+import styled, { css } from '../../lib/styled-components';
 import { Button } from '../Button';
+import { JsafLogoBlack } from '../Icons/JsafLogo';
+import { MONO_FAMILY, theme } from '../shared';
+import { withRouter, WithRouterProps } from 'next/router';
 
 export const StyledHeader = styled.header<BoxShadowProps & SpaceProps>`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
@@ -21,7 +22,7 @@ export const StyledHeader = styled.header<BoxShadowProps & SpaceProps>`
   ${space}
 `;
 
-export const Navlink = styled.a<{ active?: boolean }>`
+export const StyledLink = styled.a<{ active?: boolean }>`
   cursor: pointer;
   color: black;
   font-family: ${MONO_FAMILY};
@@ -40,16 +41,39 @@ export const Navlink = styled.a<{ active?: boolean }>`
     `}
 `;
 
+const ActiveLink = withRouter(
+  class ActiveLinkComp extends React.Component<
+    WithRouterProps & { href: string }
+  > {
+    componentDidMount() {
+      this.props.router!.prefetch(this.props.href);
+    }
+    handleClick: React.EventHandler<React.MouseEvent> = e => {
+      e.preventDefault();
+      this.props.router!.push(this.props.href);
+    };
+    render() {
+      const { href, router, children } = this.props;
+      const isActive = router!.pathname === href;
+      return (
+        <StyledLink href={href} onClick={this.handleClick} active={isActive}>
+          {children}
+        </StyledLink>
+      );
+    }
+  }
+);
+
 export interface Props extends BoxShadowProps, SpaceProps {}
 
 export const Header: React.FC<Props> = props => {
   return (
     <StyledHeader {...props}>
       <nav>
-        <Navlink active>Home</Navlink>
-        <Navlink>Repos</Navlink>
-        <Navlink>News</Navlink>
-        <Navlink>Talks</Navlink>
+        <ActiveLink href="/">Home</ActiveLink>
+        <ActiveLink href="/repos">Repos</ActiveLink>
+        <ActiveLink href="/news">News</ActiveLink>
+        <ActiveLink href="/talks">Talks</ActiveLink>
       </nav>
       <div
         css={`
@@ -60,6 +84,7 @@ export const Header: React.FC<Props> = props => {
           css={`
             position: relative;
             left: 37.7777%;
+            transform: translateX(37.7777%);
             width: 60px;
           `}
         >

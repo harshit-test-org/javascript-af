@@ -2,6 +2,7 @@
   "parser": "@typescript-eslint/parser",
   "extends": [
     "plugin:react/recommended",
+    "airbnb",
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/react",
@@ -15,7 +16,7 @@
       "impliedStrict": true
     },
     "sourceType": "module",
-    "project": "./packages/frontend/tsconfig.json"
+    "project": "tsconfig.json"
   },
   "env": {
     "es6": true,

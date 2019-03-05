@@ -48,7 +48,7 @@ const TalksHero = styled.div`
   margin-top: 3rem;
 `;
 
-export default () => (
+const Index = () => (
   <>
     <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
       📰 Latest News
@@ -168,3 +168,5 @@ export default () => (
     </TalksHero>
   </>
 );
+
+export default Index;

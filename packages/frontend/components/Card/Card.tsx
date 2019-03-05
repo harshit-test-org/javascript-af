@@ -24,10 +24,12 @@ export interface Props extends SpaceProps {
 
 export const Paper = StyledCard;
 
+/* eslint-disable */
 // hack till https://github.com/styled-components/styled-components/issues/2129
 export const handleAs = (
   Comp: React.ComponentType<{ as?: string }>
 ): React.FC<any> => ({ innerAs, ...rest }) => <Comp as={innerAs} {...rest} />;
+/* eslint-enable */
 
 const ViewButton = styled(handleAs(Button))`
   display: inline-block;

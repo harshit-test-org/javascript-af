@@ -28,8 +28,6 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "prettier --write",
-      "tslint --fix",
       "git add"
     ]
   },
@@ -43,9 +41,6 @@
     "lerna": "3.13.1",
     "lint-staged": "8.1.5",
     "prettier": "1.16.4",
-    "tslint": "5.13.1",
-    "tslint-config-prettier": "1.18.0",
-    "tslint-react": "3.6.0",
     "typescript": "3.3.3333"
   },
   "dependencies": {}

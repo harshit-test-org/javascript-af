@@ -47,6 +47,7 @@ const StyledButton = styled.button<
   ${borderRadius}
   ${applyVariant}
   ${fontWeight}
+
 `;
 
 export interface IButtonProps

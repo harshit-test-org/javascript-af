@@ -14,7 +14,7 @@
       "jsx": true
     },
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": "./packages/frontend/tsconfig.json"
   },
   "settings": {
     "react": {
@@ -38,6 +38,7 @@
         "vars": "local",
         "args": "none"
       }
-    ]
+    ],
+    "no-unused-vars": "error"
   }
 }

@@ -58,5 +58,8 @@ module.exports = {
        "packageDir": ["./", "../../"],
        "devDependencies": ["**/*.test.js", "**/*.spec.js", "/testUtils/**", "/cypress/**"] 
       }],
+    "react/jsx-filename-extension": "off",
+    "react/destructuring-assignment": "off",
+    "import/prefer-default-export": "off"
   }
 }

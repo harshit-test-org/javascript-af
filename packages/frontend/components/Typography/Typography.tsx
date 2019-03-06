@@ -98,7 +98,7 @@ export const Typography: React.FC<Props> = ({
   variant,
   ...others
 }) => {
-  const mapping = styleMapping[variant] || styleMapping.default;
+  const mapping = (variant && styleMapping[variant]) || styleMapping.default;
   return (
     <StyledTypography
       fontSize={mapping.size}

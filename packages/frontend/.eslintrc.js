@@ -54,6 +54,9 @@ module.exports = {
         "args": "none"
       }
     ],
-    "no-unused-vars": "error"
+    "import/no-extraneous-dependencies": ["error", {
+       "packageDir": ["./", "../../"],
+       "devDependencies": ["**/*.test.js", "**/*.spec.js", "/testUtils/**", "/cypress/**"] 
+      }],
   }
 }

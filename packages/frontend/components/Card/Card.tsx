@@ -24,12 +24,10 @@ export interface Props extends SpaceProps {
 
 export const Paper = StyledCard;
 
-/* eslint-disable */
 // hack till https://github.com/styled-components/styled-components/issues/2129
 export const handleAs = (
   Comp: React.ComponentType<{ as?: string }>
 ): React.FC<any> => ({ innerAs, ...rest }) => <Comp as={innerAs} {...rest} />;
-/* eslint-enable */
 
 const ViewButton = styled(handleAs(Button))`
   display: inline-block;
@@ -48,7 +46,8 @@ export const Card: React.FC<Props> = ({
           font-weight: bold;
         "
       >
-        {tags.map((tag, index) => (
+        {/* eslint-disable react/no-array-index-key */
+        tags.map((tag, index) => (
           <Typography
             key={`${heading}-${tag}-${index}`}
             color="blue"
@@ -59,7 +58,9 @@ export const Card: React.FC<Props> = ({
           >
             #{tag}{' '}
           </Typography>
-        ))}
+        ))
+        /* eslint-enable react/no-array-index-key */
+        }
       </div>
       <Typography variant="h2" mt="3" mb="4">
         <a

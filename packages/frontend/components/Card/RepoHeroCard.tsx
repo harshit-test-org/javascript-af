@@ -71,7 +71,8 @@ export const RepoHeroCard: React.FC<IRepoHeroCardProps> = ({
             font-weight: bold;
           "
         >
-          {tags.map((tag, index) => (
+          {/* eslint-disable react/no-array-index-key */
+          tags.map((tag, index) => (
             <Typography
               key={`${heading}-${tag}-${index}`}
               color="white"
@@ -82,7 +83,9 @@ export const RepoHeroCard: React.FC<IRepoHeroCardProps> = ({
             >
               #{tag}{' '}
             </Typography>
-          ))}
+          ))
+          /* eslint-enable react/no-array-index-key */
+          }
         </div>
         <div
           css="

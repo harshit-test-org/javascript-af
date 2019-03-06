@@ -103,7 +103,8 @@ export const TalkCard: React.FC<ITalkCardProps> = ({
               font-weight: bold;
             "
           >
-            {tags.map((tag, index) => (
+            {/* eslint-disable react/no-array-index-key */
+            tags.map((tag, index) => (
               <Typography
                 key={`talk-${heading}-${tag}-${index}`}
                 color="blue"
@@ -114,7 +115,9 @@ export const TalkCard: React.FC<ITalkCardProps> = ({
               >
                 #{tag}{' '}
               </Typography>
-            ))}
+            ))
+            /* eslint-enable react/no-array-index-key */
+            }
           </div>
           <div className="avatar">
             <img src={avatar.image} alt={avatar.name} />

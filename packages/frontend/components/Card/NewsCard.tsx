@@ -78,7 +78,8 @@ export const NewsCard: React.FC<INewsCardProps> = ({
             </Typography>
           </div>
           <div className="tags">
-            {tags.map((tag, index) => (
+            {/* eslint-disable react/no-array-index-key */
+            tags.map((tag, index) => (
               <Typography
                 key={`${heading}-${tag}-${index}`}
                 color="blue"
@@ -91,7 +92,9 @@ export const NewsCard: React.FC<INewsCardProps> = ({
               >
                 #{tag}{' '}
               </Typography>
-            ))}
+            ))
+            /* eslint-enable react/no-array-index-key */
+            }
           </div>
         </div>
       </div>

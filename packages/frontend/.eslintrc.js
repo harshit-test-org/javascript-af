@@ -3,12 +3,13 @@ module.exports = {
   "extends": [
     "plugin:react/recommended",
     "airbnb",
+    "plugin:cypress/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/react",
     "prettier/@typescript-eslint"
   ],
-  "plugins": ["react", "react-hooks", "import", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "react-hooks", "import", "cypress", "@typescript-eslint", "prettier"],
   "parserOptions": {
     "ecmaVersion": 2018,
     "ecmaFeatures": {
@@ -22,6 +23,7 @@ module.exports = {
     "es6": true,
     "browser": true,
     "jest": true,
+    "cypress/globals": true,
     "node": true
   },
   "settings": {

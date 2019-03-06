@@ -18,7 +18,8 @@
   "scripts": {
     "dev": "lerna run --parallel --scope={@jsaf/backend,@jsaf/frontend} dev",
     "test": "lerna run --stream test",
-    "cm": "commit"
+    "cm": "commit",
+    "lint": "cd packages/frontend && yarn lint"
   },
   "husky": {
     "hooks": {

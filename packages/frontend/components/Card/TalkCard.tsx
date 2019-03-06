@@ -57,6 +57,7 @@ const StyledTalksCard = styled.div`
 export interface ITalkCardProps {
   heading: string;
   image: string;
+  alt?: string;
   tags: string[];
   avatar: {
     name: string;
@@ -67,6 +68,7 @@ export interface ITalkCardProps {
 
 export const TalkCard: React.FC<ITalkCardProps> = ({
   image,
+  alt,
   heading,
   tags,
   avatar,
@@ -76,7 +78,7 @@ export const TalkCard: React.FC<ITalkCardProps> = ({
   return (
     <StyledTalksCard {...rest}>
       <div className="img-container">
-        <img src={image} />
+        <img src={image} alt={alt || heading || avatar.name || 'talk image'} />
         <PlayIcon className="play-icon" />
       </div>
       <div className="information">

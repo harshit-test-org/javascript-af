@@ -37,7 +37,7 @@ export const RepoHeroCard: React.FC<IRepoHeroCardProps> = ({
     <StyledCard image={image} {...others}>
       <Typography color="white" variant="h2" mt="3" mb="4">
         <a
-          href=""
+          href="/"
           css="
             text-decoration: none;
             color: white;

@@ -63,7 +63,7 @@ export const Card: React.FC<Props> = ({
       </div>
       <Typography variant="h2" mt="3" mb="4">
         <a
-          href=""
+          href="/"
           css="
             color: black;
             text-decoration: none;

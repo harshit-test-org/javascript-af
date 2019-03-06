@@ -51,7 +51,10 @@ const TalksHero = styled.div`
 const Index = () => (
   <>
     <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
-      📰 Latest News
+      <span role="img" aria-label="newspaper">
+        📰
+      </span>{' '}
+      Latest News
     </Typography>
     <HeroTop>
       <NewsCard
@@ -73,7 +76,10 @@ const Index = () => (
       />
     </HeroTop>
     <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
-      🔥 Trending Repos
+      <span role="img" aria-label="fire">
+        🔥
+      </span>{' '}
+      Trending Repos
     </Typography>
     <RepoHero>
       <Card
@@ -108,7 +114,10 @@ const Index = () => (
       />
     </RepoHero>
     <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
-      🎤 Awesome Talks
+      <span role="img" aria-label="microphone">
+        🎤
+      </span>{' '}
+      Awesome Talks
     </Typography>
     <TalksHero>
       <TalkCard

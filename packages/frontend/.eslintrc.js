@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   "parser": "@typescript-eslint/parser",
   "extends": [
@@ -17,7 +19,7 @@ module.exports = {
       "impliedStrict": true
     },
     "sourceType": "module",
-    "project": __dirname + "/tsconfig.json"
+    "project": path.resolve(__dirname, "./tsconfig.json")
   },
   "env": {
     "es6": true,
@@ -32,7 +34,7 @@ module.exports = {
     },
     "import/resolver": {
       "typescript": {
-        "directory": __dirname + "/tsconfig.json"
+        "directory": path.resolve(__dirname, "./tsconfig.json")
       }
     }
   },
@@ -57,7 +59,7 @@ module.exports = {
       }
     ],
     "import/no-extraneous-dependencies": ["error", {
-       "packageDir": ["./", "../../"],
+       "packageDir": [path.resolve(__dirname, "./"), path.resolve(__dirname, "../../")],
        "devDependencies": ["**/*.test.js", "**/*.spec.js", "/testUtils/**", "/cypress/**"] 
       }],
     "react/jsx-filename-extension": "off",

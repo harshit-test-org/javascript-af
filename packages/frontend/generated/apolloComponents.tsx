@@ -1,3 +1,8 @@
+import * as ReactApollo from 'react-apollo';
+import * as React from 'react';
+
+import gql from 'graphql-tag';
+
 export type Maybe<T> = T | null;
 
 export interface NewsWhereInput {
@@ -1075,11 +1080,6 @@ export type TalkAggregateQueryAggregate = {
   count: number;
 };
 
-import * as ReactApollo from 'react-apollo';
-import * as React from 'react';
-
-import gql from 'graphql-tag';
-
 // ====================================================
 // Components
 // ====================================================
@@ -1102,7 +1102,7 @@ export class TalkAggregateQueryComponent extends React.Component<
     return (
       <ReactApollo.Query<TalkAggregateQueryQuery, TalkAggregateQueryVariables>
         query={TalkAggregateQueryDocument}
-        {...(this as any)['props'] as any}
+        {...(this as any).props as any}
       />
     );
   }

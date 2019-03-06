@@ -3,12 +3,13 @@ module.exports = {
   "extends": [
     "plugin:react/recommended",
     "airbnb",
+    "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/react",
     "prettier/@typescript-eslint"
   ],
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "react-hooks", "import", "@typescript-eslint", "prettier"],
   "parserOptions": {
     "ecmaVersion": 2018,
     "ecmaFeatures": {
@@ -27,6 +28,14 @@ module.exports = {
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "directory": __dirname + "/tsconfig.json"
+      }
     }
   },
   "rules": {

@@ -96,10 +96,10 @@ export const TalkCard: React.FC<ITalkCardProps> = ({
         <div className="info">
           <div
             className="tags"
-            css={`
+            css="
               text-transform: uppercase;
               font-weight: bold;
-            `}
+            "
           >
             {tags.map((tag, index) => (
               <Typography

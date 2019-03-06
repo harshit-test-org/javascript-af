@@ -1,7 +1,7 @@
 import React from 'react';
+import { space, SpaceProps } from 'styled-system';
 import styled from '../../lib/styled-components';
 import { Typography } from '../Typography';
-import { space, SpaceProps } from 'styled-system';
 import { MONO_FAMILY } from '../shared';
 import { Button } from '../Button';
 import { GithubIcon } from '../Icons/GithubIcon';
@@ -38,18 +38,18 @@ export const RepoHeroCard: React.FC<IRepoHeroCardProps> = ({
       <Typography color="white" variant="h2" mt="3" mb="4">
         <a
           href=""
-          css={`
+          css="
             text-decoration: none;
             color: white;
-          `}
+          "
         >
           {heading}
         </a>
       </Typography>
       <Typography
-        css={`
+        css="
           align-self: end;
-        `}
+        "
         color="white"
         variant="p"
         lineHeight="1.75rem"
@@ -59,17 +59,17 @@ export const RepoHeroCard: React.FC<IRepoHeroCardProps> = ({
         {content}
       </Typography>
       <div
-        css={`
+        css="
           display: flex;
           justify-content: space-between;
           align-items: center;
-        `}
+        "
       >
         <div
-          css={`
+          css="
             text-transform: uppercase;
             font-weight: bold;
-          `}
+          "
         >
           {tags.map((tag, index) => (
             <Typography
@@ -85,15 +85,15 @@ export const RepoHeroCard: React.FC<IRepoHeroCardProps> = ({
           ))}
         </div>
         <div
-          css={`
+          css="
             display: flex;
-          `}
+          "
         >
           <Button variant="icon" color="white">
             <UpVoteIcon
-              css={`
+              css="
                 margin-right: 5px;
-              `}
+              "
             />
             100
           </Button>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { normalize } from 'polished';
 import styled, {
   ThemeProvider,
   createGlobalStyle,
@@ -7,7 +8,6 @@ import theme from '../shared/theme';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { Meta } from '../Meta';
-import { normalize } from 'polished';
 
 const StyledPage = styled.div`
   display: flex;

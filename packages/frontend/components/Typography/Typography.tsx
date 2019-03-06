@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '../../lib/styled-components';
 import {
   fontWeight,
   textAlign,
@@ -16,6 +15,7 @@ import {
   lineHeight,
   LineHeightProps,
 } from 'styled-system';
+import styled from '../../lib/styled-components';
 import { SANS_FAMILY } from '../shared';
 
 export interface StyleMappingKey {

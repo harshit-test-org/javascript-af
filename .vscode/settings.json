@@ -6,6 +6,10 @@
     {
       "fileMatch": ["renovate.json"],
       "url": "http://json.schemastore.org/renovate"
+    },
+    {
+      "fileMatch": [".eslintrc.json"],
+      "url": "http://json.schemastore.org/eslintrc"
     }
   ],
   "eslint.validate": [

@@ -3,7 +3,6 @@ module.exports = {
   "extends": [
     "plugin:react/recommended",
     "airbnb",
-    "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/react",
@@ -28,9 +27,6 @@ module.exports = {
   "settings": {
     "react": {
       "version": "detect"
-    },
-    "import/parsers": {
-        "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
       "typescript": {

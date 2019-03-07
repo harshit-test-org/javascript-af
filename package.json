@@ -21,7 +21,7 @@
     "cm": "commit",
     "lint:fe": "cd packages/frontend && yarn lint",
     "lint:be": "cd packages/backend && yarn lint",
-    "lint:ws": "eslint --ext .ts,.tsx ."
+    "lint": "lerna run --parallel --scope={@jsaf/backend,@jsaf/frontend} lint"
   },
   "husky": {
     "hooks": {

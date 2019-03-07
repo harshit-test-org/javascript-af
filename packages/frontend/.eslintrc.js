@@ -34,7 +34,7 @@ module.exports = {
     },
     "import/resolver": {
       "typescript": {
-        "directory": path.resolve(__dirname, "./tsconfig.json")
+        "directory": path.resolve(process.cwd(), "./tsconfig.json")
       }
     }
   },
@@ -59,7 +59,7 @@ module.exports = {
       }
     ],
     "import/no-extraneous-dependencies": ["error", {
-       "packageDir": [path.resolve(__dirname, "./"), path.resolve(__dirname, "../../")],
+      "packageDir": [path.resolve(process.cwd(), "./"), path.resolve(process.cwd(), "../../")],
        "devDependencies": ["**/*.test.js", "**/*.spec.js", "/testUtils/**", "/cypress/**"] 
       }],
     "react/jsx-filename-extension": "off",

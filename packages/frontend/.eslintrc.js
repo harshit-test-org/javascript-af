@@ -6,6 +6,7 @@ module.exports = {
     "plugin:react/recommended",
     "airbnb",
     "plugin:cypress/recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/react",
     "prettier/@typescript-eslint",
@@ -38,7 +39,7 @@ module.exports = {
     }
   },
   "rules": {
-    
+    "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",
@@ -50,17 +51,23 @@ module.exports = {
       "packageDir": [path.resolve(process.cwd(), "./"), path.resolve(process.cwd(), "../../")],
        "devDependencies": ["**/*.test.js", "**/*.spec.js", "/testUtils/**", "/cypress/**"] 
       }],
-  /* edit rules from airbnb config */
-    "import/prefer-default-export": "off",
-    // ? Why is this needed? Doesn't @typescript-eslint/no-unused-vars replace it?
-    "no-unused-vars": [
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/prefer-interface": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-unused-vars": [
       "error",
       {
         "vars": "local",
         "args": "none"
       }
     ],
-    "@typescript-eslint/no-unused-vars": [
+    "import/prefer-default-export": "off",
+    // ? Why is this needed? Doesn't @typescript-eslint/no-unused-vars replace it?
+    "no-unused-vars": [
       "error",
       {
         "vars": "local",

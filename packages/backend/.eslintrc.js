@@ -4,7 +4,6 @@ module.exports = {
     "parser": "@typescript-eslint/parser",
     "extends": [
         "airbnb-base",
-        "plugin:@typescript-eslint/recommended",
         "prettier",
         "prettier/@typescript-eslint",
     ],
@@ -22,34 +21,11 @@ module.exports = {
         "jest": true,
         "node": true
     },
-    "settings": {
-        "import/resolver": {
-            "typescript": {
-                "directory": path.resolve(__dirname, "./tsconfig.json")
-            }
-        }
-    },
     "rules": {
-        "prettier/prettier": "error",
-        "@typescript-eslint/explicit-member-accessibility": "off",
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/interface-name-prefix": "off",
-        "@typescript-eslint/no-non-null-assertion": "off",
-        "@typescript-eslint/prefer-interface": "off",
-        "@typescript-eslint/no-empty-interface": "off",
-        "@typescript-eslint/no-unused-vars": [
-            "error",
-            {
-                "vars": "local",
-                "args": "none"
-            }
-        ],
         "import/no-extraneous-dependencies": ["error", {
             "packageDir": [path.resolve(__dirname, "./"), path.resolve(__dirname, "../../")],
             "devDependencies": ["**/*.test.js", "**/*.spec.js", "/testUtils/**", "/cypress/**"]
         }],
-        "import/prefer-default-export": "off",
         "prefer-destructuring": "off",
         "no-underscore-dangle": "off"
     }

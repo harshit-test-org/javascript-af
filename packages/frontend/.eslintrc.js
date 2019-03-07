@@ -6,10 +6,9 @@ module.exports = {
     "plugin:react/recommended",
     "airbnb",
     "plugin:cypress/recommended",
-    "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/react",
-    "prettier/@typescript-eslint"
+    "prettier/@typescript-eslint",
   ],
   "plugins": ["react", "react-hooks", "import", "cypress", "@typescript-eslint", "prettier"],
   "parserOptions": {
@@ -32,38 +31,20 @@ module.exports = {
     "react": {
       "version": "detect"
     },
-    "import/resolver": {
-      "typescript": {
-        "directory": path.resolve(process.cwd(), "./tsconfig.json")
-      }
-    }
   },
   "rules": {
-    "prettier/prettier": "error",
+    
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/explicit-member-accessibility": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/interface-name-prefix": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/prefer-interface": "off",
-    "@typescript-eslint/no-empty-interface": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        "vars": "local",
-        "args": "none"
-      }
-    ],
+    "react/jsx-filename-extension": "off",
+    "react/destructuring-assignment": "off",
+    
     "import/no-extraneous-dependencies": ["error", {
       "packageDir": [path.resolve(process.cwd(), "./"), path.resolve(process.cwd(), "../../")],
        "devDependencies": ["**/*.test.js", "**/*.spec.js", "/testUtils/**", "/cypress/**"] 
       }],
-    "react/jsx-filename-extension": "off",
-    "react/destructuring-assignment": "off",
-    "import/prefer-default-export": "off"
+    
   }
 }

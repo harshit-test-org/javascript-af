@@ -35,7 +35,6 @@
     "@types/node": "10.12.29",
     "@types/passport": "1.0.0",
     "@types/passport-github2": "1.2.3",
-    "eslint-config-airbnb-base": "^13.1.0",
     "graphqlgen": "0.6.0-rc9",
     "jest": "24.1.0",
     "nodemon": "1.18.10",

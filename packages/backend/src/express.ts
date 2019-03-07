@@ -30,6 +30,7 @@ app.use((req: IRequest, _, next) => {
   next();
 });
 
+/* eslint-disable consistent-return */
 app.use(async (req: IRequest, _, next) => {
   // if they aren't logged in, skip this
   if (!req.userId) {
@@ -39,6 +40,7 @@ app.use(async (req: IRequest, _, next) => {
   req.user = user;
   next();
 });
+/* eslint-enable consistent-return */
 
 app.get('/auth/logout', (req: IRequest, res) => {
   res.clearCookie('token');

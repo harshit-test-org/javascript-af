@@ -46,9 +46,8 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": "off",
     "react/destructuring-assignment": "off",
-    
     "import/no-extraneous-dependencies": ["error", {
-      "packageDir": [path.resolve(process.cwd(), "./"), path.resolve(process.cwd(), "../../")],
+      "packageDir": [path.resolve(__dirname, "./"), path.resolve(__dirname, "../../")],
        "devDependencies": ["**/*.test.js", "**/*.spec.js", "/testUtils/**", "/cypress/**"] 
       }],
     "@typescript-eslint/explicit-member-accessibility": "off",

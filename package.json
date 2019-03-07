@@ -19,7 +19,8 @@
     "dev": "lerna run --parallel --scope={@jsaf/backend,@jsaf/frontend} dev",
     "test": "lerna run --stream test",
     "cm": "commit",
-    "lint": "cd packages/frontend && yarn lint"
+    "lint": "cd packages/frontend && yarn lint",
+    "lint:ws": "eslint --ext .ts,.tsx ."
   },
   "husky": {
     "hooks": {
@@ -36,12 +37,17 @@
     "@commitlint/cli": "7.5.2",
     "@commitlint/config-conventional": "7.5.0",
     "@commitlint/prompt-cli": "7.5.0",
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.4.2",
     "docz": "0.13.7",
     "docz-theme-default": "0.13.7",
+    "eslint": "^5.15.1",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
     "husky": "1.3.1",
     "lerna": "3.13.1",
     "lint-staged": "8.1.5",
-    "prettier": "1.16.4",
+    "prettier": "^1.16.4",
     "typescript": "3.3.3333"
   },
   "dependencies": {}

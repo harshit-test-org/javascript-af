@@ -1,7 +1,7 @@
 import React from 'react';
+import { normalize } from 'polished';
 import { ThemeProvider, createGlobalStyle } from '../../lib/styled-components';
 import { theme } from '.';
-import { normalize } from 'polished';
 
 const GlobalNormalization = createGlobalStyle`
   ${normalize()}

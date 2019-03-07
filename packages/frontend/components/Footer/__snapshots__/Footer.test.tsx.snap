@@ -127,7 +127,16 @@ exports[`Footer should render 1`] = `
       class="c1"
       font-size="20px"
     >
-      Made with 💖‍ by
+      Made with
+       
+      <span
+        aria-label="heart"
+        role="img"
+      >
+        💖‍
+      </span>
+       
+      by
        
       <span>
         <a

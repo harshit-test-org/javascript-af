@@ -1,10 +1,10 @@
 import React from 'react';
 import { boxShadow, BoxShadowProps, space, SpaceProps } from 'styled-system';
+import { withRouter, WithRouterProps } from 'next/router';
 import styled, { css } from '../../lib/styled-components';
 import { Button } from '../Button';
 import { JsafLogoBlack } from '../Icons/JsafLogo';
 import { MONO_FAMILY, theme } from '../shared';
-import { withRouter, WithRouterProps } from 'next/router';
 
 export const StyledHeader = styled.header<BoxShadowProps & SpaceProps>`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
@@ -48,10 +48,12 @@ const ActiveLink = withRouter(
     componentDidMount() {
       this.props.router!.prefetch(this.props.href);
     }
+
     handleClick: React.EventHandler<React.MouseEvent> = e => {
       e.preventDefault();
       this.props.router!.push(this.props.href);
     };
+
     render() {
       const { href, router, children } = this.props;
       const isActive = router!.pathname === href;
@@ -76,32 +78,32 @@ export const Header: React.FC<Props> = props => {
         <ActiveLink href="/talks">Talks</ActiveLink>
       </nav>
       <div
-        css={`
+        css="
           padding: 0.6rem;
-        `}
+        "
       >
         <div
-          css={`
+          css="
             position: relative;
             left: 37.7777%;
             transform: translateX(37.7777%);
             width: 60px;
-          `}
+          "
         >
           <JsafLogoBlack />
         </div>
       </div>
       <div
-        css={`
+        css="
           display: flex;
           justify-content: center;
-        `}
+        "
       >
         <Button
           as="a"
           href="#"
           color="black"
-          fontSize={'20px'}
+          fontSize="20px"
           mx={3}
           my={0}
           variant="icon"

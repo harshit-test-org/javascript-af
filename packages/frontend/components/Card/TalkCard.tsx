@@ -57,6 +57,7 @@ const StyledTalksCard = styled.div`
 export interface ITalkCardProps {
   heading: string;
   image: string;
+  alt?: string;
   tags: string[];
   avatar: {
     name: string;
@@ -67,6 +68,7 @@ export interface ITalkCardProps {
 
 export const TalkCard: React.FC<ITalkCardProps> = ({
   image,
+  alt,
   heading,
   tags,
   avatar,
@@ -76,7 +78,7 @@ export const TalkCard: React.FC<ITalkCardProps> = ({
   return (
     <StyledTalksCard {...rest}>
       <div className="img-container">
-        <img src={image} />
+        <img src={image} alt={alt || heading || avatar.name || 'talk image'} />
         <PlayIcon className="play-icon" />
       </div>
       <div className="information">
@@ -96,12 +98,13 @@ export const TalkCard: React.FC<ITalkCardProps> = ({
         <div className="info">
           <div
             className="tags"
-            css={`
+            css="
               text-transform: uppercase;
               font-weight: bold;
-            `}
+            "
           >
-            {tags.map((tag, index) => (
+            {/* eslint-disable react/no-array-index-key */
+            tags.map((tag, index) => (
               <Typography
                 key={`talk-${heading}-${tag}-${index}`}
                 color="blue"
@@ -112,7 +115,9 @@ export const TalkCard: React.FC<ITalkCardProps> = ({
               >
                 #{tag}{' '}
               </Typography>
-            ))}
+            ))
+            /* eslint-enable react/no-array-index-key */
+            }
           </div>
           <div className="avatar">
             <img src={avatar.image} alt={avatar.name} />

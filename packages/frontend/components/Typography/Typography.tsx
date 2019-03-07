@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '../../lib/styled-components';
 import {
   fontWeight,
   textAlign,
@@ -16,6 +15,7 @@ import {
   lineHeight,
   LineHeightProps,
 } from 'styled-system';
+import styled from '../../lib/styled-components';
 import { SANS_FAMILY } from '../shared';
 
 export interface StyleMappingKey {
@@ -98,7 +98,7 @@ export const Typography: React.FC<Props> = ({
   variant,
   ...others
 }) => {
-  const mapping = styleMapping[variant] || styleMapping.default;
+  const mapping = (variant && styleMapping[variant]) || styleMapping.default;
   return (
     <StyledTypography
       fontSize={mapping.size}

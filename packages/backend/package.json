@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon",
     "test": "jest",
-    "codegen": "graphqlgen"
+    "codegen": "graphqlgen",
+    "lint": "eslint --ext .ts ."
   },
   "dependencies": {
     "apollo-server-express": "^2.3.3",

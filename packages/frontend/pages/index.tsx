@@ -48,10 +48,13 @@ const TalksHero = styled.div`
   margin-top: 3rem;
 `;
 
-export default () => (
+const Index = () => (
   <>
     <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
-      📰 Latest News
+      <span role="img" aria-label="newspaper">
+        📰
+      </span>{' '}
+      Latest News
     </Typography>
     <HeroTop>
       <NewsCard
@@ -73,7 +76,10 @@ export default () => (
       />
     </HeroTop>
     <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
-      🔥 Trending Repos
+      <span role="img" aria-label="fire">
+        🔥
+      </span>{' '}
+      Trending Repos
     </Typography>
     <RepoHero>
       <Card
@@ -108,7 +114,10 @@ export default () => (
       />
     </RepoHero>
     <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
-      🎤 Awesome Talks
+      <span role="img" aria-label="microphone">
+        🎤
+      </span>{' '}
+      Awesome Talks
     </Typography>
     <TalksHero>
       <TalkCard
@@ -168,3 +177,5 @@ export default () => (
     </TalksHero>
   </>
 );
+
+export default Index;

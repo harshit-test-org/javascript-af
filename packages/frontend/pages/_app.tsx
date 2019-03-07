@@ -16,6 +16,7 @@ class MyApp extends App<{ apollo: ApolloClient<{}> }> {
     pageProps.query = ctx.query;
     return { pageProps };
   }
+
   render() {
     const { Component, apollo, pageProps } = this.props;
 

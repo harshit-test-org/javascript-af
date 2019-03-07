@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '../../lib/styled-components';
 import {
   color,
   space,
@@ -16,6 +15,7 @@ import {
   variant,
 } from 'styled-system';
 import Ink from 'react-ink';
+import styled from '../../lib/styled-components';
 import { SANS_FAMILY } from '../shared';
 
 const applyVariant = variant({
@@ -47,6 +47,7 @@ const StyledButton = styled.button<
   ${borderRadius}
   ${applyVariant}
   ${fontWeight}
+
 `;
 
 export interface IButtonProps

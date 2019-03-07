@@ -1,7 +1,7 @@
 import React from 'react';
+import { space, SpaceProps } from 'styled-system';
 import styled from '../../lib/styled-components';
 import { Typography } from '../Typography';
-import { space, SpaceProps } from 'styled-system';
 import { MONO_FAMILY } from '../shared';
 import { Button } from '../Button';
 import { GithubIcon } from '../Icons/GithubIcon';
@@ -41,12 +41,13 @@ export const Card: React.FC<Props> = ({
   return (
     <StyledCard>
       <div
-        css={`
+        css="
           text-transform: uppercase;
           font-weight: bold;
-        `}
+        "
       >
-        {tags.map((tag, index) => (
+        {/* eslint-disable react/no-array-index-key */
+        tags.map((tag, index) => (
           <Typography
             key={`${heading}-${tag}-${index}`}
             color="blue"
@@ -57,15 +58,17 @@ export const Card: React.FC<Props> = ({
           >
             #{tag}{' '}
           </Typography>
-        ))}
+        ))
+        /* eslint-enable react/no-array-index-key */
+        }
       </div>
       <Typography variant="h2" mt="3" mb="4">
         <a
-          href=""
-          css={`
+          href="/"
+          css="
             color: black;
             text-decoration: none;
-          `}
+          "
         >
           {heading}
         </a>
@@ -74,25 +77,25 @@ export const Card: React.FC<Props> = ({
         {content}
       </Typography>
       <div
-        css={`
+        css="
           display: flex;
           justify-content: space-between;
           align-items: center;
-        `}
+        "
       >
         <ViewButton innerAs="a" m={0} px={4} p={2}>
           View
         </ViewButton>
         <div
-          css={`
+          css="
             display: flex;
-          `}
+          "
         >
           <Button variant="icon">
             <UpVoteIcon
-              css={`
+              css="
                 margin-right: 5px;
-              `}
+              "
             />
             100
           </Button>

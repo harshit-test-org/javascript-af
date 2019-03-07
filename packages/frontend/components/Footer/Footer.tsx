@@ -57,7 +57,11 @@ export const Footer: React.FC<Props> = ({ children, ...others }) => {
       </div>
       <div className="main">
         <Typography variant="p">
-          Made with 💖‍ by{' '}
+          Made with{' '}
+          <span role="img" aria-label="heart">
+            💖‍
+          </span>{' '}
+          by{' '}
           <span>
             <a href="https://twitter.com/pantharshit00">Harshit Pant</a>
           </span>{' '}

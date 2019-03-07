@@ -1,5 +1,5 @@
-import { SANS_FAMILY, MONO_FAMILY } from './constants';
 import { transitions } from 'polished';
+import { SANS_FAMILY, MONO_FAMILY } from './constants';
 
 type swatch =
   | 'darkest'

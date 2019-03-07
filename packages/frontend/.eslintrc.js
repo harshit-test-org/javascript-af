@@ -31,6 +31,11 @@ module.exports = {
     "react": {
       "version": "detect"
     },
+    "import/resolver": {
+      "typescript": {
+        "directory": path.resolve(__dirname, "./tsconfig.json")
+      }
+    }
   },
   "rules": {
     
@@ -45,6 +50,23 @@ module.exports = {
       "packageDir": [path.resolve(process.cwd(), "./"), path.resolve(process.cwd(), "../../")],
        "devDependencies": ["**/*.test.js", "**/*.spec.js", "/testUtils/**", "/cypress/**"] 
       }],
+  /* edit rules from airbnb config */
+    "import/prefer-default-export": "off",
+    // ? Why is this needed? Doesn't @typescript-eslint/no-unused-vars replace it?
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "local",
+        "args": "none"
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "vars": "local",
+        "args": "none"
+      }
+    ],
     
   }
 }

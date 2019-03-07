@@ -9,11 +9,6 @@ module.exports = {
     ],
     "plugins": ["@typescript-eslint", "prettier"],
     "parserOptions": {
-        "ecmaVersion": 2018,
-        "ecmaFeatures": {
-            "impliedStrict": true
-        },
-        "sourceType": "module",
         "project": path.resolve(__dirname, "./tsconfig.json")
     },
     "env": {
@@ -21,12 +16,35 @@ module.exports = {
         "jest": true,
         "node": true
     },
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+                "directory": path.resolve(__dirname, "./tsconfig.json")
+            }
+        }
+    },
     "rules": {
         "import/no-extraneous-dependencies": ["error", {
             "packageDir": [path.resolve(__dirname, "./"), path.resolve(__dirname, "../../")],
             "devDependencies": ["**/*.test.js", "**/*.spec.js", "/testUtils/**", "/cypress/**"]
         }],
         "prefer-destructuring": "off",
-        "no-underscore-dangle": "off"
+        "no-underscore-dangle": "off",
+        "import/prefer-default-export": "off",
+        // ? Why is this needed? Doesn't @typescript-eslint/no-unused-vars replace it?
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "local",
+                "args": "none"
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "vars": "local",
+                "args": "none"
+            }
+        ],
     }
 }

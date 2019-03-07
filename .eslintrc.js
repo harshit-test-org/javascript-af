@@ -7,7 +7,7 @@ module.exports = {
         "prettier",
         "prettier/@typescript-eslint",
     ],
-    "plugins": ["@typescript-eslint", "prettier"],
+    "plugins": ["@typescript-eslint", "import", "prettier"],
     "parserOptions": {
         "ecmaVersion": 2018,
         "ecmaFeatures": {

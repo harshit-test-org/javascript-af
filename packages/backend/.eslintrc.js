@@ -52,13 +52,5 @@ module.exports = {
             }
         ],
         "import/prefer-default-export": "off",
-        // ? Why is this needed? Doesn't @typescript-eslint/no-unused-vars replace it?
-        "no-unused-vars": [
-            "error",
-            {
-                "vars": "local",
-                "args": "none"
-            }
-        ],
     }
 }

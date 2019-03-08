@@ -1,7 +1,6 @@
+import 'dotenv/config';
 import expressServer from './express';
 import { graphqlPath } from './apolloServer';
-
-require('dotenv').config();
 
 const port = process.env.PORT || 4000;
 

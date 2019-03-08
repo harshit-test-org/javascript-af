@@ -82,3 +82,5 @@ typings/
 # START MANUAL ADDITIONS
 
 .DS_Store
+
+dist/

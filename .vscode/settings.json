@@ -38,5 +38,6 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "eslint.workingDirectories": ["./packages/backend/", "./packagesfrontend/"]
 }

@@ -30,13 +30,19 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json,yml}": [
-      "prettier --write",
-      "git add"
+    "linters": {
+      "*.{ts,tsx}": [
+        "eslint --fix",
+        "git add"
+      ],
+      "*.{json,yml}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "packages/backend/src/generated/**/*.{ts,tsx}",
+      "packages/frontend/generated/**/*.{ts,tsx}"
     ]
   },
   "devDependencies": {

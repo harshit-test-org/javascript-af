@@ -2,8 +2,8 @@ import { MutationResolvers } from '../generated/graphqlgen';
 
 export const Mutation: MutationResolvers.Type = {
   ...MutationResolvers.defaultResolvers,
-  toggleRepoVote: async (parent, { repoId }, ctx) => {
-    const { id } = ctx.req.user;
+  toggleRepoVote: async (_parent, { repoId }, ctx) => {
+    const { id } = ctx.req.user!;
     const alreadyUpvoted = await ctx.prisma.upvotes({
       where: {
         user: {

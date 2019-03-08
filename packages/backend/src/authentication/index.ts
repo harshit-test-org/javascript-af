@@ -1,4 +1,4 @@
-import passport from 'passport';
+import * as passport from 'passport';
 import { Strategy as GithubStrategy } from 'passport-github2';
 import { db } from '../apolloServer';
 
@@ -6,13 +6,19 @@ export const authInit = () => {
   passport.use(
     new GithubStrategy(
       {
-        clientID: process.env.GITHUB_CLIENT_ID,
-        clientSecret: process.env.GITHUB_CLIENT_SECRET,
+        clientID: process.env.GITHUB_CLIENT_ID!,
+        clientSecret: process.env.GITHUB_CLIENT_SECRET!,
         passReqToCallback: true,
         scope: ['user'],
         callbackURL: '/auth/github/callback',
       },
-      async (_, token, __, profile, done) => {
+      async (
+        _: any,
+        token: string,
+        __: any,
+        profile: any,
+        done: (err: Error | null, user?: any) => void
+      ) => {
         const name =
           profile.displayName || profile.username || profile._json.name || '';
         const splitProfileUrl = profile.profileUrl.split('/');

@@ -6,7 +6,7 @@ import { TalkConnectionResolvers } from '../../generated/graphqlgen';
 export const TalkConnection: TalkConnectionResolvers.Type = {
   ...TalkConnectionResolvers.defaultResolvers,
 
-  aggregate: (parent, args, ctx) => {
+  aggregate: (_parent, args, ctx) => {
     return ctx.prisma.talksConnection(args).aggregate();
   },
 };

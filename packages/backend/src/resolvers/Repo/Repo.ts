@@ -3,22 +3,22 @@ import { RepoResolvers } from '../../generated/graphqlgen';
 export const Repo: RepoResolvers.Type = {
   ...RepoResolvers.defaultResolvers,
 
-  owner: (parent, args, ctx) => {
+  owner: (parent, _args, ctx) => {
     return ctx.prisma.repo({ id: parent.id }).owner();
   },
-  tags: (parent, args, ctx) => {
+  tags: (parent, _args, ctx) => {
     return ctx.prisma.repo({ id: parent.id }).tags();
   },
-  upvotes: (parent, args, ctx) => {
+  upvotes: (parent, _args, ctx) => {
     return ctx.prisma.repo({ id: parent.id }).upvotes();
   },
-  aggregatedUpvotes: async (parent, args, ctx) => {
+  aggregatedUpvotes: async (parent, _args, ctx) => {
     const result = await ctx.prisma
       .upvotesConnection({ where: { repo: { id: parent.id } } })
       .aggregate();
     return result.count;
   },
-  userHasVoted: (parent, args, ctx) => {
+  userHasVoted: (parent, _args, ctx) => {
     if (!ctx.req.user) {
       return null;
     }

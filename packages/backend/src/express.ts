@@ -1,11 +1,12 @@
-import cookieParser from 'cookie-parser';
-import express from 'express';
-import jwt from 'jsonwebtoken';
-import ms from 'ms';
-import passport from 'passport';
+import * as cookieParser from 'cookie-parser';
+import * as express from 'express';
+import * as jwt from 'jsonwebtoken';
+import * as passport from 'passport';
 import server, { db } from './apolloServer';
 import { authInit } from './authentication';
 import { IRequest } from './context';
+
+import ms = require('ms');
 
 const app = express();
 
@@ -23,7 +24,7 @@ app.use((req: IRequest, _, next) => {
   if (token) {
     const decoded = jwt.verify(
       token,
-      process.env.JWT_SECRET
+      process.env.JWT_SECRET!
     ) as UserTokenDecoded;
     req.userId = decoded.id;
   }
@@ -42,7 +43,7 @@ app.use(async (req: IRequest, _, next) => {
 });
 /* eslint-enable consistent-return */
 
-app.get('/auth/logout', (req: IRequest, res) => {
+app.get('/auth/logout', (_req: IRequest, res) => {
   res.clearCookie('token');
   res.redirect('/');
 });
@@ -63,7 +64,7 @@ app.get(
   (req, res) => {
     res.cookie(
       'token',
-      jwt.sign({ id: req.user.id }, process.env.JWT_SECRET, {
+      jwt.sign({ id: req.user.id }, process.env.JWT_SECRET!, {
         expiresIn: '14d',
       }),
       {

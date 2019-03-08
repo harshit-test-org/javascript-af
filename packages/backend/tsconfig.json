@@ -1,13 +1,30 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "moduleResolution": "node",
+    "target": "es6",
     "module": "commonjs",
+    "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
     "sourceMap": true,
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "declaration": false,
+
+    "composite": false,
+    "removeComments": true,
+    "noImplicitAny": true,
+    // "strictNullChecks": true, // This is temporary till we fix some typing. It is related to prisma :D
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
     "noUnusedLocals": true,
-    "rootDir": "./",
-    "outDir": "dist",
-    "lib": ["esnext", "dom"],
-    "esModuleInterop": true
-  }
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "rootDir": "src"
+  },
+  "exclude": ["node_modules", "./src/generated/**/*.ts"],
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }

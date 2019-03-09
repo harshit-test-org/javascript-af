@@ -66,9 +66,9 @@ const ActiveLink = withRouter(
   }
 );
 
-export interface Props extends BoxShadowProps, SpaceProps {}
+export interface IProps extends BoxShadowProps, SpaceProps {}
 
-export const Header: React.FC<Props> = props => {
+export const Header: React.FC<IProps> = props => {
   return (
     <StyledHeader {...props}>
       <nav>

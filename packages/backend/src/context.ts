@@ -6,7 +6,7 @@ export interface IRequest extends Request {
   user?: User;
 }
 
-export interface MyContext {
+export interface IMyContext {
   req: IRequest;
   res: Response;
   prisma: Prisma;

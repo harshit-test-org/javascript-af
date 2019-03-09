@@ -10,7 +10,7 @@ type swatch =
   | 'lighter'
   | 'lightest';
 
-export interface ThemeInterface {
+export interface ITheme {
   colors: {
     primary: Record<swatch, string>;
     white: string;
@@ -60,7 +60,7 @@ const primarySwatch: Record<swatch, string> = {
   lightest: '#A098F1',
 };
 
-const theme: ThemeInterface = {
+const theme: ITheme = {
   colors: {
     primary: primarySwatch,
     white: '#FFFFFF',

@@ -18,12 +18,12 @@ import {
 import styled from '../../lib/styled-components';
 import { SANS_FAMILY } from '../shared';
 
-export interface StyleMappingKey {
+export interface IStyleMappingKey {
   size: string;
   component: string;
 }
 
-export const styleMapping: Record<string, StyleMappingKey> = {
+export const styleMapping: Record<string, IStyleMappingKey> = {
   h1: {
     size: '38px',
     component: 'h1',
@@ -78,7 +78,7 @@ const StyledTypography = styled.span<
   ${lineHeight}
 `;
 
-export interface Props
+export interface IProps
   extends FontWeightProps,
     TextAlignProps,
     FontFamilyProps,
@@ -92,7 +92,7 @@ export interface Props
   cursor?: string;
 }
 
-export const Typography: React.FC<Props> = ({
+export const Typography: React.FC<IProps> = ({
   children,
   as,
   variant,

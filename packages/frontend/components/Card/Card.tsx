@@ -16,7 +16,7 @@ const StyledCard = styled.div<SpaceProps>`
   ${space}
 `;
 
-export interface Props extends SpaceProps {
+export interface IProps extends SpaceProps {
   heading?: string;
   tags?: string[];
   content?: string;
@@ -33,7 +33,7 @@ const ViewButton = styled(handleAs(Button))`
   display: inline-block;
 `;
 
-export const Card: React.FC<Props> = ({
+export const Card: React.FC<IProps> = ({
   content = '',
   heading = '',
   tags = [],

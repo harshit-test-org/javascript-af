@@ -47,9 +47,9 @@ const StyledFooter = styled.footer`
   }
 `;
 
-interface Props {}
+interface IProps {}
 
-export const Footer: React.FC<Props> = ({ children, ...others }) => {
+export const Footer: React.FC<IProps> = ({ children, ...others }) => {
   return (
     <StyledFooter {...others}>
       <div className="logo">

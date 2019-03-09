@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server-express';
 import makeExecutableSchema from './makeExecutableSchema';
-import { MyContext } from './context';
+import { IMyContext } from './context';
 import { Prisma } from './generated/prisma-client';
 
 export const db = new Prisma({
@@ -10,7 +10,7 @@ export const db = new Prisma({
 
 const server = new ApolloServer({
   schema: makeExecutableSchema(),
-  context: ({ req, res }: any): MyContext => ({
+  context: ({ req, res }: any): IMyContext => ({
     req,
     res,
     prisma: db,

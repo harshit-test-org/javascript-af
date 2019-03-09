@@ -1,11 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 
-interface Props {
+interface IProps {
   title?: string;
 }
 
-const Meta: React.FC<Props> = props => (
+const Meta: React.FC<IProps> = props => (
   <Head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charSet="utf-8" />

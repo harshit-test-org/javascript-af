@@ -1,7 +1,7 @@
 import { rule, shield } from 'graphql-shield';
-import { MyContext } from '../context';
+import { IMyContext } from '../context';
 
-const isAuthenticated = rule()(async (_parent, _args, ctx: MyContext) => {
+const isAuthenticated = rule()(async (_parent, _args, ctx: IMyContext) => {
   return Boolean(ctx.req.user);
 });
 

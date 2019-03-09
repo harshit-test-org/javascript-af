@@ -10,7 +10,7 @@ import ms = require('ms');
 
 const app = express();
 
-export interface UserTokenDecoded {
+export interface IUserTokenDecoded {
   id: string;
 }
 
@@ -25,7 +25,7 @@ app.use((req: IRequest, _, next) => {
     const decoded = jwt.verify(
       token,
       process.env.JWT_SECRET!
-    ) as UserTokenDecoded;
+    ) as IUserTokenDecoded;
     req.userId = decoded.id;
   }
   next();

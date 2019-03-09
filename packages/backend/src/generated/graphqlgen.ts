@@ -19,7 +19,7 @@ import {
   RepoEdge,
   AggregateRepo,
 } from './prisma-client';
-import { MyContext } from '../context';
+import { IMyContext } from '../context';
 
 export type NewsOrderByInput =
   | 'id_ASC'
@@ -633,7 +633,7 @@ export namespace QueryResolvers {
     | ((
         parent: undefined,
         args: ArgsNewsItemBySlug,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => News | null | Promise<News | null>)
     | {
@@ -641,7 +641,7 @@ export namespace QueryResolvers {
         resolve: (
           parent: undefined,
           args: ArgsNewsItemBySlug,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => News | null | Promise<News | null>;
       };
@@ -650,7 +650,7 @@ export namespace QueryResolvers {
     | ((
         parent: undefined,
         args: ArgsTalkBySlug,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Talk | null | Promise<Talk | null>)
     | {
@@ -658,7 +658,7 @@ export namespace QueryResolvers {
         resolve: (
           parent: undefined,
           args: ArgsTalkBySlug,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Talk | null | Promise<Talk | null>;
       };
@@ -667,7 +667,7 @@ export namespace QueryResolvers {
     | ((
         parent: undefined,
         args: ArgsRepoBySlug,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Repo | null | Promise<Repo | null>)
     | {
@@ -675,7 +675,7 @@ export namespace QueryResolvers {
         resolve: (
           parent: undefined,
           args: ArgsRepoBySlug,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Repo | null | Promise<Repo | null>;
       };
@@ -684,7 +684,7 @@ export namespace QueryResolvers {
     | ((
         parent: undefined,
         args: ArgsNewsConnection,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => NewsConnection | Promise<NewsConnection>)
     | {
@@ -692,7 +692,7 @@ export namespace QueryResolvers {
         resolve: (
           parent: undefined,
           args: ArgsNewsConnection,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => NewsConnection | Promise<NewsConnection>;
       };
@@ -701,7 +701,7 @@ export namespace QueryResolvers {
     | ((
         parent: undefined,
         args: ArgsTalkConnection,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => TalkConnection | Promise<TalkConnection>)
     | {
@@ -709,7 +709,7 @@ export namespace QueryResolvers {
         resolve: (
           parent: undefined,
           args: ArgsTalkConnection,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => TalkConnection | Promise<TalkConnection>;
       };
@@ -718,7 +718,7 @@ export namespace QueryResolvers {
     | ((
         parent: undefined,
         args: ArgsRepoConnection,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => RepoConnection | Promise<RepoConnection>)
     | {
@@ -726,7 +726,7 @@ export namespace QueryResolvers {
         resolve: (
           parent: undefined,
           args: ArgsRepoConnection,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => RepoConnection | Promise<RepoConnection>;
       };
@@ -736,7 +736,7 @@ export namespace QueryResolvers {
       | ((
           parent: undefined,
           args: ArgsNewsItemBySlug,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => News | null | Promise<News | null>)
       | {
@@ -744,7 +744,7 @@ export namespace QueryResolvers {
           resolve: (
             parent: undefined,
             args: ArgsNewsItemBySlug,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => News | null | Promise<News | null>;
         };
@@ -753,7 +753,7 @@ export namespace QueryResolvers {
       | ((
           parent: undefined,
           args: ArgsTalkBySlug,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Talk | null | Promise<Talk | null>)
       | {
@@ -761,7 +761,7 @@ export namespace QueryResolvers {
           resolve: (
             parent: undefined,
             args: ArgsTalkBySlug,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Talk | null | Promise<Talk | null>;
         };
@@ -770,7 +770,7 @@ export namespace QueryResolvers {
       | ((
           parent: undefined,
           args: ArgsRepoBySlug,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Repo | null | Promise<Repo | null>)
       | {
@@ -778,7 +778,7 @@ export namespace QueryResolvers {
           resolve: (
             parent: undefined,
             args: ArgsRepoBySlug,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Repo | null | Promise<Repo | null>;
         };
@@ -787,7 +787,7 @@ export namespace QueryResolvers {
       | ((
           parent: undefined,
           args: ArgsNewsConnection,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => NewsConnection | Promise<NewsConnection>)
       | {
@@ -795,7 +795,7 @@ export namespace QueryResolvers {
           resolve: (
             parent: undefined,
             args: ArgsNewsConnection,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => NewsConnection | Promise<NewsConnection>;
         };
@@ -804,7 +804,7 @@ export namespace QueryResolvers {
       | ((
           parent: undefined,
           args: ArgsTalkConnection,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => TalkConnection | Promise<TalkConnection>)
       | {
@@ -812,7 +812,7 @@ export namespace QueryResolvers {
           resolve: (
             parent: undefined,
             args: ArgsTalkConnection,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => TalkConnection | Promise<TalkConnection>;
         };
@@ -821,7 +821,7 @@ export namespace QueryResolvers {
       | ((
           parent: undefined,
           args: ArgsRepoConnection,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => RepoConnection | Promise<RepoConnection>)
       | {
@@ -829,7 +829,7 @@ export namespace QueryResolvers {
           resolve: (
             parent: undefined,
             args: ArgsRepoConnection,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => RepoConnection | Promise<RepoConnection>;
         };
@@ -1355,7 +1355,7 @@ export namespace NewsResolvers {
     | ((
         parent: News,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -1363,7 +1363,7 @@ export namespace NewsResolvers {
         resolve: (
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -1372,7 +1372,7 @@ export namespace NewsResolvers {
     | ((
         parent: News,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -1380,7 +1380,7 @@ export namespace NewsResolvers {
         resolve: (
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -1389,7 +1389,7 @@ export namespace NewsResolvers {
     | ((
         parent: News,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -1397,7 +1397,7 @@ export namespace NewsResolvers {
         resolve: (
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -1406,7 +1406,7 @@ export namespace NewsResolvers {
     | ((
         parent: News,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -1414,7 +1414,7 @@ export namespace NewsResolvers {
         resolve: (
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -1423,7 +1423,7 @@ export namespace NewsResolvers {
     | ((
         parent: News,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | null | Promise<string | null>)
     | {
@@ -1431,7 +1431,7 @@ export namespace NewsResolvers {
         resolve: (
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | null | Promise<string | null>;
       };
@@ -1440,7 +1440,7 @@ export namespace NewsResolvers {
     | ((
         parent: News,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => boolean | null | Promise<boolean | null>)
     | {
@@ -1448,7 +1448,7 @@ export namespace NewsResolvers {
         resolve: (
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => boolean | null | Promise<boolean | null>;
       };
@@ -1457,7 +1457,7 @@ export namespace NewsResolvers {
     | ((
         parent: News,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => User | Promise<User>)
     | {
@@ -1465,7 +1465,7 @@ export namespace NewsResolvers {
         resolve: (
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => User | Promise<User>;
       };
@@ -1474,7 +1474,7 @@ export namespace NewsResolvers {
     | ((
         parent: News,
         args: ArgsTags,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Tag[] | null | Promise<Tag[] | null>)
     | {
@@ -1482,7 +1482,7 @@ export namespace NewsResolvers {
         resolve: (
           parent: News,
           args: ArgsTags,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Tag[] | null | Promise<Tag[] | null>;
       };
@@ -1491,7 +1491,7 @@ export namespace NewsResolvers {
     | ((
         parent: News,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -1499,7 +1499,7 @@ export namespace NewsResolvers {
         resolve: (
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -1508,7 +1508,7 @@ export namespace NewsResolvers {
     | ((
         parent: News,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -1516,7 +1516,7 @@ export namespace NewsResolvers {
         resolve: (
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -1526,7 +1526,7 @@ export namespace NewsResolvers {
       | ((
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -1534,7 +1534,7 @@ export namespace NewsResolvers {
           resolve: (
             parent: News,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -1543,7 +1543,7 @@ export namespace NewsResolvers {
       | ((
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -1551,7 +1551,7 @@ export namespace NewsResolvers {
           resolve: (
             parent: News,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -1560,7 +1560,7 @@ export namespace NewsResolvers {
       | ((
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -1568,7 +1568,7 @@ export namespace NewsResolvers {
           resolve: (
             parent: News,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -1577,7 +1577,7 @@ export namespace NewsResolvers {
       | ((
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -1585,7 +1585,7 @@ export namespace NewsResolvers {
           resolve: (
             parent: News,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -1594,7 +1594,7 @@ export namespace NewsResolvers {
       | ((
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | null | Promise<string | null>)
       | {
@@ -1602,7 +1602,7 @@ export namespace NewsResolvers {
           resolve: (
             parent: News,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | null | Promise<string | null>;
         };
@@ -1611,7 +1611,7 @@ export namespace NewsResolvers {
       | ((
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => boolean | null | Promise<boolean | null>)
       | {
@@ -1619,7 +1619,7 @@ export namespace NewsResolvers {
           resolve: (
             parent: News,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => boolean | null | Promise<boolean | null>;
         };
@@ -1628,7 +1628,7 @@ export namespace NewsResolvers {
       | ((
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => User | Promise<User>)
       | {
@@ -1636,7 +1636,7 @@ export namespace NewsResolvers {
           resolve: (
             parent: News,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => User | Promise<User>;
         };
@@ -1645,7 +1645,7 @@ export namespace NewsResolvers {
       | ((
           parent: News,
           args: ArgsTags,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Tag[] | null | Promise<Tag[] | null>)
       | {
@@ -1653,7 +1653,7 @@ export namespace NewsResolvers {
           resolve: (
             parent: News,
             args: ArgsTags,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Tag[] | null | Promise<Tag[] | null>;
         };
@@ -1662,7 +1662,7 @@ export namespace NewsResolvers {
       | ((
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -1670,7 +1670,7 @@ export namespace NewsResolvers {
           resolve: (
             parent: News,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -1679,7 +1679,7 @@ export namespace NewsResolvers {
       | ((
           parent: News,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -1687,7 +1687,7 @@ export namespace NewsResolvers {
           resolve: (
             parent: News,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -2222,7 +2222,7 @@ export namespace UserResolvers {
     | ((
         parent: User,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -2230,7 +2230,7 @@ export namespace UserResolvers {
         resolve: (
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -2239,7 +2239,7 @@ export namespace UserResolvers {
     | ((
         parent: User,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -2247,7 +2247,7 @@ export namespace UserResolvers {
         resolve: (
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -2256,7 +2256,7 @@ export namespace UserResolvers {
     | ((
         parent: User,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -2264,7 +2264,7 @@ export namespace UserResolvers {
         resolve: (
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -2273,7 +2273,7 @@ export namespace UserResolvers {
     | ((
         parent: User,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | null | Promise<string | null>)
     | {
@@ -2281,7 +2281,7 @@ export namespace UserResolvers {
         resolve: (
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | null | Promise<string | null>;
       };
@@ -2290,7 +2290,7 @@ export namespace UserResolvers {
     | ((
         parent: User,
         args: ArgsNewsItems,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => News[] | null | Promise<News[] | null>)
     | {
@@ -2298,7 +2298,7 @@ export namespace UserResolvers {
         resolve: (
           parent: User,
           args: ArgsNewsItems,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => News[] | null | Promise<News[] | null>;
       };
@@ -2307,7 +2307,7 @@ export namespace UserResolvers {
     | ((
         parent: User,
         args: ArgsTalks,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Talk[] | null | Promise<Talk[] | null>)
     | {
@@ -2315,7 +2315,7 @@ export namespace UserResolvers {
         resolve: (
           parent: User,
           args: ArgsTalks,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Talk[] | null | Promise<Talk[] | null>;
       };
@@ -2324,7 +2324,7 @@ export namespace UserResolvers {
     | ((
         parent: User,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -2332,7 +2332,7 @@ export namespace UserResolvers {
         resolve: (
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -2341,7 +2341,7 @@ export namespace UserResolvers {
     | ((
         parent: User,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | null | Promise<string | null>)
     | {
@@ -2349,7 +2349,7 @@ export namespace UserResolvers {
         resolve: (
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | null | Promise<string | null>;
       };
@@ -2358,7 +2358,7 @@ export namespace UserResolvers {
     | ((
         parent: User,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -2366,7 +2366,7 @@ export namespace UserResolvers {
         resolve: (
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -2375,7 +2375,7 @@ export namespace UserResolvers {
     | ((
         parent: User,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -2383,7 +2383,7 @@ export namespace UserResolvers {
         resolve: (
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -2393,7 +2393,7 @@ export namespace UserResolvers {
       | ((
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -2401,7 +2401,7 @@ export namespace UserResolvers {
           resolve: (
             parent: User,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -2410,7 +2410,7 @@ export namespace UserResolvers {
       | ((
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -2418,7 +2418,7 @@ export namespace UserResolvers {
           resolve: (
             parent: User,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -2427,7 +2427,7 @@ export namespace UserResolvers {
       | ((
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -2435,7 +2435,7 @@ export namespace UserResolvers {
           resolve: (
             parent: User,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -2444,7 +2444,7 @@ export namespace UserResolvers {
       | ((
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | null | Promise<string | null>)
       | {
@@ -2452,7 +2452,7 @@ export namespace UserResolvers {
           resolve: (
             parent: User,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | null | Promise<string | null>;
         };
@@ -2461,7 +2461,7 @@ export namespace UserResolvers {
       | ((
           parent: User,
           args: ArgsNewsItems,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => News[] | null | Promise<News[] | null>)
       | {
@@ -2469,7 +2469,7 @@ export namespace UserResolvers {
           resolve: (
             parent: User,
             args: ArgsNewsItems,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => News[] | null | Promise<News[] | null>;
         };
@@ -2478,7 +2478,7 @@ export namespace UserResolvers {
       | ((
           parent: User,
           args: ArgsTalks,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Talk[] | null | Promise<Talk[] | null>)
       | {
@@ -2486,7 +2486,7 @@ export namespace UserResolvers {
           resolve: (
             parent: User,
             args: ArgsTalks,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Talk[] | null | Promise<Talk[] | null>;
         };
@@ -2495,7 +2495,7 @@ export namespace UserResolvers {
       | ((
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -2503,7 +2503,7 @@ export namespace UserResolvers {
           resolve: (
             parent: User,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -2512,7 +2512,7 @@ export namespace UserResolvers {
       | ((
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | null | Promise<string | null>)
       | {
@@ -2520,7 +2520,7 @@ export namespace UserResolvers {
           resolve: (
             parent: User,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | null | Promise<string | null>;
         };
@@ -2529,7 +2529,7 @@ export namespace UserResolvers {
       | ((
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -2537,7 +2537,7 @@ export namespace UserResolvers {
           resolve: (
             parent: User,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -2546,7 +2546,7 @@ export namespace UserResolvers {
       | ((
           parent: User,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -2554,7 +2554,7 @@ export namespace UserResolvers {
           resolve: (
             parent: User,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -3080,7 +3080,7 @@ export namespace TalkResolvers {
     | ((
         parent: Talk,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -3088,7 +3088,7 @@ export namespace TalkResolvers {
         resolve: (
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -3097,7 +3097,7 @@ export namespace TalkResolvers {
     | ((
         parent: Talk,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -3105,7 +3105,7 @@ export namespace TalkResolvers {
         resolve: (
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -3114,7 +3114,7 @@ export namespace TalkResolvers {
     | ((
         parent: Talk,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -3122,7 +3122,7 @@ export namespace TalkResolvers {
         resolve: (
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -3131,7 +3131,7 @@ export namespace TalkResolvers {
     | ((
         parent: Talk,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -3139,7 +3139,7 @@ export namespace TalkResolvers {
         resolve: (
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -3148,7 +3148,7 @@ export namespace TalkResolvers {
     | ((
         parent: Talk,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => boolean | null | Promise<boolean | null>)
     | {
@@ -3156,7 +3156,7 @@ export namespace TalkResolvers {
         resolve: (
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => boolean | null | Promise<boolean | null>;
       };
@@ -3165,7 +3165,7 @@ export namespace TalkResolvers {
     | ((
         parent: Talk,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => User | null | Promise<User | null>)
     | {
@@ -3173,7 +3173,7 @@ export namespace TalkResolvers {
         resolve: (
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => User | null | Promise<User | null>;
       };
@@ -3182,7 +3182,7 @@ export namespace TalkResolvers {
     | ((
         parent: Talk,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => number | null | Promise<number | null>)
     | {
@@ -3190,7 +3190,7 @@ export namespace TalkResolvers {
         resolve: (
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => number | null | Promise<number | null>;
       };
@@ -3199,7 +3199,7 @@ export namespace TalkResolvers {
     | ((
         parent: Talk,
         args: ArgsTags,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Tag[] | null | Promise<Tag[] | null>)
     | {
@@ -3207,7 +3207,7 @@ export namespace TalkResolvers {
         resolve: (
           parent: Talk,
           args: ArgsTags,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Tag[] | null | Promise<Tag[] | null>;
       };
@@ -3216,7 +3216,7 @@ export namespace TalkResolvers {
     | ((
         parent: Talk,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -3224,7 +3224,7 @@ export namespace TalkResolvers {
         resolve: (
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -3233,7 +3233,7 @@ export namespace TalkResolvers {
     | ((
         parent: Talk,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -3241,7 +3241,7 @@ export namespace TalkResolvers {
         resolve: (
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -3251,7 +3251,7 @@ export namespace TalkResolvers {
       | ((
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -3259,7 +3259,7 @@ export namespace TalkResolvers {
           resolve: (
             parent: Talk,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -3268,7 +3268,7 @@ export namespace TalkResolvers {
       | ((
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -3276,7 +3276,7 @@ export namespace TalkResolvers {
           resolve: (
             parent: Talk,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -3285,7 +3285,7 @@ export namespace TalkResolvers {
       | ((
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -3293,7 +3293,7 @@ export namespace TalkResolvers {
           resolve: (
             parent: Talk,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -3302,7 +3302,7 @@ export namespace TalkResolvers {
       | ((
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -3310,7 +3310,7 @@ export namespace TalkResolvers {
           resolve: (
             parent: Talk,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -3319,7 +3319,7 @@ export namespace TalkResolvers {
       | ((
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => boolean | null | Promise<boolean | null>)
       | {
@@ -3327,7 +3327,7 @@ export namespace TalkResolvers {
           resolve: (
             parent: Talk,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => boolean | null | Promise<boolean | null>;
         };
@@ -3336,7 +3336,7 @@ export namespace TalkResolvers {
       | ((
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => User | null | Promise<User | null>)
       | {
@@ -3344,7 +3344,7 @@ export namespace TalkResolvers {
           resolve: (
             parent: Talk,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => User | null | Promise<User | null>;
         };
@@ -3353,7 +3353,7 @@ export namespace TalkResolvers {
       | ((
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => number | null | Promise<number | null>)
       | {
@@ -3361,7 +3361,7 @@ export namespace TalkResolvers {
           resolve: (
             parent: Talk,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => number | null | Promise<number | null>;
         };
@@ -3370,7 +3370,7 @@ export namespace TalkResolvers {
       | ((
           parent: Talk,
           args: ArgsTags,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Tag[] | null | Promise<Tag[] | null>)
       | {
@@ -3378,7 +3378,7 @@ export namespace TalkResolvers {
           resolve: (
             parent: Talk,
             args: ArgsTags,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Tag[] | null | Promise<Tag[] | null>;
         };
@@ -3387,7 +3387,7 @@ export namespace TalkResolvers {
       | ((
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -3395,7 +3395,7 @@ export namespace TalkResolvers {
           resolve: (
             parent: Talk,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -3404,7 +3404,7 @@ export namespace TalkResolvers {
       | ((
           parent: Talk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -3412,7 +3412,7 @@ export namespace TalkResolvers {
           resolve: (
             parent: Talk,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -3950,7 +3950,7 @@ export namespace TagResolvers {
     | ((
         parent: Tag,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -3958,7 +3958,7 @@ export namespace TagResolvers {
         resolve: (
           parent: Tag,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -3967,7 +3967,7 @@ export namespace TagResolvers {
     | ((
         parent: Tag,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -3975,7 +3975,7 @@ export namespace TagResolvers {
         resolve: (
           parent: Tag,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -3984,7 +3984,7 @@ export namespace TagResolvers {
     | ((
         parent: Tag,
         args: ArgsTalks,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Talk[] | null | Promise<Talk[] | null>)
     | {
@@ -3992,7 +3992,7 @@ export namespace TagResolvers {
         resolve: (
           parent: Tag,
           args: ArgsTalks,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Talk[] | null | Promise<Talk[] | null>;
       };
@@ -4001,7 +4001,7 @@ export namespace TagResolvers {
     | ((
         parent: Tag,
         args: ArgsNewsItems,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => News[] | null | Promise<News[] | null>)
     | {
@@ -4009,7 +4009,7 @@ export namespace TagResolvers {
         resolve: (
           parent: Tag,
           args: ArgsNewsItems,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => News[] | null | Promise<News[] | null>;
       };
@@ -4018,7 +4018,7 @@ export namespace TagResolvers {
     | ((
         parent: Tag,
         args: ArgsRepos,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Repo[] | null | Promise<Repo[] | null>)
     | {
@@ -4026,7 +4026,7 @@ export namespace TagResolvers {
         resolve: (
           parent: Tag,
           args: ArgsRepos,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Repo[] | null | Promise<Repo[] | null>;
       };
@@ -4036,7 +4036,7 @@ export namespace TagResolvers {
       | ((
           parent: Tag,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -4044,7 +4044,7 @@ export namespace TagResolvers {
           resolve: (
             parent: Tag,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -4053,7 +4053,7 @@ export namespace TagResolvers {
       | ((
           parent: Tag,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -4061,7 +4061,7 @@ export namespace TagResolvers {
           resolve: (
             parent: Tag,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -4070,7 +4070,7 @@ export namespace TagResolvers {
       | ((
           parent: Tag,
           args: ArgsTalks,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Talk[] | null | Promise<Talk[] | null>)
       | {
@@ -4078,7 +4078,7 @@ export namespace TagResolvers {
           resolve: (
             parent: Tag,
             args: ArgsTalks,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Talk[] | null | Promise<Talk[] | null>;
         };
@@ -4087,7 +4087,7 @@ export namespace TagResolvers {
       | ((
           parent: Tag,
           args: ArgsNewsItems,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => News[] | null | Promise<News[] | null>)
       | {
@@ -4095,7 +4095,7 @@ export namespace TagResolvers {
           resolve: (
             parent: Tag,
             args: ArgsNewsItems,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => News[] | null | Promise<News[] | null>;
         };
@@ -4104,7 +4104,7 @@ export namespace TagResolvers {
       | ((
           parent: Tag,
           args: ArgsRepos,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Repo[] | null | Promise<Repo[] | null>)
       | {
@@ -4112,7 +4112,7 @@ export namespace TagResolvers {
           resolve: (
             parent: Tag,
             args: ArgsRepos,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Repo[] | null | Promise<Repo[] | null>;
         };
@@ -4650,7 +4650,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -4658,7 +4658,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -4667,7 +4667,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -4675,7 +4675,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -4684,7 +4684,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -4692,7 +4692,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -4701,7 +4701,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -4709,7 +4709,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -4718,7 +4718,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -4726,7 +4726,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -4735,7 +4735,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -4743,7 +4743,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -4752,7 +4752,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => boolean | null | Promise<boolean | null>)
     | {
@@ -4760,7 +4760,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => boolean | null | Promise<boolean | null>;
       };
@@ -4769,7 +4769,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | null | Promise<string | null>)
     | {
@@ -4777,7 +4777,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | null | Promise<string | null>;
       };
@@ -4786,7 +4786,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => User | null | Promise<User | null>)
     | {
@@ -4794,7 +4794,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => User | null | Promise<User | null>;
       };
@@ -4803,7 +4803,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: ArgsTags,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Tag[] | null | Promise<Tag[] | null>)
     | {
@@ -4811,7 +4811,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: ArgsTags,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Tag[] | null | Promise<Tag[] | null>;
       };
@@ -4820,7 +4820,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: ArgsUpvotes,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Upvote[] | null | Promise<Upvote[] | null>)
     | {
@@ -4828,7 +4828,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: ArgsUpvotes,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Upvote[] | null | Promise<Upvote[] | null>;
       };
@@ -4837,7 +4837,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => number | null | Promise<number | null>)
     | {
@@ -4845,7 +4845,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => number | null | Promise<number | null>;
       };
@@ -4854,7 +4854,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => boolean | null | Promise<boolean | null>)
     | {
@@ -4862,7 +4862,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => boolean | null | Promise<boolean | null>;
       };
@@ -4871,7 +4871,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -4879,7 +4879,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -4888,7 +4888,7 @@ export namespace RepoResolvers {
     | ((
         parent: Repo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -4896,7 +4896,7 @@ export namespace RepoResolvers {
         resolve: (
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -4906,7 +4906,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -4914,7 +4914,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -4923,7 +4923,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -4931,7 +4931,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -4940,7 +4940,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -4948,7 +4948,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -4957,7 +4957,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -4965,7 +4965,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -4974,7 +4974,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -4982,7 +4982,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -4991,7 +4991,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -4999,7 +4999,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -5008,7 +5008,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => boolean | null | Promise<boolean | null>)
       | {
@@ -5016,7 +5016,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => boolean | null | Promise<boolean | null>;
         };
@@ -5025,7 +5025,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | null | Promise<string | null>)
       | {
@@ -5033,7 +5033,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | null | Promise<string | null>;
         };
@@ -5042,7 +5042,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => User | null | Promise<User | null>)
       | {
@@ -5050,7 +5050,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => User | null | Promise<User | null>;
         };
@@ -5059,7 +5059,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: ArgsTags,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Tag[] | null | Promise<Tag[] | null>)
       | {
@@ -5067,7 +5067,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: ArgsTags,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Tag[] | null | Promise<Tag[] | null>;
         };
@@ -5076,7 +5076,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: ArgsUpvotes,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Upvote[] | null | Promise<Upvote[] | null>)
       | {
@@ -5084,7 +5084,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: ArgsUpvotes,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Upvote[] | null | Promise<Upvote[] | null>;
         };
@@ -5093,7 +5093,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => number | null | Promise<number | null>)
       | {
@@ -5101,7 +5101,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => number | null | Promise<number | null>;
         };
@@ -5110,7 +5110,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => boolean | null | Promise<boolean | null>)
       | {
@@ -5118,7 +5118,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => boolean | null | Promise<boolean | null>;
         };
@@ -5127,7 +5127,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -5135,7 +5135,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -5144,7 +5144,7 @@ export namespace RepoResolvers {
       | ((
           parent: Repo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -5152,7 +5152,7 @@ export namespace RepoResolvers {
           resolve: (
             parent: Repo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -5168,7 +5168,7 @@ export namespace UpvoteResolvers {
     | ((
         parent: Upvote,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -5176,7 +5176,7 @@ export namespace UpvoteResolvers {
         resolve: (
           parent: Upvote,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -5185,7 +5185,7 @@ export namespace UpvoteResolvers {
     | ((
         parent: Upvote,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => User | Promise<User>)
     | {
@@ -5193,7 +5193,7 @@ export namespace UpvoteResolvers {
         resolve: (
           parent: Upvote,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => User | Promise<User>;
       };
@@ -5202,7 +5202,7 @@ export namespace UpvoteResolvers {
     | ((
         parent: Upvote,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Repo | Promise<Repo>)
     | {
@@ -5210,7 +5210,7 @@ export namespace UpvoteResolvers {
         resolve: (
           parent: Upvote,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Repo | Promise<Repo>;
       };
@@ -5220,7 +5220,7 @@ export namespace UpvoteResolvers {
       | ((
           parent: Upvote,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -5228,7 +5228,7 @@ export namespace UpvoteResolvers {
           resolve: (
             parent: Upvote,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -5237,7 +5237,7 @@ export namespace UpvoteResolvers {
       | ((
           parent: Upvote,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => User | Promise<User>)
       | {
@@ -5245,7 +5245,7 @@ export namespace UpvoteResolvers {
           resolve: (
             parent: Upvote,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => User | Promise<User>;
         };
@@ -5254,7 +5254,7 @@ export namespace UpvoteResolvers {
       | ((
           parent: Upvote,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Repo | Promise<Repo>)
       | {
@@ -5262,7 +5262,7 @@ export namespace UpvoteResolvers {
           resolve: (
             parent: Upvote,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Repo | Promise<Repo>;
         };
@@ -5279,7 +5279,7 @@ export namespace NewsConnectionResolvers {
     | ((
         parent: NewsConnection,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => PageInfo | Promise<PageInfo>)
     | {
@@ -5287,7 +5287,7 @@ export namespace NewsConnectionResolvers {
         resolve: (
           parent: NewsConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => PageInfo | Promise<PageInfo>;
       };
@@ -5296,7 +5296,7 @@ export namespace NewsConnectionResolvers {
     | ((
         parent: NewsConnection,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Array<NewsEdge | null> | Promise<Array<NewsEdge | null>>)
     | {
@@ -5304,7 +5304,7 @@ export namespace NewsConnectionResolvers {
         resolve: (
           parent: NewsConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Array<NewsEdge | null> | Promise<Array<NewsEdge | null>>;
       };
@@ -5313,7 +5313,7 @@ export namespace NewsConnectionResolvers {
     | ((
         parent: NewsConnection,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => AggregateNews | Promise<AggregateNews>)
     | {
@@ -5321,7 +5321,7 @@ export namespace NewsConnectionResolvers {
         resolve: (
           parent: NewsConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => AggregateNews | Promise<AggregateNews>;
       };
@@ -5331,7 +5331,7 @@ export namespace NewsConnectionResolvers {
       | ((
           parent: NewsConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => PageInfo | Promise<PageInfo>)
       | {
@@ -5339,7 +5339,7 @@ export namespace NewsConnectionResolvers {
           resolve: (
             parent: NewsConnection,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => PageInfo | Promise<PageInfo>;
         };
@@ -5348,7 +5348,7 @@ export namespace NewsConnectionResolvers {
       | ((
           parent: NewsConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Array<NewsEdge | null> | Promise<Array<NewsEdge | null>>)
       | {
@@ -5356,7 +5356,7 @@ export namespace NewsConnectionResolvers {
           resolve: (
             parent: NewsConnection,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Array<NewsEdge | null> | Promise<Array<NewsEdge | null>>;
         };
@@ -5365,7 +5365,7 @@ export namespace NewsConnectionResolvers {
       | ((
           parent: NewsConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => AggregateNews | Promise<AggregateNews>)
       | {
@@ -5373,7 +5373,7 @@ export namespace NewsConnectionResolvers {
           resolve: (
             parent: NewsConnection,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => AggregateNews | Promise<AggregateNews>;
         };
@@ -5394,7 +5394,7 @@ export namespace PageInfoResolvers {
     | ((
         parent: PageInfo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => boolean | Promise<boolean>)
     | {
@@ -5402,7 +5402,7 @@ export namespace PageInfoResolvers {
         resolve: (
           parent: PageInfo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => boolean | Promise<boolean>;
       };
@@ -5411,7 +5411,7 @@ export namespace PageInfoResolvers {
     | ((
         parent: PageInfo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => boolean | Promise<boolean>)
     | {
@@ -5419,7 +5419,7 @@ export namespace PageInfoResolvers {
         resolve: (
           parent: PageInfo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => boolean | Promise<boolean>;
       };
@@ -5428,7 +5428,7 @@ export namespace PageInfoResolvers {
     | ((
         parent: PageInfo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | null | Promise<string | null>)
     | {
@@ -5436,7 +5436,7 @@ export namespace PageInfoResolvers {
         resolve: (
           parent: PageInfo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | null | Promise<string | null>;
       };
@@ -5445,7 +5445,7 @@ export namespace PageInfoResolvers {
     | ((
         parent: PageInfo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | null | Promise<string | null>)
     | {
@@ -5453,7 +5453,7 @@ export namespace PageInfoResolvers {
         resolve: (
           parent: PageInfo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | null | Promise<string | null>;
       };
@@ -5463,7 +5463,7 @@ export namespace PageInfoResolvers {
       | ((
           parent: PageInfo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => boolean | Promise<boolean>)
       | {
@@ -5471,7 +5471,7 @@ export namespace PageInfoResolvers {
           resolve: (
             parent: PageInfo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => boolean | Promise<boolean>;
         };
@@ -5480,7 +5480,7 @@ export namespace PageInfoResolvers {
       | ((
           parent: PageInfo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => boolean | Promise<boolean>)
       | {
@@ -5488,7 +5488,7 @@ export namespace PageInfoResolvers {
           resolve: (
             parent: PageInfo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => boolean | Promise<boolean>;
         };
@@ -5497,7 +5497,7 @@ export namespace PageInfoResolvers {
       | ((
           parent: PageInfo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | null | Promise<string | null>)
       | {
@@ -5505,7 +5505,7 @@ export namespace PageInfoResolvers {
           resolve: (
             parent: PageInfo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | null | Promise<string | null>;
         };
@@ -5514,7 +5514,7 @@ export namespace PageInfoResolvers {
       | ((
           parent: PageInfo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | null | Promise<string | null>)
       | {
@@ -5522,7 +5522,7 @@ export namespace PageInfoResolvers {
           resolve: (
             parent: PageInfo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | null | Promise<string | null>;
         };
@@ -5539,7 +5539,7 @@ export namespace NewsEdgeResolvers {
     | ((
         parent: NewsEdge,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => News | Promise<News>)
     | {
@@ -5547,7 +5547,7 @@ export namespace NewsEdgeResolvers {
         resolve: (
           parent: NewsEdge,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => News | Promise<News>;
       };
@@ -5556,7 +5556,7 @@ export namespace NewsEdgeResolvers {
     | ((
         parent: NewsEdge,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -5564,7 +5564,7 @@ export namespace NewsEdgeResolvers {
         resolve: (
           parent: NewsEdge,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -5574,7 +5574,7 @@ export namespace NewsEdgeResolvers {
       | ((
           parent: NewsEdge,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => News | Promise<News>)
       | {
@@ -5582,7 +5582,7 @@ export namespace NewsEdgeResolvers {
           resolve: (
             parent: NewsEdge,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => News | Promise<News>;
         };
@@ -5591,7 +5591,7 @@ export namespace NewsEdgeResolvers {
       | ((
           parent: NewsEdge,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -5599,7 +5599,7 @@ export namespace NewsEdgeResolvers {
           resolve: (
             parent: NewsEdge,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -5615,7 +5615,7 @@ export namespace AggregateNewsResolvers {
     | ((
         parent: AggregateNews,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => number | Promise<number>)
     | {
@@ -5623,7 +5623,7 @@ export namespace AggregateNewsResolvers {
         resolve: (
           parent: AggregateNews,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => number | Promise<number>;
       };
@@ -5633,7 +5633,7 @@ export namespace AggregateNewsResolvers {
       | ((
           parent: AggregateNews,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => number | Promise<number>)
       | {
@@ -5641,7 +5641,7 @@ export namespace AggregateNewsResolvers {
           resolve: (
             parent: AggregateNews,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => number | Promise<number>;
         };
@@ -5658,7 +5658,7 @@ export namespace TalkConnectionResolvers {
     | ((
         parent: TalkConnection,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => PageInfo | Promise<PageInfo>)
     | {
@@ -5666,7 +5666,7 @@ export namespace TalkConnectionResolvers {
         resolve: (
           parent: TalkConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => PageInfo | Promise<PageInfo>;
       };
@@ -5675,7 +5675,7 @@ export namespace TalkConnectionResolvers {
     | ((
         parent: TalkConnection,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Array<TalkEdge | null> | Promise<Array<TalkEdge | null>>)
     | {
@@ -5683,7 +5683,7 @@ export namespace TalkConnectionResolvers {
         resolve: (
           parent: TalkConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Array<TalkEdge | null> | Promise<Array<TalkEdge | null>>;
       };
@@ -5692,7 +5692,7 @@ export namespace TalkConnectionResolvers {
     | ((
         parent: TalkConnection,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => AggregateTalk | Promise<AggregateTalk>)
     | {
@@ -5700,7 +5700,7 @@ export namespace TalkConnectionResolvers {
         resolve: (
           parent: TalkConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => AggregateTalk | Promise<AggregateTalk>;
       };
@@ -5710,7 +5710,7 @@ export namespace TalkConnectionResolvers {
       | ((
           parent: TalkConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => PageInfo | Promise<PageInfo>)
       | {
@@ -5718,7 +5718,7 @@ export namespace TalkConnectionResolvers {
           resolve: (
             parent: TalkConnection,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => PageInfo | Promise<PageInfo>;
         };
@@ -5727,7 +5727,7 @@ export namespace TalkConnectionResolvers {
       | ((
           parent: TalkConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Array<TalkEdge | null> | Promise<Array<TalkEdge | null>>)
       | {
@@ -5735,7 +5735,7 @@ export namespace TalkConnectionResolvers {
           resolve: (
             parent: TalkConnection,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Array<TalkEdge | null> | Promise<Array<TalkEdge | null>>;
         };
@@ -5744,7 +5744,7 @@ export namespace TalkConnectionResolvers {
       | ((
           parent: TalkConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => AggregateTalk | Promise<AggregateTalk>)
       | {
@@ -5752,7 +5752,7 @@ export namespace TalkConnectionResolvers {
           resolve: (
             parent: TalkConnection,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => AggregateTalk | Promise<AggregateTalk>;
         };
@@ -5769,7 +5769,7 @@ export namespace TalkEdgeResolvers {
     | ((
         parent: TalkEdge,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Talk | Promise<Talk>)
     | {
@@ -5777,7 +5777,7 @@ export namespace TalkEdgeResolvers {
         resolve: (
           parent: TalkEdge,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Talk | Promise<Talk>;
       };
@@ -5786,7 +5786,7 @@ export namespace TalkEdgeResolvers {
     | ((
         parent: TalkEdge,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -5794,7 +5794,7 @@ export namespace TalkEdgeResolvers {
         resolve: (
           parent: TalkEdge,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -5804,7 +5804,7 @@ export namespace TalkEdgeResolvers {
       | ((
           parent: TalkEdge,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Talk | Promise<Talk>)
       | {
@@ -5812,7 +5812,7 @@ export namespace TalkEdgeResolvers {
           resolve: (
             parent: TalkEdge,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Talk | Promise<Talk>;
         };
@@ -5821,7 +5821,7 @@ export namespace TalkEdgeResolvers {
       | ((
           parent: TalkEdge,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -5829,7 +5829,7 @@ export namespace TalkEdgeResolvers {
           resolve: (
             parent: TalkEdge,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -5845,7 +5845,7 @@ export namespace AggregateTalkResolvers {
     | ((
         parent: AggregateTalk,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => number | Promise<number>)
     | {
@@ -5853,7 +5853,7 @@ export namespace AggregateTalkResolvers {
         resolve: (
           parent: AggregateTalk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => number | Promise<number>;
       };
@@ -5863,7 +5863,7 @@ export namespace AggregateTalkResolvers {
       | ((
           parent: AggregateTalk,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => number | Promise<number>)
       | {
@@ -5871,7 +5871,7 @@ export namespace AggregateTalkResolvers {
           resolve: (
             parent: AggregateTalk,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => number | Promise<number>;
         };
@@ -5888,7 +5888,7 @@ export namespace RepoConnectionResolvers {
     | ((
         parent: RepoConnection,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => PageInfo | Promise<PageInfo>)
     | {
@@ -5896,7 +5896,7 @@ export namespace RepoConnectionResolvers {
         resolve: (
           parent: RepoConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => PageInfo | Promise<PageInfo>;
       };
@@ -5905,7 +5905,7 @@ export namespace RepoConnectionResolvers {
     | ((
         parent: RepoConnection,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Array<RepoEdge | null> | Promise<Array<RepoEdge | null>>)
     | {
@@ -5913,7 +5913,7 @@ export namespace RepoConnectionResolvers {
         resolve: (
           parent: RepoConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Array<RepoEdge | null> | Promise<Array<RepoEdge | null>>;
       };
@@ -5922,7 +5922,7 @@ export namespace RepoConnectionResolvers {
     | ((
         parent: RepoConnection,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => AggregateRepo | Promise<AggregateRepo>)
     | {
@@ -5930,7 +5930,7 @@ export namespace RepoConnectionResolvers {
         resolve: (
           parent: RepoConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => AggregateRepo | Promise<AggregateRepo>;
       };
@@ -5940,7 +5940,7 @@ export namespace RepoConnectionResolvers {
       | ((
           parent: RepoConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => PageInfo | Promise<PageInfo>)
       | {
@@ -5948,7 +5948,7 @@ export namespace RepoConnectionResolvers {
           resolve: (
             parent: RepoConnection,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => PageInfo | Promise<PageInfo>;
         };
@@ -5957,7 +5957,7 @@ export namespace RepoConnectionResolvers {
       | ((
           parent: RepoConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Array<RepoEdge | null> | Promise<Array<RepoEdge | null>>)
       | {
@@ -5965,7 +5965,7 @@ export namespace RepoConnectionResolvers {
           resolve: (
             parent: RepoConnection,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Array<RepoEdge | null> | Promise<Array<RepoEdge | null>>;
         };
@@ -5974,7 +5974,7 @@ export namespace RepoConnectionResolvers {
       | ((
           parent: RepoConnection,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => AggregateRepo | Promise<AggregateRepo>)
       | {
@@ -5982,7 +5982,7 @@ export namespace RepoConnectionResolvers {
           resolve: (
             parent: RepoConnection,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => AggregateRepo | Promise<AggregateRepo>;
         };
@@ -5999,7 +5999,7 @@ export namespace RepoEdgeResolvers {
     | ((
         parent: RepoEdge,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Repo | Promise<Repo>)
     | {
@@ -6007,7 +6007,7 @@ export namespace RepoEdgeResolvers {
         resolve: (
           parent: RepoEdge,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Repo | Promise<Repo>;
       };
@@ -6016,7 +6016,7 @@ export namespace RepoEdgeResolvers {
     | ((
         parent: RepoEdge,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => string | Promise<string>)
     | {
@@ -6024,7 +6024,7 @@ export namespace RepoEdgeResolvers {
         resolve: (
           parent: RepoEdge,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>;
       };
@@ -6034,7 +6034,7 @@ export namespace RepoEdgeResolvers {
       | ((
           parent: RepoEdge,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Repo | Promise<Repo>)
       | {
@@ -6042,7 +6042,7 @@ export namespace RepoEdgeResolvers {
           resolve: (
             parent: RepoEdge,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Repo | Promise<Repo>;
         };
@@ -6051,7 +6051,7 @@ export namespace RepoEdgeResolvers {
       | ((
           parent: RepoEdge,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => string | Promise<string>)
       | {
@@ -6059,7 +6059,7 @@ export namespace RepoEdgeResolvers {
           resolve: (
             parent: RepoEdge,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => string | Promise<string>;
         };
@@ -6075,7 +6075,7 @@ export namespace AggregateRepoResolvers {
     | ((
         parent: AggregateRepo,
         args: {},
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => number | Promise<number>)
     | {
@@ -6083,7 +6083,7 @@ export namespace AggregateRepoResolvers {
         resolve: (
           parent: AggregateRepo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => number | Promise<number>;
       };
@@ -6093,7 +6093,7 @@ export namespace AggregateRepoResolvers {
       | ((
           parent: AggregateRepo,
           args: {},
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => number | Promise<number>)
       | {
@@ -6101,7 +6101,7 @@ export namespace AggregateRepoResolvers {
           resolve: (
             parent: AggregateRepo,
             args: {},
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => number | Promise<number>;
         };
@@ -6119,7 +6119,7 @@ export namespace MutationResolvers {
     | ((
         parent: undefined,
         args: ArgsToggleRepoVote,
-        ctx: MyContext,
+        ctx: IMyContext,
         info: GraphQLResolveInfo
       ) => Upvote | Promise<Upvote>)
     | {
@@ -6127,7 +6127,7 @@ export namespace MutationResolvers {
         resolve: (
           parent: undefined,
           args: ArgsToggleRepoVote,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Upvote | Promise<Upvote>;
       };
@@ -6137,7 +6137,7 @@ export namespace MutationResolvers {
       | ((
           parent: undefined,
           args: ArgsToggleRepoVote,
-          ctx: MyContext,
+          ctx: IMyContext,
           info: GraphQLResolveInfo
         ) => Upvote | Promise<Upvote>)
       | {
@@ -6145,7 +6145,7 @@ export namespace MutationResolvers {
           resolve: (
             parent: undefined,
             args: ArgsToggleRepoVote,
-            ctx: MyContext,
+            ctx: IMyContext,
             info: GraphQLResolveInfo
           ) => Upvote | Promise<Upvote>;
         };

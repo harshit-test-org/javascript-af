@@ -2,7 +2,7 @@ import {} from 'react';
 import { CSSProp } from 'styled-components';
 
 declare module 'react' {
-  interface Attributes {
+  interface IAttributes {
     /**
      * If present, this React element will be converted by
      * `babel-plugin-styled-components` into a styled component

@@ -2422,10 +2422,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/passport-github2@1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@types/passport-github2/-/passport-github2-1.2.3.tgz#d65cec6a8304ace043fc1d3b9918e2392be22978"
-  integrity sha512-xh5bz2dkJAX1e/XhjKWm7Lz1C8gEh8TaQhbFE/91GjqinymbQJq54z6Hk0oJELqg2s405YrhcGDO8r7upB2ASg==
+"@types/passport-github2@1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@types/passport-github2/-/passport-github2-1.2.4.tgz#f56c386d1fe6435e359430e57adc1747a627bd86"
+  integrity sha512-dtGtA0Uyzk6ne3SrgQi/I1ClClLE3i7JmSiMaJgkGH8v1nbE9JdBpG7QWJ1XPlLdcf7EvoPdHmkWN2+Kln9y8g==
   dependencies:
     "@types/express" "*"
     "@types/passport" "*"

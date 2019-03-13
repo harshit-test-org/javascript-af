@@ -4,10 +4,10 @@ services:
     image: prismagraphql/prisma:1.28
     restart: always
     ports:
-      - '4467:4467'
+      - '4468:4468'
     environment:
       PRISMA_CONFIG: |
-        port: 4467
+        port: 4468
         databases:
           default:
             connector: postgres

@@ -29,6 +29,7 @@ type Talk {
   slug: String! @unique
   title: String!
   previewImage: String!
+  alt: String
   isFeatured: Boolean
   speaker: User
   length: Int

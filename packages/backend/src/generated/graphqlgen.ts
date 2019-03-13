@@ -18,7 +18,7 @@ import {
   RepoConnection,
   RepoEdge,
   AggregateRepo,
-} from './prisma-client';
+} from './prisma-client/index';
 import { IMyContext } from '../context';
 
 export type NewsOrderByInput =
@@ -47,6 +47,8 @@ export type TalkOrderByInput =
   | 'title_DESC'
   | 'previewImage_ASC'
   | 'previewImage_DESC'
+  | 'alt_ASC'
+  | 'alt_DESC'
   | 'isFeatured_ASC'
   | 'isFeatured_DESC'
   | 'length_ASC'
@@ -250,6 +252,20 @@ export namespace QueryResolvers {
     previewImage_not_starts_with?: string | null;
     previewImage_ends_with?: string | null;
     previewImage_not_ends_with?: string | null;
+    alt?: string | null;
+    alt_not?: string | null;
+    alt_in?: string[] | null;
+    alt_not_in?: string[] | null;
+    alt_lt?: string | null;
+    alt_lte?: string | null;
+    alt_gt?: string | null;
+    alt_gte?: string | null;
+    alt_contains?: string | null;
+    alt_not_contains?: string | null;
+    alt_starts_with?: string | null;
+    alt_not_starts_with?: string | null;
+    alt_ends_with?: string | null;
+    alt_not_ends_with?: string | null;
     isFeatured?: boolean | null;
     isFeatured_not?: boolean | null;
     speaker?: UserWhereInput | null;
@@ -949,6 +965,20 @@ export namespace NewsResolvers {
     previewImage_not_starts_with?: string | null;
     previewImage_ends_with?: string | null;
     previewImage_not_ends_with?: string | null;
+    alt?: string | null;
+    alt_not?: string | null;
+    alt_in?: string[] | null;
+    alt_not_in?: string[] | null;
+    alt_lt?: string | null;
+    alt_lte?: string | null;
+    alt_gt?: string | null;
+    alt_gte?: string | null;
+    alt_contains?: string | null;
+    alt_not_contains?: string | null;
+    alt_starts_with?: string | null;
+    alt_not_starts_with?: string | null;
+    alt_ends_with?: string | null;
+    alt_not_ends_with?: string | null;
     isFeatured?: boolean | null;
     isFeatured_not?: boolean | null;
     speaker?: UserWhereInput | null;
@@ -1861,6 +1891,20 @@ export namespace UserResolvers {
     previewImage_not_starts_with?: string | null;
     previewImage_ends_with?: string | null;
     previewImage_not_ends_with?: string | null;
+    alt?: string | null;
+    alt_not?: string | null;
+    alt_in?: string[] | null;
+    alt_not_in?: string[] | null;
+    alt_lt?: string | null;
+    alt_lte?: string | null;
+    alt_gt?: string | null;
+    alt_gte?: string | null;
+    alt_contains?: string | null;
+    alt_not_contains?: string | null;
+    alt_starts_with?: string | null;
+    alt_not_starts_with?: string | null;
+    alt_ends_with?: string | null;
+    alt_not_ends_with?: string | null;
     isFeatured?: boolean | null;
     isFeatured_not?: boolean | null;
     speaker?: UserWhereInput | null;
@@ -2567,6 +2611,7 @@ export namespace TalkResolvers {
     slug: (parent: Talk) => parent.slug,
     title: (parent: Talk) => parent.title,
     previewImage: (parent: Talk) => parent.previewImage,
+    alt: (parent: Talk) => (parent.alt === undefined ? null : parent.alt),
     isFeatured: (parent: Talk) =>
       parent.isFeatured === undefined ? null : parent.isFeatured,
     length: (parent: Talk) =>
@@ -2674,6 +2719,20 @@ export namespace TalkResolvers {
     previewImage_not_starts_with?: string | null;
     previewImage_ends_with?: string | null;
     previewImage_not_ends_with?: string | null;
+    alt?: string | null;
+    alt_not?: string | null;
+    alt_in?: string[] | null;
+    alt_not_in?: string[] | null;
+    alt_lt?: string | null;
+    alt_lte?: string | null;
+    alt_gt?: string | null;
+    alt_gte?: string | null;
+    alt_contains?: string | null;
+    alt_not_contains?: string | null;
+    alt_starts_with?: string | null;
+    alt_not_starts_with?: string | null;
+    alt_ends_with?: string | null;
+    alt_not_ends_with?: string | null;
     isFeatured?: boolean | null;
     isFeatured_not?: boolean | null;
     speaker?: UserWhereInput | null;
@@ -3144,6 +3203,23 @@ export namespace TalkResolvers {
         ) => string | Promise<string>;
       };
 
+  export type AltResolver =
+    | ((
+        parent: Talk,
+        args: {},
+        ctx: IMyContext,
+        info: GraphQLResolveInfo
+      ) => string | null | Promise<string | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: Talk,
+          args: {},
+          ctx: IMyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>;
+      };
+
   export type IsFeaturedResolver =
     | ((
         parent: Talk,
@@ -3315,6 +3391,23 @@ export namespace TalkResolvers {
           ) => string | Promise<string>;
         };
 
+    alt:
+      | ((
+          parent: Talk,
+          args: {},
+          ctx: IMyContext,
+          info: GraphQLResolveInfo
+        ) => string | null | Promise<string | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: Talk,
+            args: {},
+            ctx: IMyContext,
+            info: GraphQLResolveInfo
+          ) => string | null | Promise<string | null>;
+        };
+
     isFeatured:
       | ((
           parent: Talk,
@@ -3482,6 +3575,20 @@ export namespace TagResolvers {
     previewImage_not_starts_with?: string | null;
     previewImage_ends_with?: string | null;
     previewImage_not_ends_with?: string | null;
+    alt?: string | null;
+    alt_not?: string | null;
+    alt_in?: string[] | null;
+    alt_not_in?: string[] | null;
+    alt_lt?: string | null;
+    alt_lte?: string | null;
+    alt_gt?: string | null;
+    alt_gte?: string | null;
+    alt_contains?: string | null;
+    alt_not_contains?: string | null;
+    alt_starts_with?: string | null;
+    alt_not_starts_with?: string | null;
+    alt_ends_with?: string | null;
+    alt_not_ends_with?: string | null;
     isFeatured?: boolean | null;
     isFeatured_not?: boolean | null;
     speaker?: UserWhereInput | null;
@@ -4255,6 +4362,20 @@ export namespace RepoResolvers {
     previewImage_not_starts_with?: string | null;
     previewImage_ends_with?: string | null;
     previewImage_not_ends_with?: string | null;
+    alt?: string | null;
+    alt_not?: string | null;
+    alt_in?: string[] | null;
+    alt_not_in?: string[] | null;
+    alt_lt?: string | null;
+    alt_lte?: string | null;
+    alt_gt?: string | null;
+    alt_gte?: string | null;
+    alt_contains?: string | null;
+    alt_not_contains?: string | null;
+    alt_starts_with?: string | null;
+    alt_not_starts_with?: string | null;
+    alt_ends_with?: string | null;
+    alt_not_ends_with?: string | null;
     isFeatured?: boolean | null;
     isFeatured_not?: boolean | null;
     speaker?: UserWhereInput | null;

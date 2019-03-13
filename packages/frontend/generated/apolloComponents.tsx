@@ -1,8 +1,3 @@
-import * as ReactApollo from 'react-apollo';
-import * as React from 'react';
-
-import gql from 'graphql-tag';
-
 export type Maybe<T> = T | null;
 
 export interface NewsWhereInput {
@@ -530,6 +525,34 @@ export interface TalkWhereInput {
 
   previewImage_not_ends_with?: Maybe<string>;
 
+  alt?: Maybe<string>;
+
+  alt_not?: Maybe<string>;
+
+  alt_in?: Maybe<string[]>;
+
+  alt_not_in?: Maybe<string[]>;
+
+  alt_lt?: Maybe<string>;
+
+  alt_lte?: Maybe<string>;
+
+  alt_gt?: Maybe<string>;
+
+  alt_gte?: Maybe<string>;
+
+  alt_contains?: Maybe<string>;
+
+  alt_not_contains?: Maybe<string>;
+
+  alt_starts_with?: Maybe<string>;
+
+  alt_not_starts_with?: Maybe<string>;
+
+  alt_ends_with?: Maybe<string>;
+
+  alt_not_ends_with?: Maybe<string>;
+
   isFeatured?: Maybe<boolean>;
 
   isFeatured_not?: Maybe<boolean>;
@@ -1001,6 +1024,8 @@ export enum TalkOrderByInput {
   TitleDesc = 'title_DESC',
   PreviewImageAsc = 'previewImage_ASC',
   PreviewImageDesc = 'previewImage_DESC',
+  AltAsc = 'alt_ASC',
+  AltDesc = 'alt_DESC',
   IsFeaturedAsc = 'isFeatured_ASC',
   IsFeaturedDesc = 'isFeatured_DESC',
   LengthAsc = 'length_ASC',
@@ -1055,76 +1080,3 @@ export enum UpvoteOrderByInput {
 }
 
 export type DateTime = any;
-
-// ====================================================
-// Documents
-// ====================================================
-
-export type TalkAggregateQueryVariables = {};
-
-export type TalkAggregateQueryQuery = {
-  __typename?: 'Query';
-
-  talkConnection: TalkAggregateQueryTalkConnection;
-};
-
-export type TalkAggregateQueryTalkConnection = {
-  __typename?: 'TalkConnection';
-
-  aggregate: TalkAggregateQueryAggregate;
-};
-
-export type TalkAggregateQueryAggregate = {
-  __typename?: 'AggregateTalk';
-
-  count: number;
-};
-
-// ====================================================
-// Components
-// ====================================================
-
-export const TalkAggregateQueryDocument = gql`
-  query talkAggregateQuery {
-    talkConnection {
-      aggregate {
-        count
-      }
-    }
-  }
-`;
-export class TalkAggregateQueryComponent extends React.Component<
-  Partial<
-    ReactApollo.QueryProps<TalkAggregateQueryQuery, TalkAggregateQueryVariables>
-  >
-> {
-  render() {
-    return (
-      <ReactApollo.Query<TalkAggregateQueryQuery, TalkAggregateQueryVariables>
-        query={TalkAggregateQueryDocument}
-        {...(this as any).props as any}
-      />
-    );
-  }
-}
-export type TalkAggregateQueryProps<TChildProps = any> = Partial<
-  ReactApollo.DataProps<TalkAggregateQueryQuery, TalkAggregateQueryVariables>
-> &
-  TChildProps;
-export function TalkAggregateQueryHOC<TProps, TChildProps = any>(
-  operationOptions:
-    | ReactApollo.OperationOption<
-        TProps,
-        TalkAggregateQueryQuery,
-        TalkAggregateQueryVariables,
-        TalkAggregateQueryProps<TChildProps>
-      >
-    | undefined
-) {
-  return ReactApollo.graphql<
-    TProps,
-    TalkAggregateQueryQuery,
-    TalkAggregateQueryVariables,
-    TalkAggregateQueryProps<TChildProps>
-  >(TalkAggregateQueryDocument, operationOptions);
-}

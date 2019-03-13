@@ -1286,6 +1286,7 @@ type Talk {
   slug: String!
   title: String!
   previewImage: String!
+  alt: String
   isFeatured: Boolean
   speaker: User
   length: Int
@@ -1304,6 +1305,7 @@ input TalkCreateInput {
   slug: String!
   title: String!
   previewImage: String!
+  alt: String
   isFeatured: Boolean
   speaker: UserCreateOneWithoutTalksInput
   length: Int
@@ -1324,6 +1326,7 @@ input TalkCreateWithoutSpeakerInput {
   slug: String!
   title: String!
   previewImage: String!
+  alt: String
   isFeatured: Boolean
   length: Int
   tags: TagCreateManyWithoutTalksInput
@@ -1333,6 +1336,7 @@ input TalkCreateWithoutTagsInput {
   slug: String!
   title: String!
   previewImage: String!
+  alt: String
   isFeatured: Boolean
   speaker: UserCreateOneWithoutTalksInput
   length: Int
@@ -1352,6 +1356,8 @@ enum TalkOrderByInput {
   title_DESC
   previewImage_ASC
   previewImage_DESC
+  alt_ASC
+  alt_DESC
   isFeatured_ASC
   isFeatured_DESC
   length_ASC
@@ -1367,6 +1373,7 @@ type TalkPreviousValues {
   slug: String!
   title: String!
   previewImage: String!
+  alt: String
   isFeatured: Boolean
   length: Int
   createdAt: DateTime!
@@ -1430,6 +1437,20 @@ input TalkScalarWhereInput {
   previewImage_not_starts_with: String
   previewImage_ends_with: String
   previewImage_not_ends_with: String
+  alt: String
+  alt_not: String
+  alt_in: [String!]
+  alt_not_in: [String!]
+  alt_lt: String
+  alt_lte: String
+  alt_gt: String
+  alt_gte: String
+  alt_contains: String
+  alt_not_contains: String
+  alt_starts_with: String
+  alt_not_starts_with: String
+  alt_ends_with: String
+  alt_not_ends_with: String
   isFeatured: Boolean
   isFeatured_not: Boolean
   length: Int
@@ -1483,6 +1504,7 @@ input TalkUpdateInput {
   slug: String
   title: String
   previewImage: String
+  alt: String
   isFeatured: Boolean
   speaker: UserUpdateOneWithoutTalksInput
   length: Int
@@ -1493,6 +1515,7 @@ input TalkUpdateManyDataInput {
   slug: String
   title: String
   previewImage: String
+  alt: String
   isFeatured: Boolean
   length: Int
 }
@@ -1501,6 +1524,7 @@ input TalkUpdateManyMutationInput {
   slug: String
   title: String
   previewImage: String
+  alt: String
   isFeatured: Boolean
   length: Int
 }
@@ -1538,6 +1562,7 @@ input TalkUpdateWithoutSpeakerDataInput {
   slug: String
   title: String
   previewImage: String
+  alt: String
   isFeatured: Boolean
   length: Int
   tags: TagUpdateManyWithoutTalksInput
@@ -1547,6 +1572,7 @@ input TalkUpdateWithoutTagsDataInput {
   slug: String
   title: String
   previewImage: String
+  alt: String
   isFeatured: Boolean
   speaker: UserUpdateOneWithoutTalksInput
   length: Int
@@ -1631,6 +1657,20 @@ input TalkWhereInput {
   previewImage_not_starts_with: String
   previewImage_ends_with: String
   previewImage_not_ends_with: String
+  alt: String
+  alt_not: String
+  alt_in: [String!]
+  alt_not_in: [String!]
+  alt_lt: String
+  alt_lte: String
+  alt_gt: String
+  alt_gte: String
+  alt_contains: String
+  alt_not_contains: String
+  alt_starts_with: String
+  alt_not_starts_with: String
+  alt_ends_with: String
+  alt_not_ends_with: String
   isFeatured: Boolean
   isFeatured_not: Boolean
   speaker: UserWhereInput

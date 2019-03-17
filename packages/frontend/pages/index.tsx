@@ -31,7 +31,7 @@ const HeroTop = styled.section`
   }
 `;
 
-const RepoHero = styled.div`
+export const RepoHero = styled.div`
   display: grid;
   margin-top: 1rem;
   margin-bottom: 5rem;

@@ -2,7 +2,11 @@ import {} from 'react';
 import { CSSProp } from 'styled-components';
 
 declare module 'react' {
-  interface IAttributes {
+  /**
+   * disabling our interface rule as it is important to name this interface as this
+   */
+  // eslint-disable-next-line @typescript-eslint/interface-name-prefix
+  interface Attributes {
     /**
      * If present, this React element will be converted by
      * `babel-plugin-styled-components` into a styled component

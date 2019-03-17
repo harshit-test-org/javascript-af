@@ -15,7 +15,8 @@ const StyledCard = styled.div<SpaceProps & { image: string }>`
   grid-template-rows: auto minmax(5rem, 1fr) auto;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('${p => p.image}');
+  background-image: linear-gradient(to top, rgba(0,0,0,0.4), transparent),
+   url('${p => p.image}');
   ${space};
 `;
 

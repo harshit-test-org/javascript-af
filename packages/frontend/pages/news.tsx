@@ -12,8 +12,8 @@ const NewsPageGrid = styled.div`
   display: grid;
 `;
 
-// note we are not using justify-content: space-between here because of bug in chrome, works in firefox
-// but in chrome somehow spreads through the width of the container
+// * we specify overflow:hidden along with justify-content: space-between
+// * else, chrome will overflow the content outside of the container.
 
 const NewsCardGrid = styled(NewsCard)`
   ${p =>
@@ -21,7 +21,8 @@ const NewsCardGrid = styled(NewsCard)`
       ? `
        grid-row: span 4;
        .information{
-         justify-content: initial;
+         overflow:hidden;
+         justify-content: space-between;
          .infos{
            margin-top: 2rem;
          }

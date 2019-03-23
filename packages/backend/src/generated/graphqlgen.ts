@@ -18,7 +18,7 @@ import {
   RepoConnection,
   RepoEdge,
   AggregateRepo,
-} from './prisma-client/index';
+} from './prisma-client';
 import { IMyContext } from '../context';
 
 export type NewsOrderByInput =

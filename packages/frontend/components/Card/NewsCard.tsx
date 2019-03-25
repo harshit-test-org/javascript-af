@@ -25,6 +25,7 @@ const StyledNewsCard = styled.div<IStyledNewsCard>`
     padding: 1rem 2rem;
     display: grid;
     grid-template-rows: auto auto 1fr auto;
+    ${p => !p.hasImage && 'grid-template-rows: auto 1fr auto;'}
     height: 100%;
     .extract {
       display: flex;

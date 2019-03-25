@@ -5,7 +5,6 @@ import styled from '../lib/styled-components';
 const NewsPageGrid = styled.div`
   @media all and (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 7.5rem;
     grid-auto-flow: dense;
   }
   grid-gap: 1rem;
@@ -16,19 +15,7 @@ const NewsPageGrid = styled.div`
 // * else, chrome will overflow the content outside of the container.
 
 const NewsCardGrid = styled(NewsCard)`
-  ${p =>
-    p.image
-      ? `
-       grid-row: span 4;
-       .information{
-         overflow:hidden;
-         justify-content: space-between;
-         .infos{
-           margin-top: 2rem;
-         }
-       }
-      `
-      : 'min-height: 7rem;'}
+  ${p => p.image && `grid-row: span 4;`}
 `;
 
 const NewsPage = () => (

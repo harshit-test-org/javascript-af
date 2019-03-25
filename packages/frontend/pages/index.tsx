@@ -9,11 +9,12 @@ const HeroTop = styled.section`
   grid-gap: 2rem;
   margin: 2rem 0 5rem 0;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-areas: 'featured item1' 'featured item2' 'featured item3';
+  grid-template-areas:
+    'featured item1'
+    'featured item2'
+    'featured item3';
   & > :nth-child(1) {
     grid-area: featured;
-    align-content: end;
   }
   & > :nth-child(2) {
     grid-area: item1;
@@ -27,7 +28,11 @@ const HeroTop = styled.section`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-template-rows: 3fr repeat(3, minmax(15vh, 1fr));
-    grid-template-areas: 'featured' 'item2' 'item3' 'item1';
+    grid-template-areas:
+      'featured'
+      'item2'
+      'item3'
+      'item1';
   }
 `;
 

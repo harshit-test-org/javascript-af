@@ -1,100 +1,131 @@
 import React from 'react';
+import { space, SpaceProps } from 'styled-system';
 import styled from '../../lib/styled-components';
+import { Button } from '../Button';
 import { Typography } from '../Typography';
 import { MONO_FAMILY } from '../shared';
 
-const StyledNewsCard = styled.div<{ haveImage: boolean }>`
-  border: 1px solid #707070;
-  height: 100%;
-  width: 100%;
-  display: flex;
+interface IStyledNewsCard extends SpaceProps {
+  hasImage: boolean;
+}
+
+const StyledNewsCard = styled.div<IStyledNewsCard>`
+  box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);
   border-radius: 44px;
+  display: flex;
   flex-direction: column;
-  ${p => (!p.haveImage ? 'border: 1px solid #707070;' : '')}
-  .img {
-    border-bottom: 1px solid #707070;
-    padding: 1.5px;
-    flex-basis: 74%;
-    max-height: 74%;
-    img {
-      height: 100%;
-      width: 100%;
-      border-radius: 44px;
-    }
+  overflow: hidden;
+  ${space};
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .information {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
     height: 100%;
-    width: 100%;
-    .heading {
-      margin-bottom: 4px;
+    .extract {
+      display: flex;
+      align-items: center;
     }
     .infos {
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
   }
 `;
 
-export interface INewsCardProps {
+// hack till https://github.com/styled-components/styled-components/issues/2129
+export const handleAs = (
+  Comp: React.ComponentType<{ as?: string }>
+): React.FC<any> => ({ innerAs, ...rest }) => <Comp as={innerAs} {...rest} />;
+
+const ReadButton = styled(handleAs(Button))`
+  display: inline-block;
+`;
+
+export interface INewsCardProps extends SpaceProps {
   heading: string;
   image?: string;
+  alt?: string;
   tags: string[];
 }
 
 export const NewsCard: React.FC<INewsCardProps> = ({
   heading,
   image,
+  alt,
   tags,
   ...rest
 }) => {
   return (
-    <StyledNewsCard haveImage={Boolean(image)} {...rest}>
+    <StyledNewsCard hasImage={Boolean(image)} {...rest}>
       {image && (
         <div className="img">
-          <img src={image} alt="something" />
+          <img src={image} alt={alt || heading || 'news image'} />
         </div>
       )}
       <div className="information">
+        <div
+          className="tags"
+          css="
+              text-transform: uppercase;
+              font-weight: bold;
+            "
+        >
+          {/* eslint-disable react/no-array-index-key */
+          tags.map((tag, index) => (
+            <Typography
+              key={`${heading}-${tag}-${index}`}
+              color="blue"
+              fontFamily={MONO_FAMILY}
+              variant="default"
+              as="a"
+              cursor="pointer"
+            >
+              #{tag}{' '}
+            </Typography>
+          ))
+          /* eslint-enable react/no-array-index-key */
+          }
+        </div>
         <div className="heading">
           <Typography
-            as="a"
             cursor="pointer"
-            fontWeight={image ? 500 : 400}
-            variant="h3"
-            m="0"
-            p="0"
+            fontWeight={image ? 700 : 500}
+            variant={image ? 'h2' : 'h3'}
+            mt="2"
+            mb="3"
           >
-            {heading}
+            <a
+              href="/"
+              css="
+                color: inherit;
+                text-decoration: none;
+              "
+            >
+              {heading}
+            </a>
           </Typography>
         </div>
+        {image && (
+          <Typography mt="0" mb="3" variant="p" className="extract">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+            architecto modi voluptates ut reiciendis, quod, maiores officia
+            nesciunt dolorem nisi laudantium asperiores laborum distinctio,
+          </Typography>
+        )}
         <div className="infos">
+          <ReadButton innerAs="a" m={0} px={4} p={2}>
+            Read
+          </ReadButton>
           <div className="read-time">
             <Typography as="div" fontSize="20px">
               3 min
             </Typography>
-          </div>
-          <div className="tags">
-            {/* eslint-disable react/no-array-index-key */
-            tags.map((tag, index) => (
-              <Typography
-                key={`${heading}-${tag}-${index}`}
-                color="blue"
-                fontSize="20px"
-                fontFamily={MONO_FAMILY}
-                fontWeight="bold"
-                variant="default"
-                as="a"
-                cursor="pointer"
-              >
-                #{tag}{' '}
-              </Typography>
-            ))
-            /* eslint-enable react/no-array-index-key */
-            }
           </div>
         </div>
       </div>

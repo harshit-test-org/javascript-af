@@ -3,6 +3,7 @@ import { NewsCard, Card, TalkCard } from '../components/Card';
 import styled from '../lib/styled-components';
 import { Typography } from '../components/Typography';
 import { MONO_FAMILY } from '../components/shared';
+import { Wrapper } from '../components/Page';
 
 const HeroTop = styled.section`
   display: grid;
@@ -54,7 +55,7 @@ const TalksHero = styled.div`
 `;
 
 const Index = () => (
-  <>
+  <Wrapper>
     <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
       <span role="img" aria-label="newspaper">
         📰
@@ -180,7 +181,7 @@ const Index = () => (
         }}
       />
     </TalksHero>
-  </>
+  </Wrapper>
 );
 
 export default Index;

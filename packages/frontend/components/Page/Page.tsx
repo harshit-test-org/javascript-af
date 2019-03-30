@@ -14,7 +14,7 @@ const StyledPage = styled.div`
   flex-direction: column;
 `;
 
-const Inner = styled.div`
+export const Wrapper = styled.div`
   @media all and (min-width: 1400px) {
     margin: 0 auto;
     max-width: ${props => props.theme.maxWidth};
@@ -24,7 +24,7 @@ const Inner = styled.div`
   padding: 2rem;
 `;
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   ${normalize()}
   html {
     box-sizing: border-box;
@@ -48,7 +48,7 @@ const Page: React.FC = props => (
       <GlobalStyle />
       <Meta />
       <Header />
-      <Inner>{props.children}</Inner>
+      {props.children}
       <Footer />
     </StyledPage>
   </ThemeProvider>

@@ -4,6 +4,7 @@ import styled from '../../lib/styled-components';
 import { Button } from '../Button';
 import { Typography } from '../Typography';
 import { MONO_FAMILY } from '../shared';
+import { handleAs } from './Card';
 
 interface IStyledNewsCard extends SpaceProps {
   hasImage: boolean;
@@ -38,11 +39,6 @@ const StyledNewsCard = styled.div<IStyledNewsCard>`
     }
   }
 `;
-
-// hack till https://github.com/styled-components/styled-components/issues/2129
-export const handleAs = (
-  Comp: React.ComponentType<{ as?: string }>
-): React.FC<any> => ({ innerAs, ...rest }) => <Comp as={innerAs} {...rest} />;
 
 const ReadButton = styled(handleAs(Button))`
   display: inline-block;
@@ -112,13 +108,6 @@ export const NewsCard: React.FC<INewsCardProps> = ({
             </a>
           </Typography>
         </div>
-        {image && (
-          <Typography mt="0" mb="3" variant="p" className="extract">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-            architecto modi voluptates ut reiciendis, quod, maiores officia
-            nesciunt dolorem nisi laudantium asperiores laborum distinctio,
-          </Typography>
-        )}
         <div className="infos">
           <ReadButton innerAs="a" m={0} px={4} p={2}>
             Read

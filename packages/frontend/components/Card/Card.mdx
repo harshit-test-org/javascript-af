@@ -4,77 +4,84 @@ menu: Components
 ---
 
 import { Playground } from 'docz';
-import { Card, NewsCard, TalkCard, RepoHeroCard } from './';
+import { Card, NewsCard, TalkCard, RepoHeroCard, TalkPreviewCard } from './';
 
 ## Card
 
 ### Basic Usage
 
 <Playground>
-  <div style={{
-    height: "300px",
-    width: "400px",
-  }}>
-    <Card 
-      tags={["react","testing"]}
+  <div
+    style={{
+      height: '300px',
+      width: '400px',
+    }}
+  >
+    <Card
+      tags={['react', 'testing']}
       content="Simple and complete react dom testing utilities that encourage good testing practice"
-      heading="react-testing-library" 
+      heading="react-testing-library"
     />
   </div>
 </Playground>
-
 
 ## NewsCard
 
 ### Basic Usage
 
 <Playground>
-  <div style={{
-    height: "500px",
-    width: "500px",
-  }}>
-    <NewsCard 
-      heading="Next.js 8 is released with suspense support" 
+  <div
+    style={{
+      height: '500px',
+      width: '500px',
+    }}
+  >
+    <NewsCard
+      heading="Next.js 8 is released with suspense support"
       image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548588337/esoplan_production/kzyfdwpaudkusftihy7c.png"
-      tags={["react","testing"]}
+      tags={['react', 'testing']}
     />
-    </div>
+  </div>
 </Playground>
-
 
 ### Without image
-<Playground>
-  <div style={{
-    height: "200px",
-    width: "500px",
-  }}>
-    <NewsCard 
-      heading="Server Renderer for React suspense is released" 
-      tags={["react","suspense"]}
-    />
-    </div>
-</Playground>
 
+<Playground>
+  <div
+    style={{
+      height: '200px',
+      width: '500px',
+    }}
+  >
+    <NewsCard
+      heading="Server Renderer for React suspense is released"
+      tags={['react', 'suspense']}
+    />
+  </div>
+</Playground>
 
 ## TalksCard
 
 ### Basic Usage
 
 <Playground>
-  <div style={{
-    height: "400px",
-    width: "500px",
-  }}>
+  <div
+    style={{
+      height: '400px',
+      width: '500px',
+    }}
+  >
     <TalkCard
-     heading="This is a Talk About You!" 
-     image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
-     tags={["react","personal"]}
-     avatar={{
-       name:"Jani Evakallio",
-       image: "https://pbs.twimg.com/profile_images/1074414240088449030/fAbT29ic_400x400.jpg"
-     }}
+      heading="This is a Talk About You!"
+      image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+      tags={['react', 'personal']}
+      avatar={{
+        name: 'Jani Evakallio',
+        image:
+          'https://pbs.twimg.com/profile_images/1074414240088449030/fAbT29ic_400x400.jpg',
+      }}
     />
-    </div>
+  </div>
 </Playground>
 
 ## RepoHeroCard
@@ -82,15 +89,41 @@ import { Card, NewsCard, TalkCard, RepoHeroCard } from './';
 ### Basic Usage
 
 <Playground>
-  <div style={{
-    height: "400px",
-    width: "600px",
-  }}>
-    <RepoHeroCard 
-      tags={["react","testing"]}
+  <div
+    style={{
+      height: '400px',
+      width: '600px',
+    }}
+  >
+    <RepoHeroCard
+      tags={['react', 'testing']}
       content="The right way to test your react apps"
       heading="react-testing-library"
       image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600,h_300,e_blur:300/v1550943805/Screenshot_2019-02-23_at_11.12.47_PM.png"
+    />
+  </div>
+</Playground>
+
+## TalkPreviewCard
+
+### Basic Usage
+
+<Playground>
+  <div
+    style={{
+      height: '300px',
+      width: '300px',
+    }}
+  >
+    <TalkPreviewCard
+      heading="This is a Talk About You!"
+      image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_300,h_180/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+      tags={['react', 'personal']}
+      avatar={{
+        name: 'Jani Evakallio',
+        image:
+          'https://pbs.twimg.com/profile_images/1074414240088449030/fAbT29ic_400x400.jpg',
+      }}
     />
   </div>
 </Playground>

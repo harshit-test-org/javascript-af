@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   typescript: true,
   baseConfig: 'packages/frontend/components',
   title: 'JSUi',

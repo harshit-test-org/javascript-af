@@ -3,6 +3,7 @@ import styled from '../lib/styled-components';
 import { TalkCard } from '../components/Card';
 import { Typography } from '../components/Typography';
 import { SANS_FAMILY } from '../components/shared';
+import { Wrapper } from '../components/Page';
 
 const TalksHero = styled.div`
   display: grid;
@@ -18,7 +19,7 @@ const TalkGrid = styled.div`
 
 const TalksPage = () => {
   return (
-    <>
+    <Wrapper>
       <Typography
         as="h1"
         fontWeight="normal"
@@ -155,7 +156,7 @@ const TalksPage = () => {
           }}
         />
       </TalkGrid>
-    </>
+    </Wrapper>
   );
 };
 

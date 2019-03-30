@@ -33,6 +33,7 @@ const StyledButton = styled.button<
 >`
   position: relative;
   border: 0;
+  display: inline-block;
   background: transparent;
   cursor: pointer;
   font-family: ${SANS_FAMILY};
@@ -47,7 +48,6 @@ const StyledButton = styled.button<
   ${borderRadius}
   ${applyVariant}
   ${fontWeight}
-
 `;
 
 export interface IButtonProps

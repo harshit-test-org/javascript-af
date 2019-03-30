@@ -1,27 +1,15 @@
 import React from 'react';
-import { normalize } from 'polished';
-import { ThemeProvider, createGlobalStyle } from '../../lib/styled-components';
-import { theme } from '.';
+import { ThemeProvider } from '../../lib/styled-components';
+import theme from './theme';
+import { GlobalStyle } from '../Page';
 
-const GlobalNormalization = createGlobalStyle`
-  ${normalize()}
-  html {
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-`;
-
-const Wrapper = ({ children }) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <>
-        <GlobalNormalization />
-        {children}
-      </>
-    </ThemeProvider>
-  );
-};
+const Wrapper: React.FC = props => (
+  <ThemeProvider theme={theme}>
+    <>
+      <GlobalStyle />
+      {props.children}
+    </>
+  </ThemeProvider>
+);
 
 export default Wrapper;

@@ -4,6 +4,7 @@ import { RepoHeroCard, Card } from '../components/Card';
 import { Typography } from '../components/Typography';
 import { MONO_FAMILY } from '../components/shared';
 import { RepoHero } from '.';
+import { Wrapper } from '../components/Page';
 
 const RepoHeroGrid = styled.div`
   display: grid;
@@ -32,7 +33,7 @@ const RepoHeroGrid = styled.div`
 
 const RepoPage = () => {
   return (
-    <>
+    <Wrapper>
       <RepoHeroGrid>
         <RepoHeroCard
           tags={['jest', 'testing']}
@@ -162,7 +163,7 @@ const RepoPage = () => {
         />
       </RepoHero>
       <div />
-    </>
+    </Wrapper>
   );
 };
 

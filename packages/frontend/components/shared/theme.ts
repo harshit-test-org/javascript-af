@@ -37,6 +37,14 @@ export interface ITheme {
         opacity: string;
       };
     };
+    text: {
+      padding: string;
+      display: string;
+      alignItems: string;
+      '&:hover': {
+        opacity: string;
+      };
+    };
     outlined: {
       backgroundColor: string;
       borderRadius: string;
@@ -83,6 +91,14 @@ const theme: ITheme = {
     icon: {
       padding: '8px',
       display: 'flex',
+      alignItems: 'center',
+      '&:hover': {
+        opacity: '0.9',
+      },
+    },
+    text: {
+      padding: '8px',
+      display: 'inline-block',
       alignItems: 'center',
       '&:hover': {
         opacity: '0.9',

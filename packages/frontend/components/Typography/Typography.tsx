@@ -23,7 +23,9 @@ export interface IStyleMappingKey {
   component: string;
 }
 
-export const styleMapping: Record<string, IStyleMappingKey> = {
+type variants = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'default';
+
+export const styleMapping: Record<variants, IStyleMappingKey> = {
   h1: {
     size: '38px',
     component: 'h1',
@@ -86,7 +88,7 @@ export interface IProps
     LineHeightProps,
     SpaceProps,
     React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  variant?: string;
+  variant?: variants;
   as?: string;
   color?: string;
   cursor?: string;

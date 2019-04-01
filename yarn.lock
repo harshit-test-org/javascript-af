@@ -6522,7 +6522,7 @@ docz-core@^1.0.0-rc.4:
     ws "^6.2.1"
     yargs "^13.2.2"
 
-docz-theme-default@^1.0.0-rc.4:
+docz-theme-default@1.0.0-rc.4:
   version "1.0.0-rc.4"
   resolved "https://registry.yarnpkg.com/docz-theme-default/-/docz-theme-default-1.0.0-rc.4.tgz#223f3e1366bad3c8205a0811771905166fc42bad"
   integrity sha512-AeaAKuWokb85PjLQk+dlru5YaLrnE7s/Mv1DPIv7v32Y/+fQOI/Y6xENuvY5zYLsQkzqCgFiMnaQ/OGhRQhgsw==
@@ -6575,7 +6575,7 @@ docz-utils@1.0.0-rc.5:
     unist-util-is "^2.1.2"
     unist-util-visit "^1.4.0"
 
-docz@^1.0.0-rc.4:
+docz@1.0.0-rc.4, docz@^1.0.0-rc.4:
   version "1.0.0-rc.4"
   resolved "https://registry.yarnpkg.com/docz/-/docz-1.0.0-rc.4.tgz#eaedb0edea4c58bb790a7b14825b7e386dd5c90d"
   integrity sha512-nMzRP72ePL4YksAe7QVfwPFcdKmZtzppTJk43jpJOiHPqEWqKuVrX5oNj9cKqsKmeW7fjOFAHb6RFkMyiLBjCg==

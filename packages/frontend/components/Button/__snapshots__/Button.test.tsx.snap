@@ -4,6 +4,7 @@ exports[`Button should render icon variant 1`] = `
 .c0 {
   position: relative;
   border: 0;
+  display: inline-block;
   background: transparent;
   cursor: pointer;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
@@ -60,6 +61,7 @@ exports[`Button should render outlined variant 1`] = `
 .c0 {
   position: relative;
   border: 0;
+  display: inline-block;
   background: transparent;
   cursor: pointer;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
@@ -94,6 +96,7 @@ exports[`Button should render primary button if no props are passed 1`] = `
 .c0 {
   position: relative;
   border: 0;
+  display: inline-block;
   background: transparent;
   cursor: pointer;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
@@ -129,6 +132,7 @@ exports[`Button should work with the as prop and other styled-system ones 1`] = 
 .c0 {
   position: relative;
   border: 0;
+  display: inline-block;
   background: transparent;
   cursor: pointer;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;

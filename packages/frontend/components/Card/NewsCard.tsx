@@ -77,6 +77,7 @@ export const NewsCard: React.FC<INewsCardProps> = ({
           css="
               text-transform: uppercase;
               font-weight: bold;
+              letter-spacing: 1.4px;
             "
         >
           {/* eslint-disable react/no-array-index-key */

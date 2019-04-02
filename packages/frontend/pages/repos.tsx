@@ -162,7 +162,6 @@ const RepoPage = () => {
           heading="react-native-web"
         />
       </RepoHero>
-      <div />
     </Wrapper>
   );
 };

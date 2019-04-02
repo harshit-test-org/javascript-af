@@ -12,6 +12,7 @@ import { Meta } from '../Meta';
 const StyledPage = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 `;
 
 export const Wrapper = styled.div`

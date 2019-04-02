@@ -1,7 +1,7 @@
 import React from 'react';
 import { NewsCard } from '../components/Card';
 import styled from '../lib/styled-components';
-import Wrapper from '../components/shared/docz-wrapper';
+import { Wrapper } from '../components/Page';
 
 const NewsPageGrid = styled.div`
   @media all and (min-width: 768px) {
@@ -11,9 +11,6 @@ const NewsPageGrid = styled.div`
   grid-gap: 1rem;
   display: grid;
 `;
-
-// * we specify overflow:hidden along with justify-content: space-between
-// * else, chrome will overflow the content outside of the container.
 
 const NewsCardGrid = styled(NewsCard)`
   ${p => p.image && `grid-row: span 4;`}

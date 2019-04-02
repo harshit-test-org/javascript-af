@@ -1,10 +1,12 @@
 import React from 'react';
 import { space, SpaceProps } from 'styled-system';
+import { lighten } from 'polished';
 import styled from '../../lib/styled-components';
 import { Button } from '../Button';
 import { Typography } from '../Typography';
 import { MONO_FAMILY } from '../shared';
 import { handleAs } from './Card';
+import { ClockIcon } from '../Icons/ClockIcon';
 
 interface IStyledNewsCard extends SpaceProps {
   hasImage: boolean;
@@ -28,9 +30,13 @@ const StyledNewsCard = styled.div<IStyledNewsCard>`
     grid-template-rows: auto auto 1fr auto;
     ${p => !p.hasImage && 'grid-template-rows: auto 1fr auto;'}
     height: 100%;
-    .extract {
+    .read-time {
+      height: 100%;
       display: flex;
       align-items: center;
+      svg {
+        color: ${props => lighten(0.2, props.theme.colors.black)};
+      }
     }
     .infos {
       display: flex;
@@ -113,7 +119,9 @@ export const NewsCard: React.FC<INewsCardProps> = ({
             Read
           </ReadButton>
           <div className="read-time">
-            <Typography as="div" fontSize="20px">
+            <ClockIcon />
+            {/* same fontsize as button text */}
+            <Typography fontSize="1.2rem" p={0} m={0} ml={1}>
               3 min
             </Typography>
           </div>

@@ -1,8 +1,10 @@
 import React from 'react';
+import { lighten } from 'polished';
 import styled from '../../lib/styled-components';
 import { Typography } from '../Typography';
 import { MONO_FAMILY } from '../shared';
 import { PlayIcon } from '../Icons/PlayIcon';
+import { ClockIcon } from '../Icons/ClockIcon';
 
 const StyledTalksCard = styled.div`
   box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);
@@ -34,8 +36,13 @@ const StyledTalksCard = styled.div`
     align-items: center;
     padding-bottom: 1rem;
   }
-  .duration {
-    text-align: end;
+  .watch-time {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    svg {
+      color: ${props => lighten(0.2, props.theme.colors.black)};
+    }
   }
   .info {
     display: flex;
@@ -93,7 +100,12 @@ export const TalkCard: React.FC<ITalkCardProps> = ({
           >
             {heading}
           </Typography>
-          <Typography className="duration">45 min</Typography>
+          <div className="watch-time">
+            <ClockIcon />
+            <Typography fontSize="1.2rem" p={0} m={0} ml={1}>
+              45 min
+            </Typography>
+          </div>
         </div>
         <div className="info">
           <div

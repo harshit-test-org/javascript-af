@@ -14,6 +14,7 @@ export interface ITheme {
   colors: {
     primary: Record<swatch, string>;
     white: string;
+    black: string;
     blue: string;
   };
   fontFamily: {
@@ -72,6 +73,7 @@ const theme: ITheme = {
   colors: {
     primary: primarySwatch,
     white: '#FFFFFF',
+    black: '#000000',
     blue: '#2F47C7',
   },
   fontFamily: {

@@ -57,6 +57,6 @@
     "jest-styled-components": "6.3.1",
     "lerna": "3.13.1",
     "react-testing-library": "6.1.2",
-    "typescript": "3.4.1"
+    "typescript": "3.4.2"
   }
 }

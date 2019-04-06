@@ -2670,10 +2670,10 @@
     "@types/react-native" "*"
     csstype "^2.2.0"
 
-"@types/styled-system@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-4.0.0.tgz#d6fe4f1d6a9ed075b86c54a5d792748a68aba130"
-  integrity sha512-pRbhOmp4C2Psj2jXHwTsTrUwzOYinZGmSq7dLEGCYUMQq9aePAswQLYqTEQK3002ZtfEX5okipifDMhlOBcQ4w==
+"@types/styled-system@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-4.1.0.tgz#9b78336937d5d3269757d8512527fefb16662335"
+  integrity sha512-3TSDL7LbpfGsCv7VZoqnKtHwYJZ/REVT6cfsw5e5vUyB+zymRgrOiJg78XOpXJgd722WrmONi+PYfnyJAMMhdw==
   dependencies:
     csstype "^2.2.0"
 

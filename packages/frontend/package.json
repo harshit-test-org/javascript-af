@@ -16,7 +16,7 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "apollo-boost": "^0.3.0",
-    "classnames": "^2.2.6",
+    "clsx": "^1.0.3",
     "graphql": "^14.1.1",
     "next": "^8.0.0",
     "next-compose-plugins": "^2.1.1",
@@ -35,7 +35,6 @@
     "@commitlint/cli": "7.5.2",
     "@commitlint/config-conventional": "7.5.0",
     "@commitlint/prompt-cli": "7.5.0",
-    "@types/classnames": "2.2.7",
     "@types/graphql": "14.2.0",
     "@types/jest": "24.0.11",
     "@types/next": "8.0.3",

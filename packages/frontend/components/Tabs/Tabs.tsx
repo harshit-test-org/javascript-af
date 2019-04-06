@@ -13,10 +13,11 @@ export type TabChangeHandler = (
 
 export interface ITabsProps {
   onChange: TabChangeHandler;
+  value: number;
   children: JSX.Element | JSX.Element[];
 }
 
-export const Tabs: React.FC<ITabsProps> = ({ children, onChange }) => {
+export const Tabs: React.FC<ITabsProps> = ({ children, value, onChange }) => {
   const childrenWithOnchange = React.Children.map<
     JSX.Element | null,
     React.ReactElement<ITabProps>
@@ -27,6 +28,7 @@ export const Tabs: React.FC<ITabsProps> = ({ children, onChange }) => {
     return React.cloneElement(child, {
       onChange,
       index,
+      active: value === index,
     });
   });
 

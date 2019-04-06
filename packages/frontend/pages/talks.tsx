@@ -39,7 +39,7 @@ const TalksPage = () => {
           avatar={{
             name: 'Jani Evakallio',
             image:
-              'https://pbs.twimg.com/profile_images/1102813107284557825/7g64jjGy_400x400.jpg',
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
           }}
         />
         <TalkCard
@@ -49,7 +49,7 @@ const TalksPage = () => {
           avatar={{
             name: 'Jani Evakallio',
             image:
-              'https://pbs.twimg.com/profile_images/1102813107284557825/7g64jjGy_400x400.jpg',
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
           }}
         />
       </TalksHero>
@@ -72,7 +72,7 @@ const TalksPage = () => {
           avatar={{
             name: 'Jani Evakallio',
             image:
-              'https://pbs.twimg.com/profile_images/1102813107284557825/7g64jjGy_400x400.jpg',
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
           }}
         />
         <TalkCard
@@ -82,7 +82,7 @@ const TalksPage = () => {
           avatar={{
             name: 'Jani Evakallio',
             image:
-              'https://pbs.twimg.com/profile_images/1102813107284557825/7g64jjGy_400x400.jpg',
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
           }}
         />
         <TalkCard
@@ -92,7 +92,7 @@ const TalksPage = () => {
           avatar={{
             name: 'Jani Evakallio',
             image:
-              'https://pbs.twimg.com/profile_images/1102813107284557825/7g64jjGy_400x400.jpg',
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
           }}
         />
         <TalkCard
@@ -102,7 +102,7 @@ const TalksPage = () => {
           avatar={{
             name: 'Jani Evakallio',
             image:
-              'https://pbs.twimg.com/profile_images/1102813107284557825/7g64jjGy_400x400.jpg',
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
           }}
         />
         <TalkCard
@@ -112,7 +112,7 @@ const TalksPage = () => {
           avatar={{
             name: 'Jani Evakallio',
             image:
-              'https://pbs.twimg.com/profile_images/1102813107284557825/7g64jjGy_400x400.jpg',
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
           }}
         />
         <TalkCard
@@ -122,7 +122,7 @@ const TalksPage = () => {
           avatar={{
             name: 'Jani Evakallio',
             image:
-              'https://pbs.twimg.com/profile_images/1102813107284557825/7g64jjGy_400x400.jpg',
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
           }}
         />
         <TalkCard
@@ -132,7 +132,7 @@ const TalksPage = () => {
           avatar={{
             name: 'Jani Evakallio',
             image:
-              'https://pbs.twimg.com/profile_images/1102813107284557825/7g64jjGy_400x400.jpg',
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
           }}
         />
         <TalkCard
@@ -142,7 +142,7 @@ const TalksPage = () => {
           avatar={{
             name: 'Jani Evakallio',
             image:
-              'https://pbs.twimg.com/profile_images/1102813107284557825/7g64jjGy_400x400.jpg',
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
           }}
         />
         <TalkCard
@@ -152,7 +152,7 @@ const TalksPage = () => {
           avatar={{
             name: 'Jani Evakallio',
             image:
-              'https://pbs.twimg.com/profile_images/1102813107284557825/7g64jjGy_400x400.jpg',
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
           }}
         />
       </TalkGrid>

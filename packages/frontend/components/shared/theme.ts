@@ -22,6 +22,13 @@ export interface ITheme {
     mono: string;
   };
   buttons: {
+    tabs: {
+      backgroundColor: string;
+      borderRadius: number;
+      '&.active': {
+        boxShadow: string;
+      };
+    };
     primary: {
       color: string;
       backgroundColor: string;
@@ -81,6 +88,13 @@ const theme: ITheme = {
     mono: MONO_FAMILY,
   },
   buttons: {
+    tabs: {
+      backgroundColor: '#fff',
+      borderRadius: 0,
+      '&.active': {
+        boxShadow: `${primarySwatch.main} 0px -4px 0px inset`,
+      },
+    },
     primary: {
       color: 'white',
       backgroundColor: primarySwatch.main,

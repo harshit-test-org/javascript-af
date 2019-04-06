@@ -1,4 +1,5 @@
 import React from 'react';
+import TabDemo from '../components/Tabs/TabDemo';
 import styled, { ThemeProvider } from '../lib/styled-components';
 import { Typography } from '../components/Typography';
 import { TalkPreviewCard } from '../components/Card';
@@ -108,8 +109,9 @@ const TalkPage = () => {
                 setShown(!shown);
               }}
             >
-              SHOW MORE
+              {shown ? 'HIDE' : 'SHOW MORE'}
             </Button>
+            <TabDemo />
           </div>
           <div
             css="

@@ -11,9 +11,9 @@ export default () => {
 
   return (
     <>
-      <Tabs onChange={handleChange}>
-        <Tab>1</Tab>
-        <Tab>2</Tab>
+      <Tabs value={value} onChange={handleChange}>
+        <Tab>Speaker</Tab>
+        <Tab>Conference</Tab>
       </Tabs>
       Current value: {value}
     </>

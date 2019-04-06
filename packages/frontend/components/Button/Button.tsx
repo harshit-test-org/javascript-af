@@ -59,17 +59,19 @@ export interface IButtonProps
     React.AnchorHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   variant?: string;
   as?: any;
+  noRipple?: boolean;
 }
 
 export const Button: React.FC<IButtonProps> = ({
   children,
+  noRipple,
   variant: v = 'primary',
   ...others
 }) => {
   return (
     <StyledButton role="button" variant={v} {...others}>
       {children}
-      <Ink background={false} duration={700} />
+      {!noRipple ? <Ink background={false} duration={700} /> : ''}
     </StyledButton>
   );
 };

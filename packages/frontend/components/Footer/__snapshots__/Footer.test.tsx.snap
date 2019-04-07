@@ -166,7 +166,6 @@ exports[`Footer should render 1`] = `
         <a
           class="c2"
           href="https://github.com/javascript-af/javascript-af"
-          role="button"
         >
           <svg
             fill="none"
@@ -197,7 +196,6 @@ exports[`Footer should render 1`] = `
         <a
           class="c2"
           href="https://twitter.com"
-          role="button"
         >
           <svg
             fill="none"

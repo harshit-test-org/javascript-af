@@ -29,7 +29,6 @@ exports[`Button should render icon variant 1`] = `
 
 <button
   class="c0"
-  role="button"
 >
   <svg
     fill="none"
@@ -81,7 +80,6 @@ exports[`Button should render outlined variant 1`] = `
 
 <button
   class="c0"
-  role="button"
 >
   Learn More
   <canvas
@@ -117,7 +115,6 @@ exports[`Button should render primary button if no props are passed 1`] = `
 
 <button
   class="c0"
-  role="button"
 >
   Sign In
   <canvas
@@ -154,7 +151,6 @@ exports[`Button should work with the as prop and other styled-system ones 1`] = 
 
 <a
   class="c0"
-  role="button"
 >
   Just test
   <canvas

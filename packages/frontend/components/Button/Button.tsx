@@ -69,7 +69,7 @@ export const Button: React.FC<IButtonProps> = ({
   ...others
 }) => {
   return (
-    <StyledButton role="button" variant={v} {...others}>
+    <StyledButton variant={v} {...others}>
       {children}
       {!noRipple ? <Ink background={false} duration={700} /> : ''}
     </StyledButton>

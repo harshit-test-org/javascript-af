@@ -3,3 +3,4 @@ export * from './NewsCard';
 export * from './TalkCard';
 export * from './RepoHeroCard';
 export * from './TalkPreviewCard';
+export * from './SpeakerInfoCard';

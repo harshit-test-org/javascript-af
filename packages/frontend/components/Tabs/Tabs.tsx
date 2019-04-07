@@ -4,6 +4,7 @@ import { ITabProps } from './Tab';
 
 const StyledTab = styled.div`
   display: flex;
+  margin-bottom: 1rem;
 `;
 
 export type TabChangeHandler = (

@@ -1,8 +1,8 @@
 import React from 'react';
-import TabDemo from '../components/Tabs/TabDemo';
+import { Tabs, Tab, TabChangeHandler } from '../components/Tabs';
 import styled, { ThemeProvider } from '../lib/styled-components';
 import { Typography } from '../components/Typography';
-import { TalkPreviewCard } from '../components/Card';
+import { TalkPreviewCard, SpeakerInfoCard } from '../components/Card';
 import { Wrapper } from '../components/Page';
 import { theme, MONO_FAMILY } from '../components/shared';
 import { Button } from '../components/Button';
@@ -15,6 +15,11 @@ const MainPageGrid = styled.div`
 
 const TalkPage = () => {
   const [shown, setShown] = React.useState(false);
+  const [tabValue, setTabValue] = React.useState(0);
+
+  const handleTabChange: TabChangeHandler = (_e, value) => {
+    setTabValue(value);
+  };
 
   return (
     <ThemeProvider theme={{ ...theme, maxWidth: '1500px' }}>
@@ -79,39 +84,46 @@ const TalkPage = () => {
                 3 mins
               </Typography>
             </div>
-            <div
-              css={`
-                max-width: 75%;
-                margin-top: 1.5rem;
-                max-height: ${!shown ? '3rem' : 'auto'};
-                overflow: hidden;
-              `}
-            >
-              <Typography lineHeight="1.5rem" fontWeight={500}>
-                Over the last three years, I’ve spoken to hundreds of React
-                Native developers, and slowly a picture emerges. It’s a picture
-                of excitement and frustration, obsession with technology and
-                pushing the boundaries. It’s a picture of you. This talk will
-                blend meticulous research, subjective personal experiences and
-                speculative fiction to discover the core of that elusive
-                Developer Experience, and ask the inconvenient questions you’ve
-                always been afraid to ask.
-              </Typography>
+            <div css="margin-bottom: 12px">
+              <div
+                css={`
+                  max-width: 75%;
+                  margin-top: 1.5rem;
+                  max-height: ${!shown ? '3rem' : 'auto'};
+                  overflow: hidden;
+                `}
+              >
+                <Typography lineHeight="1.5rem" fontWeight={500}>
+                  Over the last three years, I’ve spoken to hundreds of React
+                  Native developers, and slowly a picture emerges. It’s a
+                  picture of excitement and frustration, obsession with
+                  technology and pushing the boundaries. It’s a picture of you.
+                  This talk will blend meticulous research, subjective personal
+                  experiences and speculative fiction to discover the core of
+                  that elusive Developer Experience, and ask the inconvenient
+                  questions you’ve always been afraid to ask.
+                </Typography>
+              </div>
+              <Button
+                m={0}
+                as="span"
+                color="rgba(17,17,17,0.6)"
+                fontSize="13px"
+                padding="0"
+                variant="text"
+                onClick={() => {
+                  setShown(!shown);
+                }}
+              >
+                {shown ? 'HIDE' : 'SHOW MORE'}
+              </Button>
             </div>
-            <Button
-              m={0}
-              as="span"
-              color="rgba(17,17,17,0.6)"
-              fontSize="13px"
-              padding="0"
-              variant="text"
-              onClick={() => {
-                setShown(!shown);
-              }}
-            >
-              {shown ? 'HIDE' : 'SHOW MORE'}
-            </Button>
-            <TabDemo />
+            <Tabs value={tabValue} onChange={handleTabChange}>
+              <Tab>Speaker</Tab>
+              <Tab>Conference</Tab>
+            </Tabs>
+            {tabValue === 0 && <SpeakerSection />}
+            {tabValue === 1 && <ConfSection />}
           </div>
           <div
             css="
@@ -177,3 +189,19 @@ const TalkPage = () => {
 };
 
 export default TalkPage;
+
+const SpeakerSection = () => {
+  return (
+    <div>
+      <SpeakerInfoCard
+        name="Prethi Kaisareddy"
+        description="I love coding, writing, fitness & reading. You’ll find me always learning/exploring new things, and then writing about it :) Find me @iam_preethi"
+        image="https://avatars3.githubusercontent.com/u/5421194?s=400&v=4"
+      />
+    </div>
+  );
+};
+
+const ConfSection = () => {
+  return <div />;
+};

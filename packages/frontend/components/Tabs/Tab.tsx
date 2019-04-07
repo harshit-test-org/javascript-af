@@ -21,7 +21,8 @@ export const Tab: React.FC<ITabProps> = ({
     <Button
       className={clsx({ active })}
       noRipple
-      px={2}
+      px={3}
+      m={0}
       pt="3px"
       pb="12px"
       variant="tabs"

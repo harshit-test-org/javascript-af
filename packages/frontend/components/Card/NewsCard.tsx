@@ -5,7 +5,6 @@ import styled from '../../lib/styled-components';
 import { Button } from '../Button';
 import { Typography } from '../Typography';
 import { MONO_FAMILY } from '../shared';
-import { handleAs } from './Card';
 import { ClockIcon } from '../Icons/ClockIcon';
 
 interface IStyledNewsCard extends SpaceProps {
@@ -44,10 +43,6 @@ const StyledNewsCard = styled.div<IStyledNewsCard>`
       align-items: center;
     }
   }
-`;
-
-const ReadButton = styled(handleAs(Button))`
-  display: inline-block;
 `;
 
 export interface INewsCardProps extends SpaceProps {
@@ -116,9 +111,9 @@ export const NewsCard: React.FC<INewsCardProps> = ({
           </Typography>
         </div>
         <div className="infos">
-          <ReadButton innerAs="a" m={0} px={4} p={2}>
+          <Button as="a" m={0} px={4} p={2}>
             Read
-          </ReadButton>
+          </Button>
           <div className="read-time">
             <ClockIcon />
             {/* same fontsize as button text */}

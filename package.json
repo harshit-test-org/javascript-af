@@ -68,7 +68,7 @@
     "lerna": "3.13.2",
     "lint-staged": "8.1.5",
     "prettier": "1.17.0",
-    "typescript": "3.4.2"
+    "typescript": "3.4.3"
   },
   "dependencies": {}
 }

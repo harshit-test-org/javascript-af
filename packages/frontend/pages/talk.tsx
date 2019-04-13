@@ -2,7 +2,7 @@ import React from 'react';
 import { Tabs, Tab, TabChangeHandler } from '../components/Tabs';
 import styled, { ThemeProvider } from '../lib/styled-components';
 import { Typography } from '../components/Typography';
-import { TalkPreviewCard, SpeakerInfoCard } from '../components/Card';
+import { TalkPreviewCard, TalkInfoSectionCard } from '../components/Card';
 import { Wrapper } from '../components/Page';
 import { theme, MONO_FAMILY } from '../components/shared';
 import { Button } from '../components/Button';
@@ -193,7 +193,7 @@ export default TalkPage;
 const SpeakerSection = () => {
   return (
     <div>
-      <SpeakerInfoCard
+      <TalkInfoSectionCard
         name="Prethi Kaisareddy"
         description="I love coding, writing, fitness & reading. You’ll find me always learning/exploring new things, and then writing about it :) Find me @iam_preethi"
         image="https://avatars3.githubusercontent.com/u/5421194?s=400&v=4"
@@ -203,5 +203,13 @@ const SpeakerSection = () => {
 };
 
 const ConfSection = () => {
-  return <div />;
+  return (
+    <div>
+      <TalkInfoSectionCard
+        name="React Conf 2017"
+        description="Two full days of knowledge sharing and community with people who build and LOVE React."
+        image="https://pbs.twimg.com/profile_images/508903744151371777/4B-doZAg_400x400.png"
+      />
+    </div>
+  );
 };

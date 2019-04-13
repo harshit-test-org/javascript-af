@@ -5,7 +5,7 @@ import styled from '../../lib/styled-components';
 import { Typography } from '../Typography';
 import { TwitterIcon } from '../Icons/TwitterIcon';
 
-const StyledSpeakerInfoCard = styled.div`
+const StyledTalkInfoSectionCard = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -23,6 +23,7 @@ const StyledSpeakerInfoCard = styled.div`
   .info {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     .meta {
       display: flex;
       justify-content: space-between;
@@ -39,19 +40,19 @@ const StyledSpeakerInfoCard = styled.div`
   }
 `;
 
-export interface ISpeakerInfoCard {
+export interface ITalkInfoSectionCard {
   name: string;
   image: string;
   description: string;
 }
 
-export const SpeakerInfoCard: React.FC<ISpeakerInfoCard> = ({
+export const TalkInfoSectionCard: React.FC<ITalkInfoSectionCard> = ({
   name,
   image,
   description,
 }) => {
   return (
-    <StyledSpeakerInfoCard>
+    <StyledTalkInfoSectionCard>
       <div className="img">
         <img src={image} alt={name} />
       </div>
@@ -76,6 +77,6 @@ export const SpeakerInfoCard: React.FC<ISpeakerInfoCard> = ({
           </div>
         </div>
       </div>
-    </StyledSpeakerInfoCard>
+    </StyledTalkInfoSectionCard>
   );
 };

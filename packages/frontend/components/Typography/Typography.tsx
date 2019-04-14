@@ -23,7 +23,15 @@ export interface IStyleMappingKey {
   component: string;
 }
 
-type variants = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'default';
+export type variants =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'p'
+  | 'default';
 
 export const styleMapping: Record<variants, IStyleMappingKey> = {
   h1: {

@@ -4,8 +4,8 @@ import { lighten } from 'polished';
 import styled from '../../lib/styled-components';
 import { Button } from '../Button';
 import { Typography } from '../Typography';
-import { MONO_FAMILY } from '../shared';
 import { ClockIcon } from '../Icons/ClockIcon';
+import { Tags } from '../Tags';
 
 interface IStyledNewsCard extends SpaceProps {
   hasImage: boolean;
@@ -67,30 +67,7 @@ export const NewsCard: React.FC<INewsCardProps> = ({
         </div>
       )}
       <div className="information">
-        <div
-          className="tags"
-          css="
-              text-transform: uppercase;
-              font-weight: bold;
-              letter-spacing: 1.4px;
-            "
-        >
-          {/* eslint-disable react/no-array-index-key */
-          tags.map((tag, index) => (
-            <Typography
-              key={`${heading}-${tag}-${index}`}
-              color="blue"
-              fontFamily={MONO_FAMILY}
-              variant="default"
-              as="a"
-              cursor="pointer"
-            >
-              #{tag}{' '}
-            </Typography>
-          ))
-          /* eslint-enable react/no-array-index-key */
-          }
-        </div>
+        <Tags tags={tags} heading={heading} />
         <div className="heading">
           <Typography
             cursor="pointer"

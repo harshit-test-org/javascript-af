@@ -2,9 +2,9 @@ import React from 'react';
 import { lighten } from 'polished';
 import styled from '../../lib/styled-components';
 import { Typography } from '../Typography';
-import { MONO_FAMILY } from '../shared';
 import { PlayIcon } from '../Icons/PlayIcon';
 import { ClockIcon } from '../Icons/ClockIcon';
+import { Tags } from '../Tags';
 
 const StyledTalksCard = styled.div`
   box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);
@@ -108,30 +108,7 @@ export const TalkCard: React.FC<ITalkCardProps> = ({
           </div>
         </div>
         <div className="info">
-          <div
-            className="tags"
-            css="
-              text-transform: uppercase;
-              font-weight: bold;
-              letter-spacing: 1.4px;
-            "
-          >
-            {/* eslint-disable react/no-array-index-key */
-            tags.map((tag, index) => (
-              <Typography
-                key={`talk-${heading}-${tag}-${index}`}
-                color="blue"
-                fontFamily={MONO_FAMILY}
-                variant="default"
-                as="a"
-                cursor="pointer"
-              >
-                #{tag}{' '}
-              </Typography>
-            ))
-            /* eslint-enable react/no-array-index-key */
-            }
-          </div>
+          <Tags tags={tags} heading={heading} />
           <div className="avatar">
             <img src={avatar.image} alt={avatar.name} />
             <Typography variant="h5" as="span">

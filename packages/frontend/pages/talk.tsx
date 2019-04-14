@@ -4,8 +4,9 @@ import styled, { ThemeProvider } from '../lib/styled-components';
 import { Typography } from '../components/Typography';
 import { TalkPreviewCard, TalkInfoSectionCard } from '../components/Card';
 import { Wrapper } from '../components/Page';
-import { theme, MONO_FAMILY } from '../components/shared';
+import { theme } from '../components/shared';
 import { Button } from '../components/Button';
+import { Tags } from '../components/Tags/Tags';
 
 const MainPageGrid = styled.div`
   display: grid;
@@ -60,26 +61,7 @@ const TalkPage = () => {
             align-items: center;
             "
             >
-              <div>
-                <Typography
-                  color="blue"
-                  fontFamily={MONO_FAMILY}
-                  variant="h4"
-                  as="a"
-                  cursor="pointer"
-                >
-                  #PERSONAL{' '}
-                </Typography>
-                <Typography
-                  color="blue"
-                  fontFamily={MONO_FAMILY}
-                  variant="h4"
-                  as="a"
-                  cursor="pointer"
-                >
-                  #LIFE{' '}
-                </Typography>
-              </div>
+              <Tags tags={['personal', 'life']} variant="h4" />
               <Typography variant="h3" m={0}>
                 3 mins
               </Typography>

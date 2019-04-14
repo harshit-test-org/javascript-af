@@ -2,10 +2,10 @@ import React from 'react';
 import { space, SpaceProps } from 'styled-system';
 import styled from '../../lib/styled-components';
 import { Typography } from '../Typography';
-import { MONO_FAMILY } from '../shared';
 import { Button } from '../Button';
 import { GithubIcon } from '../Icons/GithubIcon';
 import { UpVoteIcon } from '../Icons/UpVoteIcon';
+import { Tags } from '../Tags';
 
 const StyledCard = styled.div<SpaceProps & { image: string }>`
   box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);
@@ -66,29 +66,7 @@ export const RepoHeroCard: React.FC<IRepoHeroCardProps> = ({
           align-items: center;
         "
       >
-        <div
-          css="
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1.4px;
-          "
-        >
-          {/* eslint-disable react/no-array-index-key */
-          tags.map((tag, index) => (
-            <Typography
-              key={`${heading}-${tag}-${index}`}
-              color="white"
-              fontFamily={MONO_FAMILY}
-              variant="default"
-              as="a"
-              cursor="pointer"
-            >
-              #{tag}{' '}
-            </Typography>
-          ))
-          /* eslint-enable react/no-array-index-key */
-          }
-        </div>
+        <Tags tags={tags} heading={heading} color="white" />
         <div
           css="
             display: flex;

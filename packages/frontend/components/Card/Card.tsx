@@ -2,10 +2,10 @@ import React from 'react';
 import { space, SpaceProps } from 'styled-system';
 import styled from '../../lib/styled-components';
 import { Typography } from '../Typography';
-import { MONO_FAMILY } from '../shared';
 import { Button } from '../Button';
 import { GithubIcon } from '../Icons/GithubIcon';
 import { UpVoteIcon } from '../Icons/UpVoteIcon';
+import { Tags } from '../Tags';
 
 const StyledCard = styled.div<SpaceProps>`
   box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);
@@ -40,29 +40,7 @@ export const Card: React.FC<IProps> = ({
 }) => {
   return (
     <StyledCard>
-      <div
-        css="
-          text-transform: uppercase;
-          font-weight: bold;
-          letter-spacing: 1.4px;
-        "
-      >
-        {/* eslint-disable react/no-array-index-key */
-        tags.map((tag, index) => (
-          <Typography
-            key={`${heading}-${tag}-${index}`}
-            color="blue"
-            fontFamily={MONO_FAMILY}
-            variant="default"
-            as="a"
-            cursor="pointer"
-          >
-            #{tag}{' '}
-          </Typography>
-        ))
-        /* eslint-enable react/no-array-index-key */
-        }
-      </div>
+      <Tags tags={tags} heading={heading} />
       <Typography variant="h2" mt="3" mb="4">
         <a
           href="/"

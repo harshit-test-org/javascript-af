@@ -13,7 +13,7 @@ const TalksHero = styled.div`
 
 const TalkGrid = styled.div`
   display: grid;
-  grid-gap: 4rem;
+  grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
 `;
 

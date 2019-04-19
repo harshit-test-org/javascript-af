@@ -5,6 +5,7 @@ import { Typography } from '../Typography';
 import { Tags } from '../Tags/Tags';
 
 const StyledTalkPreviewCard = styled.div`
+  background-color: ${props => props.theme.colors.white};
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;

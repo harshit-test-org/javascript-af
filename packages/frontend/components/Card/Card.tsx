@@ -8,6 +8,7 @@ import { UpVoteIcon } from '../Icons/UpVoteIcon';
 import { Tags } from '../Tags';
 
 const StyledCard = styled.div<SpaceProps>`
+  background-color: ${props => props.theme.colors.white};
   box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);
   border-radius: 44px;
   padding: 1rem 2rem;

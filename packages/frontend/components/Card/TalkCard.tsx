@@ -7,6 +7,7 @@ import { ClockIcon } from '../Icons/ClockIcon';
 import { Tags } from '../Tags';
 
 const StyledTalksCard = styled.div`
+  background-color: ${props => props.theme.colors.white};
   box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);
   border-radius: 44px;
   display: flex;

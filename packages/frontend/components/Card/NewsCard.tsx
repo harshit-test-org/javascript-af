@@ -12,6 +12,7 @@ interface IStyledNewsCard extends SpaceProps {
 }
 
 const StyledNewsCard = styled.div<IStyledNewsCard>`
+  background-color: ${props => props.theme.colors.white};
   box-shadow: 1px 4px 9px rgba(0, 0, 0, 0.16);
   border-radius: 44px;
   display: flex;

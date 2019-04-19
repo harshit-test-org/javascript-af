@@ -6,6 +6,7 @@ import { Typography } from '../Typography';
 import { TwitterIcon } from '../Icons/TwitterIcon';
 
 const StyledTalkInfoSectionCard = styled.div`
+  background-color: ${props => props.theme.colors.white};
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

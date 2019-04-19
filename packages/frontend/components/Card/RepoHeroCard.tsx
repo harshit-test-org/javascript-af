@@ -66,7 +66,11 @@ export const RepoHeroCard: React.FC<IRepoHeroCardProps> = ({
           align-items: center;
         "
       >
-        <Tags tags={tags} heading={heading} color="white" />
+        <Tags
+          tags={tags}
+          heading={heading}
+          typographyProps={{ color: 'white' }}
+        />
         <div
           css="
             display: flex;

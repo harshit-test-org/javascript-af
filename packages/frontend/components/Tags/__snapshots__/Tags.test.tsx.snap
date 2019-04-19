@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tags should render 1`] = `
+.c1 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  cursor: pointer;
+  font-family: 'Inconsolata',sans-serif;
+  font-size: 16px;
+  color: #2F47C7;
+}
+
+.c0 {
+  text-transform: uppercase;
+  font-weight: bold;
+  -webkit-letter-spacing: 0.8px;
+  -moz-letter-spacing: 0.8px;
+  -ms-letter-spacing: 0.8px;
+  letter-spacing: 0.8px;
+}
+
+<div
+  class="c0"
+>
+  <a
+    class="c1"
+    color="blue"
+    cursor="pointer"
+    font-family=" 'Inconsolata', sans-serif"
+    font-size="16px"
+  >
+    #
+    react
+     
+  </a>
+  <a
+    class="c1"
+    color="blue"
+    cursor="pointer"
+    font-family=" 'Inconsolata', sans-serif"
+    font-size="16px"
+  >
+    #
+    performance
+     
+  </a>
+</div>
+`;

@@ -61,7 +61,10 @@ const TalkPage = () => {
             align-items: center;
             "
             >
-              <Tags tags={['personal', 'life']} variant="h4" />
+              <Tags
+                tags={['personal', 'life']}
+                typographyProps={{ variant: 'h4' }}
+              />
               <Typography variant="h3" m={0}>
                 3 mins
               </Typography>

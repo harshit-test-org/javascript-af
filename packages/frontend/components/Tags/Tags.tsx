@@ -1,21 +1,25 @@
 import React from 'react';
-import { Typography, variants } from '../Typography';
+import { Typography, ITypographyProps } from '../Typography';
 import { MONO_FAMILY } from '../shared';
 
 export interface IProps {
   heading?: string;
   tags: string[];
-  color?: string;
   prefix?: string;
-  variant?: variants;
+  typographyProps?: ITypographyProps;
 }
 
 export const Tags: React.FC<IProps> = ({
   tags = [],
   heading = '',
-  color = 'blue',
   prefix,
-  variant = 'default',
+  typographyProps = {
+    color: 'blue',
+    variant: 'default',
+    fontFamily: MONO_FAMILY,
+    as: 'a',
+    cursor: 'pointer',
+  },
 }) => {
   return (
     <div
@@ -29,11 +33,7 @@ export const Tags: React.FC<IProps> = ({
       tags.map((tag, index) => (
         <Typography
           key={`${prefix && prefix}-${heading}-${tag}-${index}`}
-          color={color}
-          fontFamily={MONO_FAMILY}
-          variant={variant}
-          as="a"
-          cursor="pointer"
+          {...typographyProps}
         >
           #{tag}{' '}
         </Typography>

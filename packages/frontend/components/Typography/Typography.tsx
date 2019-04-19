@@ -88,7 +88,7 @@ const StyledTypography = styled.span<
   ${lineHeight}
 `;
 
-export interface IProps
+export interface ITypographyProps
   extends FontWeightProps,
     TextAlignProps,
     FontFamilyProps,
@@ -102,7 +102,7 @@ export interface IProps
   cursor?: string;
 }
 
-export const Typography: React.FC<IProps> = ({
+export const Typography: React.FC<ITypographyProps> = ({
   children,
   as,
   variant,

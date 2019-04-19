@@ -1,45 +1,45 @@
 type User {
-  id: ID! @unique
+  id: ID! @id
   name: String!
   username: String! @unique
   email: String @unique
-  newsItems: [News!]!
-  talks: [Talk!]!
+  newsItems: [News]
+  talks: [Talk]
   githubToken: String!
   profilePic: String
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type News {
-  id: ID! @unique
+  id: ID! @id
   slug: String! @unique
   title: String!
   content: String!
   previewImage: String
   isFeatured: Boolean
-  writer: User!
-  tags: [Tag!]!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  writer: User! @relation(link: INLINE)
+  tags: [Tag]
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Talk {
-  id: ID! @unique
+  id: ID! @id
   slug: String! @unique
   title: String!
   previewImage: String!
   alt: String
   isFeatured: Boolean
-  speaker: User
+  speaker: User @relation(link: INLINE)
   length: Int
-  tags: [Tag!]!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  tags: [Tag]
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Repo {
-  id: ID! @unique
+  id: ID! @id
   slug: String! @unique
   githubName: String!
   githubOwner: String!
@@ -47,23 +47,27 @@ type Repo {
   ownerUsername: String!
   isFeatured: Boolean
   description: String
-  owner: User
-  tags: [Tag!]!
-  upvotes: [Upvote!]!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  owner: User @relation(link: INLINE)
+  tags: [Tag]
+  upvotes: [Upvote]
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Upvote {
-  id: ID! @unique
-  user: User!
-  repo: Repo!
+  id: ID! @id
+  user: User! @relation(link: INLINE)
+  repo: Repo! @relation(link: INLINE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Tag {
-  id: ID! @unique
+  id: ID! @id
   name: String! @unique
-  talks: [Talk!]!
-  newsItems: [News!]!
-  repos: [Repo!]!
+  talks: [Talk]
+  newsItems: [News]
+  repos: [Repo]
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }

@@ -94,6 +94,7 @@ type NewsConnection {
 }
 
 input NewsCreateInput {
+  id: ID
   slug: String!
   title: String!
   content: String!
@@ -114,6 +115,7 @@ input NewsCreateManyWithoutWriterInput {
 }
 
 input NewsCreateWithoutTagsInput {
+  id: ID
   slug: String!
   title: String!
   content: String!
@@ -123,6 +125,7 @@ input NewsCreateWithoutTagsInput {
 }
 
 input NewsCreateWithoutWriterInput {
+  id: ID
   slug: String!
   title: String!
   content: String!
@@ -532,6 +535,7 @@ type RepoConnection {
 }
 
 input RepoCreateInput {
+  id: ID
   slug: String!
   githubName: String!
   githubOwner: String!
@@ -555,6 +559,7 @@ input RepoCreateOneWithoutUpvotesInput {
 }
 
 input RepoCreateWithoutTagsInput {
+  id: ID
   slug: String!
   githubName: String!
   githubOwner: String!
@@ -567,6 +572,7 @@ input RepoCreateWithoutTagsInput {
 }
 
 input RepoCreateWithoutUpvotesInput {
+  id: ID
   slug: String!
   githubName: String!
   githubOwner: String!
@@ -1005,6 +1011,8 @@ type Tag {
   talks(where: TalkWhereInput, orderBy: TalkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Talk!]
   newsItems(where: NewsWhereInput, orderBy: NewsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [News!]
   repos(where: RepoWhereInput, orderBy: RepoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Repo!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type TagConnection {
@@ -1014,6 +1022,7 @@ type TagConnection {
 }
 
 input TagCreateInput {
+  id: ID
   name: String!
   talks: TalkCreateManyWithoutTagsInput
   newsItems: NewsCreateManyWithoutTagsInput
@@ -1036,18 +1045,21 @@ input TagCreateManyWithoutTalksInput {
 }
 
 input TagCreateWithoutNewsItemsInput {
+  id: ID
   name: String!
   talks: TalkCreateManyWithoutTagsInput
   repos: RepoCreateManyWithoutTagsInput
 }
 
 input TagCreateWithoutReposInput {
+  id: ID
   name: String!
   talks: TalkCreateManyWithoutTagsInput
   newsItems: NewsCreateManyWithoutTagsInput
 }
 
 input TagCreateWithoutTalksInput {
+  id: ID
   name: String!
   newsItems: NewsCreateManyWithoutTagsInput
   repos: RepoCreateManyWithoutTagsInput
@@ -1072,6 +1084,8 @@ enum TagOrderByInput {
 type TagPreviousValues {
   id: ID!
   name: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input TagScalarWhereInput {
@@ -1103,6 +1117,22 @@ input TagScalarWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [TagScalarWhereInput!]
   OR: [TagScalarWhereInput!]
   NOT: [TagScalarWhereInput!]
@@ -1271,6 +1301,22 @@ input TagWhereInput {
   repos_every: RepoWhereInput
   repos_some: RepoWhereInput
   repos_none: RepoWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [TagWhereInput!]
   OR: [TagWhereInput!]
   NOT: [TagWhereInput!]
@@ -1302,6 +1348,7 @@ type TalkConnection {
 }
 
 input TalkCreateInput {
+  id: ID
   slug: String!
   title: String!
   previewImage: String!
@@ -1323,6 +1370,7 @@ input TalkCreateManyWithoutTagsInput {
 }
 
 input TalkCreateWithoutSpeakerInput {
+  id: ID
   slug: String!
   title: String!
   previewImage: String!
@@ -1333,6 +1381,7 @@ input TalkCreateWithoutSpeakerInput {
 }
 
 input TalkCreateWithoutTagsInput {
+  id: ID
   slug: String!
   title: String!
   previewImage: String!
@@ -1715,6 +1764,8 @@ type Upvote {
   id: ID!
   user: User!
   repo: Repo!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type UpvoteConnection {
@@ -1724,6 +1775,7 @@ type UpvoteConnection {
 }
 
 input UpvoteCreateInput {
+  id: ID
   user: UserCreateOneInput!
   repo: RepoCreateOneWithoutUpvotesInput!
 }
@@ -1734,6 +1786,7 @@ input UpvoteCreateManyWithoutRepoInput {
 }
 
 input UpvoteCreateWithoutRepoInput {
+  id: ID
   user: UserCreateOneInput!
 }
 
@@ -1753,6 +1806,8 @@ enum UpvoteOrderByInput {
 
 type UpvotePreviousValues {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input UpvoteScalarWhereInput {
@@ -1770,6 +1825,22 @@ input UpvoteScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [UpvoteScalarWhereInput!]
   OR: [UpvoteScalarWhereInput!]
   NOT: [UpvoteScalarWhereInput!]
@@ -1841,6 +1912,22 @@ input UpvoteWhereInput {
   id_not_ends_with: ID
   user: UserWhereInput
   repo: RepoWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [UpvoteWhereInput!]
   OR: [UpvoteWhereInput!]
   NOT: [UpvoteWhereInput!]
@@ -1870,6 +1957,7 @@ type UserConnection {
 }
 
 input UserCreateInput {
+  id: ID
   name: String!
   username: String!
   email: String
@@ -1895,6 +1983,7 @@ input UserCreateOneWithoutTalksInput {
 }
 
 input UserCreateWithoutNewsItemsInput {
+  id: ID
   name: String!
   username: String!
   email: String
@@ -1904,6 +1993,7 @@ input UserCreateWithoutNewsItemsInput {
 }
 
 input UserCreateWithoutTalksInput {
+  id: ID
   name: String!
   username: String!
   email: String

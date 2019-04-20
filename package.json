@@ -52,7 +52,7 @@
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
     "docz": "1.0.4",
-    "docz-theme-default": "1.0.0",
+    "docz-theme-default": "1.0.4",
     "eslint": "5.15.3",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-airbnb-base": "13.1.0",

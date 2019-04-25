@@ -4,11 +4,12 @@ import styled from '../lib/styled-components';
 import { Typography } from '../components/Typography';
 import { MONO_FAMILY } from '../components/shared';
 import { Wrapper } from '../components/Page';
+import { ITheme } from '../components/shared/theme';
 
 const HeroTop = styled.section`
   display: grid;
   grid-gap: 2rem;
-  margin: 2rem 0 5rem 0;
+  margin-top: 2rem;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
     'featured item1'
@@ -55,133 +56,146 @@ const TalksHero = styled.div`
 `;
 
 const Index = () => (
-  <Wrapper>
-    <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
-      <span role="img" aria-label="newspaper">
-        📰
-      </span>{' '}
-      Latest News
-    </Typography>
-    <HeroTop>
-      <NewsCard
-        heading="Next.js 8 is released with suspense support"
-        image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548588337/esoplan_production/kzyfdwpaudkusftihy7c.png"
-        tags={['react', 'testing']}
-      />
-      <NewsCard
-        heading="Server Renderer for React suspense is released"
-        tags={['react', 'release']}
-      />
-      <NewsCard
-        heading="React 16.8 is here, the one with the hooks!"
-        tags={['vue', 'release']}
-      />
-      <NewsCard
-        heading="Vue 2.6 has just landed"
-        tags={['react', 'suspense']}
-      />
-    </HeroTop>
-    <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
-      <span role="img" aria-label="fire">
-        🔥
-      </span>{' '}
-      Trending Repos
-    </Typography>
-    <RepoHero>
-      <Card
-        tags={['react', 'testing']}
-        content="Simple and complete react dom testing utilities that encourage good testing practice"
-        heading="react-testing-library"
-      />
-      <Card
-        tags={['graphql', 'server']}
-        content="A lightweight 'Ruby on Rails'-like framework for GraphQL"
-        heading="yoga"
-      />
-      <Card
-        tags={['react', 'css-in-js']}
-        content="CSS-in-JS library designed for high performance style composition"
-        heading="emotion"
-      />
-      <Card
-        tags={['graphql', 'resolver-first']}
-        content="GraphQL Nexus: Code-First, Type-Safe, GraphQL Schema Construction "
-        heading="nexus"
-      />
-      <Card
-        tags={['webcomponents', 'compiler']}
-        content="A Web Component compiler for building fast, reusable UI components and Progressive Web Apps 💎 Built by the Ionic Framework team "
-        heading="stencil"
-      />
-      <Card
-        tags={['react', 'testing']}
-        content="React Native for Web"
-        heading="react-native-web"
-      />
-    </RepoHero>
-    <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
-      <span role="img" aria-label="microphone">
-        🎤
-      </span>{' '}
-      Awesome Talks
-    </Typography>
-    <TalksHero>
-      <TalkCard
-        featured
-        heading="This is a Talk About You!"
-        image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
-        tags={['react', 'personal']}
-        avatar={{
-          name: 'Jani Evakallio',
-          image:
-            'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
-        }}
-      />
-      <TalkCard
-        featured
-        heading="This is a Talk About You!"
-        image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
-        tags={['react', 'personal']}
-        avatar={{
-          name: 'Jani Evakallio',
-          image:
-            'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
-        }}
-      />
-    </TalksHero>
-    <TalksHero>
-      <TalkCard
-        heading="This is a Talk About You!"
-        image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
-        tags={['react', 'personal']}
-        avatar={{
-          name: 'Jani Evakallio',
-          image:
-            'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
-        }}
-      />
-      <TalkCard
-        heading="This is a Talk About You!"
-        image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
-        tags={['react', 'personal']}
-        avatar={{
-          name: 'Jani Evakallio',
-          image:
-            'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
-        }}
-      />
-      <TalkCard
-        heading="This is a Talk About You!"
-        image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
-        tags={['react', 'personal']}
-        avatar={{
-          name: 'Jani Evakallio',
-          image:
-            'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
-        }}
-      />
-    </TalksHero>
-  </Wrapper>
+  <>
+    <Wrapper
+      css={`
+        margin: 1rem;
+        background-image: ${(props: { theme: ITheme }) => {
+          const color = props.theme.colors.primary.lightest;
+          const fillColor = color.substring(1); // to remove the #
+          return `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23${fillColor}' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E"), linear-gradient(-180deg, #FFFFFF 0%, rgba(250,250,250,30) 100%);`;
+        }};
+      `}
+    >
+      <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
+        <span role="img" aria-label="newspaper">
+          📰
+        </span>{' '}
+        Latest News
+      </Typography>
+      <HeroTop>
+        <NewsCard
+          heading="Next.js 8 is released with suspense support"
+          image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548588337/esoplan_production/kzyfdwpaudkusftihy7c.png"
+          tags={['react', 'testing']}
+        />
+        <NewsCard
+          heading="Server Renderer for React suspense is released"
+          tags={['react', 'release']}
+        />
+        <NewsCard
+          heading="React 16.8 is here, the one with the hooks!"
+          tags={['vue', 'release']}
+        />
+        <NewsCard
+          heading="Vue 2.6 has just landed"
+          tags={['react', 'suspense']}
+        />
+      </HeroTop>
+    </Wrapper>
+    <Wrapper>
+      <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
+        <span role="img" aria-label="fire">
+          🔥
+        </span>{' '}
+        Trending Repos
+      </Typography>
+      <RepoHero>
+        <Card
+          tags={['react', 'testing']}
+          content="Simple and complete react dom testing utilities that encourage good testing practice"
+          heading="react-testing-library"
+        />
+        <Card
+          tags={['graphql', 'server']}
+          content="A lightweight 'Ruby on Rails'-like framework for GraphQL"
+          heading="yoga"
+        />
+        <Card
+          tags={['react', 'css-in-js']}
+          content="CSS-in-JS library designed for high performance style composition"
+          heading="emotion"
+        />
+        <Card
+          tags={['graphql', 'resolver-first']}
+          content="GraphQL Nexus: Code-First, Type-Safe, GraphQL Schema Construction "
+          heading="nexus"
+        />
+        <Card
+          tags={['webcomponents', 'compiler']}
+          content="A Web Component compiler for building fast, reusable UI components and Progressive Web Apps 💎 Built by the Ionic Framework team "
+          heading="stencil"
+        />
+        <Card
+          tags={['react', 'testing']}
+          content="React Native for Web"
+          heading="react-native-web"
+        />
+      </RepoHero>
+      <Typography fontFamily={MONO_FAMILY} fontSize="24px" m={2}>
+        <span role="img" aria-label="microphone">
+          🎤
+        </span>{' '}
+        Awesome Talks
+      </Typography>
+      <TalksHero>
+        <TalkCard
+          featured
+          heading="This is a Talk About You!"
+          image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+          tags={['react', 'personal']}
+          avatar={{
+            name: 'Jani Evakallio',
+            image:
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
+          }}
+        />
+        <TalkCard
+          featured
+          heading="This is a Talk About You!"
+          image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+          tags={['react', 'personal']}
+          avatar={{
+            name: 'Jani Evakallio',
+            image:
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
+          }}
+        />
+      </TalksHero>
+      <TalksHero>
+        <TalkCard
+          heading="This is a Talk About You!"
+          image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+          tags={['react', 'personal']}
+          avatar={{
+            name: 'Jani Evakallio',
+            image:
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
+          }}
+        />
+        <TalkCard
+          heading="This is a Talk About You!"
+          image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+          tags={['react', 'personal']}
+          avatar={{
+            name: 'Jani Evakallio',
+            image:
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
+          }}
+        />
+        <TalkCard
+          heading="This is a Talk About You!"
+          image="https://res.cloudinary.com/teggnet/image/upload/c_scale,f_auto,q_auto,w_600/v1548865147/esoplan_production/ab5h8vakgjumpbwjznrd.png"
+          tags={['react', 'personal']}
+          avatar={{
+            name: 'Jani Evakallio',
+            image:
+              'https://pbs.twimg.com/profile_images/1113737144592474112/A_mNPX3h_400x400.jpg',
+          }}
+        />
+      </TalksHero>
+    </Wrapper>
+  </>
 );
 
 export default Index;

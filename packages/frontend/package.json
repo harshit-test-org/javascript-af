@@ -29,9 +29,9 @@
     "typeface-inconsolata": "^0.0.72"
   },
   "devDependencies": {
-    "@commitlint/cli": "7.5.2",
-    "@commitlint/config-conventional": "7.5.0",
-    "@commitlint/prompt-cli": "7.5.0",
+    "@commitlint/cli": "7.6.1",
+    "@commitlint/config-conventional": "7.6.0",
+    "@commitlint/prompt-cli": "7.6.1",
     "@types/graphql": "14.2.0",
     "@types/jest": "24.0.12",
     "@types/next": "8.0.5",

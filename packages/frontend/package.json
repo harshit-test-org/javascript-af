@@ -50,7 +50,7 @@
     "graphql-codegen-typescript-common": "0.18.2",
     "graphql-codegen-typescript-react-apollo": "0.18.2",
     "jest": "24.8.0",
-    "jest-dom": "3.2.2",
+    "jest-dom": "3.4.0",
     "jest-styled-components": "6.3.1",
     "lerna": "3.14.1",
     "next-compose-plugins": "2.2.0",

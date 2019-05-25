@@ -695,6 +695,38 @@ export interface TagWhereInput {
 
   repos_none?: Maybe<RepoWhereInput>;
 
+  createdAt?: Maybe<DateTime>;
+
+  createdAt_not?: Maybe<DateTime>;
+
+  createdAt_in?: Maybe<DateTime[]>;
+
+  createdAt_not_in?: Maybe<DateTime[]>;
+
+  createdAt_lt?: Maybe<DateTime>;
+
+  createdAt_lte?: Maybe<DateTime>;
+
+  createdAt_gt?: Maybe<DateTime>;
+
+  createdAt_gte?: Maybe<DateTime>;
+
+  updatedAt?: Maybe<DateTime>;
+
+  updatedAt_not?: Maybe<DateTime>;
+
+  updatedAt_in?: Maybe<DateTime[]>;
+
+  updatedAt_not_in?: Maybe<DateTime[]>;
+
+  updatedAt_lt?: Maybe<DateTime>;
+
+  updatedAt_lte?: Maybe<DateTime>;
+
+  updatedAt_gt?: Maybe<DateTime>;
+
+  updatedAt_gte?: Maybe<DateTime>;
+
   AND?: Maybe<TagWhereInput[]>;
 
   OR?: Maybe<TagWhereInput[]>;
@@ -989,6 +1021,38 @@ export interface UpvoteWhereInput {
 
   repo?: Maybe<RepoWhereInput>;
 
+  createdAt?: Maybe<DateTime>;
+
+  createdAt_not?: Maybe<DateTime>;
+
+  createdAt_in?: Maybe<DateTime[]>;
+
+  createdAt_not_in?: Maybe<DateTime[]>;
+
+  createdAt_lt?: Maybe<DateTime>;
+
+  createdAt_lte?: Maybe<DateTime>;
+
+  createdAt_gt?: Maybe<DateTime>;
+
+  createdAt_gte?: Maybe<DateTime>;
+
+  updatedAt?: Maybe<DateTime>;
+
+  updatedAt_not?: Maybe<DateTime>;
+
+  updatedAt_in?: Maybe<DateTime[]>;
+
+  updatedAt_not_in?: Maybe<DateTime[]>;
+
+  updatedAt_lt?: Maybe<DateTime>;
+
+  updatedAt_lte?: Maybe<DateTime>;
+
+  updatedAt_gt?: Maybe<DateTime>;
+
+  updatedAt_gte?: Maybe<DateTime>;
+
   AND?: Maybe<UpvoteWhereInput[]>;
 
   OR?: Maybe<UpvoteWhereInput[]>;
@@ -1080,3 +1144,89 @@ export enum UpvoteOrderByInput {
 }
 
 export type DateTime = any;
+
+// ====================================================
+// Documents
+// ====================================================
+
+export type TalkAggregateQueryVariables = {};
+
+export type TalkAggregateQueryQuery = {
+  __typename?: 'Query';
+
+  talkConnection: TalkAggregateQueryTalkConnection;
+};
+
+export type TalkAggregateQueryTalkConnection = {
+  __typename?: 'TalkConnection';
+
+  aggregate: TalkAggregateQueryAggregate;
+};
+
+export type TalkAggregateQueryAggregate = {
+  __typename?: 'AggregateTalk';
+
+  count: number;
+};
+
+import gql from 'graphql-tag';
+import * as React from 'react';
+import * as ReactApollo from 'react-apollo';
+import * as ReactApolloHooks from 'react-apollo-hooks';
+
+// ====================================================
+// Components
+// ====================================================
+
+export const TalkAggregateQueryDocument = gql`
+  query talkAggregateQuery {
+    talkConnection {
+      aggregate {
+        count
+      }
+    }
+  }
+`;
+export class TalkAggregateQueryComponent extends React.Component<
+  Partial<
+    ReactApollo.QueryProps<TalkAggregateQueryQuery, TalkAggregateQueryVariables>
+  >
+> {
+  render() {
+    return (
+      <ReactApollo.Query<TalkAggregateQueryQuery, TalkAggregateQueryVariables>
+        query={TalkAggregateQueryDocument}
+        {...(this as any)['props'] as any}
+      />
+    );
+  }
+}
+export type TalkAggregateQueryProps<TChildProps = any> = Partial<
+  ReactApollo.DataProps<TalkAggregateQueryQuery, TalkAggregateQueryVariables>
+> &
+  TChildProps;
+export function TalkAggregateQueryHOC<TProps, TChildProps = any>(
+  operationOptions:
+    | ReactApollo.OperationOption<
+        TProps,
+        TalkAggregateQueryQuery,
+        TalkAggregateQueryVariables,
+        TalkAggregateQueryProps<TChildProps>
+      >
+    | undefined
+) {
+  return ReactApollo.graphql<
+    TProps,
+    TalkAggregateQueryQuery,
+    TalkAggregateQueryVariables,
+    TalkAggregateQueryProps<TChildProps>
+  >(TalkAggregateQueryDocument, operationOptions);
+}
+export function useTalkAggregateQuery(
+  baseOptions?: ReactApolloHooks.QueryHookOptions<TalkAggregateQueryVariables>
+) {
+  return ReactApolloHooks.useQuery<
+    TalkAggregateQueryQuery,
+    TalkAggregateQueryVariables
+  >(TalkAggregateQueryDocument, baseOptions);
+}

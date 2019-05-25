@@ -39,6 +39,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "eslint.workingDirectories": ["./packages/backend/", "./packagesfrontend/"],
+  "eslint.workingDirectories": ["./packages/backend/", "./packages/frontend/"],
   "typescript.tsdk": "node_modules/typescript/lib"
 }

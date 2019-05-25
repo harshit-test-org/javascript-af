@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
+import { Recontrib } from 'recontrib';
 import styled from '../lib/styled-components';
 import { Wrapper } from '../components/Page';
 import { Tabs, Tab, TabChangeHandler } from '../components/Tabs';
+import { Button } from '../components/Button';
 import { Typography } from '../components/Typography';
 import '../css/github-markdown-css.css';
+import '../css/reach-tooltip.css';
 
 const RepoPageGrid = styled.div`
   display: grid;
@@ -1875,9 +1878,290 @@ const RepoPage = () => {
             <Tab>NPM Stats</Tab>
           </Tabs>
           <div>
-            <div
-              className="markdown-body"
-              dangerouslySetInnerHTML={{ __html: parsedMarkdownExample }}
+            <div css="position: relative">
+              <div
+                css="overflow: hidden; height: 36rem; background-image: linear-gradient(to bottom,#fff,#fcfcfc,#fafafa, #dedede); "
+                className="markdown-body"
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{ __html: parsedMarkdownExample }}
+              />
+              <Button
+                css="position: absolute; bottom: -4%; left:calc(50% - 60px);"
+                m={0}
+                p="12px"
+              >
+                Read More
+              </Button>
+            </div>
+          </div>
+          <br />
+          <Typography variant="h3">Commit Activity</Typography>
+          <div css="overflow: auto">
+            <Recontrib
+              gridSize={14}
+              fontSize="12px"
+              data={[
+                {
+                  days: [0, 5, 0, 5, 2, 14, 1],
+                  total: 27,
+                  week: 1526774400,
+                },
+                {
+                  days: [1, 0, 4, 0, 3, 3, 0],
+                  total: 11,
+                  week: 1527379200,
+                },
+                {
+                  days: [0, 3, 1, 2, 5, 3, 1],
+                  total: 15,
+                  week: 1527984000,
+                },
+                {
+                  days: [1, 1, 0, 7, 6, 2, 5],
+                  total: 22,
+                  week: 1528588800,
+                },
+                {
+                  days: [1, 2, 2, 0, 0, 4, 2],
+                  total: 11,
+                  week: 1529193600,
+                },
+                {
+                  days: [1, 3, 0, 2, 7, 5, 1],
+                  total: 19,
+                  week: 1529798400,
+                },
+                {
+                  days: [1, 1, 0, 1, 2, 2, 0],
+                  total: 7,
+                  week: 1530403200,
+                },
+                {
+                  days: [0, 1, 1, 4, 1, 3, 0],
+                  total: 10,
+                  week: 1531008000,
+                },
+                {
+                  days: [1, 0, 1, 1, 3, 0, 2],
+                  total: 8,
+                  week: 1531612800,
+                },
+                {
+                  days: [3, 0, 4, 3, 2, 4, 0],
+                  total: 16,
+                  week: 1532217600,
+                },
+                {
+                  days: [0, 2, 2, 2, 0, 0, 1],
+                  total: 7,
+                  week: 1532822400,
+                },
+                {
+                  days: [4, 7, 3, 3, 3, 2, 1],
+                  total: 23,
+                  week: 1533427200,
+                },
+                {
+                  days: [3, 7, 1, 4, 0, 3, 0],
+                  total: 18,
+                  week: 1534032000,
+                },
+                {
+                  days: [1, 4, 0, 3, 3, 8, 5],
+                  total: 24,
+                  week: 1534636800,
+                },
+                {
+                  days: [0, 2, 4, 1, 8, 3, 1],
+                  total: 19,
+                  week: 1535241600,
+                },
+                {
+                  days: [7, 11, 13, 6, 2, 6, 0],
+                  total: 45,
+                  week: 1535846400,
+                },
+                {
+                  days: [3, 1, 2, 7, 0, 4, 0],
+                  total: 17,
+                  week: 1536451200,
+                },
+                {
+                  days: [8, 5, 1, 1, 8, 1, 5],
+                  total: 29,
+                  week: 1537056000,
+                },
+                {
+                  days: [6, 1, 4, 4, 8, 8, 10],
+                  total: 41,
+                  week: 1537660800,
+                },
+                {
+                  days: [1, 6, 22, 4, 0, 2, 5],
+                  total: 40,
+                  week: 1538265600,
+                },
+                {
+                  days: [3, 3, 4, 5, 4, 3, 0],
+                  total: 22,
+                  week: 1538870400,
+                },
+                {
+                  days: [1, 2, 2, 1, 2, 1, 11],
+                  total: 20,
+                  week: 1539475200,
+                },
+                {
+                  days: [1, 3, 1, 0, 1, 1, 1],
+                  total: 8,
+                  week: 1540080000,
+                },
+                {
+                  days: [3, 1, 1, 0, 2, 6, 7],
+                  total: 20,
+                  week: 1540684800,
+                },
+                {
+                  days: [13, 7, 1, 9, 2, 4, 0],
+                  total: 36,
+                  week: 1541289600,
+                },
+                {
+                  days: [1, 2, 6, 1, 1, 1, 1],
+                  total: 13,
+                  week: 1541894400,
+                },
+                {
+                  days: [6, 1, 7, 3, 3, 1, 1],
+                  total: 22,
+                  week: 1542499200,
+                },
+                {
+                  days: [6, 1, 4, 7, 5, 4, 0],
+                  total: 27,
+                  week: 1543104000,
+                },
+                {
+                  days: [4, 8, 12, 9, 6, 3, 1],
+                  total: 43,
+                  week: 1543708800,
+                },
+                {
+                  days: [1, 12, 5, 4, 7, 4, 3],
+                  total: 36,
+                  week: 1544313600,
+                },
+                {
+                  days: [7, 7, 2, 0, 0, 2, 0],
+                  total: 18,
+                  week: 1544918400,
+                },
+                {
+                  days: [4, 1, 0, 4, 1, 2, 0],
+                  total: 12,
+                  week: 1545523200,
+                },
+                {
+                  days: [0, 6, 1, 9, 1, 0, 4],
+                  total: 21,
+                  week: 1546128000,
+                },
+                {
+                  days: [4, 0, 2, 2, 5, 8, 4],
+                  total: 25,
+                  week: 1546732800,
+                },
+                {
+                  days: [1, 5, 1, 3, 4, 6, 4],
+                  total: 24,
+                  week: 1547337600,
+                },
+                {
+                  days: [2, 6, 2, 2, 6, 7, 6],
+                  total: 31,
+                  week: 1547942400,
+                },
+                {
+                  days: [4, 1, 4, 1, 2, 3, 0],
+                  total: 15,
+                  week: 1548547200,
+                },
+                {
+                  days: [5, 1, 0, 0, 1, 3, 1],
+                  total: 11,
+                  week: 1549152000,
+                },
+                {
+                  days: [10, 18, 1, 5, 5, 2, 3],
+                  total: 44,
+                  week: 1549756800,
+                },
+                {
+                  days: [8, 3, 7, 11, 9, 15, 3],
+                  total: 56,
+                  week: 1550361600,
+                },
+                {
+                  days: [2, 5, 5, 12, 8, 11, 3],
+                  total: 46,
+                  week: 1550966400,
+                },
+                {
+                  days: [2, 2, 7, 3, 10, 7, 2],
+                  total: 33,
+                  week: 1551571200,
+                },
+                {
+                  days: [6, 10, 10, 3, 7, 5, 5],
+                  total: 46,
+                  week: 1552176000,
+                },
+                {
+                  days: [4, 8, 10, 10, 2, 2, 6],
+                  total: 42,
+                  week: 1552780800,
+                },
+                {
+                  days: [5, 9, 6, 13, 2, 9, 6],
+                  total: 50,
+                  week: 1553385600,
+                },
+                {
+                  days: [2, 6, 11, 19, 17, 12, 11],
+                  total: 78,
+                  week: 1553990400,
+                },
+                {
+                  days: [3, 7, 21, 13, 10, 3, 3],
+                  total: 60,
+                  week: 1554595200,
+                },
+                {
+                  days: [1, 8, 6, 6, 3, 3, 3],
+                  total: 30,
+                  week: 1555200000,
+                },
+                {
+                  days: [5, 10, 9, 18, 17, 9, 3],
+                  total: 71,
+                  week: 1555804800,
+                },
+                {
+                  days: [8, 1, 3, 10, 4, 4, 2],
+                  total: 32,
+                  week: 1556409600,
+                },
+                {
+                  days: [4, 7, 5, 5, 5, 4, 5],
+                  total: 35,
+                  week: 1557014400,
+                },
+                {
+                  days: [1, 1, 6, 4, 7, 4, 0],
+                  total: 23,
+                  week: 1557619200,
+                },
+              ]}
             />
           </div>
         </div>

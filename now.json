@@ -1,4 +1,5 @@
 {
   "version": 2,
-  "builds": [{ "src": "packages/frontend/next.config.js", "use": "@now/next" }]
+  "builds": [{ "src": "packages/frontend/next.config.js", "use": "@now/next" }],
+  "routes": [{ "src": "/(.*)", "dest": "packages/frontend/$1" }]
 }

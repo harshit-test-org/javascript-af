@@ -54,7 +54,7 @@
     "graphql-codegen-typescript-react-apollo": "0.18.2",
     "jest": "24.8.0",
     "jest-dom": "3.5.0",
-    "jest-styled-components": "6.3.1",
+    "jest-styled-components": "6.3.3",
     "lerna": "3.15.0",
     "next-compose-plugins": "2.2.0",
     "next-fonts": "0.17.0",

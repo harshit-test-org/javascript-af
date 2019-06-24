@@ -47,7 +47,7 @@
     "babel-jest": "24.8.0",
     "babel-plugin-styled-components": "1.10.1",
     "cypress": "3.3.1",
-    "cypress-testing-library": "3.0.1",
+    "cypress-testing-library": "4.0.0",
     "graphql-code-generator": "0.18.2",
     "graphql-codegen-typescript-client": "0.18.2",
     "graphql-codegen-typescript-common": "0.18.2",
